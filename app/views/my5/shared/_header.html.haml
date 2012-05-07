@@ -1,0 +1,18 @@
+%div#logo= link_to image_tag("logo.png")
+%div#actions
+  - if current_customer.can_view_reports?
+    = link_to "#{current_customer.corporation.name} Admin", customers_path
+    |
+  = link_to image_tag(current_customer.avatar.url(:thumb)) + current_customer.display_name, edit_customer_registration_path
+  |
+  = link_to "Sign out", destroy_customer_session_path
+- if current_customer.active?
+  %ul.nav#modules
+    = link_to image_tag("dashboard/home_icon.png"), dashboard_url, :id => "home"
+    = link_to "Symptomatics", my5_symptomatics_url, :id => "symptomatics_link"
+    = link_to "Mini Modules", my5_mini_modules_path, :id => "mini_modules_link"
+    = link_to "My EQ", my5_my_eqs_path, :id => "my_eq_link"
+    = link_to "Audio Programs", my5_audio_programs_path, :id => "audio_programs_link"
+    = link_to "Reports", my5_dashboard_reports_path, :id => 'management_reports' if current_customer.can_view_reports?
+  %ul.nav#health_checkin
+    = link_to image_tag("dashboard/health_checkin.png")+"Health Checkin", my5_health_checkins_path

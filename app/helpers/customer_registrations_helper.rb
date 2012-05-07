@@ -1,0 +1,2 @@
+module CustomerRegistrationsHelper
+end

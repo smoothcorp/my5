@@ -1,0 +1,13 @@
+= render :partial => "leftbar", :locals => {:my_eqs => @my_eqs, :current => @my_eq.emotional_grouping}
+
+%div.content_right
+  .padded
+    %h1= @my_eq.emotional_grouping
+    %ul#steps
+      - MyEq.steps.each_with_index do |p, i|
+        %li
+          %h2
+            = image_tag "my_eqs/number_#{i+1}.png"
+            = link_to p, my5_my_eq_with_part_path(@my_eq, i+1)
+            = link_to "#{(i+1==1 || i+1==5) ? 'Listen' : 'View'}", my5_my_eq_with_part_path(@my_eq, i+1), :class => "my_eq_button"
+          

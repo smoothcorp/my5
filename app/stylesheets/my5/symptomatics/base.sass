@@ -1,0 +1,29 @@
+@import "shared/global_passives"
+
+#body_parts
+    div
+        display: block
+        &.part, &.dead_part
+            float: left
+        &.row
+            clear: both
+            &.top
+                .part, .dead_part
+                    height: 84px
+            &.second
+                .part, .dead_part
+                    height: 61px
+            &.middle
+                .part, .dead_part
+                    height: 91px
+            &.bottom
+                .part, .dead_part
+                    height: 207px
+    a
+        +link-colors(dimgrey, dimgrey, dimgrey, dimgrey, dimgrey)
+    #current_part
+        clear: both
+        width: 440px
+        height: 25px
+        text-align: center
+        font-size: 1.5em

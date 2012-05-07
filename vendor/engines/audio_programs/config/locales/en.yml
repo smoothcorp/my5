@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    audio_programs:
+      title: Audio Programs
+  admin:
+    audio_programs:
+      actions:
+        create_new: Add New Audio Program
+        reorder: Reorder Audio Programs
+        reorder_done: Done Reordering Audio Programs
+      records:
+        title: Audio Programs
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Audio Programs yet. Click "Add New Audio Program" to add your first audio program.
+      audio_program:
+        view_live_html: View this audio program live <br/><em>(opens in a new window)</em>
+        edit: Edit this audio program
+        delete: Remove this audio program forever
+  audio_programs:
+    show:
+      other: Other Audio Programs

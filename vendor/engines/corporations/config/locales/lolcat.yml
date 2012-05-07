@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    corporations:
+      title: Corporations
+  admin:
+    corporations:
+      actions:
+        create_new: CREATE NEW Corporation
+        reorder: REORDR Corporations
+        reorder_done: DUN REORDERIN Corporations
+      records:
+        title: Corporations
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Corporations YET. CLICK "CREATE NEW Corporation" 2 ADD UR FURST corporation.
+      corporation:
+        view_live_html: VIEW DIS corporation LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS corporation
+        delete: REMOOV DIS corporation FOREVR
+  corporations:
+    show:
+      other: OTHR Corporations

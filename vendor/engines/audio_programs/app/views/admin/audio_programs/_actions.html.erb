@@ -1,0 +1,28 @@
+<ul>
+  <% if Admin::AudioProgramsController.searchable? %>
+    <li>
+      <%= render :partial => "/shared/admin/search",
+                  :locals => {
+                    :url => admin_audio_programs_path
+                  } %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), new_admin_audio_program_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? and Admin::AudioProgramsController.sortable? and AudioProgram.count > 1 %>
+  <li>
+    <%= link_to t('.reorder', :what => "Audio Programs"),
+                 admin_audio_programs_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Audio Programs"),
+                 admin_audio_programs_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

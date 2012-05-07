@@ -1,0 +1,22 @@
+- @video = @mini_module.title.downcase == "simply stretch" ? @video : @mini_module.videos.first
+
+= render :partial => "leftbar", :locals => {:mini_module => @mini_module, :current => @video}
+
+%div#mini_module.content_right
+  .padded
+    .video_header
+      %h1= (@video == nil) ? @mini_module.title : @video.title
+      = link_to image_tag("grey_arrow_left_small.png") + "Go back to Mini Modules", my5_mini_modules_path
+    - if @mini_module.title.downcase == "simply stretch" && @video == nil
+      %div#get_started
+        = image_tag "symptomatics/big_arrow_left.png"
+        %h2 To get started, select a body part and view the videos.
+        %p (Make sure you have sound turned on.)
+    - else
+      %ul.video
+        - if @video == nil
+          There is currently no video assigned to this Mini Module.
+        - else
+          - unless @video.url.blank?
+            = vimeo_helper(@video.url)
+          = @video.description.html_safe

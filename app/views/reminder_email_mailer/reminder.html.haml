@@ -1,0 +1,14 @@
+= content_for :email_title do
+  My 5 Email Reminder
+= content_for :email_body do
+  %p
+    Dear #{@customer.first_name},
+  %p
+    Here is your reminder to use the My 5 program now!
+  %p
+    Remember that regular and consistant use of the My 5 program can enhance your health and wellbeing.
+    %br
+    %br
+    We hope you enjoy the experience.
+
+=render "shared/mail_base"

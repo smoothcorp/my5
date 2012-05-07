@@ -1,0 +1,42 @@
+.padded
+  %h1 Please Confirm Your Details
+
+  %p Please confirm that all the provided details are correct.
+
+  .details
+    .clearfix
+    %h3 Account Details
+    %p.label Email:
+    %p= @customer_details[:email]
+
+    .clearfix
+    %h3 Payment Details
+    %p.label Card Number:
+    %p= @customer_details[:credit_card][:card_number]
+    %p.label Expiry Date:
+    %p #{@customer_details[:credit_card][:expiry_month]}/#{@customer_details[:credit_card][:expiry_year]}
+    %p.label Name on Card:
+    %p= @customer_details[:credit_card][:name_on_card]
+    %p.label Verification:
+    %p= @customer_details[:credit_card][:verification]
+
+    .clearfix
+    %h3 Billing Address
+    %p.label Full Name:
+    %p #{@customer_details[:title]} #{@customer_details[:first_name]} #{@customer_details[:last_name]}
+    %p.label Address:
+    %p
+      = @customer_details[:street_1]
+      %br
+      - unless @customer_details[:street_2].blank?
+        = @customer_details[:street_2]
+        %br
+      #{@customer_details[:city]}, #{@customer_details[:state]}
+      %br
+      #{@customer_details[:country]}, #{@customer_details[:zip_code]}
+
+    = semantic_form_for resource, :as => resource_name, :url => customer_registration_url do |f|
+      .clearfix
+      .actions
+        = f.submit 'Confirm Details'
+        = link_to 'Edit Details', new_customer_registration_path

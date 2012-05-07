@@ -1,0 +1,33 @@
+- content_for :extra_js do
+    = javascript_include_tag "my5/dashboard/customer"
+
+%ul#intro.nav
+    %li#symptomatics.first
+        = link_to image_tag("dashboard/symptomatics.png"), my5_symptomatics_path
+        %h2 Symptomatics
+        %p Offers a suggested range of exercises to help address your symptoms
+    %li#mini
+        = link_to image_tag("dashboard/mini.png"), my5_mini_modules_path
+        %h2 Mini Modules
+        %p A themed short series of effective exercises
+    %li#eq
+        = link_to image_tag("dashboard/eq.png"), my5_my_eqs_path
+        %h2 My EQ
+        %p An emotional management program to help refresh, refocus, re-engage
+    %li#audio.last
+        = link_to image_tag("dashboard/audio.png"), my5_audio_programs_path
+        %h2 Audio Programs
+        %p Stress buster, Concentration and focus exercises, Eye exercises
+#bars
+#personal
+    %h3 Hello, #{current_customer.first_name}.
+    %p Here are a few tips to get you started with My 5:
+    %ul
+        = link_to image_tag("logo_pinwheel.png") + "Set up daily or weekly reminders", my5_reminder_emails_path
+        = link_to image_tag("logo_pinwheel.png") + "Complete or update your profile", edit_customer_registration_path
+        = link_to image_tag("logo_pinwheel.png") + "Start your first exercise", my5_symptomatics_path
+#quick-tips
+    %h3 Quick Tips
+    %ul
+        %li
+            Good hydration can help enhance your mental clarity, so help keep yourself alert all day and drink water.

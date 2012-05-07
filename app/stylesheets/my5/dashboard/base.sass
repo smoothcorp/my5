@@ -1,0 +1,80 @@
+@import "shared/global_passives"
+
+.nav#intro
+    +grid(24)
+    +alpha
+    +omega
+    padding:
+        top: 20px
+    +linear-gradient(color-stops(#fff, #e8e8e8))
+    li
+        +grid(6)
+        +alpha
+        +omega
+        padding: 0 2px
+        list-style: none
+        float: left
+        text-align: center
+        &.first
+            padding:
+                left: 20px
+            +alpha
+        &.last
+            +omega
+        a
+            display: block
+            margin-left: 7px
+            width: 161px
+            height: 161px
+            padding: 21px
+            background: url('/images/dashboard/round_button.png') no-repeat
+            &:hover
+                background-position: 0px -203px
+        &#symptomatics
+            h2
+                color: #ff4c3c
+        &#mini
+            h2
+                color: #419e36
+        &#eq
+            h2
+                color: #76c0f0
+        &#audio
+            h2
+                color: #d67336
+
+#personal
+    +grid-prefix(1)
+    +grid(13)
+    +alpha
+    margin-top: 20px
+    p
+        font-size: 1.2em
+    a
+        display: block
+        img
+            margin-right: 5px
+    li, a
+        border-top: 1px solid #ccc
+        padding: 10px 0
+        font-size: 1.2em
+        img
+            width: 20px
+            height: 20px
+            vertical-align: middle
+            
+#quick-tips
+    +grid(9)
+    +omega
+    margin-top: 20px
+    +linear-gradient(color-stops(#e8e8e8, #fff))
+    +border-radius(5px)
+    h3, li
+        padding: 0px 20px
+    li
+        list-style: none
+        margin:
+            top: 10px
+            bottom: 10px
+            left: 0 !important
+            

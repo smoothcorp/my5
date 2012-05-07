@@ -1,0 +1,19 @@
+- content_for :extra_js do
+    = javascript_include_tag "pages/features"
+- content_for :extra_stylesheets do
+    = stylesheet_link_tag "pages/features"
+
+%ul.leftbar
+    - @page.parts.each do |p|
+        %li{:class => "#{'selected' if @page.parts.first == p}"}
+            %div.img
+            = link_to "#{p.title}", "", "data-sub" => "#{p.id}"
+%div.feature_content
+    - unless current_customer
+        %div.free-trial
+            = link_to "Start Free Trial", new_customer_registration_path, :class => "button"
+            %div.article Try it for 10 days
+    - @page.parts.each do |p|
+        %div{:id => "#{p.id}", :class => "#{'active' if @page.parts.first == p}"}
+            %div.article.title= raw(p.title)
+            %div.article.body= raw(p.body)

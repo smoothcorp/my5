@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag "my5/admin/refinery/base" %>
+
+<div class='clearfix header' id="video_header">
+  <span class='title'>
+    <%= link_to "Video Title", admin_videos_path(:sort => 'title') %>
+    <%- if params["sort"] == 'title' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  </span>
+  <!-- <span class='video_url'>
+    Video URL
+  </span> -->
+  <span class='symptomatic'>
+    <%= link_to "Symptomatic name", admin_videos_path(:sort => 'symptomatic') %>
+    <%- if params["sort"] == 'symptomatic' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  </span>
+  <span class='mini_module'>
+    <%= link_to "Mini-module name", admin_videos_path(:sort => 'mini_module') %>
+    <%- if params["sort"] == 'mini_module' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  <span>
+</div>
+
+<ul id='sortable_list'>
+  <%= render :partial => 'video', :collection => @videos %>
+</ul>
+<%= render :partial => "/shared/admin/sortable_list",
+            :locals => {
+              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+            } %>

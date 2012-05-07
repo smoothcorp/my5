@@ -1,0 +1,79 @@
+@import "shared/global_passives"
+
+@mixin top-bottom-border
+  border:
+    top: 1px solid #ccc
+    bottom: 1px solid #ccc
+@mixin top-border    
+  border:
+    top: 1px solid #ccc
+@mixin image-left    
+  float: left
+  margin:
+    right: 10px
+    bottom: 10px
+  vertical-align: middle
+@mixin black-link
+  +link-colors(#000, #888, #000, #000, #000)
+  &:hover
+    text-decoration: none
+    
+#description
+  h2
+    padding:
+      top: 10px
+    +top-border
+      
+#steps
+  li
+    list-style: none !important
+    margin:
+      left: 5px !important
+    clear: both
+    +top-border
+    a
+      +link-colors(#000, #888, #000, #000, #000)
+    img
+      +image-left
+      vertical-align: middle
+    a.my_eq_button
+      float: right
+      margin-top: 5px
+        
+.my_eq_step
+  h1
+    margin-bottom: 0px
+    img
+      margin-bottom: -5px
+  .back
+    a
+      +black-link
+    img
+      margin:
+        right: 10px
+  .normal_step_content
+    padding: 10px 0
+    margin:
+      top: 15px
+    +top-bottom-border
+    img 
+      +image-left
+    h1, h2, h3
+      font-size: 20px !important
+      margin: 0 0 10px
+      clear: none !important
+      line-height: 24px !important
+    p, ul, ol
+      margin: 5px 0
+    ol, ul
+      width: 400px
+      float: left
+  .actions
+    padding:
+      top: 10px
+    .previous
+      float: left
+    .next
+      float: right
+  .video
+    margin-top: 15px

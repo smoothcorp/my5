@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "my5/admin/refinery/base" %>
+
+<div class='clearfix header' id="customer_header">
+  <span class='title'>
+    Corporation Name
+  </span>
+  <span class='corporation-active'>
+    Corporation Active?
+  </span>
+  <span class='corporation-signup'>
+    Signed up
+  <span>
+</div>
+
+<ul id='sortable_list'>
+  <%= render :partial => 'corporation', :collection => @corporations %>
+</ul>
+<%= render :partial => "/shared/admin/sortable_list",
+            :locals => {
+              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+            } %>

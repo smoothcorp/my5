@@ -1,0 +1,28 @@
+= content_for :email_title do
+  Your My 5 Free Trial expires soon
+= content_for :email_body do
+  %p
+    Dear #{@customer.first_name},
+  %p
+    We hoped you've enjoyed your free trial of My 5 and that you're finding our product beneficial to your health and well-being. We're just dropping a line to remind you that your trial is scheduled to convert to a paid subscription on #{@customer.subscriptions.first.expiry_date_to_s}. The cost for one year's subscription comes to AUD$34.00.
+
+  %p
+    Unless you have changed your credit card details, we do not require anymore information from you.
+
+  %p
+    What if I want to change my payment details?
+
+  %p
+    If you need to change your credit card and/or billing address details, you can do so online. First log in, then select "#{@customer.display_name}", and make the necessary changes.
+
+  %p
+    What if I want to cancel my subscription?
+
+  %p
+    We'll certainly be sorry to see you go, but never the less, this can be done online as well. First log in, then select "#{@customer.display_name}", and uncheck "Automatically Renew Subscription".
+
+  %p
+    If you have any queries or concerns, please don't hesitate to email or call us using our contact information below.
+    
+    
+=render "shared/mail_base"

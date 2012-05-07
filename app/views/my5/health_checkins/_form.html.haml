@@ -1,0 +1,21 @@
+= semantic_form_for([:my5, health_checkin]) do |f|
+  = f.input :step, :as => :hidden
+  - case @step
+  - when 0
+    = f.input :stress_rating, :as => :select, :collection => HealthCheckin.possible_values, :label_html => {:style => "display:none;"}, :input_html => {:style => "display:none;"}, :include_blank => false, :label => false
+    = f.input :energy_rating, :as => :hidden
+    = f.input :comfort_rating, :as => :hidden
+  - when 1
+    = f.input :stress_rating, :as => :hidden
+    = f.input :energy_rating, :as => :select, :collection => HealthCheckin.possible_values, :label_html => {:style => "display:none;"}, :input_html => {:style => "display:none;"}, :include_blank => false, :label => false
+    = f.input :comfort_rating, :as => :hidden
+  - when 2
+    = f.input :stress_rating, :as => :hidden
+    = f.input :energy_rating, :as => :hidden
+    = f.input :comfort_rating, :as => :select, :collection => HealthCheckin.possible_values, :label_html => {:style => "display:none;"}, :input_html => {:style => "display:none;"}, :include_blank => false, :label => false
+  %div.scale
+    %p.left Low
+    %p.right High
+    .clearfix
+  = f.submit "Back", :class => "back_button" unless (@step == 0 || @step.nil?)
+  = f.submit "Next", :class => "next_button"

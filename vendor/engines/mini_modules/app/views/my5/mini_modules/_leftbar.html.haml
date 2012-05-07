@@ -1,0 +1,23 @@
+%ul.leftbar
+  - if mini_module.title.downcase == "simply stretch"
+    - body_parts = {}
+    - mini_module.videos.each {|v| body_parts[v.symptomatic.bodypart.id].nil? ? body_parts[v.symptomatic.bodypart.id] = [v] : body_parts[v.symptomatic.bodypart.id] << v}
+    - body_parts.each do |k, bp|
+      - active = current.blank? ? false : (k == current.symptomatic.bodypart.id)
+      %div
+        %li{:class => "#{'selected' if active}"}
+          %div.img
+          = link_to "#{Bodypart.find(k.to_i).title}", "", :class => "body_part"
+          .clearfix
+        %ul{:style => "#{'display:none;' unless active}"}
+          - bp.each do |v|
+            %li{:class => "#{'selected' if v == current}"}
+              %div.img
+              = link_to "#{v.title}", my5_mini_module_video_path(mini_module.id, v.id), "data-sub" => "#{v.id}"
+    - content_for :extra_js do 
+      = javascript_include_tag "my5/mini_modules/body_parts"
+  - else
+    - mini_module.videos.each do |v|
+      %li{:class => "#{'selected' if v == current}"}
+        %div.img
+        = link_to "#{v.title}", my5_mini_module_video_path(mini_module.id, v.id), "data-sub" => "#{v.id}"

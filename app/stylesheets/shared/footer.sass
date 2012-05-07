@@ -1,0 +1,38 @@
+@import "shared/global_passives"
+
+#footer
+  +grid(24)
+  background: #fff
+  padding-top: 40px
+  padding-bottom: 20px
+  nav
+    border-top: 1px solid #ccc
+  ul
+    li
+      list-style: none !important
+      margin:
+        left: 0 
+      &.double-line
+        line-height: 18px
+    +grid(4)
+    &.first,  &.last
+      width: 120px
+    &.titles
+      +grid(24)
+      +alpha
+      +omega
+      border-bottom: 1px solid #ccc
+      font-weight: bold
+      line-height: 34px
+      li
+        +grid(4)
+        &.first,  &.last
+          width: 120px
+  #line
+    +grid(19)
+    margin-top: 25px
+    border-top: 1px solid #ccc
+  #logo
+    +grid(3)
+    +grid-prefix(1)
+    +omega

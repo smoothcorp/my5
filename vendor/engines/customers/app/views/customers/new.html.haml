@@ -1,0 +1,13 @@
+.padded
+  %h1= current_customer.corporation.name
+  %h2 Add a new employee
+  = semantic_form_for @customer, :url => customers_create_corp_customer_path do |f|
+    = render :partial => "form", :locals => {:current_customer => current_customer, :f => f}
+    
+    %li 
+      %b Note:
+      The new employee will be emailed a password which they can change after they log in
+    
+    .actions
+      = f.submit "Add employee"
+      = link_to "Cancel", customers_path

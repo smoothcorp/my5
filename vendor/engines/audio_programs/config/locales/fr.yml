@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    audio_programs:
+      title: Audio Programs
+  admin:
+    audio_programs:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Audio Program
+        reorder: Réordonner les Audio Programs
+        reorder_done: Fin de réordonnancement des Audio Programs
+      records:
+        title: Audio Programs
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Audio Program. Cliquer sur "Créer un(e) nouve(au/l/lle) Audio Program" pour créer votre premi(er/ère) audio program.'
+      audio_program:
+        view_live_html: Voir ce(t/tte) audio program <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) audio program
+        delete: Supprimer définitivement ce(t/tte) audio program
+  audio_programs:
+    show:
+      other: Autres Audio Programs

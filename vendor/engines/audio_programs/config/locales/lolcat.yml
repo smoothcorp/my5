@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    audio_programs:
+      title: Audio Programs
+  admin:
+    audio_programs:
+      actions:
+        create_new: CREATE NEW Audio Program
+        reorder: REORDR Audio Programs
+        reorder_done: DUN REORDERIN Audio Programs
+      records:
+        title: Audio Programs
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Audio Programs YET. CLICK "CREATE NEW Audio Program" 2 ADD UR FURST audio program.
+      audio_program:
+        view_live_html: VIEW DIS audio program LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS audio program
+        delete: REMOOV DIS audio program FOREVR
+  audio_programs:
+    show:
+      other: OTHR Audio Programs

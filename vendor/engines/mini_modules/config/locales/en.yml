@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    mini_modules:
+      title: Mini Modules
+  admin:
+    mini_modules:
+      actions:
+        create_new: Add New Mini Module
+        reorder: Reorder Mini Modules
+        reorder_done: Done Reordering Mini Modules
+      records:
+        title: Mini Modules
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Mini Modules yet. Click "Add New Mini Module" to add your first mini module.
+      mini_module:
+        view_live_html: View this mini module live <br/><em>(opens in a new window)</em>
+        edit: Edit this mini module
+        delete: Remove this mini module forever
+  mini_modules:
+    show:
+      other: Other Mini Modules

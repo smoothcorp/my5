@@ -1,0 +1,38 @@
+%div.content_right
+  .padded
+    %h2 Renew My 5 Subscription
+    %p Cost of 1 Yearly My 5 Subscription is AU$36.00. We will be using the credit we have on file:
+
+    - if !current_customer.eway_token.blank?
+      %p
+        Card No: #{current_customer.card_number}
+        %br
+        Expiry Date: #{current_customer.card_expiry_date}
+
+        %p To complete the subscription process, click 'Subscribe' below.
+
+        = button_to 'Subscribe', subscriptions_process_payment_url, :method => :get
+    -else
+      = semantic_form_for current_customer, :url => subscriptions_save_details_then_process_payment_url do |f|
+
+        %h3 Payment Details
+        = f.inputs :for => :credit_card do |card|
+          = card.input :card_number
+          = card.input :expiry_month, :collection => (1..12), :include_blank => false
+          = card.input :expiry_year, :label => 'Year', :collection => (Time.now.year..10.years.from_now.year), :include_blank => false
+          = card.input :name_on_card
+          = card.input :verification, :as => :password
+
+        %h3 Billing Address
+        = f.inputs do
+          = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :street_1
+          = f.input :street_2, :required => false
+          = f.input :city
+          = f.input :state
+          = f.input :country
+          = f.input :zip_code
+
+        = f.submit "Subscribe"

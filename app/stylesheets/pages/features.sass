@@ -1,0 +1,56 @@
+@import "shared/global_passives"
+@import "shared/leftbar"
+
+.content
+    padding:
+        top: 0 !important
+ul.leftbar
+    +leftbar
+    +alpha
+    +omega
+.feature_content
+    +grid(18)
+    +omega
+    width: 720px
+    margin-left: 0
+    padding-top: 30px
+    padding-bottom: 20px
+    background: #fff
+    min-height: 520px
+    position: relative
+    .free-trial
+        display: block !important
+        position: absolute
+        right: 45px
+        top: 35px
+        .article
+            display: block !important
+            text-transform: uppercase
+            text-align: center
+            font-weight: bold
+            font-size: 12px
+    div
+        display: none
+        &.active
+            display: block
+        .title, .body
+            +grid-prefix(1)
+            +grid-suffix(1)
+            +grid(16)
+            &.title
+                font-size: 40px
+                line-height: 50px
+            &.body
+                clear: both
+                margin:
+                    top: 15px
+                h2
+                    font-size: 24px
+                    line-height: 34px
+                p
+                    line-height: 28px
+    ul
+        list-style: square
+        li
+            margin:
+                left: 20px

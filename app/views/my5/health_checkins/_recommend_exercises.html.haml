@@ -1,0 +1,62 @@
+%h3 Recommended Exercises:
+
+%div.column
+  %h4 Stress
+
+  %ul
+    %li= link_to 'My EQ module', my5_my_eqs_path
+    %li= link_to 'Stress buster exercises', my5_audio_program_path(:id => 3)
+    %li= link_to 'Stress pressure point', my5_symptomatic_video_path(:id => 3, :condition => 'stress', :video_id => 44)
+    %li= link_to 'Stress pressure point', my5_symptomatic_video_path(:id => 3, :condition => 'stress', :video_id => 45)
+    %li= link_to 'De stress', my5_mini_module_path(:id => 7)
+
+%div.column
+  %h4 Energy
+
+  %ul
+    %li= link_to 'Cross crawl', my5_symptomatic_video_path(:id => 5, :condition => 'concentration', :video_id => 13)
+    %li= link_to 'Fatigue pressure point', my5_symptomatic_video_path(:id => 2, :condition => 'fatigue', :video_id => 43)
+    %li= link_to 'Wake up exercises', my5_mini_module_path(:id => 3)
+    %li= link_to 'Kick start your day', my5_mini_module_path(:id => 10)
+
+%div.column
+  %h4 Comfort
+
+  %ul
+    %li
+      Neck
+      %ul
+        %li= link_to 'Head turns', my5_symptomatic_video_path(:id => 6, :condition => 'neck-pain-and-stiffness', :video_id => 30)
+        %li= link_to 'Head tilts', my5_symptomatic_video_path(:id => 6, :condition => 'neck-pain-and-stiffness', :video_id => 34)
+        %li= link_to 'Neck stretch', my5_symptomatic_video_path(:id => 6, :condition => 'neck-pain-and-stiffness', :video_id => 28)
+        %li= link_to 'Backward bend', my5_symptomatic_video_path(:id => 6, :condition => 'neck-pain-and-stiffness', :video_id => 29)
+    %li
+      Shoulders
+      %ul
+        %li= link_to 'Shoulder shrug', my5_symptomatic_video_path(:id => 7, :condition => 'shoulder-tension', :video_id => 72)
+        %li= link_to 'Shoulder and neck pain pressure point', my5_symptomatic_video_path(:id => 7, :condition => 'shoulder-tension', :video_id => 66)
+        %li= link_to 'Shoulder rolls', my5_symptomatic_video_path(:id => 7, :condition => 'shoulder-tension', :video_id => 10)
+        %li= link_to 'Up and over', my5_symptomatic_video_path(:id => 7, :condition => 'shoulder-tension', :video_id => 7)
+    %li
+      Back
+      %ul
+        %li= link_to 'Back stretch and turn', my5_symptomatic_video_path(:id => 10, :condition => 'back-pain', :video_id => 23)
+        %li= link_to 'Rolldowns', my5_symptomatic_video_path(:id => 10, :condition => 'back-pain', :video_id => 35)
+        %li= link_to 'Thread the needle', my5_symptomatic_video_path(:id => 10, :condition => 'back-pain', :video_id => 21)
+        %li= link_to 'Back care program', my5_mini_module_path(:id => 6)
+    %li
+      Arms
+      %ul
+        %li= link_to 'Overhead arm stretch', my5_symptomatic_video_path(:id => 8, :condition => 'tension-in-arms', :video_id => 3)
+        %li= link_to 'Backward arm stretch', my5_symptomatic_video_path(:id => 8, :condition => 'tension-in-arms', :video_id => 20)
+        %li= link_to 'Praying stretch', my5_symptomatic_video_path(:id => 8, :condition => 'tension-in-arms', :video_id => 19)
+        %li= link_to 'Finger stretch', my5_symptomatic_video_path(:id => 8, :condition => 'tension-in-arms', :video_id => 18)
+    %li
+      Legs
+      %ul
+        %li= link_to 'Hamstring stretch', my5_symptomatic_video_path(:id => 9, :condition => 'tension-in-legs', :video_id => 17)
+        %li= link_to 'Thigh stretch', my5_symptomatic_video_path(:id => 9, :condition => 'tension-in-legs', :video_id => 15)
+        %li= link_to 'Calf stretch', my5_symptomatic_video_path(:id => 9, :condition => 'tension-in-legs', :video_id => 14)
+        %li= link_to 'Gluteal stretch', my5_symptomatic_video_path(:id => 9, :condition => 'tension-in-legs', :video_id => 16)
+
+.clearfix

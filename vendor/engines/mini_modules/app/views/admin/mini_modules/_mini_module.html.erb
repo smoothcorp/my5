@@ -1,0 +1,20 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(mini_module) -%>">
+  <span class='title'>
+    <%= mini_module.title %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_go.png"), my5_mini_module_path(mini_module),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_mini_module_path(mini_module),
+         :title => t('.edit') %>
+    <%- unless mini_module.title.downcase == "simply stretch" %>
+      <%= link_to refinery_icon_tag("delete.png"), admin_mini_module_path(mini_module),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => mini_module.title),
+        :method => :delete %>
+    <% end %>
+  </span>
+</li>

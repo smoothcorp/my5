@@ -1,0 +1,32 @@
+@import "shared/global_passives"
+
+#header
+    +grid(24)
+    height: 80px
+    line-height: 70px
+    a
+        +link-colors(#fff, #fff, #fff, #fff, #fff)
+        font-weight: bold
+    #logo
+        +grid(4)
+        +alpha
+        img
+            vertical-align: middle
+    .nav
+        +grid(14)
+        a
+            display: inline-block
+            width: 100px
+            text-align: center
+        &#signup
+            +grid(6)
+            +omega
+            a
+                width: 80px
+                float: right
+                &.button
+                    margin-top: 20px
+                    font-size: 14px
+                    font-weight: bold
+                    padding: 6px
+                    font-family: Helvetica

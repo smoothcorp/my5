@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="corporations">
+    <% @corporations.each do |corporation| %>
+      <li>
+        <%= link_to corporation.name, corporation_path(corporation) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

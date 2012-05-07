@@ -1,0 +1,40 @@
+Base Rails 3 Project
+
+A simple Rails 3 project with all the required gems to get up and running quickly. Gems include:
+
+Essential
+
+- HAML (http://haml-lang.com/)                                              - Alternative View Syntax
+- SASS (http://sass-lang.com/)                                              - Extensions to CSS
+- Compass (http://compass-style.org/)                                       - Framework built on SASS
+- Compass 960 Plugin (https://github.com/chriseppstein/compass-960-plugin)  - 960.gs support for Compass
+- Meta Where (https://github.com/ernie/meta_where)                          - Extends ActiveRecord interface
+- Decent Exposure (https://github.com/voxdolo/decent_exposure)              - Automatic fetching/creating model instance variables in the controller
+
+Database
+
+- SQLLite (http://www.sqlite.org/)                                          - Default Development and Test Database
+- MySQL (http://www.mysql.com/)                                             - Default Production Database
+- PG (https://bitbucket.org/ged/ruby-pg/wiki/Home)                          - PostgreSQL interface
+- Mongoid (http://mongoid.org/)                                             - MongoDB interface
+
+Extras (must uncomment in Gemfile)
+
+- Devise (https://github.com/plataformatec/devise)                          - User Authentication
+- Refinery CMS (http://refinerycms.com/)                                    - Content Management System
+- Geocoder (https://github.com/alexreisner/geocoder)                        - Location Geocoder
+- Koala (https://github.com/arsduo/koala)                                   - Facebook Graph API
+- Fancy Buttons (https://github.com/imathis/fancy-buttons/)                 - Auto-styled buttons support for Compass
+- Will Paginate (https://github.com/mislav/will_paginate)                   - Pagination
+- Comma (https://github.com/crafterm/comma)                                 - CSV Generation (wrapper for FasterCSV)
+
+Notes:
+
+* Devise has been preconfigured with a user model. To activate devise for this model, uncomment 'devise_for :users' from the routes file. Also if you aren't using Refinery CMS as well, you must move 'devise.rb' from 'config/disabled_initializers' to 'config/initializers'.
+* OmniAuth has been preconfigured to work with Devise and the User model (via Authentications).  To turn on, uncomment 'has_many :authentications' in /models/user.rb.  Also uncomment the gem 'omniauth' and move the 'omniauth.rb' file from 'config/disabled_initializers' to 'config/initializers'.
+* Refinery CMS must be installed using the terminal. From the project directory, run:
+rails generate refinerycms
+rake db:migrate
+Extra configuration may be required depending on the current state of the project.
+See http://refinerycms.com/guides/attaching-refinery-cms-to-an-existing-rails-application for additional detail. Also since RefineryCMS already uses Devise, 'gem devise' can be left commented out in the Gemfile.
+* Fancy Buttons requires extra configuration, simply uncomment the line "require 'fancy-buttons'" from compass.rb.

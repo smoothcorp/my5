@@ -1,0 +1,12 @@
+.module_image_left= image_tag "mini_modules/round_image.png"
+
+%ul#modules.module_selection_right
+    %h1 Mini Modules
+    - unless @mini_modules.blank?
+        %p.select Select a Mini Module:
+        - @mini_modules.each do |m|
+            %li
+                = image_tag "logo_pinwheel.png"
+                = link_to m.title, my5_mini_module_path(m.id)
+    - else
+        %p There are currently no Mini Modules.

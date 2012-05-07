@@ -1,0 +1,11 @@
+<% content_for :form_content do %>
+  <%- if @departments.blank? %>
+    <label>No departments for this organisation</label>
+    <div>Contact the company manager.</div>
+  <% else %>
+    <%= label_tag('department', 'Department') %>
+    <%= select_tag('department', options_from_collection_for_select(@departments, :id, :name), :id => "department_id", :name => "customer[department_id]") %>
+  <% end %>
+<% end %>
+
+$('#department_select').html("<%= escape_javascript(yield :form_content) %>");

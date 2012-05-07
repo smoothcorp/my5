@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    symptomatics:
+      title: Symptomatics
+  admin:
+    symptomatics:
+      actions:
+        create_new: Lag en ny Symptomatic
+        reorder: Endre rekkefølgen på Symptomatics
+        reorder_done: Ferdig å endre rekkefølgen Symptomatics
+      records:
+        title: Symptomatics
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Symptomatics enda. Klikk på "Lag en ny Symptomatic" for å legge til din første symptomatic.
+      symptomatic:
+        view_live_html: Vis hvordan denne symptomatic ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne symptomatic
+        delete: Fjern denne symptomatic permanent
+  symptomatics:
+    show:
+      other: Andre Symptomatics

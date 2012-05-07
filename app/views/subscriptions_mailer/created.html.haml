@@ -1,0 +1,10 @@
+= content_for :email_title do
+  You have successfully subscribed to My 5!
+= content_for :email_body do
+  %p
+    Dear #{@customer.first_name},
+  %p
+    This is an email confirming that you have purchased a 1 year subscription to My 5.
+
+
+=render "shared/mail_base"

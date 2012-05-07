@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "my5/admin/refinery/base" %>
+
+<div class='clearfix header' id="video_header">
+  <span class='title'>
+    Audio Title
+  </span>
+  <span class='audio_program'>
+    Audio Program name
+  </span>
+</div>
+
+<ul id='sortable_list'>
+  <%= render :partial => 'audio', :collection => @audios %>
+</ul>
+<%= render :partial => "/shared/admin/sortable_list",
+            :locals => {
+              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+            } %>

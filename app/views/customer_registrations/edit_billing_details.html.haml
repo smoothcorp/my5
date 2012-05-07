@@ -1,0 +1,39 @@
+- content_for :extra_stylesheets do
+  = stylesheet_link_tag "my5/base"
+
+.content_left
+  .padded
+    %h1 Update my billing details
+
+    = semantic_form_for current_customer, :as => :customer, :url => customer_update_billing_details_url do |f|
+
+      %h3 Payment Details
+      = f.inputs :for => :credit_card do |card|
+        = card.input :card_number, :input_html => {:value => current_customer.card_number}
+        = card.input :expiry_month, :collection => (1..12), :include_blank => false, :input_html => {:class => "short"}, :wrapper_html => { :class => "inline" }
+        = card.input :expiry_year, :label => 'Year', :collection => (Time.now.year..10.years.from_now.year), :include_blank => false, :input_html => {:class => "short"}, :wrapper_html => { :class => "inline" }
+        = card.input :name_on_card, :input_html => {:value => current_customer.card_name}
+        = card.input :verification, :as => :password, :input_html => {:class => "short"}
+
+      %h3 Billing Address
+      = f.inputs do
+        = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}, :required => true
+        = f.input :first_name, :required => true
+        = f.input :last_name, :required => true
+        = f.input :street_1, :required => true
+        = f.input :street_2, :required => false
+        = f.input :city, :required => true
+        = f.input :state, :input_html => {:class => "short"}, :required => true
+        = f.input :country, :input_html => {:class => "medium"}, :required => true
+        = f.input :zip_code, :label => "Postcode", :input_html => {:class => "short"}, :required => true
+
+      .actions
+        = f.submit "Update"
+        = link_to 'Back', edit_customer_registration_path
+
+.infobar_right
+  %h3 Remove my billing details
+
+  %p
+    Please click here to
+    = link_to "delete your billing details", customer_remove_billing_details_path(), :confirm => "Are you sure?", :method => :put

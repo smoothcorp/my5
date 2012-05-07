@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "my5/admin/refinery/base" %>
+
+<div class='clearfix header' id="customer_header">
+  <span class='title'>
+    <%= link_to "Customer Name", admin_customers_path(:sort => 'customer_name') %>
+    <%- if params["sort"] == 'customer_name' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  </span>
+  <span class='customer-type'>
+    <%= link_to "Customer Type", admin_customers_path(:sort => 'customer_type') %>
+    <%- if params["sort"] == 'customer_type' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  </span>
+  <span class='customer-signup'>
+    <%= link_to "Signup Date", admin_customers_path(:sort => 'customer_signup') %>
+    <%- if params["sort"] == 'customer_signup' %>
+      <img src="/images/down_arrow.png"/>
+    <% end %>
+  <span>
+</div>
+
+<ul id='sortable_list'>
+  <%= render :partial => 'customer', :collection => @customers %>
+</ul>
+<%= render :partial => "/shared/admin/sortable_list",
+            :locals => {
+              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
+            } %>

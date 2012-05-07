@@ -1,0 +1,5 @@
+%ul.leftbar
+  - my_eqs.each do |e|
+    %li{:class => "#{'selected' if e.emotional_grouping == current}"}
+      %div.img
+      = link_to "#{e.emotional_grouping}", my5_my_eq_with_part_path(e, "1000"), "data-sub" => "#{e.id}"

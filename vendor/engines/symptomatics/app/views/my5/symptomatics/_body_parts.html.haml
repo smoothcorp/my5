@@ -1,0 +1,25 @@
+- content_for :extra_js do
+    = javascript_include_tag "my5/symptomatics/body_parts"
+
+%div#body_parts.module_image_left
+    %div.row.top
+        %div.dead_part= image_tag "/images/symptomatics/top_left.png"
+        %div{:class => "part", "data-part" => "Head"}= link_to image_tag("/images/symptomatics/head.png"), my5_symptomatic_path(1)
+        %div.part= image_tag "/images/symptomatics/top_right.png"
+    %div.row.second
+        %div{:class => "part", "data-part" => "Arms"}= link_to image_tag("/images/symptomatics/arms_left.png"), my5_symptomatic_path(4)
+        %div{:class => "part", "data-part" => "Shoulders"}= link_to image_tag("/images/symptomatics/shoulders_left.png"), my5_symptomatic_path(3)
+        %div{:class => "part"}
+            %div.sub{:style => "margin-bottom:0;padding-bottom:0;", "data-part" => "Neck"}= link_to image_tag("/images/symptomatics/neck_1.png"), my5_symptomatic_path(2)
+            %div.sub{:style => "margin-top:-7px;", "data-part" => "Back"}= link_to image_tag("/images/symptomatics/neck_2.png"), my5_symptomatic_path(6)
+        %div{:class => "part", "data-part" => "Shoulders"}= link_to image_tag("/images/symptomatics/shoulders_right.png"), my5_symptomatic_path(3)
+        %div{:class => "part", "data-part" => "Arms"}= link_to image_tag("/images/symptomatics/arms_right.png"), my5_symptomatic_path(4)
+    %div.row.middle
+        %div.dead_part= image_tag "/images/symptomatics/middle_left.png"
+        %div{:class => "part", "data-part" => "Back"}= link_to image_tag("/images/symptomatics/back.png"), my5_symptomatic_path(6)
+        %div.dead_part= image_tag "/images/symptomatics/middle_right.png"
+    %div.row.bottom
+        %div.dead_part= image_tag "/images/symptomatics/bottom_left.png"
+        %div{:class => "part", "data-part" => "Legs"}= link_to image_tag("/images/symptomatics/legs.png"), my5_symptomatic_path(5)
+        %div.dead_part= image_tag "/images/symptomatics/bottom_right.png"
+    %div#current_part 

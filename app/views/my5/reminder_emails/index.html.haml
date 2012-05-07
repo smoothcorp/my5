@@ -1,0 +1,23 @@
+.padded
+  %h1 Review your email reminders
+
+  - if !@reminder_emails.empty?
+    %p You currently receive the following reminder emails:
+
+    %table
+      %tbody
+        %th Time
+        %th Frequency
+        %th
+      - @reminder_emails.each do |reminder|
+        %tr{ :class => cycle('odd','even') }
+          %td= time_for_reminder(reminder)
+          %td= frequency_for_reminder(reminder)
+          %td
+            = link_to 'Edit', edit_my5_reminder_email_path(reminder)
+            %span &#124
+            = link_to 'Delete', my5_reminder_email_path(reminder), :confirm => 'Are you sure that you want to remove this reminder?', :method => :delete
+  - else
+    %p You current do not have any reminder emails setup.
+
+  .buttons= link_to 'Create New Reminder', new_my5_reminder_email_path, :class => 'button'

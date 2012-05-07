@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    my_eqs:
+      title: My Eqs
+  admin:
+    my_eqs:
+      actions:
+        create_new: Maak een nieuwe My Eq
+        reorder: Wijzig de volgorde van de My Eqs
+        reorder_done: Klaar met het wijzingen van de volgorde van de My Eqs
+      records:
+        title: My Eqs
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen My Eqs. Druk op 'Maak een nieuwe My Eq' om de eerste aan te maken.
+      my_eq:
+        view_live_html: Bekijk deze my eq op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze my eq
+        delete: Verwijder deze my eq voor eeuwig
+  my_eqs:
+    show:
+      other: Andere My Eqs

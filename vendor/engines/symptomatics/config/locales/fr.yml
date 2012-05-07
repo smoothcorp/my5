@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    symptomatics:
+      title: Symptomatics
+  admin:
+    symptomatics:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Symptomatic
+        reorder: Réordonner les Symptomatics
+        reorder_done: Fin de réordonnancement des Symptomatics
+      records:
+        title: Symptomatics
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Symptomatic. Cliquer sur "Créer un(e) nouve(au/l/lle) Symptomatic" pour créer votre premi(er/ère) symptomatic.'
+      symptomatic:
+        view_live_html: Voir ce(t/tte) symptomatic <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) symptomatic
+        delete: Supprimer définitivement ce(t/tte) symptomatic
+  symptomatics:
+    show:
+      other: Autres Symptomatics

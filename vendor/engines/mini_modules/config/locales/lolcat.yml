@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    mini_modules:
+      title: Mini Modules
+  admin:
+    mini_modules:
+      actions:
+        create_new: CREATE NEW Mini Module
+        reorder: REORDR Mini Modules
+        reorder_done: DUN REORDERIN Mini Modules
+      records:
+        title: Mini Modules
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Mini Modules YET. CLICK "CREATE NEW Mini Module" 2 ADD UR FURST mini module.
+      mini_module:
+        view_live_html: VIEW DIS mini module LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS mini module
+        delete: REMOOV DIS mini module FOREVR
+  mini_modules:
+    show:
+      other: OTHR Mini Modules

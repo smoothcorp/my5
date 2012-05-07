@@ -1,0 +1,15 @@
+%ul.steps
+  %li 
+    = image_tag "#{(@step == 0 || @step == nil) && params[:action] != 'index' ? 'health_checkins/1.png' : 'health_checkins/1_faded.png'}"
+    Stress
+  %li 
+    = image_tag "#{(@step == 1) ? 'health_checkins/2.png' : 'health_checkins/2_faded.png'}"
+    Energy
+  %li
+    = image_tag "#{(@step == 2) ? 'health_checkins/3.png' : 'health_checkins/3_faded.png'}"
+    Comfort
+  %li 
+    = image_tag "#{(params[:action] == 'index') ? 'health_checkins/4.png' : 'health_checkins/4_faded.png'}"
+    Results
+    
+  .clearfix

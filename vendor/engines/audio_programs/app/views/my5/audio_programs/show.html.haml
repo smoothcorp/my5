@@ -1,0 +1,15 @@
+- @audio = @audio || @audio_program.audios.first || nil
+
+= render :partial => "leftbar", :locals => {:audio_program => @audio_program, :current => @audio}
+
+%div#mini_module.content_right
+  .padded
+    .video_header
+      %h1= (@audio == nil) ? @audio_program.title : @audio.title
+      = link_to image_tag("grey_arrow_left_small.png") + "Go back to Audio Programs", my5_audio_programs_path
+    %ul.video
+      - if @audio == nil || @audio.url.blank?
+        There are currently no audio tracks assigned to this Audio Program.
+      - else
+        = vimeo_helper(@audio.url)
+        = @audio.description.html_safe

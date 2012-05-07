@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    corporations:
+      title: Corporations
+  admin:
+    corporations:
+      actions:
+        create_new: Add New Corporation
+        reorder: Reorder Corporations
+        reorder_done: Done Reordering Corporations
+      records:
+        title: Corporations
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Corporations yet. Click "Add New Corporation" to add your first corporation.
+      corporation:
+        view_live_html: View this corporation live <br/><em>(opens in a new window)</em>
+        edit: Edit this corporation
+        delete: Remove this corporation forever
+  corporations:
+    show:
+      other: Other Corporations

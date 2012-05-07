@@ -1,0 +1,110 @@
+@import "compass/css3"
+
+form
+  label
+    margin-left: 5px
+    text-transform: uppercase
+    font-size: 0.9em
+    font-weight: bold
+    line-height: 40px
+    &.double-line
+      line-height: 20px
+  input, textarea, select
+    padding: 8px 8px
+    font-weight: bold
+    font-size: 1.2em
+    border: 1px solid #ccc
+    +border-radius(3px)
+    &:focus
+      outline: none
+      border-color: #109900
+      +box-shadow(#6ffc5f 0px 0px 5px)
+  select
+    height: 34px
+  label
+    abbr
+      color: #c94338
+      margin: 0 5px
+  li
+    &.left
+      float: left
+      margin:
+        right: 25px
+    clear: both
+    margin:
+      bottom: 10px
+    label
+      width: 180px
+      float: left
+      &.double-line
+        line-height: 20px
+    input, select
+      margin:
+        left: 15px
+      width: 50%
+    select.short
+      width: 100px !important
+    input.short
+      width: 88px !important
+    select.medium
+      width: 200px !important
+    input.medium
+      width: 182px !important
+    input[type="checkbox"]
+      width: 20px
+      margin:
+        top: 10px
+    .inline-hints
+      color: #bbb
+      margin:
+        left: 200px
+        top: 0
+        bottom: 0
+    .inline-errors
+      color: #c94338
+      margin:
+        left: 200px
+        top: 0
+        bottom: 0
+    &.error
+      background: #ea9b95
+      padding: 5px 0 5px 10px
+      margin:
+        top: 10px
+        bottom: 10px
+        left: -10px
+      .inline-hints
+        color: #3e3e3e !important
+  .avatar_section
+    clear: both
+    height: 180px
+    .img
+      width: 150px
+      height: 150px
+      float: left
+      margin:
+        top: 10px
+    label, input
+      left: 120px
+      display: inline-block
+      clear: none
+      margin:
+        left: 48px
+    input[type="text"]
+      padding:
+        left: 5px
+    input[type="submit"]
+      margin:
+        top: 15px
+
+
+  .actions
+    clear: both
+    margin:
+      top: 25px
+    a, input[type="submit"]
+      float: left
+      margin:
+        right: 10px
+    a
+      line-height: 35px

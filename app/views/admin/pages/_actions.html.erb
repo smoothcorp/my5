@@ -1,0 +1,7 @@
+<ul>
+  <li>
+    <%= render :partial => "/shared/admin/search", :locals => {:url => admin_pages_url} %>
+  </li>
+<% if @pages.many? and !searching? %>
+<% end %>
+</ul>

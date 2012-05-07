@@ -1,0 +1,9 @@
+.padded
+    %div#condition.video_header
+        - body_part = Symptomatic.body_parts[@video.symptomatic.body_part]
+        %h1 #{@video.symptomatic.body_part_name} > #{@video.symptomatic.condition} > #{@video.title}
+        = link_to image_tag("grey_arrow_left_small.png") + "Go back to view all exercises for #{@video.symptomatic.condition}", my5_condition_path(@video.symptomatic.id, @video.symptomatic.to_param)
+    %ul.video
+        - unless @video.url.blank?
+            = vimeo_helper(@video.url)
+        = @video.description.html_safe

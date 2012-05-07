@@ -1,0 +1,26 @@
+- content_for :extra_stylesheets do 
+  = stylesheet_link_tag "my5/base" 
+  
+.padded
+  %h1
+    = current_customer.corporation.name
+    %span.small 
+      You can manage 
+      %b customers 
+      within this organisation #{link_to "here", customers_path}.
+  %h2 
+    Manage departments
+    = link_to "Add new department", new_my5_department_path, :class => "button"
+  - if @departments.blank?
+    There are currently no departments within your organisation, you can create them using the button above.
+  - else
+    %table
+      %tr
+        %th Department Name
+        %th Actions
+      - @departments.each do |d| 
+        %tr
+          %td= d.name
+          %td
+            = link_to "Edit details", edit_my5_department_path(d), :class => "button small"
+            = link_to "Delete", my5_department_path(d), :method => :delete, :confirm => "Are you sure you want to permanently delete this employee?", :class => "button small"

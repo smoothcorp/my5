@@ -1,0 +1,31 @@
+@import "shared/global_passives"
+
+@mixin notice-box($back-color)
+    width: 95% !important
+    margin: 0
+    padding: 0 2.5%
+    border: 1px solid darken($back-color, 30%)
+    background-color: $back-color
+    color: darken($back-color, 60%)
+    font-size: 10pt
+
+.notices
+    +grid(20)
+    +alpha
+    +omega
+    width: 95% !important
+    margin: 10px 2.5% 
+    position: relative
+    background: #fff
+    
+.content
+    .notices
+        margin:
+            top: 0 !important
+            bottom: 10px !important
+    
+body
+    .notice
+        +notice-box(#E0F5E0)
+    .alert
+        +notice-box(#FFFF99)

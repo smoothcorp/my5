@@ -1,0 +1,31 @@
+<%= form_for [:admin, @symptomatic], :url => admin_symptomatic_path(@symptomatic.id) do |f| -%>
+  <%= render :partial => "/shared/admin/error_messages", :locals => {
+          :object => @symptomatic,
+          :include_object_name => true
+        } %>
+  
+    <div class='field'>
+      <%= f.label :condition, "Symptomatic name" -%>
+      <%= f.text_field :condition, :class => 'larger widest'  -%>
+    </div>
+
+  <div class='field'>
+    <%= f.label :body_part, "Related Body Part ID" -%>
+    <% options = [] %>
+    <% Bodypart.all.each_with_index {|item, index| options << [item.title, index]} %>
+    <%= f.select :body_part, options -%>
+  </div>
+  
+  <div class='field'>
+      <%= f.label :description -%>
+      <%= f.text_area :description, :class => "larger widest"  -%>
+  </div>
+  
+  <%= render :partial => "/shared/admin/form_actions",
+              :locals => {
+                :f => f,
+                :continue_editing => false,
+                :delete_title => t('delete', :scope => 'admin.symptomatics.symptomatic'),
+                :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @symptomatic.condition)
+              } %>
+<% end -%>

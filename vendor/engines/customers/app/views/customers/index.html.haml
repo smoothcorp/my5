@@ -1,0 +1,34 @@
+- content_for :extra_stylesheets do
+  = stylesheet_link_tag "my5/base"
+
+.padded
+  %h1
+    = current_customer.corporation.name
+    - if current_customer.dept_manager?
+      > #{current_customer.department.name}
+    - else
+      %span.small
+        You can manage
+        %b departments
+        within this organisation #{link_to "here", my5_departments_path}.
+  %h2
+    Manage employees
+    = link_to "Add new employee", new_customer_path, :class => "button"
+  - if @customers.blank?
+    You currently do not have any employees in your organisation.  Add an employee to grant them access to the My 5 application.
+  - else
+    %table
+      %tr
+        %th First Name
+        %th Last Name
+        %th Email
+        %th Department
+        %th Actions
+      - @customers.each do |customer|
+        %tr
+          %td= customer.first_name
+          %td= customer.last_name
+          %td= customer.email
+          %td= customer.department.nil? ? "Unassigned" : customer.department.name
+          %td
+            = link_to "Edit details", edit_customer_path(customer), :class => "button small"

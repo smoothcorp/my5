@@ -1,0 +1,12 @@
+= f.input :first_name
+= f.input :last_name
+= f.input :email
+
+- unless current_customer.dept_manager? 
+  - roles = Customer::ROLES.inject({}) {|k,v| k.merge({v.humanize => v.to_s})}
+  = f.input :role, :as => :select, :collection => roles, :label => "Access level", :include_blank => false
+  = f.input :department_id, :as => :select, :collection => current_customer.corporation.departments.collect { |c| [c.name, c.id] }
+  
+- else
+  = f.input :department_id, :value => current_customer.department.id, :as => :hidden
+    

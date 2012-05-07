@@ -1,0 +1,31 @@
+<%= content_for :after_javascript_libraries do %>
+  <%= javascript_include_tag "my5/admin/corporations/deactivate" %>
+<% end %>
+  
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(corporation) -%>">
+  <span class='title'>
+    <%= corporation.name %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='corporation-active'>
+    <span><%= corporation.active? ? "Active" : "Disabled" %></span>
+    <%= image_tag "#{corporation.active? ? 'icons/layout_delete.png' : 'icons/layout.png'}", :id => "img-#{corporation.id}", :alt => "Disable Corporation", :title => "Deactivate Corporation", :class => "deactivate-corp", "data-corp-id" => "#{corporation.id}", :style => "cursor:pointer;"%>
+    <span></span>
+  </span>
+  <span class='corporation-created'>
+    <%= corporation.created_at.strftime("%d %b %Y") %>
+    <span></span>
+  </span>
+  <span class='actions'>
+    <!--<%= link_to refinery_icon_tag("application_go.png"), corporation_path(corporation),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>-->
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_corporation_path(corporation),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), admin_corporation_path(corporation),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => corporation.name),
+        :method => :delete %>
+  </span>
+</li>

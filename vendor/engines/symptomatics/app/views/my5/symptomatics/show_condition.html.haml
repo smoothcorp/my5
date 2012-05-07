@@ -1,0 +1,13 @@
+= render :partial => "body_parts"
+
+%ul#videos.module_selection_right
+    %h1= @condition.bodypart.title ? "#{@condition.bodypart.title} > #{@condition.condition}" : "#{@condition.condition}"
+    - unless @condition.videos.blank?
+        %p.select Select an exercise: 
+        - @condition.videos.each do |v|
+            %li
+                = image_tag "logo_pinwheel.png"
+                = link_to v.title, my5_symptomatic_video_path(@condition.id, @condition.to_param, v.id)
+                %p= raw(v.description)
+    - else
+        %p There are currently no exercises in this section.

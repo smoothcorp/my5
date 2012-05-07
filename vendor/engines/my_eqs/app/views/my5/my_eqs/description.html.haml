@@ -1,0 +1,7 @@
+= render :partial => "leftbar", :locals => {:my_eqs => @my_eqs, :current => @my_eq.emotional_grouping}
+
+%div.content_right
+  .padded
+    %h1= @my_eq.emotional_grouping
+    #description= @my_eq.description.html_safe 
+    = link_to "View Program", my5_my_eq_with_part_path(@my_eq, "0"), :class => "my_eq_button"

@@ -1,0 +1,47 @@
+= content_for :email_title do
+  Thanks for joining My 5!
+= content_for :email_body do
+  %p
+    Dear #{@customer.first_name},
+  %p
+    Thanks for signing up to our free 10-day trial. At the end of 10 days, if you don't cancel, we'll bill your credit card for $36.00, a year's subscription to My 5. Enjoy!
+
+  %p
+    For your own records, please find your My 5 account information below:
+
+  %h3 Account Details
+
+  %p Email:
+  %p= @customer.email
+
+  %h3 Payment Details
+
+  %p Card Number:
+  %p= @customer.card_number
+
+  %p Expiry Date:
+  %p= @customer.card_expiry_date
+
+  %p Name on Card:
+  %p= @customer.card_name
+
+  %h3 Billing Address
+
+  %p Full Name:
+  %p= @customer.full_name
+
+  %p Address:
+  %p
+    = @customer.street_1
+    %br
+    - unless @customer.street_2.blank?
+      = @customer.street_2
+      %br
+    #{@customer.city}, #{@customer.state}
+    %br
+    #{@customer.country}, #{@customer.zip_code}
+
+=render "shared/mail_base"
+
+
+

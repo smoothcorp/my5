@@ -1,0 +1,5 @@
+%ul.leftbar
+  - audio_program.audios.each do |a|
+    %li{:class => "#{'selected' if a == current}"}
+      %div.img
+      = link_to "#{a.title}", my5_audio_programs_audio_path(a.audio_program.id, a.id), "data-sub" => "#{a.id}"

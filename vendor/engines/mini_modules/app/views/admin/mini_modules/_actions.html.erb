@@ -1,0 +1,28 @@
+<ul>
+  <% if Admin::MiniModulesController.searchable? %>
+    <li>
+      <%= render :partial => "/shared/admin/search",
+                  :locals => {
+                    :url => admin_mini_modules_path
+                  } %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), new_admin_mini_module_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? and Admin::MiniModulesController.sortable? and MiniModule.count > 1 %>
+  <li>
+    <%= link_to t('.reorder', :what => "Mini Modules"),
+                 admin_mini_modules_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Mini Modules"),
+                 admin_mini_modules_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

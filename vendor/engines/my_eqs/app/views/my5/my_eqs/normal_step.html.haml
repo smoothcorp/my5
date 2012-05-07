@@ -1,0 +1,15 @@
+= render :partial => "leftbar", :locals => {:my_eqs => @my_eqs, :current => @my_eq.emotional_grouping}
+
+%div#normal_step.my_eq_step.content_right
+  .padded
+    %h1
+      = image_tag "my_eqs/number_#{@part}.png"
+      = @page_title
+    %div.back= link_to image_tag("grey_arrow_left_small.png") + "#{@my_eq.emotional_grouping}", my5_my_eq_path(@my_eq)
+    %div.normal_step_content
+      = image_tag @page_image
+      = @page_content
+      .clearfix
+    .actions.clear
+      = link_to "Previous step", my5_my_eq_with_part_path(@my_eq, @part - 1), :class => "my_eq_button #{'previous' unless @part == 1}" 
+      = link_to "Next step", my5_my_eq_with_part_path(@my_eq, @part + 1), :class => "my_eq_button #{'next' unless @part == 5}"

@@ -1,0 +1,18 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(audio_program) -%>">
+  <span class='title'>
+    <%= audio_program.title %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_go.png"), my5_audio_program_path(audio_program),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_audio_program_path(audio_program),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), admin_audio_program_path(audio_program),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => audio_program.title),
+        :method => :delete %>
+  </span>
+</li>

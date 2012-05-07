@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    symptomatics:
+      title: Symptomatics
+  admin:
+    symptomatics:
+      actions:
+        create_new: Maak een nieuwe Symptomatic
+        reorder: Wijzig de volgorde van de Symptomatics
+        reorder_done: Klaar met het wijzingen van de volgorde van de Symptomatics
+      records:
+        title: Symptomatics
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Symptomatics. Druk op 'Maak een nieuwe Symptomatic' om de eerste aan te maken.
+      symptomatic:
+        view_live_html: Bekijk deze symptomatic op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze symptomatic
+        delete: Verwijder deze symptomatic voor eeuwig
+  symptomatics:
+    show:
+      other: Andere Symptomatics

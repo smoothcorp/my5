@@ -1,0 +1,15 @@
+- content_for :corp_action_content do 
+  %span=@corporation.active? ? "Active" : "Disabled"
+  = image_tag "#{@corporation.active? ? 'icons/layout_delete.png' : 'icons/layout.png'}", :id => "img-#{@corporation.id}", :alt => "Disable Corporation", :title => "Deactivate Corporation", :class => "deactivate-corp", "data-corp-id" => "#{@corporation.id}", :style => "cursor:pointer;"
+
+- if @success
+  $('img[data-corp-id=#{params[:id]}]').parent().html("#{escape_javascript(yield :corp_action_content)}");
+  $('.deactivate-corp').each(function(e){
+  $(this).unbind('click').click(function(ev){
+  ev.preventDefault();
+  $.get('/refinery/deactivate_corp/'+$(this).attr('data-corp-id')+'.js', function(){});
+  });    
+  });
+    
+- else
+  alert('Uh-oh, something went wrong.  Please refresh the page and try again.');

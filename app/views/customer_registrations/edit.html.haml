@@ -1,0 +1,68 @@
+- content_for :extra_stylesheets do
+  = stylesheet_link_tag "my5/base"
+
+.content_left
+  .padded
+    %h1 Edit my account
+
+    = semantic_form_for(resource, :as => resource_name, :url => upload_image_path, :html => { :multipart => true, :method => :post }, :remote => true) do |f|
+      %li.avatar_section
+        / This is a bit hacky, but it's hard to find an alternative without altering Paperclip or Formtastic.  Something to raise on Github.
+        .img{:style => "background: url('#{Customer.find(resource.id).avatar.url(:thumb)}') no-repeat center;"}
+        = f.label :avatar, "Display picture"
+        = f.file_field :avatar
+        %br
+        = f.submit "Upload"
+
+    .clearfix
+    = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put }) do |f|
+
+      .clearfix
+      %li
+        %label Reminder emails
+        .reminder_emails
+          - if current_customer.reminders.empty?
+            = link_to "Setup my reminder emails", my5_reminder_emails_path
+          - else
+            %b You have #{current_customer.reminders.count} active reminders.
+            %br
+            = link_to "Edit my reminder emails", my5_reminder_emails_path
+      - if current_customer.retail?
+        %li
+          = f.label "Subscription"
+          .subscription
+            - subscription = current_customer.subscriptions.active_subscription.first
+            
+            - if subscription
+              You are currently using My 5 #{subscription.free_trial? ? "within the Free Trial" : "with a Yearly subscription"} period, which ends on
+              %b #{subscription.expiry_date_to_s}.
+            - else
+              You are currently using My 5 as part of a corporate plan.
+      %li
+        = f.label :renew_subscription, 'Automatically Renew Subscription', :class => "double-line"
+        = f.check_box :renew_subscription
+      .clearfix
+      %h3 Personal details
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :email
+
+      %li
+        %label Billing Details
+        .billing_details
+          = link_to 'Update My Billing Details', customer_edit_billing_details_url
+
+      .clearfix
+      %h3 Change your password
+      = f.input :password, :label => "New password"
+      = f.input :password_confirmation, :label => "Confirm new password"
+      = f.input :current_password, :hint => "(we need your current password to confirm your changes)"
+
+      = f.submit "Update"
+
+.infobar_right
+  %h3 Cancel my account
+
+  %p
+    Unhappy?
+    = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete

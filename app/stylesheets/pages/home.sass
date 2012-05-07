@@ -1,0 +1,58 @@
+@import "shared/global_passives"
+
+#banner
+    +grid(24)
+    +alpha
+    +omega
+    background: #fff url('/images/pages/home/lady_with_ball.png') right no-repeat
+    height: 450px
+    #text
+        +grid(13)
+        +alpha
+        padding: 0 20px 20px
+        a
+            margin: 20px 0
+            +link-colors(#109a00, #109a00, #109a00, #109a00, #109a00)
+            font-size: 18px
+            font-weight: bold
+            margin-right: 10px
+            &.button
+                color: white
+                padding: 10px 20px
+        ul
+            list-style: circle
+            margin:
+                top: 5px
+                left: 5px
+            li
+                margin:
+                    left: 10px
+        p
+            margin:
+                bottom: 5px
+#verbs
+    +grid(24)
+    +alpha
+    +omega
+    background: #fff
+    border-bottom: 1px solid #ccc
+    li
+        +grid(6)
+        &.first, &.last
+            width: 210px
+        img
+            float: left
+            margin:
+                top: 20px
+                right: 10px
+        h2 
+            clear: none !important
+
+#quote
+    +grid-prefix(1)
+    +grid(22)
+    +alpha
+    +omega
+    +grid-suffix(1)
+    background: #fff
+    text-align: center

@@ -1,0 +1,104 @@
+@import "shared/global_passives"
+@import "shared/leftbar"
+@import "my5/shared/header"
+
+.content
+  +grid(24)
+  background: #fff
+  padding-top: 10px
+
+.leftbar
+  +leftbar
+  +alpha
+  
+.content_right 
+  +grid(18)
+  +alpha
+  +omega
+  .padded
+    padding:
+      top: 15px
+  
+.content_left
+  +grid(15)
+  +alpha
+  
+.infobar_right
+  +grid(9)
+  +omega
+    
+.module_image_left
+  +grid-prefix(1)
+  +grid(12)
+  +alpha
+    
+.module_selection_right
+  +grid(10)
+  +grid-suffix(1)
+  +omega
+  h1
+    margin-bottom: 0px
+  p.select
+    font-size: 14pt
+    margin:
+      bottom: 0px
+      top: 0px
+    padding-bottom: 15px
+    border-bottom: 1px solid #ccc
+  a
+    +link-colors(dimgrey, dimgrey, dimgrey, dimgrey, dimgrey)
+  li
+    list-style: none !important
+    margin:
+      left: 0 !important
+    border-bottom: 1px solid #ccc
+    padding: 10px 0
+    font-size: 1.4em
+    img
+      width: 20px
+      height: 20px
+      vertical-align: middle
+    p
+      margin:
+        top: 5px
+        bottom: 0px
+        left: 28px
+      font-size: 0.8em
+      
+.video_header
+  padding:
+    bottom: 10px
+  h1
+    font-size: 28px
+    line-height: 38px
+    margin: 0px 0
+  a    
+    +link-colors(#3e3e3e, #888, #3e3e3e, #3e3e3e, #3e3e3e)
+    img
+      margin-right: 5px
+        
+.video
+  position: relative
+  iframe
+    width: 100%
+    height: 400px
+    
+
+.leftbar
+  li
+    line-height: 10px !important
+    padding: 15px 0 15px 40px
+    .img
+      margin:
+        top: 1px !important
+        right: 12px
+      float: left
+    a
+      line-height: 25px
+      display: inline-block
+      width: 85%
+      
+#audio_programs.show .content, #audio_programs.show_audio .content, #my_eqs .content, #mini_modules.show .content, #mini_modules.show_video .content
+  padding:
+    top: 0 !important
+  background: #fff

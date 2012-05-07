@@ -1,0 +1,18 @@
+:javascript
+    var _bugHerdAPIKey = '9b4d1851-3fa6-4117-812a-bf74418a4a36';
+    (function (d, t) {
+        var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        bh.type = 'text/javascript';
+        bh.src = "//www.bugherd.com/bugherd.js?";
+        s.parentNode.insertBefore(bh, s);
+    })(document, 'script');
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26361746-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

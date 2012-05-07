@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    symptomatics:
+      title: Symptomatics
+  admin:
+    symptomatics:
+      actions:
+        create_new: Add New Symptomatic
+        reorder: Reorder Symptomatics
+        reorder_done: Done Reordering Symptomatics
+      records:
+        title: Symptomatics
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Symptomatics yet. Click "Add New Symptomatic" to add your first symptomatic.
+      symptomatic:
+        view_live_html: View this symptomatic live <br/><em>(opens in a new window)</em>
+        edit: Edit this symptomatic
+        delete: Remove this symptomatic forever
+  symptomatics:
+    show:
+      other: Other Symptomatics

@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    subscriptions:
+      title: Subscriptions
+  admin:
+    subscriptions:
+      actions:
+        create_new: CREATE NEW Subscription
+        reorder: REORDR Subscriptions
+        reorder_done: DUN REORDERIN Subscriptions
+      records:
+        title: Subscriptions
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Subscriptions YET. CLICK "CREATE NEW Subscription" 2 ADD UR FURST subscription.
+      subscription:
+        view_live_html: VIEW DIS subscription LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS subscription
+        delete: REMOOV DIS subscription FOREVR
+  subscriptions:
+    show:
+      other: OTHR Subscriptions

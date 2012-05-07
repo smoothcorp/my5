@@ -1,0 +1,9 @@
+.padded
+  %h1= current_customer.corporation.name
+  %h2 Add a new department
+  = semantic_form_for [:my5, @department] do |f|
+    = render :partial => "form", :locals => {:current_customer => current_customer, :f => f}
+    
+    .actions
+      = f.submit "Add department"
+      = link_to "Cancel", my5_departments_path

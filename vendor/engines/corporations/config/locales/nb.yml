@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    corporations:
+      title: Corporations
+  admin:
+    corporations:
+      actions:
+        create_new: Lag en ny Corporation
+        reorder: Endre rekkefølgen på Corporations
+        reorder_done: Ferdig å endre rekkefølgen Corporations
+      records:
+        title: Corporations
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Corporations enda. Klikk på "Lag en ny Corporation" for å legge til din første corporation.
+      corporation:
+        view_live_html: Vis hvordan denne corporation ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne corporation
+        delete: Fjern denne corporation permanent
+  corporations:
+    show:
+      other: Andre Corporations

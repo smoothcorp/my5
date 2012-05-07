@@ -1,0 +1,12 @@
+!!!
+%html
+    %head
+        = render 'shared/head', :page_title => browser_title(yield :title), :include_common => true
+    %body{ :id => params[:controller].parameterize.split('-').last }
+        %div#header= render 'shared/header'
+        %div{:id => params[:action].parameterize }
+            = render 'shared/flashes'
+            = yield
+        %div#footer= render 'shared/footer'
+
+        = render 'shared/seo'

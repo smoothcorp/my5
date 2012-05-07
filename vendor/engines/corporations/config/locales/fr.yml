@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    corporations:
+      title: Corporations
+  admin:
+    corporations:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Corporation
+        reorder: Réordonner les Corporations
+        reorder_done: Fin de réordonnancement des Corporations
+      records:
+        title: Corporations
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Corporation. Cliquer sur "Créer un(e) nouve(au/l/lle) Corporation" pour créer votre premi(er/ère) corporation.'
+      corporation:
+        view_live_html: Voir ce(t/tte) corporation <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) corporation
+        delete: Supprimer définitivement ce(t/tte) corporation
+  corporations:
+    show:
+      other: Autres Corporations

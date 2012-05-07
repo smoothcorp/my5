@@ -1,0 +1,11 @@
+.content_left
+  .padded
+    %h1 Edit email reminder
+    %p To alter your email reminder, please select your preferences below:
+    = render :partial => "form"
+
+.infobar_right
+  %h3 Want to cancel this reminder?
+
+  %p
+    = link_to 'Cancel Reminder', my5_reminder_email_path(@reminder_email), :confirm => 'Are you sure that you want to remove this reminder?', :method => :delete

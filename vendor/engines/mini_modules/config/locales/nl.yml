@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    mini_modules:
+      title: Mini Modules
+  admin:
+    mini_modules:
+      actions:
+        create_new: Maak een nieuwe Mini Module
+        reorder: Wijzig de volgorde van de Mini Modules
+        reorder_done: Klaar met het wijzingen van de volgorde van de Mini Modules
+      records:
+        title: Mini Modules
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Mini Modules. Druk op 'Maak een nieuwe Mini Module' om de eerste aan te maken.
+      mini_module:
+        view_live_html: Bekijk deze mini module op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze mini module
+        delete: Verwijder deze mini module voor eeuwig
+  mini_modules:
+    show:
+      other: Andere Mini Modules

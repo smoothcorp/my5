@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    audio_programs:
+      title: Audio Programs
+  admin:
+    audio_programs:
+      actions:
+        create_new: Maak een nieuwe Audio Program
+        reorder: Wijzig de volgorde van de Audio Programs
+        reorder_done: Klaar met het wijzingen van de volgorde van de Audio Programs
+      records:
+        title: Audio Programs
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Audio Programs. Druk op 'Maak een nieuwe Audio Program' om de eerste aan te maken.
+      audio_program:
+        view_live_html: Bekijk deze audio program op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze audio program
+        delete: Verwijder deze audio program voor eeuwig
+  audio_programs:
+    show:
+      other: Andere Audio Programs

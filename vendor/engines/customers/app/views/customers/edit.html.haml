@@ -1,0 +1,9 @@
+.padded
+  %h1= current_customer.corporation.name
+  %h2 Edit employee
+  = semantic_form_for @customer, :url => customers_update_corp_customer_path do |f|
+    = render :partial => "form", :locals => {:current_customer => current_customer, :f => f}
+    
+    .actions
+      = f.submit "Save changes"
+      = link_to "Cancel", customers_path

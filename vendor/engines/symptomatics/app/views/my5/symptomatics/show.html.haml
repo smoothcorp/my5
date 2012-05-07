@@ -1,0 +1,13 @@
+= render :partial => "body_parts"
+
+%ul#conditions.module_selection_right
+    %h1= Bodypart.find_by_id(params[:id].to_i).title
+    - unless @symptomatics.blank?
+        %p.select Select a symptom:
+        - @symptomatics.each do |s|
+            %li
+                = image_tag "logo_pinwheel.png"
+                = link_to s.condition, my5_condition_path(params[:id], s.to_param)
+                %p= s.description
+    - else
+        %p There are currently no symptoms in this section.

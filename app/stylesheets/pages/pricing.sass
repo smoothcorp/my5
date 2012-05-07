@@ -1,0 +1,46 @@
+@import "shared/global_passives"
+
+
+h1
+  text-align: center
+.left, .right
+  text-align: center
+  .padded
+    padding:
+      top: 0 !important
+    h1, h2
+      margin: 0 !important
+      padding:
+        bottom: 15px
+      line-height: 24px
+.left
+  +grid(12)
+  +alpha
+  +omega
+  padding:
+    right: 10px
+  border:
+    right: 1px solid #3e3e3e
+  .price
+    font-size: 24px
+    line-height: 80px
+    padding:
+      bottom: 15px
+.right
+  +grid(12)
+  width: 459px !important // To handle the border
+  +omega
+  .corporate-description
+    height: 80px
+    padding:
+      bottom: 15px
+table
+  align: center
+  margin: 0 auto
+  border: 1px solid #3e3e3e
+  width: 350px
+  td
+    padding: 5px 10px
+    border: 1px solid #ccc
+    &.center
+      text-align: center

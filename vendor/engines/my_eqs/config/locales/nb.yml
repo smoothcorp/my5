@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    my_eqs:
+      title: My Eqs
+  admin:
+    my_eqs:
+      actions:
+        create_new: Lag en ny My Eq
+        reorder: Endre rekkefølgen på My Eqs
+        reorder_done: Ferdig å endre rekkefølgen My Eqs
+      records:
+        title: My Eqs
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen My Eqs enda. Klikk på "Lag en ny My Eq" for å legge til din første my eq.
+      my_eq:
+        view_live_html: Vis hvordan denne my eq ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne my eq
+        delete: Fjern denne my eq permanent
+  my_eqs:
+    show:
+      other: Andre My Eqs

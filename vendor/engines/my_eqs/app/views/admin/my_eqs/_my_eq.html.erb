@@ -1,0 +1,18 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(my_eq) -%>">
+  <span class='title'>
+    <%= my_eq.emotional_grouping %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_go.png"), my5_my_eq_path(my_eq),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_my_eq_path(my_eq),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), admin_my_eq_path(my_eq),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => my_eq.emotional_grouping),
+        :method => :delete %>
+  </span>
+</li>

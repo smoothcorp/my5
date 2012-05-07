@@ -1,0 +1,32 @@
+- if content_for?(:extra_js)
+  - content_for :extra_js do
+    = javascript_include_tag "https://www.google.com/jsapi"
+- else
+  = javascript_include_tag "https://www.google.com/jsapi"
+
+// ---- Setup the the data_values
+- data_values = ""
+- data_sets.each_with_index do |data_set, i|
+  - data_set.each_with_index do |data, j|
+    - data_values += "data.setValue(#{j}, #{i+1}, #{data});\n"
+- (0..data_sets[0].count).each do |k|
+  - data_values += "data.setValue(#{k}, 0, '#{axis_labels[k]}');\n"
+  
+// ---- Setup the the series_labels
+- series_labels = ""
+- data_series_labels.each_with_index do |data_series_label, l|
+  - series_labels += "data.addColumn('number', '#{data_series_label}');\n"
+ 
+:javascript
+  google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Year');
+      #{series_labels}
+      data.addRows(#{data_sets[0].count+1});
+      #{data_values}
+          
+      var chart = new google.visualization.LineChart(document.getElementById('#{div}'));
+      chart.draw(data, {width: 960, height: 350, lineWidth: 3, pointSize: 5, colors:['#40a9e9', '#d6001a', '#36b020'], chartArea: {left: 28, top: 50, width: '90%', height: '80%'}, backgroundColor: 'transparent', hAxis: {slantedText: true, showTextEvery: 1}, vAxis: {gridlineColor: '#ccc', maxValue: 10, minValue: 0, viewWindowMode: 'explicit', viewWindow:{min: 0, max: 12}}, legend: 'bottom'});
+    }

@@ -1,0 +1,34 @@
+- if content_for?(:extra_js)
+  - content_for :extra_js do
+    = javascript_include_tag "https://www.google.com/jsapi"
+- else
+  = javascript_include_tag "https://www.google.com/jsapi"
+
+- title = title.blank? ? nil : title
+
+// ---- Setup the the data_values
+- data_values = ""
+- data_sets.each_with_index do |data_set, i|
+  - data_set.each_with_index do |data, j|
+    - data_values += "data.setValue(#{j}, #{i+1}, #{data});\n"
+- axis_labels.each_with_index do |axis_label, k|
+  - data_values += "data.setValue(#{k}, 0, '#{axis_label}');\n"
+  
+// ---- Setup the the series_labels
+- series_labels = ""
+- data_series_labels.each_with_index do |data_series_label, l|
+  - series_labels += "data.addColumn('#{data_type}', '#{data_series_label}');\n"
+ 
+:javascript
+  google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Year');
+      #{series_labels}
+      data.addRows(#{axis_labels.count});
+      #{data_values}
+        
+      var chart = new google.visualization.ColumnChart(document.getElementById('#{div}'));
+      chart.draw(data, {#{unless title.blank? then ("title: '" + title + "', ") end} width: #{width}, height: #{height}, titleTextStyle: {color: 'black', fontName: 'Arial', fontSize: 16}, lineWidth: 3, pointSize: 5, colors:['#40a9e9', '#d6001a', '#36b020', '#e0983a', '#bcbdbf'], chartArea: {left: 45, top: 50, width: '87%', height: '70%'}, backgroundColor: 'transparent', hAxis: {showTextEvery: 1}, vAxis: {gridlineColor: '#ccc'}, legend: 'top'});
+    }

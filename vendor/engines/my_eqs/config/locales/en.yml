@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    my_eqs:
+      title: My Eqs
+  admin:
+    my_eqs:
+      actions:
+        create_new: Add New My Eq
+        reorder: Reorder My Eqs
+        reorder_done: Done Reordering My Eqs
+      records:
+        title: My Eqs
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no My Eqs yet. Click "Add New My Eq" to add your first my eq.
+      my_eq:
+        view_live_html: View this my eq live <br/><em>(opens in a new window)</em>
+        edit: Edit this my eq
+        delete: Remove this my eq forever
+  my_eqs:
+    show:
+      other: Other My Eqs

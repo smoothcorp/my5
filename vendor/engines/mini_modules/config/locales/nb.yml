@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    mini_modules:
+      title: Mini Modules
+  admin:
+    mini_modules:
+      actions:
+        create_new: Lag en ny Mini Module
+        reorder: Endre rekkefølgen på Mini Modules
+        reorder_done: Ferdig å endre rekkefølgen Mini Modules
+      records:
+        title: Mini Modules
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Mini Modules enda. Klikk på "Lag en ny Mini Module" for å legge til din første mini module.
+      mini_module:
+        view_live_html: Vis hvordan denne mini module ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne mini module
+        delete: Fjern denne mini module permanent
+  mini_modules:
+    show:
+      other: Andre Mini Modules

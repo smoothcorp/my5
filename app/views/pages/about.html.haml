@@ -1,0 +1,11 @@
+- content_for :extra_stylesheets do
+    = stylesheet_link_tag "pages/about"
+    
+#generic_page
+    %h1 About Us
+
+    %ul.padded
+        - @page.parts.each do |p|
+            %li
+                %h2= raw(p.title)
+                %p.body= raw(p.body)

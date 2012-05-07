@@ -1,0 +1,118 @@
+@import "shared/global_passives"
+
+@mixin my5_dashboard_active_link
+    background-position: 0px -37px !important
+    color: #3e3e3e !important
+
+#header_background
+    position: absolute
+    z-index: 1
+    top: 0px
+    left: 0px
+    height: 84px
+    width: 100%
+    background-color: grey
+    #colour_strip
+        height: 5px
+        background: url('/images/coloured_bars.png') repeat-x
+    #dark_gradient
+        height: 37px
+        background-color: black
+    #grey_gradient
+        height: 36px
+        background-color: grey
+
+#header
+    +grid(24)
+    position: relative
+    z-index: 2
+    height: 78px
+    margin-top: 6px
+    line-height: 8px
+    a
+        +link-colors(#fff, #fff, #fff, #fff, #fff)
+        font-weight: bold
+    #logo
+        +grid(10)
+        +alpha
+        height: 36px
+        line-height: 36px
+        img
+            vertical-align: middle
+            height: 30px
+    #actions
+        +grid(14)
+        +omega
+        height: 36px
+        line-height: 40px
+        color: #ccc
+        text-align: right
+        a.management-reports
+            margin:
+                right: 5px
+        img
+            height: 24px
+            vertical-align: middle
+            margin:
+                top: -6px
+                right: 5px
+    .nav
+        height: 36px
+        line-height: 44px
+        padding-top: 5px
+        a
+            display: block
+            float: left
+            width: 135px
+            &#home
+                width: 60px
+                height: 37px
+                background: url("/images/dashboard/home_tab.png") 0px -37px no-repeat !important
+                vertical-align: middle
+                img
+                    margin-top: 12px
+                &:hover
+                    background-position: 0px 0px !important
+        &#modules
+            +grid(19)
+            +alpha
+            a
+                height: 37px !important
+                background: url("/images/dashboard/tab.png") no-repeat
+                &:hover
+                    background-position: 0px -37px
+                    color: #3e3e3e
+        &#health_checkin
+            +grid(4)
+            +omega
+            float: right !important
+            margin-right: 20px
+            a
+                padding:
+                    left: 10px
+                    right: 10px
+                background: url("/images/dashboard/green_tab.png") no-repeat
+                img
+                    margin:
+                        right: 5px
+                        top: -8px
+                    vertical-align: middle
+
+#dashboard
+    #header
+        nav
+            #home
+                background-position: 0px 0px !important
+#symptomatics, .symptomatic_video
+    #symptomatics_link
+        +my5_dashboard_active_link
+#my_eqs
+    #my_eq_link
+        +my5_dashboard_active_link
+#mini_modules
+    #mini_modules_link
+        +my5_dashboard_active_link
+#audio_programs
+    #audio_programs_link
+        +my5_dashboard_active_link
+

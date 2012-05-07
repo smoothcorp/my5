@@ -1,0 +1,15 @@
+- content_for :extra_js do
+  = javascript_include_tag "jquery-ui-1.8.16.custom.min"
+  = javascript_include_tag "selectToUISlider.jQuery"
+  = javascript_include_tag "my5/health_checkins/new"
+- content_for :extra_stylesheets do
+  = stylesheet_link_tag "slider/ui.slider.extras"
+  = stylesheet_link_tag "slider/south-street/jquery-ui-1.8.16.custom"
+
+.green-bar
+.padded
+  = render "steps"
+  #slider
+    - zone = HealthCheckin::ZONES[@step || 0].downcase
+    %h2 How do you rate your #{zone} levels today?
+    = render 'form'

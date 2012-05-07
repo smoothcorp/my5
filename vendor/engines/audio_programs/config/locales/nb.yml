@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    audio_programs:
+      title: Audio Programs
+  admin:
+    audio_programs:
+      actions:
+        create_new: Lag en ny Audio Program
+        reorder: Endre rekkefølgen på Audio Programs
+        reorder_done: Ferdig å endre rekkefølgen Audio Programs
+      records:
+        title: Audio Programs
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Audio Programs enda. Klikk på "Lag en ny Audio Program" for å legge til din første audio program.
+      audio_program:
+        view_live_html: Vis hvordan denne audio program ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne audio program
+        delete: Fjern denne audio program permanent
+  audio_programs:
+    show:
+      other: Andre Audio Programs

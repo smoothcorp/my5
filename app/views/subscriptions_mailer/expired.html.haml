@@ -1,0 +1,8 @@
+= content_for :email_title do
+  Your My 5 Free Trial expires soon
+= content_for :email_body do
+  %p Hi #{@customer.first_name},
+
+  %p This is an email letting you know that your subscription to My 5 has expired.
+
+=render "shared/mail_base"

@@ -1,0 +1,17 @@
+- content_for :extra_stylesheets do
+    = stylesheet_link_tag "pages/home"
+  
+%div#banner.clear
+    %div#text
+        = raw(@page.content_for :heading)
+        = link_to "Start free 10 day trial", new_customer_registration_path, :class => 'button'
+        = link_to "Find out more", page_path("features")
+#bars
+%div#verbs
+    %ul
+        - (1..4).each do |n|
+            %li{:class => "#{if n == 1 then 'first' elsif n == 4 then 'last' else '' end}"}
+                = image_tag "logo_pinwheel.png"
+                = raw(@page.content_for "verb#{n}")
+%div#quote
+    = raw(@page.content_for :quote)

@@ -1,0 +1,23 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(customer) -%>">
+  <span class='title'>
+    <%= customer_index_label(customer) %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='customer-type'>
+    <%= customer.corporation_id.nil? ? "Retail" : "Corporate" %>
+    <span></span>
+  </span>
+  <span class='customer-signup'>
+    <%= customer.created_at.strftime("%d %b %Y") %>
+    <span></span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_customer_path(customer),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), admin_customer_path(customer),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => customer.first_name),
+        :method => :delete %>
+  </span>
+</li>

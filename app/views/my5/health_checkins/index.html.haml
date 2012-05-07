@@ -1,0 +1,19 @@
+.green-bar
+.padded
+  = render "steps"
+  - unless @health_checkins.blank?
+    #chart
+    - stress_ratings = @health_checkins.map {|h|  h.stress_rating || 0 }
+    - energy_ratings = @health_checkins.map {|h|  h.energy_rating || 0 }
+    - comfort_ratings = @health_checkins.map {|h|  h.comfort_rating || 0 }
+    - dates_for_axis = @health_checkins.map {|h|  h.created_at.strftime("%e %b %l:%M%p") }
+    = render :partial => "shared/line_chart", :locals => {:axis_labels => dates_for_axis, :data_series_labels => ["Stress Levels", "Energy Levels", "Comfort Levels"], :data_sets => [stress_ratings, energy_ratings, comfort_ratings], :div => "chart"}
+  #description The personal health check in allows you to record your energy,stress and comfort levels and to monitor how these can change and gauge your progress.
+
+  #new_health_checkin{:style => "#{'text-align: center' if @health_checkins.blank?}"}
+    = link_to "Checkin Now", new_my5_health_checkin_path, :class => "button"
+    - unless @health_checkins.blank?
+      %span#clear_checkins= button_to "Clear checkins", my5_health_checkin_path(@health_checkins.first.id), :method => :delete, :confirm => "You are about to clear your recent health checkins"
+
+  - if @health_checkins.count > 0
+    #recommended_exercises= render 'recommend_exercises'

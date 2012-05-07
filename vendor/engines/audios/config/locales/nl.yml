@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    audios:
+      title: Audios
+  admin:
+    audios:
+      actions:
+        create_new: Maak een nieuwe Audio
+        reorder: Wijzig de volgorde van de Audios
+        reorder_done: Klaar met het wijzingen van de volgorde van de Audios
+      records:
+        title: Audios
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Audios. Druk op 'Maak een nieuwe Audio' om de eerste aan te maken.
+      audio:
+        view_live_html: Bekijk deze audio op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze audio
+        delete: Verwijder deze audio voor eeuwig
+  audios:
+    show:
+      other: Andere Audios

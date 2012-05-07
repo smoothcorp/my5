@@ -1,0 +1,18 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(symptomatic) -%>">
+  <span class='title'>
+    <%= symptomatic.condition %>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_go.png"), my5_symptomatic_path(symptomatic),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    <%= link_to refinery_icon_tag("application_edit.png"), edit_admin_symptomatic_path(symptomatic.id),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), admin_symptomatic_path(symptomatic),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'shared.admin.delete', :title => symptomatic.condition),
+        :method => :delete %>
+  </span>
+</li>

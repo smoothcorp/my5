@@ -1,0 +1,16 @@
+eway:
+  development:   
+    login: '87654321'
+    username: test@eway.com.au
+    password: test123
+  test:
+    login: '87654321'
+    username: test@eway.com.au
+    password: test123
+  production:
+    login: '10955573'
+    username: cassandra.kelly@pottinger.com
+    password: My5My5My5
+plans:
+  duration: 30
+  price: 10
