@@ -61,13 +61,13 @@ gem 'refinerycms-customers', :path => 'vendor/engines'
 gem 'refinerycms-corporations', '1.0', :path => 'vendor/engines'
 
 ##--- Logging and reporting
-gem 'eventlogger', '0.0.2',  :git => 'http://semblancesystems@github.com/semblancesystems/eventlogger.git'
+gem 'eventlogger', '0.0.2',  :git => 'git://github.com/semblancesystems/eventlogger.git'
 gem 'ruport'
 gem 'acts_as_reportable'
 gem 'ruport-util'
-gem 'comma', :git => 'http://semblancesystems@github.com/chexton/comma.git'
+gem 'comma', :git => 'git://github.com/chexton/comma.git'
 gem 'garb'
 
 ##-- Mailer Testing
 gem 'tilt'
-gem 'mail_view', :git => 'http://semblancesystems@github.com/37signals/mail_view.git'
+gem 'mail_view', :git => 'git://github.com/37signals/mail_view.git'
