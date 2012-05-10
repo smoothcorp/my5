@@ -7,7 +7,7 @@
 .left
   .padded
     %h2 Individual
-    .price Just $36.00 per year!
+    .price Just $#{Program.first.try(:price)} per year!
     %table.features
       - ["Reduce stress and aches and pains", "Increase energy and vitality", "Enhance your emotional wellbeing", "Improve your overall health and wellness"].each do |feature|
         %tr

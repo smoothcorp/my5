@@ -4,7 +4,7 @@
 
 <nav id="menu">
   <% Refinery::Plugins.active.in_menu.each do |plugin| -%>
-    <% unless plugin.title == "Files" || plugin.title == "Settings" || plugin.title == "Subscriptions"%>
+    <% unless plugin.title == "Files" || plugin.title == "Program" || plugin.title == "Settings" || plugin.title == "Subscriptions"%>
       
         <!-- This is custom code that define the various special colours for the menu items -->
         <% file_mgmt = (plugin.title == "Videos" || plugin.title == "Audios") ? true : false %>

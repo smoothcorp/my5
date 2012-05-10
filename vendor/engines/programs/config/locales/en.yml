@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    programs:
+      title: Programs
+  admin:
+    programs:
+      actions:
+        create_new: Add New Program
+        reorder: Reorder Programs
+        reorder_done: Done Reordering Programs
+      records:
+        title: Programs
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Programs yet. Click "Add New Program" to add your first program.
+      program:
+        view_live_html: View this program live <br/><em>(opens in a new window)</em>
+        edit: Edit this program
+        delete: Remove this program forever
+  programs:
+    show:
+      other: Other Programs

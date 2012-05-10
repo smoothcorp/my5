@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    programs:
+      title: Programs
+  admin:
+    programs:
+      actions:
+        create_new: CREATE NEW Program
+        reorder: REORDR Programs
+        reorder_done: DUN REORDERIN Programs
+      records:
+        title: Programs
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Programs YET. CLICK "CREATE NEW Program" 2 ADD UR FURST program.
+      program:
+        view_live_html: VIEW DIS program LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS program
+        delete: REMOOV DIS program FOREVR
+  programs:
+    show:
+      other: OTHR Programs

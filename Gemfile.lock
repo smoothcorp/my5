@@ -25,19 +25,20 @@ GIT
 PATH
   remote: vendor/engines
   specs:
-    refinerycms-customers (1.1)
-
-PATH
-  remote: vendor/engines
-  specs:
     refinerycms-audio_programs (1.0)
     refinerycms-audios (1.0)
     refinerycms-corporations (1.0)
     refinerycms-mini_modules (1.0)
     refinerycms-my_eqs (1.0)
+    refinerycms-programs (1.0)
     refinerycms-subscriptions (1.0)
     refinerycms-symptomatics (1.0)
     refinerycms-videos (1.0)
+
+PATH
+  remote: vendor/engines
+  specs:
+    refinerycms-customers (1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -414,6 +415,7 @@ DEPENDENCIES
   refinerycms-customers!
   refinerycms-mini_modules (= 1.0)!
   refinerycms-my_eqs (= 1.0)!
+  refinerycms-programs (= 1.0)!
   refinerycms-subscriptions (= 1.0)!
   refinerycms-symptomatics (= 1.0)!
   refinerycms-testing

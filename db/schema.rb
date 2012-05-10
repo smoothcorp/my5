@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411045220) do
+ActiveRecord::Schema.define(:version => 20120510183617) do
 
   create_table "activities", :force => true do |t|
     t.datetime "created_at"
@@ -237,6 +237,15 @@ ActiveRecord::Schema.define(:version => 20120411045220) do
     t.integer  "status",          :default => 0
     t.string   "invoice_no"
   end
+
+  create_table "programs", :force => true do |t|
+    t.decimal  "price",      :precision => 10, :scale => 0
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "programs", ["id"], :name => "index_programs_on_id"
 
   create_table "refinery_settings", :force => true do |t|
     t.string   "name"

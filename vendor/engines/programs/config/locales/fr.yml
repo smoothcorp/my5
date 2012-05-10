@@ -1,0 +1,25 @@
+fr:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    programs:
+      title: Programs
+  admin:
+    programs:
+      actions:
+        create_new: Créer un(e) nouve(au/l/lle) Program
+        reorder: Réordonner les Programs
+        reorder_done: Fin de réordonnancement des Programs
+      records:
+        title: Programs
+        sorry_no_results: "Désolé ! Aucun résultat."
+        no_items_yet: 'Il n''y a actuellement aucun(e) Program. Cliquer sur "Créer un(e) nouve(au/l/lle) Program" pour créer votre premi(er/ère) program.'
+      program:
+        view_live_html: Voir ce(t/tte) program <br/><em>(Ouvre une nouvelle fenêtre)</em>
+        edit: Modifier ce(t/tte) program
+        delete: Supprimer définitivement ce(t/tte) program
+  programs:
+    show:
+      other: Autres Programs

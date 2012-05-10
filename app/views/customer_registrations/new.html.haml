@@ -2,7 +2,7 @@
   %h1 Sign up
 
   %h2 Join now for a free 10 day trial!
-  %p After the initial 10 days, you will be charged $36.00 for a yearly subscription.
+  %p After the initial 10 days, you will be charged $#{Program.first.try(:price)} for a yearly subscription.
 
   = semantic_form_for resource, :as => resource_name, :url => customer_confirm_details_url do |f|
 

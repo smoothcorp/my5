@@ -1,11 +1,19 @@
-development: &sqlite
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
-test:
-  <<: *sqlite
-  database: db/test.sqlite3
+defaults: &defaults
+  adapter: mysql2
+  host: localhost
+  username: root
+  password: 
+  encoding: utf8
+  socket: /tmp/mysql.sock
+
+development:
+  database: my5_development
+  <<: *defaults
+
+test: &test
+  database: my5_test
+  <<: *defaults
+
 staging: &mysql
   adapter: mysql
   encoding: utf8

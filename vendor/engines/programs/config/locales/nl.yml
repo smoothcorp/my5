@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    programs:
+      title: Programs
+  admin:
+    programs:
+      actions:
+        create_new: Maak een nieuwe Program
+        reorder: Wijzig de volgorde van de Programs
+        reorder_done: Klaar met het wijzingen van de volgorde van de Programs
+      records:
+        title: Programs
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Programs. Druk op 'Maak een nieuwe Program' om de eerste aan te maken.
+      program:
+        view_live_html: Bekijk deze program op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze program
+        delete: Verwijder deze program voor eeuwig
+  programs:
+    show:
+      other: Andere Programs

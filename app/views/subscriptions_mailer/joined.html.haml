@@ -4,7 +4,7 @@
   %p
     Dear #{@customer.first_name},
   %p
-    Thanks for signing up to our free 10-day trial. At the end of 10 days, if you don't cancel, we'll bill your credit card for $36.00, a year's subscription to My 5. Enjoy!
+    Thanks for signing up to our free 10-day trial. At the end of 10 days, if you don't cancel, we'll bill your credit card for $#{Program.first.try(:price)}, a year's subscription to My 5. Enjoy!
 
   %p
     For your own records, please find your My 5 account information below:

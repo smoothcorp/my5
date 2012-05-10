@@ -4,7 +4,7 @@
   %p
     Thanks for signing up to our 
     %b free 10-day trial. 
-    At the end of 10 days, if you don't cancel, we'll bill your credit card for $36.00, a year's subscription to My 5. Enjoy!
+    At the end of 10 days, if you don't cancel, we'll bill your credit card for $#{Program.first.try(:price)}, a year's subscription to My 5. Enjoy!
 
   %p
     = link_to 'Continue to My 5', my5_dashboard_customer_url

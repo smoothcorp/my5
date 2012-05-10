@@ -71,3 +71,5 @@ gem 'garb'
 ##-- Mailer Testing
 gem 'tilt'
 gem 'mail_view', :git => 'git://github.com/37signals/mail_view.git'
+
+gem 'refinerycms-programs', '1.0', :path => 'vendor/engines'

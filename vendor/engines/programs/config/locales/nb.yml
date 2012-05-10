@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    programs:
+      title: Programs
+  admin:
+    programs:
+      actions:
+        create_new: Lag en ny Program
+        reorder: Endre rekkefølgen på Programs
+        reorder_done: Ferdig å endre rekkefølgen Programs
+      records:
+        title: Programs
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Programs enda. Klikk på "Lag en ny Program" for å legge til din første program.
+      program:
+        view_live_html: Vis hvordan denne program ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne program
+        delete: Fjern denne program permanent
+  programs:
+    show:
+      other: Andre Programs
