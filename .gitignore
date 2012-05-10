@@ -4,5 +4,3 @@ Gemfile.lock
 .rbenv-version
 db/development.sqlite3
 public/stylesheets
-public/javascripts
-log/

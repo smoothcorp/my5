@@ -5,31 +5,27 @@ class Refinery::ReportsController < ApplicationController
   layout 'admin'
   
   def index
-
-    @from = 1.month.ago
-    @to = Time.now
-    @customers_city_state = Customer.select("city, state")
-    # # Get details for the 30 day oerview reports
-    # @time_in_dashboard_30_days = time_in_section_30_days("Viewed Dashboard")
-    # @time_in_symptomatics_30_days = time_in_section_30_days("Accessed Symptomatics")
-    # @time_in_mini_modules_30_days = time_in_section_30_days("Accessed Mini Modules")
-    # @time_in_my_eqs_30_days = time_in_section_30_days("Accessed My EQs")
-    # @time_in_audio_programs_30_days = time_in_section_30_days("Accessed Audio Programs")
+    # Get details for the 30 day oerview reports
+    @time_in_dashboard_30_days = time_in_section_30_days("Viewed Dashboard")
+    @time_in_symptomatics_30_days = time_in_section_30_days("Accessed Symptomatics")
+    @time_in_mini_modules_30_days = time_in_section_30_days("Accessed Mini Modules")
+    @time_in_my_eqs_30_days = time_in_section_30_days("Accessed My EQs")
+    @time_in_audio_programs_30_days = time_in_section_30_days("Accessed Audio Programs")
     
-    # # Get details for the 30 day oerview reports
-    # @time_in_dashboard_90_days = time_in_section_90_days("Viewed Dashboard")
-    # @time_in_symptomatics_90_days = time_in_section_90_days("Accessed Symptomatics")
-    # @time_in_mini_modules_90_days = time_in_section_90_days("Accessed Mini Modules")
-    # @time_in_my_eqs_90_days = time_in_section_90_days("Accessed My EQs")
-    # @time_in_audio_programs_90_days = time_in_section_90_days("Accessed Audio Programs")
+    # Get details for the 30 day oerview reports
+    @time_in_dashboard_90_days = time_in_section_90_days("Viewed Dashboard")
+    @time_in_symptomatics_90_days = time_in_section_90_days("Accessed Symptomatics")
+    @time_in_mini_modules_90_days = time_in_section_90_days("Accessed Mini Modules")
+    @time_in_my_eqs_90_days = time_in_section_90_days("Accessed My EQs")
+    @time_in_audio_programs_90_days = time_in_section_90_days("Accessed Audio Programs")
     
-    # # Get GAnalytics data
-    # Garb::Session.login('chris@semblancesystems.com','webwiz250')
-    # profile = Garb::Management::Profile.all.detect {|p| p.web_property_id == 'UA-26361746-1'}
-    # @overview = GAReports::Overview.results(profile).to_a
-    # @pageviews = @overview.first.pageviews
-    # @visitors =  @overview.first.visitors
-    # @bouncerate = @overview.first.visit_bounce_rate.to_i
+    # Get GAnalytics data
+    Garb::Session.login('chris@semblancesystems.com','webwiz250')
+    profile = Garb::Management::Profile.all.detect {|p| p.web_property_id == 'UA-26361746-1'}
+    @overview = GAReports::Overview.results(profile).to_a
+    @pageviews = @overview.first.pageviews
+    @visitors =  @overview.first.visitors
+    @bouncerate = @overview.first.visit_bounce_rate.to_i
     
     # Respond to the difference formats
     respond_to do |format|
