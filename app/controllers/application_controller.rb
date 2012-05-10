@@ -37,17 +37,10 @@ class ApplicationController < ActionController::Base
   end
   
   def force_ssl
-    Rails.logger.debug "THE REQUEST IS: " + request.protocol.to_s
-    if !request.ssl? && Rails.env == 'production'
-      redirect_to "https://" + request.host + request.request_uri
-      flash.keep
-    end
+    force_devise_ssl
   end
   
   def force_devise_ssl
-    if params[:controller] && !request.ssl? && params[:controller].include?('devise') && Rails.env == 'production'
-      redirect_to "https://" + request.host + request.request_uri
-      flash.keep
-    end
+    Rails.logger.debug "Deactivating SSL for #{params[:controller]}"
   end
 end
