@@ -32,14 +32,19 @@ class CustomerRegistrationsController < Devise::RegistrationsController
   def create
     credit_card = session[:new_customer].delete(:credit_card)
     self.resource = Customer.new(session[:new_customer])
-    
+
     if self.resource.valid? # !credit_card.blank? && 
       if self.resource.store_eway_customer(credit_card) && resource.save
         session.delete(:new_customer)
 
         if resource.active_for_authentication?
-          Subscription.free_trial_for(resource.id, 10.days).save
-          SubscriptionsMailer.joined(self.resource).deliver
+          if self.resource.free_trial_opted?
+            Subscription.free_trial_for(resource.id, 10.days).save
+            SubscriptionsMailer.joined(self.resource).deliver
+          else
+            Subscription.yearly_subscription_for(resource.id)
+            SubscriptionsMailer.created(self.resource).deliver
+          end
 
           set_flash_message :notice, :signed_up if is_navigational_format?
           sign_in(resource_name, resource)

@@ -14,7 +14,7 @@ class Customer < ActiveRecord::Base
                                 :conditions => "occurences.id IS NOT NULL"
   
   ## --- SETUP ACCESS TO THE MODEL
-  attr_accessible :title, :first_name, :last_name, :email, :contact_phone, :street_1, :street_2, :city, :state, :country, :zip_code, :role, :corporation_id, :department_id, :password, :password_confirmation, :remember_me, :avatar, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :accept_terms
+  attr_accessible :title, :first_name, :last_name, :email, :contact_phone, :street_1, :street_2, :city, :state, :country, :zip_code, :role, :corporation_id, :department_id, :password, :password_confirmation, :remember_me, :avatar, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :accept_terms, :free_trial_opted
   acts_as_indexed :fields => [:first_name, :last_name, :email, :contact_phone, :role]
 
   ## --- VALIDATIONS

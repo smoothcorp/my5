@@ -13,6 +13,10 @@
       = f.input :password_confirmation, :required => true, :label_html => {:class => "double-line"}
 
     %h3 Payment Details
+    = f.radio_button :free_trial_opted, '1', :checked => true
+    = label :free_trial_opted_yes, 'Free trial for 10 days'
+    = f.radio_button :free_trial_opted, '0'
+    = label :free_trial_opted_yes, 'Buy now'
     = f.inputs :for => :credit_card do |card|
       - if resource && (resource.errors[:credit_card].nil? || !resource.errors[:credit_card].empty?)
         %p.alert Please check your credit card details.
