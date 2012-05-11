@@ -1,0 +1,7 @@
+= form_tag bulk_import_customers_path, :multipart => true do
+	Please choose CSV File to Upload
+	= file_field_tag "file"
+	%br
+	%br
+	%div.form_actions
+		= submit_tag "Import"

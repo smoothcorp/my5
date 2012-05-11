@@ -328,4 +328,22 @@ class Customer < ActiveRecord::Base
   def corporate?
     !self.corporation_id.nil?
   end
+
+  def self.build_from_csv(row)
+    cust = Customer.new
+    cust.attributes = {
+      :title => row[0],
+      :first_name => row[1],
+      :last_name => row[2],
+      :email => row[3],
+      :corporation => Corporation.find_by_name(row[4]),
+      :role => row[5],
+      :street_1 => row[6],
+      :city => row[7],
+      :state => row[8],
+      :country => row[9],
+      :zip_code => row[10],
+      :password => row[11]}
+    return cust
+  end
 end
