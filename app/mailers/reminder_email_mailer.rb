@@ -1,5 +1,5 @@
 class ReminderEmailMailer < ActionMailer::Base
-  default :from => "no-reply@my5.com.au"
+  default :from => "friendsofmy5@my5.com.au"
 
   def reminder(customer)
     @customer = customer

@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default :from => "no-reply@my5.com.au"
+  default :from => "friendsofmy5@my5.com.au"
   
   def new_message(email)
       @email = email
