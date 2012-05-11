@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510183617) do
+ActiveRecord::Schema.define(:version => 20120511175450) do
 
   create_table "activities", :force => true do |t|
     t.datetime "created_at"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120510183617) do
     t.integer  "department_id"
     t.boolean  "renew_subscription",                  :default => true
     t.string   "card_name"
+    t.string   "promo_code"
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
