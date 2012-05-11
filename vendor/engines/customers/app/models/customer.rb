@@ -262,7 +262,7 @@ class Customer < ActiveRecord::Base
   end
 
   def process_payment_for_subscription(previous_subscription = nil)
-    payment = Payment.new(:eway_token => self.eway_token, :amount => 36.00)
+    payment = Payment.new(:eway_token => self.eway_token, :amount => Program.first.price)
 
     if payment.can_process? && payment.process
       s = previous_subscription.kind_of?(Subscription) ? previous_subscription.renew(1.year) : Subscription.yearly_subscription_for(self.id)

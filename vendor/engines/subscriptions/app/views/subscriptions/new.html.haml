@@ -1,7 +1,7 @@
 %div.content_right
   .padded
     %h2 Renew My 5 Subscription
-    %p Cost of 1 Yearly My 5 Subscription is AU$36.00. We will be using the credit we have on file:
+    %p Cost of 1 Yearly My 5 Subscription is AU$#{Program.first.price}. We will be using the credit we have on file:
 
     - if !current_customer.eway_token.blank?
       %p
