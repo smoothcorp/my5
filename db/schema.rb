@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                               :default => "",   :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",   :null => false
+    t.string   "email",                               :default => "",       :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",       :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
     t.integer  "department_id"
     t.boolean  "renew_subscription",                  :default => true
     t.string   "card_name"
+    t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
     t.integer  "free_trial_opted",     :limit => 1
   end

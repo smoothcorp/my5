@@ -14,16 +14,13 @@ test: &test
   database: my5_test
   <<: *defaults
 
-staging: &mysql
-  adapter: mysql
-  encoding: utf8
-  socket: /tmp/mysql.sock
+staging:
   username: admin
   password: password
   database: staging
+
 production:
   adapter: mysql2
-#  host: 127.0.0.1
   socket: /tmp/mysql.sock
   database: my5admin_my5
   pool: 5

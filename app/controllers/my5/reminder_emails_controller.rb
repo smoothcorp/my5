@@ -14,7 +14,7 @@ class My5::ReminderEmailsController < ApplicationController
     @reminder_email = current_customer.reminders.find(params[:id])
 
     @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',')
-    @reminder_email.time = @reminder_email.time.localtime
+    @reminder_email.time = @reminder_email.time
   end
 
   def create

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout :layout_by_resource
-  before_filter :force_devise_ssl
+  before_filter :force_devise_ssl, :set_customer_time_zone
   
   def after_sign_in_path_for(resource)
       dashboard_url
@@ -42,5 +42,9 @@ class ApplicationController < ActionController::Base
   
   def force_devise_ssl
     Rails.logger.debug "Deactivating SSL for #{params[:controller]}"
+  end
+
+  def set_customer_time_zone
+    Time.zone = current_customer.time_zone if customer_signed_in?
   end
 end

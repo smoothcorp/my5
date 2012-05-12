@@ -4,7 +4,6 @@ class ReminderEmail < ActiveRecord::Base
   validates :time, :days_of_week, :customer_id, :presence => true
   attr_accessor :days_of_week_input
   
-  before_save :set_time_for_daylight_savings
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def self.active_in_last_5mins
@@ -37,9 +36,4 @@ class ReminderEmail < ActiveRecord::Base
     ReminderEmailMailer.reminder(self.customer).deliver
   end
 
-  private
-
-  def set_time_for_daylight_savings
-    self.time = self.time - 1.hour
-  end
 end
