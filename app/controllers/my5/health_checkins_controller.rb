@@ -5,7 +5,7 @@ class My5::HealthCheckinsController < ApplicationController
   layout 'customer'
 
   def index
-    @health_checkins = health_checkins.where(:status => 1).limit(7)
+    @health_checkins = health_checkins.where(:status => 1)
   end
 
   def new
