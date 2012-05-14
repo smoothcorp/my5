@@ -2,11 +2,11 @@
 %section
 = form_tag refinery_video_stats_path do
 	= label_tag "media_id", "Select Media"
-	= select_options_tag :media_id, options_for_select(["Please Select"] + @all_media), :value =>  params[:media_id]
+	= select_tag :media_id, options_for_select(@all_media, params[:media_id])
 	%br
 	%br
 	%div.form_actions
-		= submit_tag "Show stats"
+		= submit_tag "Show Statistics #{params[:media_id]}"
 	%br
 	%br
 %section
@@ -16,7 +16,7 @@
 %section
 - if @stat.present?
 	%div#video_summary
-		%h2.top Video Analytics
+		%h2.top Video Statistics
 
 		%div.stat
 			.value= @stat.try(:page_loads)
