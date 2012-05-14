@@ -22,11 +22,12 @@ Semblance::Application.routes.draw do
   end
 
   namespace :refinery do
-    resources :reports, :only => [:index, :show], :controller => 'reports'    
+    resources :reports, :only => [:index, :show], :controller => 'reports'
   end
 
   match 'dashboard' => 'my5/dashboard#customer'
   match 'refinery/customers/bulk-import' => 'refinery/customers#bulk_import', :as => "bulk_import_customers"
+  match 'refinery/video_stats' => 'refinery/video_stats#index', :as => "refinery_video_stats"
 
   if Rails.env.development?
     mount SubscriptionsMailer::Preview => 'subscriptions_mailer'

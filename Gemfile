@@ -17,6 +17,7 @@ gem 'formtastic'
 gem 'barista'
 gem 'googlecharts'
 gem 'seer'
+gem 'httparty'
 
 ##--- Utilities ---
 gem 'meta_where'

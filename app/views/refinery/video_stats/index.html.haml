@@ -1,0 +1,35 @@
+= stylesheet_link_tag "refinery/video_stats/index"
+%section
+= form_tag refinery_video_stats_path do
+	= label_tag "media_id", "Select Media"
+	= select_options_tag :media_id, options_for_select(["Please Select"] + @all_media), :value =>  params[:media_id]
+	%br
+	%br
+	%div.form_actions
+		= submit_tag "Show stats"
+	%br
+	%br
+%section
+- if @wistia_media.present?
+	%h2.top Video
+	= @wistia_media.embed_code.html_safe
+%section
+- if @stat.present?
+	%div#video_summary
+		%h2.top Video Analytics
+
+		%div.stat
+			.value= @stat.try(:page_loads)
+			.label loads
+		%div.stat
+			.value= @stat.visitors
+			.label visitors
+		%div.stat
+			.value= @stat.percent_of_visitors_clicking_play
+			.label play rate
+		%div.stat
+			.value= @stat.plays
+			.label plays
+		%div.stat
+			.value= @stat.average_percent_watched
+			.label avg engagement
