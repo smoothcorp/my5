@@ -1,12 +1,11 @@
 class MyEq < ActiveRecord::Base
-  VIMEO_REGEX = /^(?:http:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/
 
   acts_as_indexed :fields => [:emotional_grouping, :step_two, :step_three, :description]
 
   validates :emotional_grouping, :presence => true, :uniqueness => true
-  validates_format_of :audio_step_1, :with => /^(?:http:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/, :allow_blank => true
 
-  attr_accessible :image_id, :emotional_grouping, :description, :step_two, :step_three, :step_four, :audio_step_1, :audio_step_5
+  attr_accessible :image_id, :emotional_grouping, :description, :step_two, :step_three, :step_four, 
+    :audio_step_1, :audio_step_5, :audio_step_1_embed_code, :audio_step_5_embed_code
   belongs_to :image
   has_many :audios
 

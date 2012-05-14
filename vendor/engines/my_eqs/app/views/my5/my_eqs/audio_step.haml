@@ -7,10 +7,10 @@
       = @page_title
     %div.back= link_to image_tag("grey_arrow_left_small.png") + "#{@my_eq.emotional_grouping}", my5_my_eq_path(@my_eq)
     %div.audio_step_content.video
-      - if @my_eq.send("audio_step_#{@part}".to_sym).blank?
+      - if @my_eq.send("audio_step_#{@part}_embed_code".to_sym).blank?
         There is no audio file assigned to this step.
       - else
-        = vimeo_helper(@my_eq.send("audio_step_#{@part}".to_sym))
+        = @my_eq.send("audio_step_#{@part}_embed_code").html_safe
     .actions.clear
       = link_to("Previous step", my5_my_eq_with_part_path(@my_eq, @part - 1), :class => "my_eq_button previous") unless @part == 1
       = link_to("Next step", my5_my_eq_with_part_path(@my_eq, @part + 1), :class => "my_eq_button next") unless @part == 5

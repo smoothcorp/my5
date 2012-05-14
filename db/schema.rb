@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511181757) do
+ActiveRecord::Schema.define(:version => 20120514121506) do
 
   create_table "activities", :force => true do |t|
     t.datetime "created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "audio_program_id"
+    t.text     "embed_code"
   end
 
   add_index "audios", ["id"], :name => "index_audios_on_id"
@@ -95,9 +96,9 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
     t.integer  "department_id"
     t.boolean  "renew_subscription",                  :default => true
     t.string   "card_name"
-    t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
     t.integer  "free_trial_opted",     :limit => 1
+    t.string   "time_zone",                           :default => "Sydney", :null => false
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
@@ -162,6 +163,8 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
     t.integer  "image_id"
     t.string   "audio_step_1"
     t.string   "audio_step_5"
+    t.text     "audio_step_1_embed_code"
+    t.text     "audio_step_5_embed_code"
   end
 
   add_index "my_eqs", ["id"], :name => "index_my_eqs_on_id"
@@ -384,12 +387,12 @@ ActiveRecord::Schema.define(:version => 20120511181757) do
   create_table "videos", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "url"
     t.integer  "symptomatic_id"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mini_module_id"
+    t.text     "embed_code"
   end
 
   add_index "videos", ["id"], :name => "index_videos_on_id"

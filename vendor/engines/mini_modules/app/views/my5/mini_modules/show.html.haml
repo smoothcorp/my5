@@ -17,6 +17,6 @@
         - if @video == nil
           There is currently no video assigned to this Mini Module.
         - else
-          - unless @video.url.blank?
-            = vimeo_helper(@video.url)
+          - unless @video.embed_code.blank?
+            = @video.embed_code.html_safe
           = @video.description.html_safe
