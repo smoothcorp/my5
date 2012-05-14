@@ -5,7 +5,9 @@ class MyEq < ActiveRecord::Base
   validates :emotional_grouping, :presence => true, :uniqueness => true
 
   attr_accessible :image_id, :emotional_grouping, :description, :step_two, :step_three, :step_four, 
-    :audio_step_1, :audio_step_5, :audio_step_1_embed_code, :audio_step_5_embed_code
+    :audio_step_1, :audio_step_5, :audio_step_1_embed_code, :audio_step_5_embed_code, :audio_step_1_wistia_video_id,
+    :audio_step_5_wistia_video_id
+
   belongs_to :image
   has_many :audios
 

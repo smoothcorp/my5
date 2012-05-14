@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514121506) do
+ActiveRecord::Schema.define(:version => 20120514142704) do
 
   create_table "activities", :force => true do |t|
     t.datetime "created_at"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120514121506) do
     t.datetime "updated_at"
     t.integer  "audio_program_id"
     t.text     "embed_code"
+    t.string   "wistia_video_id"
   end
 
   add_index "audios", ["id"], :name => "index_audios_on_id"
@@ -165,6 +166,8 @@ ActiveRecord::Schema.define(:version => 20120514121506) do
     t.string   "audio_step_5"
     t.text     "audio_step_1_embed_code"
     t.text     "audio_step_5_embed_code"
+    t.string   "audio_step_1_wistia_video_id"
+    t.string   "audio_step_5_wistia_video_id"
   end
 
   add_index "my_eqs", ["id"], :name => "index_my_eqs_on_id"
@@ -393,6 +396,7 @@ ActiveRecord::Schema.define(:version => 20120514121506) do
     t.datetime "updated_at"
     t.integer  "mini_module_id"
     t.text     "embed_code"
+    t.string   "wistia_video_id"
   end
 
   add_index "videos", ["id"], :name => "index_videos_on_id"
