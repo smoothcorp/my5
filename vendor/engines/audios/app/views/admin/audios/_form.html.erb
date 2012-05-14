@@ -15,11 +15,6 @@
   </div>
 
   <div class='field'>
-    <%= f.label :embed_code, "Audio Embed Code" -%>
-    <%= f.text_area :embed_code, :rows => 4, :cols => 100 %>
-  </div>
-
-  <div class='field'>
     <%= f.label :audio_program_id, 'Associated Audio Program' -%>
     <%= f.collection_select :audio_program_id, AudioProgram.all, :id, :title, :include_blank => true -%>
   </div>
