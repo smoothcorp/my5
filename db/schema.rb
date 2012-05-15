@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(:version => 20120514142704) do
     t.integer  "department_id"
     t.boolean  "renew_subscription",                  :default => true
     t.string   "card_name"
+    t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
     t.integer  "free_trial_opted",     :limit => 1
-    t.string   "time_zone",                           :default => "Sydney", :null => false
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
@@ -390,6 +390,7 @@ ActiveRecord::Schema.define(:version => 20120514142704) do
   create_table "videos", :force => true do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "url"
     t.integer  "symptomatic_id"
     t.integer  "position"
     t.datetime "created_at"
