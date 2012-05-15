@@ -16,13 +16,16 @@
         +grid(14)
         a
             display: inline-block
-            width: 100px
+            width: 100%
             text-align: center
+            height: 30px !important
+            margin: 0 !important
+            padding: 0 !important
         &#signup
             +grid(6)
             +omega
             a
-                width: 80px
+                width: 100%
                 float: right
                 &.button
                     margin-top: 20px
@@ -30,3 +33,109 @@
                     font-weight: bold
                     padding: 6px
                     font-family: Helvetica
+.ddsmoothmenu 
+    float: left
+    font-family: Verdana
+    font-size: 13px
+    font-weight: bold
+    height: 37px
+    margin-top: 32px
+    position: relative
+    vertical-align: middle
+
+
+.ddsmoothmenu ul 
+    z-index: 100
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+
+.ddsmoothmenu ul li
+    display: inline
+    float: left
+    margin-left: 1px
+
+
+.ddsmoothmenu ul li a 
+    display: block
+    color: white
+    padding: 8px 10px
+    border-right: 1px solid #778
+    color: #666666
+    text-decoration: none
+    background-color: gray
+    height: auto !important
+    padding-right: 10px !important
+    padding-left: 10px !important
+    border: none
+
+* html .ddsmoothmenu ul li a 
+    display: inline-block
+
+
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited 
+    color: white
+
+
+.ddsmoothmenu ul li a.selected 
+    background: #CF6000
+    color: white
+
+
+.ddsmoothmenu ul li ul li a.hover
+    background: #CF6000
+    color: white
+
+.ddsmoothmenu ul li ul 
+    position: absolute
+    left: 0
+    display: none
+    visibility: hidden
+    list-style-type: none !important
+
+.ddsmoothmenu ul li ul li 
+    display: list-item
+    float: none
+    list-style: none !important
+
+.ddsmoothmenu ul li ul li ul 
+    top: 0
+
+.ddsmoothmenu ul li ul li a 
+    font: normal 13px Verdana
+    width: 100%
+    padding: 5px
+    margin: 0
+    border-top-width: 0
+    border-bottom: 1px solid gray
+
+
+* html .ddsmoothmenu 
+    height: 1%
+
+
+.downarrowclass 
+    position: absolute
+    top: 12px
+    right: 7px
+
+
+.rightarrowclass 
+    position: absolute
+    top: 6px
+    right: 5px
+
+
+.ddshadow 
+    position: absolute
+    left: 0
+    top: 0
+    width: 0
+    height: 0
+    background: silver
+
+
+.toplevelshadow 
+    opacity: 0.8
+ 
