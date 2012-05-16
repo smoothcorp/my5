@@ -5,7 +5,7 @@ require 'devise'
 ::Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "no-reply@my5.com.au"
+  config.mailer_sender = "friendsofmy5@my5.com.au"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "::Devise::Mailer"
