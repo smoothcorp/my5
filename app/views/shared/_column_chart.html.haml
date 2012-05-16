@@ -9,8 +9,9 @@
 // ---- Setup the the data_values
 - data_values = ""
 - data_sets.each_with_index do |data_set, i|
-  - data_set.each_with_index do |data, j|
-    - data_values += "data.setValue(#{j}, #{i+1}, #{data});\n"
+  - if (data_set.present?)
+    - data_set.each_with_index do |data, j|
+      - data_values += "data.setValue(#{j}, #{i+1}, #{data});\n"
 - axis_labels.each_with_index do |axis_label, k|
   - data_values += "data.setValue(#{k}, 0, '#{axis_label}');\n"
   
