@@ -272,6 +272,18 @@ class Customer < ActiveRecord::Base
     end
   end
 
+  def process_payment
+    payment = Payment.new(:eway_token => self.eway_token, :amount => Program.first.price)
+    if !self.free_trial_opted?
+      if payment.can_process? && payment.process
+        subscription = Subscription.yearly_subscription_for(self.id)
+        subscription.save
+        payment.update_attribute(:subscription_id, subscription.id)
+        SubscriptionsMailer.created(self).deliver
+      end
+    end
+  end
+
 
   ## --- UTILITY METHODS
   ## ---
