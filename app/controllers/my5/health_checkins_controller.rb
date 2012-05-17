@@ -5,7 +5,7 @@ class My5::HealthCheckinsController < ApplicationController
   layout 'customer'
 
   def index
-    @health_checkins = health_checkins.where(:status => 1)
+    @health_checkins = health_checkins.where(:status => 1).paginate(:per_page => 20, :page => (params[:page] || 1))
   end
 
   def new

@@ -19,6 +19,7 @@ module ReminderEmailsHelper
   end
 
   def time_for_reminder(reminder)
+    return "" if reminder.nil? or reminder.time.nil?
     reminder.time.strftime("%l:%M%P")
   end
 end

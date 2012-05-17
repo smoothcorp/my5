@@ -1,12 +1,18 @@
 .green-bar
 .padded
   = render "steps"
+  %div#health-checkin-pagination
+    - if @health_checkins.count > 20
+      %h4 Please navigate following pages
+    = will_paginate @health_checkins
+
   - unless @health_checkins.blank?
     #chart
     - stress_ratings = @health_checkins.map {|h|  h.stress_rating || 0 }
     - energy_ratings = @health_checkins.map {|h|  h.energy_rating || 0 }
     - comfort_ratings = @health_checkins.map {|h|  h.comfort_rating || 0 }
     - dates_for_axis = @health_checkins.map {|h|  h.created_at.strftime("%e %b %l:%M%p") }
+
     = render :partial => "shared/line_chart", :locals => {:axis_labels => dates_for_axis, :data_series_labels => ["Stress Levels", "Energy Levels", "Comfort Levels"], :data_sets => [stress_ratings, energy_ratings, comfort_ratings], :div => "chart"}
   #description The personal health check in allows you to record your energy,stress and comfort levels and to monitor how these can change and gauge your progress.
 
