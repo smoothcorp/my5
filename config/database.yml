@@ -18,6 +18,7 @@ staging:
   username: admin
   password: password
   database: staging
+  <<: *defaults
 
 production:
   adapter: mysql2
