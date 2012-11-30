@@ -13,5 +13,12 @@
       - else
       - unless @audio.embed_code.blank?
         = @audio.embed_code.html_safe
-        = (@audio.url)
         = @audio.description.html_safe
+        
+%script{:language => "javascript", :type => "text/javascript"}
+  $(document).ready(function() {
+  $('.video').find('object').attr("width","640");
+  $('.video').find('embed').attr("width","640");
+  $('.video').find('object').attr("height","480");    
+  $('.video').find('embed').attr("height","480");
+  });      

@@ -1,0 +1,24 @@
+- content_for :extra_js do
+    = javascript_include_tag "pages/contact"
+- content_for :extra_stylesheets do
+    = stylesheet_link_tag "pages/contact_us"
+
+.padded
+    %h1 Contact Us
+
+    %div#contact_form
+        - semantic_form_for Email.new do |f|
+            = f.input :name
+            = f.input :email, :required => true
+            = f.input :message, :label => "Your message", :required => false, :as => :text, :class => "long"
+            = f.label "Please verify your message"
+            %li#email_base_input
+                = recaptcha_tags
+            %div#email_submit.button Submit
+    %div#contact_details
+        %div#telephone
+            %b Telephone: 
+            = raw(@page[:telephone])
+        %div#address
+            %b Address: 
+            = raw(@page[:address])

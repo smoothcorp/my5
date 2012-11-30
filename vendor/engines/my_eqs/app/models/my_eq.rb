@@ -26,9 +26,9 @@ class MyEq < ActiveRecord::Base
 
   def genereate_embed_codes
     self.audio_step_1_embed_code = 
-      Wistia::Media.find_by_id(self.audio_step_1_wistia_video_id).embed_code unless self.audio_step_1_wistia_video_id.nil?
+      Wistia::Media.find_by_id(self.audio_step_1_wistia_video_id).embed_code if !self.audio_step_1_wistia_video_id.nil? && !self.audio_step_1_wistia_video_id.blank?
     self.audio_step_5_embed_code = 
-      Wistia::Media.find_by_id(self.audio_step_5_wistia_video_id).embed_code unless self.audio_step_5_wistia_video_id.nil?
+      Wistia::Media.find_by_id(self.audio_step_5_wistia_video_id).embed_code if !self.audio_step_5_wistia_video_id.nil? && !self.audio_step_5_wistia_video_id.blank?
   end
 
 end

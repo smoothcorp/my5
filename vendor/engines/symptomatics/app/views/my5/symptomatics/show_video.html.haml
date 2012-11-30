@@ -7,3 +7,12 @@
         - unless @video.embed_code.blank?
             = @video.embed_code.html_safe
         = @video.description.html_safe
+
+%script{:language => "javascript", :type => "text/javascript"}
+    $(document).ready(function() {
+    $('.video').find('object').attr("width","640");
+    $('.video').find('embed').attr("width","640");
+    $('.video').find('object').attr("height","480");    
+    $('.video').find('embed').attr("height","480");
+    });
+        

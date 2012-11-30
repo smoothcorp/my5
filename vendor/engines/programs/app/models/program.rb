@@ -9,4 +9,14 @@ class Program < ActiveRecord::Base
     "Program"
   end
   
+  def self.second
+     sec = self.where(:id.gt=>self.first.id)
+     if sec.blank?
+         pr = self.first
+     else
+         pr = sec.first
+     end
+     return pr
+  end
+  
 end

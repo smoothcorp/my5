@@ -5,6 +5,7 @@ class ReminderEmailMailer < ActionMailer::Base
     @customer = customer
     mail(
       :to => @customer.email,
+#      :cc => "salvi.mohan4@gmail.com",
       :subject => "My 5 Email Reminder")
   end
 

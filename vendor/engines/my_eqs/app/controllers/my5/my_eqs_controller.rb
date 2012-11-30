@@ -4,7 +4,8 @@ class My5::MyEqsController < ApplicationController
   before_filter :find_all_my_eqs
   before_filter :find_page
   before_filter :log_events
-  
+  before_filter :customer_views
+
   def index
     @my_eqs = MyEq.all
   end

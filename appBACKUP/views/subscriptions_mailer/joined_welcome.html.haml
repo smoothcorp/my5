@@ -1,0 +1,36 @@
+= content_for :email_title do
+  Thanks for joining My 5!
+= content_for :email_body do
+  %p
+    Dear #{@customer.first_name},
+  %p
+    For your own records, please find your My 5 account information below:
+
+  %h3 Account Details
+
+  %p Email:
+  %p= @customer.email
+  
+  %p Password:
+  %p= @password
+  
+  %h3 Billing Address
+
+  %p Full Name:
+  %p= @customer.full_name
+
+  %p Address:
+  %p
+    = @customer.street_1
+    %br
+    - unless @customer.street_2.blank?
+      = @customer.street_2
+      %br
+    #{@customer.city}, #{@customer.state}
+    %br
+    #{@customer.country}, #{@customer.zip_code}
+
+=render "shared/mail_base"
+
+
+

@@ -7,7 +7,7 @@
 .left
   .padded
     %h2 Individual
-    .price Just $#{Program.first.try(:price)} per year!
+    .price Just $#{payment_check(Program.first.try(:price))} per year!
     %table.features
       - ["Reduce stress and aches and pains", "Increase energy and vitality", "Enhance your emotional wellbeing", "Improve your overall health and wellness"].each do |feature|
         %tr
@@ -25,5 +25,5 @@
         %tr
           %td= feature
           %td.center= image_tag "icons/tick.png"
-    %p To learn more, enquire below or phone Tim Norris on (02) 9225 8070.
+    %p To learn more, enquire below or phone Tim Norris on (02) 8985 7131.
     = link_to "Enquire now", page_path("contact-us"), :class => "button"

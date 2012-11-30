@@ -1,5 +1,5 @@
 <%= content_for :after_javascript_libraries do %>
-  <%= javascript_include_tag "my5/admin/customers/get_departments" %>
+  <%#= javascript_include_tag "my5/admin/customers/get_departments" %>
   <script>
       function unlock_password_fields(){
         $('#customer_password').removeAttr('disabled').css("border-color", "#3e3e3e !important").css("color", "#3e3e3e !important");
@@ -45,6 +45,11 @@
     <div class='field'>
       <%= f.label :contact_phone, "Contact Phone (optional)" -%>
       <%= f.text_field :contact_phone, :class => 'larger'  -%>
+    </div>
+    
+    <div class='field'>
+      <%= f.label :promo_code, "Promo Code (optional)" -%>
+      <%= f.text_field :promo_code, :class => 'larger'  -%>
     </div>
 
     <%- unless @customer.new_record? %>
@@ -110,7 +115,7 @@
     </div>
 
     <div class='field'>
-      <%= f.label :city -%>
+      <%= f.label :suburb -%>
       <%- if corporate %>
         <%= f.text_field :city, :class => 'larger', :disabled => true -%>
       <%- else corporate %>
@@ -119,7 +124,7 @@
     </div>
 
     <div class='field'>
-      <%= f.label :state -%>
+      <%= f.label :city -%>
       <%- if corporate %>
         <%= f.text_field :state, :class => 'larger', :disabled => true -%>
       <%- else %>
@@ -164,13 +169,7 @@
 
       <div class='field left' id="department_select">
         <%= f.label :department_id -%>
-        <%- if @customer.department.nil? %>
-          <%= select_tag :department_id, {}, :disabled => true -%>
-        <%- elsif @customer.manager? %>
-          <div>N/A</div>
-        <%- else %>
-          <%= select_tag :department_id, options_from_collection_for_select(@customer.corporation.departments, :id, :name) -%>
-        <% end %>
+        <%=  select_tag(:department_id , options_for_select((Customer::DEPARTMENTS))) -%>
       </div>
     </div>
   <% end %>

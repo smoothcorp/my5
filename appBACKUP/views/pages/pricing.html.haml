@@ -1,0 +1,29 @@
+- content_for :extra_stylesheets do
+  = stylesheet_link_tag "pages/pricing"
+
+.padded
+  %h1 Pricing
+
+.left
+  .padded
+    %h2 Individual
+    .price Just $#{payment_check(Program.first.try(:price))} per year!
+    %table.features
+      - ["Reduce stress and aches and pains", "Increase energy and vitality", "Enhance your emotional wellbeing", "Improve your overall health and wellness"].each do |feature|
+        %tr
+          %td= feature
+          %td.center= image_tag "icons/tick.png"
+    %p Sign up now for our ten-day free trial
+    = link_to "Start free trial", new_customer_registration_path, :class => "button"
+
+.right
+  .padded
+    %h2 Corporate and Enterprise
+    .corporate-description Corporate plans are tailored specifically to your organisation.  We work with you to ensure your staff get the greatest health and wellbeing benefits from the My 5 system.
+    %table.features
+      - ["Packages tailored specifically to meet your organisation’s needs", "Department, division or enterprise-wide membership", "Significant savings for organisations who want to register 100 users or more."].each do |feature|
+        %tr
+          %td= feature
+          %td.center= image_tag "icons/tick.png"
+    %p To learn more, enquire below or phone Tim Norris on (02) 9225 8070.
+    = link_to "Enquire now", page_path("contact-us"), :class => "button"

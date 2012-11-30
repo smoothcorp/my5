@@ -10,7 +10,7 @@ class Audio < ActiveRecord::Base
 	before_save :genereate_embed_code
 
 	def genereate_embed_code
-		self.embed_code = Wistia::Media.find_by_id(self.wistia_video_id).embed_code unless self.wistia_video_id.nil?
+		self.embed_code = Wistia::Media.find_by_id(self.wistia_video_id).embed_code if !self.wistia_video_id.nil? && !self.wistia_video_id.blank?
 	end
 
 end

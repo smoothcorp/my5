@@ -3,7 +3,7 @@ class My5::MiniModulesController < ApplicationController
   before_filter :authenticate_customer!
   before_filter :find_all_mini_modules
   before_filter :log_events
-
+  before_filter :customer_views
   def index
   end
 

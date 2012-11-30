@@ -1,0 +1,85 @@
+<div style="border:1px grey solid;">
+<div style="padding: 10px 5px;"> Content</div>
+<div style="padding: 10px 22px;">
+  <%= link_to "All", "#", :id =>"all",:class=>"graph_for"  %><br/><br/>
+  <div class="sub_menu">
+  <%= link_to "Symptomatics", "#", :id =>"symptomatics",:class=>"graph_for" %>
+  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
+  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+  <br/>
+  <% if !@symptomatics.nil? && !@symptomatics.blank? %>
+    <div style="padding: 10px 10px;">
+       <ul style="display:none;" class="first_child">
+        <% @symptomatics.each do |sympto| %>
+           <li> 
+             <%= link_to "#{sympto.condition}", "#", :id =>"#{sympto.id}",:class=>"graph_for_items" %>
+               <% if !sympto.videos.blank? %>
+                     <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus",:style=>"margin-top:5px;height:25px;") %>
+                     <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+                     <br/><br/>
+                     <ul style="display:none;" class="second_child">
+                         <% sympto.videos.each do |video| %>                       
+                         <li>
+                             <%= link_to "#{video.title}", "#", :id =>"#{video.id}",:class=>"graph_for_items_child" %><br/><br/>
+                          </li>
+                          <%end%>
+                     </ul>          
+               <%end%> 
+           </li>
+        <%end%> 
+       </ul> 
+    </div>
+  <%end%>
+</div>
+  <br/>
+  <div class="sub_menu">
+  <%= link_to "Mini Modules", "#", :id =>"mini_modules",:class=>"graph_for"%>
+  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
+  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+  <br/>
+   <% if !@mini_modules.nil? && !@mini_modules.blank? %>
+    <div style="padding: 10px 10px;">
+        <ul style="display:none;" class="first_child">
+        <% @mini_modules.each do |mini_module| %>
+         <li> <%= link_to "#{mini_module.title}", "#", :id =>"#{mini_module.id}",:class=>"graph_for_items" %><br/><br/></li>
+        <%end%>
+        </ul>  
+    </div>
+  <%end%>
+  </div>
+  <br/>
+  <div class="sub_menu">
+  <%= link_to "My EQ", "#", :id =>"my_eq",:class=>"graph_for"%>
+  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
+  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+  <br/>
+ <% if !@my_eqs.nil? && !@my_eqs.blank? %>
+    <div style="padding: 10px 10px;">
+       <ul style="display:none;" class="first_child">
+        <% @my_eqs.each do |my_eq| %>
+       <li><%= link_to "#{my_eq.emotional_grouping}", "#", :id =>"#{my_eq.id}",:class=>"graph_for_items" %><br/><br/></li>
+        <%end%>
+        </ul>  
+    </div>
+  <%end%>
+  </div>
+  <br/>
+  <div class="sub_menu">
+  <%= link_to "Audio Programs","#", :id =>"audio_programs",:class=>"graph_for"%>
+  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
+  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+  <br/>
+ <% if !@audio_programs.nil? && !@audio_programs.blank? %>
+    <div style="padding: 10px 10px;">
+        <ul style="display:none;" class="first_child">
+        <% @audio_programs.each do |audio_program| %>
+            <li><%= link_to "#{audio_program.title}", "#", :id =>"#{audio_program.id}",:class=>"graph_for_items" %><br/><br/></li>
+        <%end%>
+        </ul>  
+    </div>
+  <%end%>
+  </div>
+  <br/>
+  <%= link_to "Health Checkin", "#", :id =>"health_checkin",:class=>"graph_for"%><br/><br/>  <br/>  <br/>  <br/>
+</div>
+</div>

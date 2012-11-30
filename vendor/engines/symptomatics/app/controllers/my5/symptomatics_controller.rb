@@ -3,7 +3,8 @@ class My5::SymptomaticsController < ApplicationController
   before_filter :authenticate_customer!
   before_filter :find_all_symptomatics
   before_filter :log_events
-  
+  before_filter :customer_views
+
   def index
     @body_parts = Symptomatic.body_parts
   end

@@ -2,7 +2,7 @@
 
 %div#audio_step.my_eq_step.content_right
   .padded
-    %h1 
+    %h1
       = image_tag "my_eqs/number_#{@part}.png"
       = @page_title
     %div.back= link_to image_tag("grey_arrow_left_small.png") + "#{@my_eq.emotional_grouping}", my5_my_eq_path(@my_eq)
@@ -14,3 +14,11 @@
     .actions.clear
       = link_to("Previous step", my5_my_eq_with_part_path(@my_eq, @part - 1), :class => "my_eq_button previous") unless @part == 1
       = link_to("Next step", my5_my_eq_with_part_path(@my_eq, @part + 1), :class => "my_eq_button next") unless @part == 5
+
+%script{:language => "javascript", :type => "text/javascript"}
+  $(document).ready(function() {
+  $('.video').find('object').attr("width","640");
+  $('.video').find('embed').attr("width","640");
+  $('.video').find('object').attr("height","480");    
+  $('.video').find('embed').attr("height","480");
+  });

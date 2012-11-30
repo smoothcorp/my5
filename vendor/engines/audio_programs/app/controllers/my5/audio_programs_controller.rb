@@ -3,7 +3,7 @@ class My5::AudioProgramsController < ApplicationController
   before_filter :authenticate_customer!
   before_filter :find_all_audio_programs
   before_filter :log_events
-
+  before_filter :customer_views
   def index
   end
 
