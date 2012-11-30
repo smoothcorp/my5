@@ -42,17 +42,32 @@ module Semblance
     config.filter_parameters += [:password, :card_number, :verification, :expiry_month, :expiry_year]
 
     # Setup action mailer
-    config.action_mailer.delivery_method = :sendmail
+    #config.action_mailer.delivery_method = :sendmail
+	config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
-    config.action_mailer.smtp_settings = {
-     :tls                   => true,
-     :address               => "smtp.gmail.com",
-     :port                  => 587,
-     :domain                => 'gmail.com',
-     :user_name             => 'apps@semblancesystems.com',
-     :password              => 'macshatemicrosoft',
-     :authentication        => 'plain',
-     :enable_starttls_auto  => true
+	#config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.default_url_options = { :host => "my5.com.au" }
+	config.sendmail_settings = {
+		:location => '/usr/sbin/sendmail',
+        :arguments => '-i -t'
+	}
+	config.action_mailer.smtp_settings = {
+     :tls                   => false,
+     :address               => "smtp.emailsrvr.com",
+     :port                  => 25,
+#     :domain                => 'my5.com.au',
+     :user_name             => 'friendsofmy5@my5.com.au',
+     :password              => 'Kiakula5',
+#     :address               => "smtp.gmail.com",
+#     :port                  => 587,
+#     :domain                => 'gmail.com',
+#     :user_name             => 'apps@semblancesystems.com',
+#     :password              => 'macshatemicrosoft',
+#     :enable_starttls_auto  => true,
+:openssl_verify_mode => 'none',
+     :authentication        => 'plain'
     }
+	config.action_mailer.default_charset = "utf-8"
+	
   end
 end
