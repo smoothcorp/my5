@@ -249,7 +249,7 @@ function graph_view(id, page,page_id,video_id)
                 url: "/refinery/reports/screen1",
                 data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id},
                 beforeSend: function() {
-                 $("#loader").show('fast');
+                    $("#loader").show('fast');
                 },
                 success: function(data) {
                  $("#loader").hide('fast');
