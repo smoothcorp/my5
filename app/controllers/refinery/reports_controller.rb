@@ -154,85 +154,86 @@ class Refinery::ReportsController < ApplicationController
        return @reports = filter_query("my5/health_checkins")
      else
        if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-       @reports = CustomerVisit.where(:customer_id=>@customer_ids).where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date)
+         @reports = CustomerVisit.where(:customer_id=>@customer_ids).where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date)
        else
-       @reports = CustomerVisit.find(:all, :conditions=>["Date(created_at) between ? and ?",@from_date.to_date,@to_date.to_date])
+         @reports = CustomerVisit.find(:all, :conditions=>["Date(created_at) between ? and ?",@from_date.to_date,@to_date.to_date])
        end
        @custmer_visit = @reports
        return @reports
-     end
+   end
  end
-  
-  def filter_query(page)
-	if @is_condition ||  (!@customer_ids.nil? && !@customer_ids.blank?)
-       @custmer_visit = CustomerVisit.where(:customer_id=>@customer_ids).where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date).where(:controller_name=>page) 
-	else
-	   @custmer_visit = CustomerVisit.where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date).where(:controller_name=>page) 
-	end
-      if !params[:page_id].blank?
-         if !params[:video_id].blank?
-           @reports =  @custmer_visit.select{ |report| report if report.show_id.to_i == params[:page_id].to_i && report.media_id.to_i == params[:video_id].to_i  }
-         else
-           @reports =  @custmer_visit.select{ |report| report if report.show_id.to_i == params[:page_id].to_i }
-         end 
-      else
-         @reports = @custmer_visit
-       end
-      return  @reports
-  end
-  
-  def list_of_pages
-      @symptomatics = Symptomatic.all
-      @mini_modules = MiniModule.all
-      @my_eqs = MyEq.all
-      @audio_programs = AudioProgram.all
-      if !params[:from_date].blank? && !params[:to_date].blank? 
-         @from_date = params[:from_date].to_date
-         @to_date = params[:to_date].to_date
-      else
-         @from_date = Time.now - 6.days
-         @to_date = Time.now
-      end
-       @is_condition = false
-       customer_condition = ""
-       @customer_ids = []
-        if !params[:company_id].blank?
-         customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "  
-         @is_condition = true
-       end
-       if !params[:department_id].blank?
-         customer_condition += @is_condition ? " AND " : ""
-         customer_condition += "department_id = '#{params[:department_id].to_s}'  "
-         @is_condition = true
-       end
-       if !params[:location].blank?
-         customer_condition += @is_condition ? " AND " : ""
-         customer_condition += "city LIKE '%#{params[:location].to_s}%' "
-         @is_condition = true
-       end
-       if !params[:role].blank?
-         customer_condition += @is_condition ? " AND " : ""
-         customer_condition += "role = '#{params[:role].to_s}'"
-         @is_condition = true
-       end
-       if !params[:state].blank?
-         customer_condition += @is_condition ? " AND " : ""
-         customer_condition += "state LIKE '%#{params[:state].to_s}%' "
-         @is_condition = true
-       end
-       if !params[:country].blank?
-         customer_condition += @is_condition ? " AND " : ""
-         customer_condition += "country = '#{params[:country].to_s}'"
-         @is_condition = true
-       end 
-       if @is_condition
-          @customers =  Customer.where(customer_condition)
-          if !@customers.blank? && !@customers.nil?
-              @customer_ids = @customers.collect(&:id)
-          end
-       end
-         
-  end
+ 
+ def filter_query(page)
+   if @is_condition ||  (!@customer_ids.nil? && !@customer_ids.blank?)
+     @custmer_visit = CustomerVisit.where(:customer_id=>@customer_ids).where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date).where(:controller_name=>page) 
+   else
+     @custmer_visit = CustomerVisit.where("(Date(created_at) between ? and ?)",@from_date.to_date,@to_date.to_date).where(:controller_name=>page) 
+   end
+
+   if !params[:page_id].blank?
+     if !params[:video_id].blank?
+       @reports =  @custmer_visit.select{ |report| report if report.show_id.to_i == params[:page_id].to_i && report.media_id.to_i == params[:video_id].to_i  }
+     else
+       @reports =  @custmer_visit.select{ |report| report if report.show_id.to_i == params[:page_id].to_i }
+     end 
+   else
+     @reports = @custmer_visit
+   end
+   return  @reports
+ end
+ 
+ def list_of_pages
+   @symptomatics = Symptomatic.all
+   @mini_modules = MiniModule.all
+   @my_eqs = MyEq.all
+   @audio_programs = AudioProgram.all
+   if !params[:from_date].blank? && !params[:to_date].blank? 
+     @from_date = params[:from_date].to_date
+     @to_date = params[:to_date].to_date
+   else
+     @from_date = Time.now - 6.days
+     @to_date = Time.now
+   end
+   @is_condition = false
+   customer_condition = ""
+   @customer_ids = []
+   if !params[:company_id].blank?
+     customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "  
+     @is_condition = true
+   end
+   if !params[:department_id].blank?
+     customer_condition += @is_condition ? " AND " : ""
+     customer_condition += "department_id = '#{params[:department_id].to_s}'  "
+     @is_condition = true
+   end
+   if !params[:location].blank?
+     customer_condition += @is_condition ? " AND " : ""
+     customer_condition += "city LIKE '%#{params[:location].to_s}%' "
+     @is_condition = true
+   end
+   if !params[:role].blank?
+     customer_condition += @is_condition ? " AND " : ""
+     customer_condition += "role = '#{params[:role].to_s}'"
+     @is_condition = true
+   end
+   if !params[:state].blank?
+     customer_condition += @is_condition ? " AND " : ""
+     customer_condition += "state LIKE '%#{params[:state].to_s}%' "
+     @is_condition = true
+   end
+   if !params[:country].blank?
+     customer_condition += @is_condition ? " AND " : ""
+     customer_condition += "country = '#{params[:country].to_s}'"
+     @is_condition = true
+   end 
+   if @is_condition
+     @customers =  Customer.where(customer_condition)
+     if !@customers.blank? && !@customers.nil?
+       @customer_ids = @customers.collect(&:id)
+     end
+   end
+
+ end
  
   def screen_1_data
       @report_day_array = ""
@@ -285,223 +286,223 @@ class Refinery::ReportsController < ApplicationController
   end
   
   def screen_2_data
-      @part_of_24 = ['12am - 1am','1am - 2am','2am - 3am','3am - 4am','4am - 5am','5am - 6am','6am - 7am','7am - 8am','8am - 9am','9am - 10am','10am - 11am','11am - 12pm','12pm -  1 pm','1pm - 2pm','2pm - 3pm','3pm - 4pm','4pm - 5pm','5pm - 6pm','6pm - 7pm','7pm - 8pm','8pm - 9pm','9pm - 10pm','10pm - 11pm','11pm - 12am']
-       @array_of_24 = []
-       (0..23).each do |number|
-           @array_of_24[number] = 0
-       end
-       if !@reports.blank?
-          @reports.each do |visit|
-             date = visit.created_at.strftime("%H").to_i
-             @array_of_24[date]  = @array_of_24[date] + 1
-          end
-       end
-       @report_day_array = "["
-       @report_day_date = "["
-       @array_of_24.each_with_index do |item,index|
-            if index == 0 
-               @report_day_array = "["
-               @report_day_date = "["
-            else
-               @report_day_array += ", "
-               @report_day_date += ","
-            end
-            @report_day_array +=  item.to_s
-            @report_day_date +=  "'#{@part_of_24[index]}'"
-       end
-       @report_day_array +=  "]"
-       @report_day_date +=  "]"
-       @pie_graph_view_data = "["
-       @pie_sum_totals = @array_of_24.sum 
-       if @pie_sum_totals > 0
-          @array_of_24.each_with_index do |data,index|
-             percentage = (data.to_f/@pie_sum_totals)*100
-             @pie_graph_view_data += "['#{@part_of_24[index]}',#{percentage} ]"
-             @pie_graph_view_data += "," if ((index+1) != @array_of_24.size)
-          end
-         end
-         @pie_graph_view_data += "]"
+    @part_of_24 = ['12am - 1am','1am - 2am','2am - 3am','3am - 4am','4am - 5am','5am - 6am','6am - 7am','7am - 8am','8am - 9am','9am - 10am','10am - 11am','11am - 12pm','12pm -  1 pm','1pm - 2pm','2pm - 3pm','3pm - 4pm','4pm - 5pm','5pm - 6pm','6pm - 7pm','7pm - 8pm','8pm - 9pm','9pm - 10pm','10pm - 11pm','11pm - 12am']
+    @array_of_24 = []
+    (0..23).each do |number|
+      @array_of_24[number] = 0
+    end
+    if !@reports.blank?
+      @reports.each do |visit|
+        date = visit.created_at.strftime("%H").to_i
+        @array_of_24[date]  = @array_of_24[date] + 1
+      end
+    end
+    @report_day_array = "["
+    @report_day_date = "["
+    @array_of_24.each_with_index do |item,index|
+      if index == 0 
+        @report_day_array = "["
+        @report_day_date = "["
+      else
+        @report_day_array += ", "
+        @report_day_date += ","
+      end
+      @report_day_array +=  item.to_s
+      @report_day_date +=  "'#{@part_of_24[index]}'"
+    end
+    @report_day_array +=  "]"
+    @report_day_date +=  "]"
+    @pie_graph_view_data = "["
+    @pie_sum_totals = @array_of_24.sum 
+    if @pie_sum_totals > 0
+      @array_of_24.each_with_index do |data,index|
+        percentage = (data.to_f/@pie_sum_totals)*100
+        @pie_graph_view_data += "['#{@part_of_24[index]}',#{percentage} ]"
+        @pie_graph_view_data += "," if ((index+1) != @array_of_24.size)
+      end
+    end
+    @pie_graph_view_data += "]"
   end
   
   def screen_3_data
-         @symo_count = []
-          @mini_count = []
-          @myq_count = []
-          @audio_count = []
-          @health_count = []
-          @unique_visits =  @reports.group_by { |t| t.customer_id }
+    @symo_count = []
+    @mini_count = []
+    @myq_count = []
+    @audio_count = []
+    @health_count = []
+    @unique_visits =  @reports.group_by { |t| t.customer_id }
 
-      # for symptomatics
-      if params[:page] == "all" || params[:page] == "symptomatics"
-          @temp1 = @reports.select { |t| t if t.controller_name == "my5/symptomatics" && t.show_id.nil?  }
+    # for symptomatics
+    if params[:page] == "all" || params[:page] == "symptomatics"
+      @temp1 = @reports.select { |t| t if t.controller_name == "my5/symptomatics" && t.show_id.nil?  }
+      @symo_count.push(@temp1.size)
+      if !@symptomatics.blank?
+        @symptomatics.each do |symto|
+          @temp1 = @reports.select { |t| t if t.controller_name == "my5/symptomatics" && t.show_id == symto.id  }
           @symo_count.push(@temp1.size)
-          if !@symptomatics.blank?
-              @symptomatics.each do |symto|
-                 @temp1 = @reports.select { |t| t if t.controller_name == "my5/symptomatics" && t.show_id == symto.id  }
-                 @symo_count.push(@temp1.size)
-              end
-          end
+        end
       end
-      
-      # for mini_modules
-      if params[:page] == "all" || params[:page] == "mini_modules"
-          @temp1 = @reports.select { |t| t if t.controller_name == "my5/mini_modules" && t.show_id.nil?  }
-          @mini_count.push(@temp1.size)
-          if !@mini_modules.blank?
-              @mini_modules.each do |mini|
-                 @temp1 = @reports.select { |t| t if t.controller_name == "my5/mini_modules" && t.show_id == mini.id  }
-                 @mini_count.push(@temp1.size)
-              end
-          end
-      end
-      
-      
-      # for myq
-      if params[:page] == "all" || params[:page] == "my_eqs"
-          @temp1 = @reports.select { |t| t if t.controller_name == "my5/my_eqs" && t.show_id.nil?  }
-          @myq_count.push(@temp1.size)
-          if !@my_eqs.blank?
-              @my_eqs.each do |myq|
-                 @temp1 = @reports.select { |t| t if t.controller_name == "my5/my_eqs" && t.show_id == myq.id  }
-                 @myq_count.push(@temp1.size)
-              end
-          end
-      end
-      
-      
-      # for audio.program
-      if params[:page] == "all" || params[:page] == "audio_programs"
-          @temp1 = @reports.select { |t| t if t.controller_name == "my5/audio_programs" && t.show_id.nil?  }
-          @audio_count.push(@temp1.size)
-         if !@audio_programs.blank?
-               @audio_programs.each do |audio_program|
-                 @temp1 = @reports.select { |t| t if t.controller_name == "my5/audio_programs" && t.show_id == audio_program.id  }
-                 @audio_count.push(@temp1.size)
-              end
-          end
-      end
-          
-      #for heath checking
-      if params[:page] == "all" || params[:page] == "health_checkins"
-          @temp1 = @reports.select { |t| t if t.controller_name == "my5/health_checkins" && t.show_id.nil?  }    
-          @health_count.push(@temp1.size)    
-      end
-      
-      @last_count = []
-      @last_count[0] = 0
-      (1..11).each do |temp|
-        @last_count[temp] = 0
-      end
-    
-     
-      if params[:page] == "all" || params[:page] == "symptomatics"
-         if !@symo_count.blank?
-               @symo_count.each do |val|
-                  if val > 8 && val < 15
-                    @last_count[9] = @last_count[9] + 1 
-                  elsif val >= 15 && val < 26
-                    @last_count[10] = @last_count[10] + 1 
-                  elsif val >= 25 
-                    @last_count[11] = @last_count[11] + 1 
-                  else
-                    @last_count[val] = @last_count[val] + 1 
-                  end
-              end
-          end
-      end
-      if params[:page] == "all" || params[:page] == "mini_modules"
-         if !@mini_count.blank?
-               @mini_count.each do |val|
-                  if val > 8 && val < 15
-                    @last_count[9] = @last_count[9] + 1 
-                  elsif val >= 15 && val < 26
-                    @last_count[10] = @last_count[10] + 1 
-                  elsif val >= 25 
-                    @last_count[11] = @last_count[11] + 1 
-                  else
-                    @last_count[val] = @last_count[val] + 1 
-                  end
-              end
-          end
-      end
-      if params[:page] == "all" || params[:page] == "my_eqs"
-         if !@myq_count.blank?
-              @myq_count.each do |val|
-                  if val > 8 && val < 15
-                    @last_count[9] = @last_count[9] + 1 
-                  elsif val >= 15 && val < 26
-                    @last_count[10] = @last_count[10] + 1 
-                  elsif val >= 25 
-                    @last_count[11] = @last_count[11] + 1 
-                  else
-                    @last_count[val] = @last_count[val] + 1 
-                  end
-              end
-          end
-      end
-      if params[:page] == "all" || params[:page] == "audio_programs"
-         if !@audio_count.blank?
-              @audio_count.each do |val|
-                  if val > 8 && val < 15
-                    @last_count[9] = @last_count[9] + 1 
-                  elsif val >= 15 && val < 26
-                    @last_count[10] = @last_count[10] + 1 
-                  elsif val >= 25 
-                    @last_count[11] = @last_count[11] + 1 
-                  else
-                    @last_count[val] = @last_count[val] + 1 
-                  end
-              end
-          end
-      end
-       if params[:page] == "all" || params[:page] == "health_checkins"
-         if !@health_count.blank?
-              @health_count.each do |val|
-                  if val > 8 && val < 15
-                    @last_count[9] = @last_count[9] + 1 
-                  elsif val >= 15 && val < 26
-                    @last_count[10] = @last_count[10] + 1 
-                  elsif val >= 25 
-                    @last_count[11] = @last_count[11] + 1 
-                  else
-                    @last_count[val] = @last_count[val] + 1 
-                  end
-              end
-          end
-       end 
-       @last_count[0] =  0
-       @data_view = ['',1,2,3,4,5,6,7,8,'9-14','15-25','26-50+']
-       if !@last_count.nil? && !@last_count.blank?
+    end
 
-       @percentage_data = "["
-       @page_1 = "["
-       @page_2 = "["
-       @page_data = "["
-       @page_total =  @last_count.sum
-       if @page_total > 0
-           @last_count.each_with_index do |data,index|
-               if index != 1 && index != 0
-               @page_1 += ","
-               @page_2 += ","
-               @page_data += ","
-               end 
-               if index > 0
-               per = (data.to_f/@page_total.to_f)*100
-               @percentage_data += "['#{@data_view[index]}',#{per.round(2)} ]"
-               @page_1 += "'#{@data_view[index]}'"
-               @page_2 += "#{per.round(0)}"
-               @page_data += "#{data}"
-               @percentage_data += "," if ((index+1) != @last_count.size)
-               end
-           end
-       end
-       @page_1 += "]"
-       @page_2 += "]"
-       @page_data += "]"
-       @percentage_data += "]"
-       end
-            
-   
+    # for mini_modules
+    if params[:page] == "all" || params[:page] == "mini_modules"
+      @temp1 = @reports.select { |t| t if t.controller_name == "my5/mini_modules" && t.show_id.nil?  }
+      @mini_count.push(@temp1.size)
+      if !@mini_modules.blank?
+        @mini_modules.each do |mini|
+          @temp1 = @reports.select { |t| t if t.controller_name == "my5/mini_modules" && t.show_id == mini.id  }
+          @mini_count.push(@temp1.size)
+        end
+      end
+    end
+
+
+    # for myq
+    if params[:page] == "all" || params[:page] == "my_eqs"
+      @temp1 = @reports.select { |t| t if t.controller_name == "my5/my_eqs" && t.show_id.nil?  }
+      @myq_count.push(@temp1.size)
+      if !@my_eqs.blank?
+        @my_eqs.each do |myq|
+          @temp1 = @reports.select { |t| t if t.controller_name == "my5/my_eqs" && t.show_id == myq.id  }
+          @myq_count.push(@temp1.size)
+        end
+      end
+    end
+
+
+    # for audio.program
+    if params[:page] == "all" || params[:page] == "audio_programs"
+      @temp1 = @reports.select { |t| t if t.controller_name == "my5/audio_programs" && t.show_id.nil?  }
+      @audio_count.push(@temp1.size)
+      if !@audio_programs.blank?
+        @audio_programs.each do |audio_program|
+          @temp1 = @reports.select { |t| t if t.controller_name == "my5/audio_programs" && t.show_id == audio_program.id  }
+          @audio_count.push(@temp1.size)
+        end
+      end
+    end
+
+    #for heath checking
+    if params[:page] == "all" || params[:page] == "health_checkins"
+      @temp1 = @reports.select { |t| t if t.controller_name == "my5/health_checkins" && t.show_id.nil?  }    
+      @health_count.push(@temp1.size)    
+    end
+
+    @last_count = []
+    @last_count[0] = 0
+    (1..11).each do |temp|
+      @last_count[temp] = 0
+    end
+
+
+    if params[:page] == "all" || params[:page] == "symptomatics"
+      if !@symo_count.blank?
+        @symo_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1 
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1 
+          elsif val >= 25 
+            @last_count[11] = @last_count[11] + 1 
+          else
+            @last_count[val] = @last_count[val] + 1 
+          end
+        end
+      end
+    end
+    if params[:page] == "all" || params[:page] == "mini_modules"
+      if !@mini_count.blank?
+        @mini_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1 
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1 
+          elsif val >= 25 
+            @last_count[11] = @last_count[11] + 1 
+          else
+            @last_count[val] = @last_count[val] + 1 
+          end
+        end
+      end
+    end
+    if params[:page] == "all" || params[:page] == "my_eqs"
+      if !@myq_count.blank?
+        @myq_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1 
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1 
+          elsif val >= 25 
+            @last_count[11] = @last_count[11] + 1 
+          else
+            @last_count[val] = @last_count[val] + 1 
+          end
+        end
+      end
+    end
+    if params[:page] == "all" || params[:page] == "audio_programs"
+      if !@audio_count.blank?
+        @audio_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1 
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1 
+          elsif val >= 25 
+            @last_count[11] = @last_count[11] + 1 
+          else
+            @last_count[val] = @last_count[val] + 1 
+          end
+        end
+      end
+    end
+    if params[:page] == "all" || params[:page] == "health_checkins"
+      if !@health_count.blank?
+        @health_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1 
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1 
+          elsif val >= 25 
+            @last_count[11] = @last_count[11] + 1 
+          else
+            @last_count[val] = @last_count[val] + 1 
+          end
+        end
+      end
+    end 
+    @last_count[0] =  0
+    @data_view = ['',1,2,3,4,5,6,7,8,'9-14','15-25','26-50+']
+    if !@last_count.nil? && !@last_count.blank?
+
+      @percentage_data = "["
+      @page_1 = "["
+      @page_2 = "["
+      @page_data = "["
+      @page_total =  @last_count.sum
+      if @page_total > 0
+        @last_count.each_with_index do |data,index|
+          if index != 1 && index != 0
+            @page_1 += ","
+            @page_2 += ","
+            @page_data += ","
+          end 
+          if index > 0
+            per = (data.to_f/@page_total.to_f)*100
+            @percentage_data += "['#{@data_view[index]}',#{per.round(2)} ]"
+            @page_1 += "'#{@data_view[index]}'"
+            @page_2 += "#{per.round(0)}"
+            @page_data += "#{data}"
+            @percentage_data += "," if ((index+1) != @last_count.size)
+          end
+        end
+      end
+      @page_1 += "]"
+      @page_2 += "]"
+      @page_data += "]"
+      @percentage_data += "]"
+    end
+
+
   end
 
 end

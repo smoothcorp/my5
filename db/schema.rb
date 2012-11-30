@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -111,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120605205351) do
     t.string   "card_name"
     t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
-    t.integer  "free_trial_opted",     :limit => 1
+    t.integer  "free_trial_opted"
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true

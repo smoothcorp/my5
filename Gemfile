@@ -62,8 +62,8 @@ gem 'refinerycms-customers', :path => 'vendor/engines'
 gem 'refinerycms-corporations', '1.0', :path => 'vendor/engines'
 
 ##--- Logging and reporting
-#gem 'eventlogger', '0.0.2',  :git => 'git://github.com/semblancesystems/eventlogger.git'
-gem 'eventlogger', '0.0.2'
+gem 'eventlogger', '0.0.2',  :git => 'git://github.com/semblancesystems/eventlogger.git'
+#gem 'eventlogger', '0.0.2'
 gem 'ruport'
 gem 'acts_as_reportable'
 gem 'ruport-util'

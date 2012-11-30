@@ -2,12 +2,12 @@ defaults: &defaults
   adapter: mysql2
   host: localhost
   username: root
-  password: root
+  password: ' '
   encoding: utf8
 
 development:
+  adapter: sqlite3
   database: my5_developments
-  <<: *defaults
 
 test: &test
   database: my5_test
@@ -15,7 +15,7 @@ test: &test
 
 staging:
   username: root
-  password: root
+  password: ' '
   database: staging
   <<: *defaults
 

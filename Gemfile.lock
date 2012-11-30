@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/semblancesystems/eventlogger.git
+  revision: 33a4d4c1c3f898d58959208071b5ae5aadf67913
+  specs:
+    eventlogger (0.0.2)
+      activerecord
+      rails
+
 PATH
   remote: vendor/engines
   specs:
@@ -119,9 +127,6 @@ GEM
       rack
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    eventlogger (0.0.2)
-      activerecord
-      rails
     execjs (1.2.9)
       multi_json (~> 1.0)
     factory_girl (2.3.2)
@@ -380,7 +385,7 @@ DEPENDENCIES
   compass (>= 0.11.5)
   compass-960-plugin
   decent_exposure
-  eventlogger (= 0.0.2)
+  eventlogger (= 0.0.2)!
   execjs
   factory_girl_rails
   fancy-buttons
