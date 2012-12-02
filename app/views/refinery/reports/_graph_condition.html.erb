@@ -5,7 +5,7 @@
         <tr>
         <th >Page Name</th><th >Page url</th><th width="5%">Views</th>
         </tr>
-       <% case params[:page]
+       <% case page_name
          when "symptomatics"
                %>
                <%  
@@ -80,7 +80,7 @@
                  count_percentage(@side_array,@side_data)
                  
 
-         when "health_checkin"
+         when "health_checkins"
 
          else
          %>
