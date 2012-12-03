@@ -1,8 +1,11 @@
 %div#logo= link_to image_tag("logo.png"), root_path
-%ul.nav
-    - Page.where(:show_in_menu => true).where("id != 1").order("-custom_position DESC, id ASC").each do |p|
-        = link_to p.title, page_path(p)
-%ul.nav#signup
-    = link_to "Sign Up", new_customer_registration_path, :class => "button"
-    = link_to "Sign In", new_customer_session_path
+%div#smoothmenu.ddsmoothmenu
+	%ul
+		- Page.where(:show_in_menu => true).where("parent_id = 1").order("-custom_position DESC, id ASC").each do |p|
+			%li
+				= link_to p.title, page_path(p), :class => "button"
+		%li 
+			= link_to "Sign Up", new_customer_registration_path, :class => "button"
+		%li
+			= link_to "Sign In", new_customer_session_path, :class => "button"
 #bars.top
