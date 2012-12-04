@@ -169,11 +169,10 @@
 
       <div class='field left' id="department_select">
         <%= f.label :department_id -%>
-        <%=  select_tag(:department_id , options_for_select((Customer::DEPARTMENTS))) -%>
+        <%= f.select :department_id , Customer::DEPARTMENTS -%>
       </div>
     </div>
   <% end %>
-
   <div class="clearfix"></div>
 
   <%= render :partial => "/shared/admin/form_actions",
