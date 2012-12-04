@@ -1,3 +1,27 @@
+GIT
+  remote: git://github.com/37signals/mail_view.git
+  revision: ee13d1768f905528e7fd8c8acfb733eef06d429d
+  specs:
+    mail_view (1.0.1)
+      tilt
+
+GIT
+  remote: git://github.com/chexton/comma.git
+  revision: 298ae61858193b33097c736f0f4832683afe23eb
+  specs:
+    comma (0.4.2)
+      activesupport (>= 2.2.2)
+      fastercsv
+      rspec (~> 2.6.0)
+
+GIT
+  remote: git://github.com/semblancesystems/eventlogger.git
+  revision: 33a4d4c1c3f898d58959208071b5ae5aadf67913
+  specs:
+    eventlogger (0.0.2)
+      activerecord
+      rails
+
 PATH
   remote: vendor/engines
   specs:
@@ -90,7 +114,6 @@ GEM
     coffee-script-source (1.1.3)
     color (1.4.1)
     columnize (0.3.5)
-    comma (3.0.3)
     compass (0.11.5)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -119,9 +142,6 @@ GEM
       rack
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    eventlogger (0.0.2)
-      activerecord
-      rails
     execjs (1.2.9)
       multi_json (~> 1.0)
     factory_girl (2.3.2)
@@ -178,7 +198,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mail_view (1.0.2)
     mailfactory (1.4.0)
       mime-types (>= 1.13.1)
     meta_where (1.0.4)
@@ -376,11 +395,11 @@ DEPENDENCIES
   acts_as_reportable
   barista
   cancan
-  comma
+  comma!
   compass (>= 0.11.5)
   compass-960-plugin
   decent_exposure
-  eventlogger (= 0.0.2)
+  eventlogger (= 0.0.2)!
   execjs
   factory_girl_rails
   fancy-buttons
@@ -391,7 +410,7 @@ DEPENDENCIES
   haml
   httparty
   jquery-rails
-  mail_view
+  mail_view!
   meta_where
   mysql2 (= 0.2.6)
   paperclip
