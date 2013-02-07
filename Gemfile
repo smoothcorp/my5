@@ -37,9 +37,10 @@ gem 'therubyracer'
 group :development, :test do
   gem 'sqlite3', :platform => :mri_19
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3', :platform => :mri_18
+  gem "rspec-rails", "~> 2.6"
 end
 
-group :test, :development do
+group :test do
   gem 'rspec', "~> 2.6"
   gem "rspec-rails", "~> 2.6"
   gem 'timecop'
