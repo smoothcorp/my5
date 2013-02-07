@@ -144,7 +144,7 @@ class Refinery::ReportsController < ApplicationController
         return @reports = filter_query("my5/symptomatics")
       when "mini_modules"
         return @reports = filter_query("my5/mini_modules")
-      when "my_eq"
+      when "my_eqs"
         return @reports = filter_query("my5/my_eqs")
       when "audio_programs"
         return @reports = filter_query("my5/audio_programs")

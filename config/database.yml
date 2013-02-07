@@ -6,8 +6,11 @@ defaults: &defaults
   encoding: utf8
 
 development:
-  adapter: sqlite3
+  adapter: mysql2
   database: my5_developments
+  host: localhost
+  username: root
+  password: root
 
 test: &test
   database: my5_test
