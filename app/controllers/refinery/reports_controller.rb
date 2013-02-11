@@ -168,15 +168,40 @@ class Refinery::ReportsController < ApplicationController
       @custmer_visit = CustomerVisit.where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
     end
 
+    # Rails.logger.info '>'*150
+    # Rails.logger.info '+- Wrong condition -+'
+    ### Rails.logger.info @custmer_visit.select { |report| report.show_id.to_i == params[:page_id].to_i && report.media_id == nil }
+    # Rails.logger.info @custmer_visit.select { |report| report.show_id.to_i == params[:page_id].to_i && report.media_id }
+    # Rails.logger.info '+-'*70
+
     if !params[:page_id].blank?
       if !params[:video_id].blank?
         @reports = @custmer_visit.select { |report| report if report.show_id.to_i == params[:page_id].to_i && report.media_id.to_i == params[:video_id].to_i }
+        # Rails.logger.info '='*150
+        # Rails.logger.info @reports.count
+        # Rails.logger.info '-'*150
+        # Rails.logger.info '-'*150
+
+        # This flag only for My EQ ( Hack )
+        $flag = false
+        if @reports.count == @reports.reject { |x| x.part.nil? }.count
+          $flag = true               
+        end
+
+        # Rails.logger.info @reports.count
+        # Rails.logger.info @reports.reject { |x| x.part.nil? }.count
+        # Rails.logger.info '-'*150
+        # Rails.logger.info '-'*150
       else
         @reports = @custmer_visit.select { |report| report if report.show_id.to_i == params[:page_id].to_i }
       end
     else
       @reports = @custmer_visit
     end
+    # Rails.logger.info '-'*150
+    # Rails.logger.info @reports.count
+    # Rails.logger.info @reports
+
     return @reports
   end
 
@@ -267,6 +292,11 @@ class Refinery::ReportsController < ApplicationController
           if !params[:page_id].blank?
             if !params[:video_id].blank?
               @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+
+              # Hack for MyEQ/../Stop! Take a breath in, Pressure point  ( correct graphs for this subparagraphs)
+              if $flag
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:part => params[:video_id])
+              end
             else
               @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
             end

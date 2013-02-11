@@ -57,7 +57,23 @@
     <div style="padding: 10px 10px;">
        <ul style="display:none;" class="first_child">
         <% @my_eqs.each do |my_eq| %>
-       <li><%= link_to "#{my_eq.emotional_grouping}", "#", :id =>"#{my_eq.id}",:class=>"graph_for_items" %><br/><br/></li>
+          <li>
+            <%= link_to "#{my_eq.emotional_grouping}", "#", :id =>"#{my_eq.id}",:class=>"graph_for_items" %>
+<!-- MyEq STEPS END -->
+               <% if !MyEq.steps.blank? %>
+                     <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus",:style=>"margin-top:5px;height:25px;") %>
+                     <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus",:style=>"display:none;margin-top:5px;height:25px;") %>
+                     <br/><br/>
+                     <ul style="display:none;" class="second_child">
+                         <% MyEq.steps.each_with_index do |step, i| %>                   
+                         <li>
+                             <%= link_to "#{step}", "#", :id =>"#{i}",:class=>"graph_for_items_child" %><br/><br/>
+                          </li>
+                          <%end%>
+                     </ul>          
+               <%end%> 
+<!-- MyEq STEPS END -->
+          </li>
         <%end%>
         </ul>  
     </div>
