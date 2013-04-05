@@ -6,7 +6,7 @@ class Refinery::ReportsController < ApplicationController
   layout 'admin'
 
   def index
-    
+
 
 
     # Get details for the 30 day oerview reports

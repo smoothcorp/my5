@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20120605205351) do
     t.string   "card_name"
     t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
-    t.integer  "free_trial_opted"
+    t.integer  "free_trial_opted",     :limit => 1
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true

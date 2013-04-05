@@ -5,6 +5,9 @@
 From  <%= text_field_tag "from_date" ,"",:id=>"from_date",:placeholder=>"DD/MM/YYYY"  %> TO <%= text_field_tag "to_date" ,"",:id=>"to_date",:placeholder=>"DD/MM/YYYY"  %> <%= link_to "OK", "#",:id=>"Ok", :class =>"button" %>
 </div>
 
+<div style='float: right'>
+  <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 7))%>
+</div>
 <tr>
 <table border="0" style="flaot:left;" >
 <tr>

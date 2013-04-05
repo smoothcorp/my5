@@ -31,7 +31,7 @@
 
 
 <script language="javascript" type="text/javascript">
-  $(document).ready(function() { 
+  $(document).ready(function() {
      $('#screen_1').live('click',function(e) {
         change_color_of_screen();
         $('.graph_for').css("color","black").css("border","0px black solid");
@@ -160,7 +160,7 @@
      $('#column_graph').live('click',function(e) {
         $('#main_container').show("fast");
         $('#bar_container').hide("fast");
-        $('#pie_container').hide("fast"); 
+        $('#pie_container').hide("fast");
         return false;
      });
      $('#bar_graph').live('click',function(e) {
@@ -176,7 +176,7 @@
         return false;
      });
  });
- 
+
  function change_color_of_screen()
  {
    $('.screens').each(function(index) {
@@ -189,7 +189,7 @@
              $('.graph_for_items').css("color","black").css("border","0px black solid");
              $('.graph_for_items_child').css("color","black").css("border","0px black solid");
              var from_date= $('#from_date').val();
-             var to_date = $('#to_date').val(); 
+             var to_date = $('#to_date').val();
              var graph_views = $("#graph_view").val();
              if(company_id == "")
              {
@@ -219,12 +219,13 @@
              {
                 graph_views = 1;
              }
-             
+             var frequency = $("#frequency").val();
+
              $.ajax({
                 type: "GET",
                 asyn: false,
                 url: "/refinery/reports/screen1",
-                data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date},
+                data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency},
                 beforeSend: function() {
                  $("#loader").show('fast');
                   $('#screen_'+graph_views).css("backgroundColor","green");
@@ -245,12 +246,14 @@ function graph_view(id, page,page_id,video_id)
            var role = $('#role_id').val();
            var state = $('#state').val();
            var country = $('#country').val();
+           var frequency = $("#frequency").val();
            console.log('qweqweqwe');
+
               $.ajax({
                 type: "GET",
                 asyn: false,
                 url: "/refinery/reports/screen1",
-                data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id},
+                data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id, "frequency": frequency},
                 beforeSend: function() {
                     $("#loader").show('fast');
                 },
@@ -261,8 +264,8 @@ console.log(data)
                  $("#loader").hide('fast');
                 }
               });
- 
-}      
+
+}
 </script>
 <script type="text/javascript">
 	window.onload = function(){

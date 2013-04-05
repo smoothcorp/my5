@@ -10,7 +10,7 @@ development:
   database: my5_developments
   host: localhost
   username: root
-  password: root
+  password: ' '
 
 test: &test
   database: my5_test
