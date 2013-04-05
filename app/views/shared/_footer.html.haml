@@ -5,7 +5,6 @@
         %li= link_to "Pricing", page_path("pricing")
         %li= link_to "About Us", page_path("about")
         %li= link_to "Contact us", page_path("contact-us")
-        %li Help
         %li.last Membership
     %ul.first
         %li= link_to "Key features", page_path("features")
@@ -26,8 +25,6 @@
         %li= link_to "Privacy Policy", page_path("privacy-policy")
     %ul
         %li= link_to "Get in touch", page_path("contact-us")
-    %ul
-        %li= link_to "Help", page_path("faq")
     %ul.last
         - if current_customer
             %li= link_to "Sign out", destroy_customer_session_path
