@@ -45,5 +45,4 @@
     = f.input :accept_terms, :label => "I agree that I have read and understood the My 5 #{link_to 'terms and conditions', '/pages/terms-and-conditions', :target => :_blank, :class => 'green'}, including the medical warning.".html_safe, :label_html => {:style => 'width: 100%; margin-left: 0px;'}, :input_html => {:style => 'margin-left: 0px'}, :as => :boolean, :required => true
 
     .actions
-      = f.submit "Sign up"
       = render "devise/shared/links"

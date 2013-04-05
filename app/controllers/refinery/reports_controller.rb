@@ -329,12 +329,9 @@ class Refinery::ReportsController < ApplicationController
     @report_day_array += "]" if !@report_day_array.blank?
     @report_day_date += "]" if !@report_day_date.blank?
 
-
-
-    Rails.logger.info '#'*1000
-    Rails.logger.info @report_day_array
-    Rails.logger.info '#'*1000
-
+    # Rails.logger.info '#'*1000
+    # Rails.logger.info @report_day_array
+    # Rails.logger.info '#'*1000
 
     @year  = @report_day_date[2..5].to_i
     @month = @report_day_date[7..8].to_i - 1
@@ -349,12 +346,10 @@ class Refinery::ReportsController < ApplicationController
 
     @brr = []
     avarage = 0
-
     @report_day_array_array.reverse.each_slice(@round) do |sub_arr|
       sub_arr.each do |x|
         avarage += x
       end
-
       @brr << avarage
       avarage = 0
     end
