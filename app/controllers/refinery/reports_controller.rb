@@ -336,6 +336,12 @@ class Refinery::ReportsController < ApplicationController
     @day   = @report_day_date[10..11].to_i
 
 
+    Rails.logger.info '#'*1000
+    Rails.logger.info @report_day_array_array
+    Rails.logger.info '#'*100
+    Rails.logger.info @report_day_array
+
+
     if params[:frequency]
       @round = params[:frequency].to_i
     else
@@ -349,15 +355,14 @@ class Refinery::ReportsController < ApplicationController
       sub_arr.each do |x|
         avarage += x
       end
-      avarage = avarage/size
+      #avarage = avarage/size
       @brr << avarage
       avarage = 0
     end
 
     @report_day_array = @brr
 
-    Rails.logger.info '#'*1000
-    Rails.logger.info @report_day_array_array
+
     #Rails.logger.info @brr
   end
 
