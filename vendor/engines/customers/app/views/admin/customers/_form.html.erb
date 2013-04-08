@@ -9,12 +9,12 @@
       }
 
       $(document).ready(function(){
-
+        $('li#customer_time_zone_input').find('select').appendTo('.time_zone_field').end().end().remove();
       });
   </script>
 <% end %>
 
-<%= form_for [:admin, @customer] do |f| -%>
+<%= semantic_form_for [:admin, @customer] do |f| -%>
   <%= render :partial => "/shared/admin/error_messages", :locals => {
           :object => @customer,
           :include_object_name => true
@@ -50,6 +50,11 @@
     <div class='field'>
       <%= f.label :promo_code, "Promo Code (optional)" -%>
       <%= f.text_field :promo_code, :class => 'larger'  -%>
+    </div>
+
+    <div class='field time_zone_field'>
+      <%= f.label :time_zone, "Time zone" -%>
+      <%= f.input :time_zone -%>
     </div>
 
     <%- unless @customer.new_record? %>
