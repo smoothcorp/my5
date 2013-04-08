@@ -329,41 +329,65 @@ class Refinery::ReportsController < ApplicationController
     @report_day_array += "]" if !@report_day_array.blank?
     @report_day_date += "]" if !@report_day_date.blank?
 
-    #Rails.logger.info @report_day_date
+
+
+    Rails.logger.info '#'*1000
+    Rails.logger.info @report_day_array
+    Rails.logger.info '#'*1000
+
 
     @year  = @report_day_date[2..5].to_i
     @month = @report_day_date[7..8].to_i - 1
     @day   = @report_day_date[10..11].to_i
 
 
-    Rails.logger.info '#'*1000
-    Rails.logger.info @report_day_array_array
-    Rails.logger.info '#'*100
-    Rails.logger.info @report_day_array
-
-
     if params[:frequency]
       @round = params[:frequency].to_i
     else
-      @round = 7
+      @round = 1
     end
 
     @brr = []
     avarage = 0
-    @report_day_array_array.each_slice(@round) do |sub_arr|
-      size = sub_arr.size.to_f
+
+    @report_day_array_array.reverse.each_slice(@round) do |sub_arr|
       sub_arr.each do |x|
         avarage += x
       end
-      #avarage = avarage/size
+
       @brr << avarage
       avarage = 0
     end
 
-    @report_day_array = @brr
+    #Rails.logger.info '#'*1000
+    #Rails.logger.info @brr    # => 2022 2036 1261 597 550
+    #Rails.logger.info @report_day_array
 
+    if @brr.size > 7
+      @brr = @brr[0..6]
 
-    #Rails.logger.info @brr
+      #Rails.logger.info '#'*1000
+      #Rails.logger.info @brr
+
+      data_to = params[:to_date]
+      data_to = data_to.split('-')
+
+      data_to = (Date.new(data_to[2].to_i, data_to[1].to_i, data_to[0].to_i) - (6 * @round).day).strftime('%Y-%m-%d')
+      data_to = data_to.split('-')
+
+      @year  = data_to[0].to_i
+      @month = data_to[1].to_i - 1
+      @day   = data_to[2].to_i
+
+      #Rails.logger.info '#'*1000
+      #Rails.logger.info data_to
+      #Rails.logger.info @year
+      #Rails.logger.info @month
+      #Rails.logger.info @day
+      #Rails.logger.info '#'*100
+    end
+
+    @report_day_array = @brr.reverse
   end
 
   def screen_2_data
