@@ -4,6 +4,7 @@
 $(function () {
     var chart;
     $(document).ready(function() {
+      console.log(<%= @report_day_array %>);
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
@@ -57,8 +58,8 @@ $(function () {
             series: [{
                 name: 'Visits',
                 data: <%= @report_day_array %>,
-                pointStart: Date.UTC( 2012, 1, 1),
-                pointInterval: <%= 24 * 3600 * 1000 %>
+                pointStart: Date.UTC(<%= @year %>, <%= @month %>, <%= @day %>),
+                pointInterval: <%= @round * 24 * 3600 * 1000 %>
             }]
         });
     });
