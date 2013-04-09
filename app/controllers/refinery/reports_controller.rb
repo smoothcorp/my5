@@ -262,7 +262,8 @@ class Refinery::ReportsController < ApplicationController
     @report_day_array = ""
     @report_day_date = ""
 
-    @report_day_array_array = Array.new(1, 'NA S!')
+    #@report_day_array_array = Array.new(1, 'NA S!')
+    @report_day_array_array = ''
 
     Rails.logger.info '==='*20
     Rails.logger.info @report_day_array_array
