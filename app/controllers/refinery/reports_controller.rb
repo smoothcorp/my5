@@ -335,7 +335,8 @@ class Refinery::ReportsController < ApplicationController
 
 
     #@report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)].split(',').map(&:to_i)
-    @report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)]
+    #@report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)]
+    @report_day_array_array = @report_day_array
 
     Rails.logger.info '#'*1000
     Rails.logger.info @report_day_array
