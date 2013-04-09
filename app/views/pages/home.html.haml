@@ -4,6 +4,7 @@
 %div#banner.clear
     %div#text
         = raw(@page.content_for :heading)
+        = link_to "Start free 10 day trial", new_customer_registration_path, :class => 'button'
         = link_to "Find out more", page_path("features")
 #bars
 %div#verbs
