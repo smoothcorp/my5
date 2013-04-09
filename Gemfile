@@ -31,7 +31,7 @@ gem "remotipart", "~> 1.0"
 gem "time_diff"
 gem 'time_of_day'
 gem 'execjs'
-# gem 'therubyracer'
+gem 'therubyracer'
 
 ##--- Dev and test specific
 group :development, :test do
