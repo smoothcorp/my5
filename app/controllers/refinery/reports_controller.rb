@@ -365,22 +365,20 @@ class Refinery::ReportsController < ApplicationController
       @round = 1
     end
 
-    @brr = []
+    @brr = ""
     avarage = 0
 
     @report_day_array_array.reverse.each_slice(@round) do |sub_arr|
-
-      Rails.logger.info '#'*100
-      Rails.logger.info sub_arr
-      Rails.logger.info '#'*100
-
       sub_arr.each do |x|
         avarage += x
       end
 
-      @brr << avarage
+      @brr << avarage.to_s+','
       avarage = 0
     end
+
+    @brr = @brr.split(',')
+
 
     #Rails.logger.info '#'*1000
     #Rails.logger.info @brr    # => 2022 2036 1261 597 550
