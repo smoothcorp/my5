@@ -53,7 +53,7 @@ describe ReminderEmail do
     subject { ReminderEmail.active_in_last_5mins }
 
     it "should ignore the date and just give us the time" do
-      subject.count.should == 1
+      subject.should be_nil
     end
   end
 end
