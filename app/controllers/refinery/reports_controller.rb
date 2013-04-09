@@ -264,6 +264,10 @@ class Refinery::ReportsController < ApplicationController
 
     @report_day_array_array = []
 
+    Rails.logger.info '==='*20
+    Rails.logger.info @report_day_array_array
+    Rails.logger.info '==='*20
+
     count = 0
 
     #Rails.logger.info '#'*1000
@@ -316,6 +320,10 @@ class Refinery::ReportsController < ApplicationController
       date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
 
       @report_day_array_array << @day_count.size
+
+      Rails.logger.info '+++'*20
+      Rails.logger.info @report_day_array_array
+      Rails.logger.info '+++'*20
 
       @report_day_array += @day_count.size.to_s
       @report_day_date += date_string
