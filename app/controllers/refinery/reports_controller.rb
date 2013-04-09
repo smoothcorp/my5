@@ -262,12 +262,12 @@ class Refinery::ReportsController < ApplicationController
     @report_day_array = ""
     @report_day_date = ""
 
-    #@report_day_array_array = Array.new(1, 'NA S!')
-    @report_day_array_array = ""
-
-    Rails.logger.info '==='*20
-    Rails.logger.info @report_day_array_array
-    Rails.logger.info '==='*20
+    #@report_day_array_array = Array.new()
+    ##@report_day_array_array = ""
+    #
+    #Rails.logger.info '==='*20
+    #Rails.logger.info @report_day_array_array
+    #Rails.logger.info '==='*20
 
     count = 0
 
@@ -320,11 +320,11 @@ class Refinery::ReportsController < ApplicationController
       end
       date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
 
-      @report_day_array_array << @day_count.size
-
-      Rails.logger.info '+++'*20
-      Rails.logger.info @report_day_array_array
-      Rails.logger.info '+++'*20
+      #@report_day_array_array << @day_count.size
+      #
+      #Rails.logger.info '+++'*20
+      #Rails.logger.info @report_day_array_array
+      #Rails.logger.info '+++'*20
 
       @report_day_array += @day_count.size.to_s
       @report_day_date += date_string
@@ -339,10 +339,12 @@ class Refinery::ReportsController < ApplicationController
     @report_day_date += "]" if !@report_day_date.blank?
 
 
+    @report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)].split(',').map(&:to_i)
 
     Rails.logger.info '#'*1000
     Rails.logger.info @report_day_array
     Rails.logger.info @report_day_array_array
+    Rails.logger.info @report_day_array_array.class
     Rails.logger.info '#'*1000
 
 
