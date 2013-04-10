@@ -356,11 +356,11 @@ class Refinery::ReportsController < ApplicationController
     #Rails.logger.info '='*50
     #
     #
-    #if params[:frequency]
-    #  @round = params[:frequency].to_i
-    #else
-    #  @round = 1
-    #end
+    if params[:frequency]
+      @round = params[:frequency].to_i
+    else
+      @round = 1
+    end
     #
     #@brr = []
     #avarage = 0
