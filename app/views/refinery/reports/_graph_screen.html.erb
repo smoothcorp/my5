@@ -4,14 +4,46 @@
 $(function () {
     var chart;
     $(document).ready(function() {
-
+//  =========================================================================================================
       console.log(<%= @report_day_array %>);
       var report_day_array = <%= @report_day_array %>
-      var report_day_array_array_js = [];
-      report_day_array_array_js = jQuery.map(report_day_array, function(n){ return parseInt(n, 10); });
-      console.log(report_day_array_array_js);
-      console.log(Array.isArray(report_day_array_array_js));
-      console.log(Array.isArray(report_day_array));
+
+//      do not needed
+//      var report_day_array_array_js = [];
+//      report_day_array_array_js = jQuery.map(report_day_array, function(n){ return parseInt(n, 10); });
+//      console.log(report_day_array_array_js);
+//      console.log(Array.isArray(report_day_array_array_js));
+//      console.log(Array.isArray(report_day_array));
+
+          Array.prototype.each_slice = function (size, callback){
+            for (var i = 0, l = this.length; i < l; i += size){
+              callback.call(this, this.slice(i, i + size));
+            }
+          };
+
+      var round = <%= @round %>
+      var arr = [];
+      var avarage = 0;
+
+      report_day_array.reverse().each_slice(round, function (sub_array){
+        $.each(sub_array, function() {
+          avarage += this;
+        });
+
+        arr.push(avarage);
+        avarage = 0;
+      });
+
+      if ( arr.length > 7 ) {
+        arr = brr.slice(0,7);
+      }
+
+      arr.reverse();
+
+      console.log('========');
+      console.log(arr);
+      console.log('========');
+//  =========================================================================================================
 
         chart = new Highcharts.Chart({
             chart: {
@@ -71,12 +103,12 @@ $(function () {
             }]
         });
     });
-    
+
 });
 		</script>
 
 
-	
+
 
 <%elsif params[:graph_view] == "2" %>
 <div align="right"><%= link_to("COLUMN", '#', :class => "button graphs_type",:id=>"column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph") %></div>
@@ -129,11 +161,11 @@ $(function () {
                 series: [{
                 name: 'Visits',
                 data: <%=@report_day_array.to_s%>
-    
+
             }]
         });
     });
-    
+
 });
 </script>
 <script type="text/javascript">
@@ -185,11 +217,11 @@ $(function () {
                 series: [{
                 name: 'Visits',
                 data: <%=@report_day_array.to_s%>
-    
+
             }]
         });
     });
-    
+
 });
 </script>
 <% if @pie_sum_totals.to_i > 0 %>
@@ -233,7 +265,7 @@ $(function () {
             }]
         });
     });
-    
+
 });
 </script>
 <%end%>
