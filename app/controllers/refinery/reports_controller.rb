@@ -407,7 +407,7 @@ class Refinery::ReportsController < ApplicationController
       #Rails.logger.info '#'*100
     end
 
-    #@report_day_array = @brr.reverse
+    @report_day_array = @brr.reverse
   end
 
   def screen_2_data
