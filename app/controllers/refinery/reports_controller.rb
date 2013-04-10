@@ -185,7 +185,7 @@ class Refinery::ReportsController < ApplicationController
         # This flag only for My EQ ( Hack )
         $flag = false
         if @reports.count == @reports.reject { |x| x.part.nil? }.count
-          $flag = true               
+          $flag = true
         end
 
         # Rails.logger.info @reports.count
@@ -257,14 +257,16 @@ class Refinery::ReportsController < ApplicationController
     end
 
   end
-  
+
   def screen_1_data
     @report_day_array = ""
     @report_day_date = ""
 
-    #Rails.logger.info '==='*20
-    #Rails.logger.info @report_day_array_array
-    #Rails.logger.info '==='*20
+    @report_day_array_array = Array.new()
+
+    Rails.logger.info '==='*20
+    Rails.logger.info @report_day_array_array
+    Rails.logger.info '==='*20
 
     count = 0
 
@@ -317,9 +319,11 @@ class Refinery::ReportsController < ApplicationController
       end
       date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
 
-      #Rails.logger.info '+++'*20
-      #Rails.logger.info @report_day_array_array
-      #Rails.logger.info '+++'*20
+      @report_day_array_array << @day_count.size
+
+      Rails.logger.info '+++'*20
+      Rails.logger.info @report_day_array_array
+      Rails.logger.info '+++'*20
 
       @report_day_array += @day_count.size.to_s
       @report_day_date += date_string
@@ -334,14 +338,10 @@ class Refinery::ReportsController < ApplicationController
     @report_day_date += "]" if !@report_day_date.blank?
 
 
-    #@report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)].split(',').map(&:to_i)
-    #@report_day_array_array = @report_day_array[1..(@report_day_array.length - 2)]
-    @report_day_array_array = @report_day_array
 
     Rails.logger.info '#'*1000
     Rails.logger.info @report_day_array
     Rails.logger.info @report_day_array_array
-    Rails.logger.info @report_day_array_array.class
     Rails.logger.info '#'*1000
 
 
@@ -362,20 +362,22 @@ class Refinery::ReportsController < ApplicationController
       @round = 1
     end
 
-    @brr = ""
+    @brr = []
     avarage = 0
 
     @report_day_array_array.reverse.each_slice(@round) do |sub_arr|
+
+      Rails.logger.info '#'*100
+      Rails.logger.info sub_arr
+      Rails.logger.info '#'*100
+
       sub_arr.each do |x|
         avarage += x
       end
 
-      @brr << avarage.to_s+','
+      @brr << avarage
       avarage = 0
     end
-
-    @brr = @brr.split(',')
-
 
     #Rails.logger.info '#'*1000
     #Rails.logger.info @brr    # => 2022 2036 1261 597 550
