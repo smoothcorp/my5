@@ -97,7 +97,7 @@ $(function () {
             },
             series: [{
                 name: 'Visits',
-                data: <%= @report_day_array %>,
+                data: arr,
                 pointStart: Date.UTC(<%= @year %>, <%= @month %>, <%= @day %>),
                 pointInterval: <%= @round * 24 * 3600 * 1000 %>
             }]
