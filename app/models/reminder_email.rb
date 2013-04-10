@@ -55,9 +55,8 @@ class ReminderEmail < ActiveRecord::Base
   end
 
   def available_inputs
-    DAYS.collect.with_index { |label, index| [label, index.to_s] }
-    #DAYS.enum_with_index.collect {|label, index| [label, index.to_s]}
-
+    #DAYS.collect.with_index { |label, index| [label, index.to_s] }
+    DAYS.enum_with_index.collect {|label, index| [label, index.to_s]}
   end
 
   def remind
