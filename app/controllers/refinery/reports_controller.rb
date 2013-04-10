@@ -345,9 +345,9 @@ class Refinery::ReportsController < ApplicationController
     #Rails.logger.info '#'*1000
 
 
-    @year  = @report_day_date[2..5].to_i
-    @month = @report_day_date[7..8].to_i - 1
-    @day   = @report_day_date[10..11].to_i
+    #@year  = @report_day_date[2..5].to_i
+    #@month = @report_day_date[7..8].to_i - 1
+    #@day   = @report_day_date[10..11].to_i
 
     #Rails.logger.info '='*50
     #Rails.logger.info @year

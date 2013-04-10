@@ -5,11 +5,15 @@ $(function () {
     var chart;
     $(document).ready(function() {
 //  =========================================================================================================
-//      console.log(<%= @report_day_array %>);
+      console.log(<%= @report_day_array %>);
       var report_day_array = <%= @report_day_array %>
-      var year = <%= @year %>
-      var month = <%= @month %>
-      var day =   <%= @day %>
+      var year
+      var month
+      var day
+
+      var date_array;
+      var report_day_date = <%= @report_day_date %>
+      var start_date_index = 0;
 
 //      do not needed
 //      var report_day_array_array_js = [];
@@ -39,30 +43,33 @@ $(function () {
 
       if ( arr.length > 7 ) {
         arr = arr.slice(0,7);
-
-
-        var report_day_date = <%= @report_day_date %>
-            date_array = report_day_date[report_day_date.length-7].split(' ');
-
-        var date_array;
-
-        year = date_array[0];
-        month = date_array[1];
-        day = date_array[2];
-
-        year = parseInt(year, 10);
-        month = parseInt(month, 10);
-        day = parseInt(day, 10);
+        start_date_index = report_day_date.length-(6*round)-1;
       }
 
       arr.reverse();
+
+
+      date_array = report_day_date[start_date_index].split(' ');
+
+      year = date_array[0];
+      month = date_array[1];
+      day = date_array[2];
+
+      year = parseInt(year, 10);
+      month = parseInt(month, 10)-1;
+      day = parseInt(day, 10);
+
 
 
 //      console.log('========');
 //      console.log(year);
 //      console.log(month);
 //      console.log(day);
+//      console.log(date_array);
+//      console.log(date_array);
+//      console.log(report_day_date);
 //      console.log('========');
+      console.log(arr);
 //  =========================================================================================================
 
         chart = new Highcharts.Chart({
