@@ -391,10 +391,8 @@ class Refinery::ReportsController < ApplicationController
     #
     #  data_to = params[:to_date]
     #  data_to = data_to.split('-')
-    #
     #  data_to = (Date.new(data_to[2].to_i, data_to[1].to_i, data_to[0].to_i) - (6 * @round).day).strftime('%Y-%m-%d')
     #  data_to = data_to.split('-')
-    #
     #  @year  = data_to[0].to_i
     #  @month = data_to[1].to_i - 1
     #  @day   = data_to[2].to_i

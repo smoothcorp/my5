@@ -5,8 +5,11 @@ $(function () {
     var chart;
     $(document).ready(function() {
 //  =========================================================================================================
-      console.log(<%= @report_day_array %>);
+//      console.log(<%= @report_day_array %>);
       var report_day_array = <%= @report_day_array %>
+      var year = <%= @year %>
+      var month = <%= @month %>
+      var day =   <%= @day %>
 
 //      do not needed
 //      var report_day_array_array_js = [];
@@ -36,13 +39,30 @@ $(function () {
 
       if ( arr.length > 7 ) {
         arr = arr.slice(0,7);
+
+
+        var report_day_date = <%= @report_day_date %>
+            date_array = report_day_date[report_day_date.length-7].split(' ');
+
+        var date_array;
+
+        year = date_array[0];
+        month = date_array[1];
+        day = date_array[2];
+
+        year = parseInt(year, 10);
+        month = parseInt(month, 10);
+        day = parseInt(day, 10);
       }
 
       arr.reverse();
 
-      console.log('========');
-      console.log(arr);
-      console.log('========');
+
+//      console.log('========');
+//      console.log(year);
+//      console.log(month);
+//      console.log(day);
+//      console.log('========');
 //  =========================================================================================================
 
         chart = new Highcharts.Chart({
@@ -98,7 +118,7 @@ $(function () {
             series: [{
                 name: 'Visits',
                 data: arr,
-                pointStart: Date.UTC(<%= @year %>, <%= @month %>, <%= @day %>),
+                pointStart: Date.UTC(year, month, day),
                 pointInterval: <%= @round * 24 * 3600 * 1000 %>
             }]
         });
