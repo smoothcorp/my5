@@ -1,5 +1,5 @@
 class ReminderEmail < ActiveRecord::Base
-  before_save :set_time_for_daylight_savings
+  # before_save :set_time_for_daylight_savings
 
   belongs_to :customer
 
@@ -66,6 +66,7 @@ class ReminderEmail < ActiveRecord::Base
 
   private
   def set_time_for_daylight_savings
+    # Unused method
     self.time = self.time - 1.hour
   end
 end
