@@ -337,12 +337,9 @@ class Refinery::ReportsController < ApplicationController
     @report_day_array += "]" if !@report_day_array.blank?
     @report_day_date += "]" if !@report_day_date.blank?
 
-
-
-    #Rails.logger.info '#'*1000
-    #Rails.logger.info @report_day_array
-    #Rails.logger.info @report_day_array_array
-    #Rails.logger.info '#'*1000
+    # Rails.logger.info '#'*1000
+    # Rails.logger.info @report_day_array
+    # Rails.logger.info '#'*1000
 
 
     #@year  = @report_day_date[2..5].to_i

@@ -5,15 +5,13 @@
         %li= link_to "Pricing", page_path("pricing")
         %li= link_to "About Us", page_path("about")
         %li= link_to "Contact us", page_path("contact-us")
-        %li Help
-        %li.last Membership
     %ul.first
         %li= link_to "Key features", page_path("features")
         %li= link_to "The Workplace", page_path("workplace")
     %ul
         %li= link_to "Our Services", page_path("services")
     %ul
-        %li= link_to "Individual", new_customer_registration_path
+        %li= link_to "Individual", page_path("pricing")
         %li.double-line= link_to "Corporate and Enterprise", page_path("corporate-and-enterprise-membership")
     %ul
         %li= link_to "Vision", page_path("vision")
@@ -26,15 +24,9 @@
         %li= link_to "Privacy Policy", page_path("privacy-policy")
     %ul
         %li= link_to "Get in touch", page_path("contact-us")
-    %ul
-        %li= link_to "Help", page_path("faq")
     %ul.last
         - if current_customer
             %li= link_to "Sign out", destroy_customer_session_path
-        - else
-            %li= link_to "Free Trial", new_customer_registration_path
-            %li= link_to "Sign Up", new_customer_registration_path
-            %li= link_to "Sign In", new_customer_session_path
 %div#line My 5 Pty Ltd | ABN: 19 121 460517
 %div#logo= image_tag "logo.png"
 
