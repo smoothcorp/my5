@@ -5,49 +5,94 @@ $(function () {
     var chart;
     $(document).ready(function() {
 //  =========================================================================================================
-      console.log(<%= @report_day_array %>);
+
+      var day_of_months
+      day_of_months = [31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,31,31,28,31,30,31,30,31,31,30,31,30,3131,28,31,30,31,30,31,31,30,31,30,31];
+
       var report_day_array = <%= @report_day_array %>
+      var start_date_index = 0;
       var year
       var month
-      var day
 
+      var day
       var date_array;
       var report_day_date = <%= @report_day_date %>
-      var start_date_index = 0;
 
-//      do not needed
-//      var report_day_array_array_js = [];
-//      report_day_array_array_js = jQuery.map(report_day_array, function(n){ return parseInt(n, 10); });
-//      console.log(report_day_array_array_js);
-//      console.log(Array.isArray(report_day_array_array_js));
-//      console.log(Array.isArray(report_day_array));
+      var current_month
+      current_month = report_day_date[start_date_index].split(' ')[1]-1;
 
-          Array.prototype.each_slice = function (size, callback){
-            for (var i = 0, l = this.length; i < l; i += size){
-              callback.call(this, this.slice(i, i + size));
-            }
-          };
+      var j = current_month;
+      var j_m = current_month - 1;
 
       var round = <%= @round %>
       var arr = [];
+      var monthly = [];
       var avarage = 0;
 
-      report_day_array.reverse().each_slice(round, function (sub_array){
-        $.each(sub_array, function() {
-          avarage += this;
+
+      if ( round == 30 ) {
+        Array.prototype.each_slice = function (size, callback){
+          for (var i = 0, l = this.length; i < l;){
+            j += 1;
+            callback.call(this, this.slice(i, i + size[j]));
+            i += size[j];
+          }
+        };
+
+        Array.prototype.each_slice_month = function (size, callback){
+          for (var i = 0, l = this.length; i < l;){
+            j_m += 1;
+            callback.call(this, this.slice(i, i + size[j_m]));
+            i += size[j_m];
+          }
+        };
+
+        /*Count!*/
+        report_day_array.reverse().each_slice(day_of_months, function (sub_array){
+          $.each(sub_array, function() {
+            avarage += this;
+          });
+
+          arr.push(avarage);
+          avarage = 0;
         });
 
-        arr.push(avarage);
-        avarage = 0;
-      });
+
+        /*Months!*/
+        report_day_date.each_slice_month(day_of_months, function (sub_array){
+          monthly.push(sub_array[0]);
+        });
+
+      } else {
+         Array.prototype.each_slice = function (size, callback){
+           for (var i = 0, l = this.length; i < l; i += size){
+             callback.call(this, this.slice(i, i + size));
+           }
+         };
+
+        /*Count!*/
+        report_day_array.reverse().each_slice(round, function (sub_array){
+          $.each(sub_array, function() {
+            avarage += this;
+          });
+
+          arr.push(avarage);
+          avarage = 0;
+        });
+      }
+
+
+      console.log(arr);
 
       if ( arr.length > 7 ) {
         arr = arr.slice(0,7);
+        monthly = monthly.reverse().slice(0,7);
+        monthly = monthly.reverse();
         start_date_index = report_day_date.length-(6*round)-1;
       }
 
-      arr.reverse();
 
+      arr.reverse();
 
       date_array = report_day_date[start_date_index].split(' ');
 
@@ -61,74 +106,155 @@ $(function () {
 
 
 
+
+      var m_onthly = monthly;
+      var a_rr = arr;
+
+
+      var some = [];
+
+      function toDate(strDate) {
+        var args = strDate.split(' ').map(Number);
+        args[1] = args[1]-1;
+        return Date.UTC.apply(Date, args);
+      }
+
+      for (var i = 0, length = m_onthly.length; i < length; i += 1) {
+        some[i] = {
+          x: toDate( m_onthly[i] ),
+          y: a_rr[ i ]
+        };
+      }
+
+
+
+
 //      console.log('========');
-//      console.log(year);
-//      console.log(month);
-//      console.log(day);
-//      console.log(date_array);
-//      console.log(date_array);
-//      console.log(report_day_date);
+      console.log(year);
+      console.log(month);
+      console.log(day);
+//      console.log(m_onthly);
+//      console.log(a_rr);
+//      console.log(some);
 //      console.log('========');
-      console.log(arr);
+//      console.log(round);
 //  =========================================================================================================
 
-        chart = new Highcharts.Chart({
+        if (round == 30) {
+          chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
-                type: 'line',
-                marginRight: 130,
-                marginBottom: 25
+              renderTo: 'container',
+              type: 'line',
+              marginRight: 130,
+              marginBottom: 25
             },
             title: {
-                text: 'Line - Graph',
-                x: -20 //center
+              text: 'Line - Graph',
+              x: -20 //center
             },
             subtitle: {
-                text: '',
-                x: -20
+              text: '',
+              x: -20
             },
             xAxis: {
-                type: 'datetime',
+              type: 'datetime',
 
-                dateTimeLabelFormats: {
-                  hour: '%H:%M',
-                  day: '%e %b',
-                  week: '%e %b',
-                  month: '%b %Y',
-                  year: '%b %Y'
-                }
+              dateTimeLabelFormats: {
+                hour: '%H:%M',
+                day: '%e %b',
+                week: '%e %b',
+                month: '%b %Y',
+                year: '%b %Y'
+              }
             },
             yAxis: {
-                title: {
-                    text: 'Page views'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
+              title: {
+                text: 'Page views'
+              },
+              plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+              }]
             },
             tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                            Highcharts.dateFormat("%e %b'%y", this.x) +': '+ Math.round(this.y).toFixed(1) +' \u00A0 ';
-                }
+              formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat("%e %b'%y", this.x) +': '+ Math.round(this.y).toFixed(1) +' \u00A0 ';
+              }
             },
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -10,
-                y: 100,
-                borderWidth: 0
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'top',
+              x: -10,
+              y: 100,
+              borderWidth: 0
             },
             series: [{
-                name: 'Visits',
-                data: arr,
-                pointStart: Date.UTC(year, month, day),
-                pointInterval: <%= @round * 24 * 3600 * 1000 %>
+              name: 'Visits',
+              data: some
             }]
-        });
+          });
+        } else {
+          chart = new Highcharts.Chart({
+            chart: {
+              renderTo: 'container',
+              type: 'line',
+              marginRight: 130,
+              marginBottom: 25
+            },
+            title: {
+              text: 'Line - Graph',
+              x: -20 //center
+            },
+            subtitle: {
+              text: '',
+              x: -20
+            },
+            xAxis: {
+              type: 'datetime',
+
+              dateTimeLabelFormats: {
+                hour: '%H:%M',
+                day: '%e %b',
+                week: '%e %b',
+                month: '%b %Y',
+                year: '%b %Y'
+              }
+            },
+            yAxis: {
+              title: {
+                text: 'Page views'
+              },
+              plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+              }]
+            },
+            tooltip: {
+              formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat("%e %b'%y", this.x) +': '+ Math.round(this.y).toFixed(1) +' \u00A0 ';
+              }
+            },
+            legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'top',
+              x: -10,
+              y: 100,
+              borderWidth: 0
+            },
+            series: [{
+              name: 'Visits',
+              data: arr,
+              pointStart: Date.UTC(year, month, day),
+              pointInterval: <%= @round * 24 * 3600 * 1000 %>
+            }]
+          });
+        }
     });
 
 });
