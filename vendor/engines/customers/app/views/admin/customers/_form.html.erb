@@ -7,10 +7,6 @@
         $('#customer_password_confirmation').removeAttr('disabled').css("border-color", "#3e3e3e !important").css("color", "#3e3e3e !important");
         $('#customer_password_confirmation').prev().css("color", "#3e3e3e !important");
       }
-
-      $(document).ready(function(){
-        $('li#customer_time_zone_input').find('select').appendTo('.time_zone_field').end().end().remove();
-      });
   </script>
 <% end %>
 
@@ -54,7 +50,7 @@
 
     <div class='field time_zone_field'>
       <%= f.label :time_zone, "Time zone" -%>
-      <%= f.input :time_zone -%>
+      <%= f.time_zone_select('time_zone', @zones.sort, :default => "Pacific Time (US & Canada)") -%>
     </div>
 
     <%- unless @customer.new_record? %>

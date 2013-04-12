@@ -46,7 +46,9 @@
       = f.input :first_name
       = f.input :last_name
       = f.input :email
-      = f.input :time_zone, :label => "time_zone"
+      %li
+        = f.label :time_zone, "time zone"
+        = f.time_zone_select('time_zone', @zones.sort, :default => "Pacific Time (US & Canada)")
 
       %li
         %label Billing Details

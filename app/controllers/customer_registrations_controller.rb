@@ -1,7 +1,8 @@
 class CustomerRegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_customer!, :only => [:upload_image]
   before_filter :force_ssl
-  
+  before_filter :set_zone_variable
+
   def new
     if session[:new_customer] && session[:new_customer].any?
       session[:new_customer].delete(:credit_card)
@@ -103,4 +104,10 @@ class CustomerRegistrationsController < Devise::RegistrationsController
 
   end
 
+
+  private 
+    def set_zone_variable
+      @zones = ActiveSupport::TimeZone.all
+      set_time_zone
+    end
 end
