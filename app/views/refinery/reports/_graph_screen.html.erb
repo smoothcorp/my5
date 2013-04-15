@@ -7,7 +7,7 @@
 //  =========================================================================================================
 
           var day_of_months
-          day_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 3131, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+          day_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
           var report_day_array = <%= @report_day_array %>
           var start_date_index = 0;
@@ -35,10 +35,28 @@
             j_m = current_month - 2;
           } else if ( round == 90 ) {
             j_m = current_month - 3;
+          } else if ( round == 120 ) {
+            j_m = current_month - 4;
+          } else if ( round == 150 ) {
+            j_m = current_month - 5;
+          } else if ( round == 180 ) {
+            j_m = current_month - 6;
+          } else if ( round == 210 ) {
+            j_m = current_month - 7;
+          } else if ( round == 240 ) {
+            j_m = current_month - 8;
+          } else if ( round == 270 ) {
+            j_m = current_month - 9;
+          } else if ( round == 300 ) {
+            j_m = current_month - 10;
+          } else if ( round == 330 ) {
+            j_m = current_month - 11;
+          } else if ( round == 360 ) {
+            j_m = current_month - 12;
           }
 
 
-          if ( round == 30 || round == 60 || round == 90 ) {
+          if ( round == 30 || round == 60 || round == 90 || round == 120 || round == 150 || round == 180 || round == 210 || round == 240 || round == 270 || round == 300 || round == 330 || round == 360 ) {
             Array.prototype.each_slice = function( size, callback ) {
               for ( var i = 0, l = this.length; i < l; ) {
                 if ( round == 30 ) {
@@ -53,6 +71,42 @@
                   j += 3;
                   callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2]));
                   i += size[j] + size[j + 1] + size[j + 2];
+                } else if ( round == 120 ) {
+                  j += 4;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3];
+                } else if ( round == 150 ) {
+                  j += 5;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 5];
+                } else if ( round == 180 ) {
+                  j += 6;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5];
+                } else if ( round == 210 ) {
+                  j += 7;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6];
+                } else if ( round == 240 ) {
+                  j += 8;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7];
+                } else if ( round == 270 ) {
+                  j += 9;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8];
+                } else if ( round == 300 ) {
+                  j += 10;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9];
+                } else if ( round == 330 ) {
+                  j += 11;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9] + size[j + 10]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9] + size[j + 10];
+                } else if ( round == 360 ) {
+                  j += 12;
+                  callback.call(this, this.slice(i, i + size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9] + size[j + 10] + size[j + 11]));
+                  i += size[j] + size[j + 1] + size[j + 2] + size[j + 3] + size[j + 4] + size[j + 5] + size[j + 6] + size[j + 7] + size[j + 8] + size[j + 9] + size[j + 10] + size[j + 11];
                 }
               }
             };
@@ -71,6 +125,42 @@
                   j_m += 3;
                   callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2]));
                   i += size[j_m] + size[j_m + 1]  + size[j_m + 2];
+                } else if ( round == 120 ) {
+                  j_m += 4;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3];
+                } else if ( round == 150 ) {
+                  j_m += 5;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 5];
+                } else if ( round == 180 ) {
+                  j_m += 6;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5];
+                } else if ( round == 210 ) {
+                  j_m += 7;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6];
+                } else if ( round == 240 ) {
+                  j_m += 8;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7];
+                } else if ( round == 270 ) {
+                  j_m += 9;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8];
+                } else if ( round == 300 ) {
+                  j_m += 10;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9];
+                } else if ( round == 330 ) {
+                  j_m += 11;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9] + size[j_m + 10]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9] + size[j_m + 10];
+                } else if ( round == 360 ) {
+                  j_m += 12;
+                  callback.call(this, this.slice(i, i + size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9] + size[j_m + 10] + size[j_m + 11]));
+                  i += size[j_m] + size[j_m + 1] + size[j_m + 2] + size[j_m + 3] + size[j_m + 4] + size[j_m + 5] + size[j_m + 6] + size[j_m + 7] + size[j_m + 8] + size[j_m + 9] + size[j_m + 10] + size[j_m + 11];
                 }
               }
             };
@@ -87,8 +177,20 @@
 
 
             /*Months!*/
+            i_leap_year = 0;
+
             report_day_date.each_slice_month(day_of_months, function( sub_array ) {
-              monthly.push(sub_array[0]);
+              
+              $.each(sub_array, function(i, val){
+                if ( val == '2012 02 29' || val == '2008 02 29' ) {
+                  i_leap_year += 1;
+                }  
+              });
+              
+              // console.log(i_leap_year);
+              // console.log("===============================================================================");
+
+              monthly.push(sub_array[i_leap_year]);
             });
 
           } else {
@@ -162,7 +264,7 @@
 //      console.log(round);
 //  =========================================================================================================
 
-          if ( round == 30 || round == 60 || round == 90 ) {
+          if ( round == 30 || round == 60 || round == 90 || round == 120 || round == 150 || round == 180 || round == 210 || round == 240 || round == 270 || round == 300 || round == 330 || round == 360) {
             chart = new Highcharts.Chart({
               chart: {
                 renderTo: 'container',
