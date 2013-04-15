@@ -59,8 +59,8 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone
     if @zones.count == 142
-      own_time_zone_first = ActiveSupport::TimeZone.create('Sydney', +32_400)
-      own_time_zone_second = ActiveSupport::TimeZone.create('Sydney', +39_600)
+      own_time_zone_first = ActiveSupport::TimeZone.create('Sydney(9)', +32_400)
+      own_time_zone_second = ActiveSupport::TimeZone.create('Sydney(11)', +39_600)
       @zones << own_time_zone_first
       @zones << own_time_zone_second
     end

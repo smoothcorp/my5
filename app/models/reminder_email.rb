@@ -13,6 +13,9 @@ class ReminderEmail < ActiveRecord::Base
     temp = 6 if temp < 0
 
     Time.zone = self.customer.time_zone
+    Time.zone = 'Tokyo' if self.customer.time_zone == 'Sydney(9)'
+    Time.zone = 'Vladivostok' if self.customer.time_zone == 'Sydney(11)'
+
     curH      = Time.zone.now.strftime("%H")
     curM      = Time.zone.now.strftime("%M")
 
