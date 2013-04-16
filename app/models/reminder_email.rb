@@ -13,8 +13,8 @@ class ReminderEmail < ActiveRecord::Base
     temp = 6 if temp < 0
 
     Time.zone = self.customer.time_zone
-    Time.zone = 'Tokyo' if self.customer.time_zone == 'Sydney(9)'
-    Time.zone = 'Vladivostok' if self.customer.time_zone == 'Sydney(11)'
+    #Time.zone = 'Tokyo' if self.customer.time_zone == 'Sydney(9)'
+    #Time.zone = 'Vladivostok' if self.customer.time_zone == 'Sydney(11)'
 
     curH      = Time.zone.now.strftime("%H")
     curM      = Time.zone.now.strftime("%M")
@@ -28,7 +28,9 @@ class ReminderEmail < ActiveRecord::Base
     remH = remH.to_i
     remM = remM.to_i
 
-    remH = (remH - 13 + 24) % 24
+    #remH = (remH - 13 + 24) % 24
+    offset = Time.zone.formatted_offset.to_i
+    remH = (remH + offset) % 24
 
     if remH == curH && remM <= curM && remM > curM2
       #if self.customer_id == 254

@@ -56,13 +56,4 @@ class ApplicationController < ActionController::Base
      end
      current_customer.customer_visits.create(:controller_name => params[:controller], :action_name => params[:action], :conditions => params[:condition], :show_id => params[:id], :media_id => params[:video_id], :part=> params[:part])
   end
-
-  def set_time_zone
-    if @zones.count == 142
-      own_time_zone_first = ActiveSupport::TimeZone.create('Sydney(9)', +32_400)
-      own_time_zone_second = ActiveSupport::TimeZone.create('Sydney(11)', +39_600)
-      @zones << own_time_zone_first
-      @zones << own_time_zone_second
-    end
-  end
 end

@@ -85,17 +85,5 @@ module Admin
           params[:customer].delete :password_confirmation
         end
       end
-
-      def set_zone
-        @zones = ActiveSupport::TimeZone.all
-
-        if @zones.count == 142
-          own_time_zone_first = ActiveSupport::TimeZone.create('Sydney(9)', +32_400)
-          own_time_zone_second = ActiveSupport::TimeZone.create('Sydney(11)', +39_600)
-          @zones << own_time_zone_first
-          @zones << own_time_zone_second
-        end
-      end
-
   end
 end

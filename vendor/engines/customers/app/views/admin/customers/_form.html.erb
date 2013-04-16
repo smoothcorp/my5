@@ -50,7 +50,7 @@
 
     <div class='field time_zone_field'>
       <%= f.label :time_zone, "Time zone" -%>
-      <%= f.time_zone_select('time_zone', @zones.sort, :default => "Pacific Time (US & Canada)") -%>
+      <%= f.time_zone_select('time_zone', ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)") -%>
     </div>
 
     <%- unless @customer.new_record? %>

@@ -48,7 +48,7 @@
       = f.input :email
       %li
         = f.label :time_zone, "time zone"
-        = f.time_zone_select('time_zone', @zones.sort, :default => "Pacific Time (US & Canada)")
+        = f.time_zone_select('time_zone', ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)")
 
       %li
         %label Billing Details
