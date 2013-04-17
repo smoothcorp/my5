@@ -1,7 +1,6 @@
 module Admin
   class CustomersController < Admin::BaseController
     crudify :customer, :title_attribute => 'first_name', :xhr_paging => true
-    before_filter :set_zone
 
     def index
       unless searching?
