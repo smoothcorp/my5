@@ -58,6 +58,7 @@ class Refinery::ReportsController < ApplicationController
     @side_data = []
     screen_1_data
 
+
     respond_to do |format|
       format.html
       format.csv { render :csv => Customer.all, :style => :brief, :filename => "my5_detailed_user_report_#{Time.now.strftime('%H:%M %b-%d-%Y')}" }
@@ -81,6 +82,14 @@ class Refinery::ReportsController < ApplicationController
     if params["graph_view"] == "3"
       screen_3_data
     end
+
+
+      #Rails.logger.info @report_day_array.size
+      #Rails.logger.info '+'*200
+      #Rails.logger.info @report_day_array.size
+      #Rails.logger.info @report_day_date.size
+
+
 
     respond_to do |format|
       format.js
@@ -323,11 +332,19 @@ class Refinery::ReportsController < ApplicationController
       @round = 1
     end
 
+
+
+
+
+
+
+
+
+
+
+
     #@report_day_array  # => массив данных за каждый день промежутка
     #@report_day_date   # => массив ДАТ за каждый день промежутка
-    Rails.logger.info @report_day_array
-    Rails.logger.info '*'*100
-    Rails.logger.info @report_day_date
     #@round             # => число - соответствующее значению списка
   end
 

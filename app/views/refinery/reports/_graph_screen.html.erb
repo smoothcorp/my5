@@ -1,266 +1,617 @@
-<% if  (!@reports.nil? && !@reports.blank?) || (!@custmer_visit.blank? && !@custmer_visit.nil?)  %>
-<% if  params[:graph_view] == "1" %>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
+<% if  (!@reports.nil? && !@reports.blank?) || (!@custmer_visit.blank? && !@custmer_visit.nil?) %>
+  <% if  params[:graph_view] == "1" %>
+    <script type="text/javascript">
+      $(function() {
+        var chart;
+        $(document).ready(function() {
+//  =========================================================================================================
+          reversed_arr_function = function(count, round){
+            if ( count/round > 7 ) {
+              return false;
+            } else {
+              return true;
+            }
+          };
+
+          counting_of_days = function(year, month, direction){
+            //  Составляем массив из количества дней в месяце
+            var count_of_day_in_month = [];
+            i = 0;
+
+            while (++i < 90) {
+              if ( direction ) {
+                dayCount = new Date(year, month + i, 0).getDate();
+              } else {
+                dayCount = new Date(year, month + 1 - i, 0).getDate();
+              }
+
+              count_of_day_in_month.push(dayCount);
+            }
+//            console.log(count_of_day_in_month);
+            return count_of_day_in_month;
+            // count_of_day_in_month => [31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, ... ]
+          };
+
+
+
+
+          var dates, values, from_date, to_date, count_of_data, round, dayCount, count_of_day_arr;
+            round  = <%= @round %>;
+            dates  = <%= @report_day_date %>;
+            values = <%= @report_day_array %>;
+
+
+            count_of_data = dates.length;
+            from_date = dates[0];
+            to_date = dates[dates.length - 1];
+
+
+          // flag - больше семи точек или меньше ( откуда начинать считать ); если true - нужено ситать от конца;
+          var flag = reversed_arr_function(count_of_data, round);
+          console.log(flag);
+
+          if ( flag ) {
+            var splited_from_date = from_date.split(' ');
+            var from_date_year  = splited_from_date[0];
+            var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
+
+            count_of_day_arr = counting_of_days(from_date_year, from_date_month, true)
+          } else {
+            var splited_to_date = to_date.split(' ');
+            var to_date_year  = splited_to_date[0];
+            var to_date_month = splited_to_date[1] - 1; // for Javascript nedd '-1'
+
+            console.log(to_date_month);
+            console.log(to_date_year);
+            count_of_day_arr = counting_of_days(to_date_year, to_date_month, false)
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+          var values_arr = [];
+          var dates_arr = [];
+
+          Array.prototype.each_slice = function( size, callback ) {
+            var j = 0;
+            for ( var i = 0, l = this.length; i < l; ) {
+              callback.call(this, this.slice(i, i + size[j]));
+              i += size[j];
+              j++;
+            }
+          };
+
+          var avarage;
+          if ( flag ) {
+            /*Count!*/  avarage = 0;
+            values.each_slice( count_of_day_arr, function( sub_array ) {
+              $.each(sub_array, function() {
+                avarage += this;
+              });
+
+              values_arr.push(avarage);
+              avarage = 0;
+            });
+
+            /*Month!*/
+            dates.each_slice( count_of_day_arr, function( sub_array ) {
+              dates_arr.push(sub_array[0]);
+            });
+
+          } else {
+            /*Count!*/  avarage = 0;
+            var cuted_array = count_of_day_arr.slice(0, 7);
+
+            var total = eval(cuted_array.join('+'));
+
+//            console.log(values);
+            values = values.reverse().slice(0, total).reverse();
+            dates = dates.reverse().slice(0, total).reverse();
+            cuted_array.reverse();
+
+            console.log(cuted_array);
+            console.log(dates);
+            console.log(cuted_array);
+
+
+            values.each_slice( cuted_array, function( sub_array ) {
+              $.each(sub_array, function() {
+                avarage += this;
+              });
+
+              values_arr.push(avarage);
+              avarage = 0;
+            });
+
+            /*Month!*/
+            dates.each_slice( cuted_array, function( sub_array ) {
+              dates_arr.push(sub_array[0]);
+            });
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          if ( round == 30 ) {
+            dates  = dates_arr;
+            values = values_arr;
+          }
+
+          var some = [];
+
+          function toDate( strDate ) {
+            var args = strDate.split(' ').map(Number);
+            args[1] = args[1] - 1;
+            return Date.UTC.apply(Date, args);
+          }
+
+          for ( var i = 0, length = dates.length; i < length; i += 1 ) {
+            some[i] = {
+              x: toDate(dates[i]),
+              y: values[ i ]
+            };
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          var output_arr = [];
+          output_arr = [
+            [Date.UTC(1970,  9, 27), 0   ],
+            [Date.UTC(1970, 10, 10), 0.6 ],
+            [Date.UTC(1970, 10, 18), 0.7 ],
+            [Date.UTC(1970, 11,  2), 0.8 ],
+            [Date.UTC(1970, 11,  9), 0.6 ],
+            [Date.UTC(1970, 11, 16), 0.6 ],
+            [Date.UTC(1970, 11, 28), 0.67],
+            [Date.UTC(1971,  0,  1), 0.81],
+            [Date.UTC(1971,  0,  8), 0.78],
+            [Date.UTC(1971,  0, 12), 0.98],
+            [Date.UTC(1971,  0, 27), 1.84],
+            [Date.UTC(1971,  1, 10), 1.80],
+            [Date.UTC(1971,  1, 18), 1.80],
+            [Date.UTC(1971,  1, 24), 1.92],
+            [Date.UTC(1971,  2,  4), 2.49],
+            [Date.UTC(1971,  2, 11), 2.79],
+            [Date.UTC(1971,  2, 15), 2.73],
+            [Date.UTC(1971,  2, 25), 2.61],
+            [Date.UTC(1971,  3,  2), 2.76],
+            [Date.UTC(1971,  3,  6), 2.82],
+            [Date.UTC(1971,  3, 13), 2.8 ],
+            [Date.UTC(1971,  4,  3), 2.1 ],
+            [Date.UTC(1971,  4, 26), 1.1 ],
+            [Date.UTC(1971,  5,  9), 0.25],
+            [Date.UTC(1971,  5, 12), 0   ]
+          ];
+          output_arr = some;
+
+
+          chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
-                type: 'line',
-                marginRight: 130,
-                marginBottom: 25
+              renderTo: 'container',
+              type: 'line',
+              marginRight: 130,
+              marginBottom: 25
             },
             title: {
-                text: <%= @round %>,
-                x: -20 //center
+              text: 'Line - Graph',
+              x: -20 //center
             },
             subtitle: {
-                text: '',
-                x: -20
+              text: '',
+              x: -20
             },
             xAxis: {
-                type: 'datetime',
+              type: 'datetime',
 
-                dateTimeLabelFormats: {
-                  hour: '%H:%M',
-                  day: '%e %b',
-                  week: '%e %b',
-                  month: '%b %Y',
-                  year: '%b %Y'
-                }
+              dateTimeLabelFormats: {
+                hour: '%H:%M',
+                day: '%e %b',
+                week: '%e %b',
+                month: '%b %Y',
+                year: '%b %Y'
+              }
             },
             yAxis: {
-                title: {
-                    text: 'Page views'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
+              title: {
+                text: 'Page views'
+              },
+              plotLines: [
+                {
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+                }
+              ]
             },
             tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                            Highcharts.dateFormat("%e %b'%y", this.x) +': '+ Math.round(this.y).toFixed(1) +' \u00A0 ';
-                }
+              formatter: function() {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat("%e %b'%y", this.x) + ': ' + Math.round(this.y).toFixed(1) + ' \u00A0 ';
+              }
             },
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -10,
-                y: 100,
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'top',
+              x: -10,
+              y: 100,
+              borderWidth: 0
+            },
+            series: [
+              {
+                name: 'Visits',
+                data: output_arr
+              }
+            ]
+          });
+        });
+
+      });
+    </script>
+
+
+
+<!--//  =========================================================================================================-->
+
+
+
+
+  <% elsif params[:graph_view] == "2" %>
+    <div align="right"><%= link_to("COLUMN", '#', :class => "button graphs_type", :id => "column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph") %></div>
+    <script type="text/javascript">
+      $(function() {
+        var chart;
+        $(document).ready(function() {
+          chart = new Highcharts.Chart({
+            chart: {
+              renderTo: 'container',
+              type: 'column'
+            },
+            title: {
+              text: 'Column graph'
+            },
+            subtitle: {
+              text: ''
+            },
+            xAxis: {
+              categories: <%=@report_day_date%>
+            },
+            yAxis: {
+              min: 0,
+              title: {
+                text: ''
+              }
+            },
+            legend: {
+              layout: 'vertical',
+              backgroundColor: '#FFFFFF',
+              align: 'left',
+              verticalAlign: 'top',
+              x: 100,
+              y: 70,
+              floating: true,
+              shadow: true
+            },
+            tooltip: {
+              formatter: function() {
+                return '' +
+                    this.x + ': ' + this.y + ' Visits';
+              }
+            },
+            plotOptions: {
+              column: {
+                pointPadding: 0.2,
                 borderWidth: 0
+              }
             },
-            series: [{
-                name: 'Visits',
-                data: <%= @report_day_array %>,
-
-                pointStart: Date.UTC(<%= @year %>, <%= @month %>, <%= @day %>),
-                pointInterval: <%= @round %> * 24 * 3600 * 1000 // one day
-            }]
-        });
-    });
-    
-});
-		</script>
-
-
-	
-
-<%elsif params[:graph_view] == "2" %>
-<div align="right"><%= link_to("COLUMN", '#', :class => "button graphs_type",:id=>"column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph") %></div>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'column'
-            },
-            title: {
-                text: 'Column graph'
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories: <%=@report_day_date%>
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: ''
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +' Visits';
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-                series: [{
+            series: [
+              {
                 name: 'Visits',
                 data: <%=@report_day_array.to_s%>
 
-            }]
+              }
+            ]
+          });
         });
-    });
 
-});
-</script>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        var chart;
+        $(document).ready(function() {
+          chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'bar_container_graph',
-                type: 'bar'
+              renderTo: 'bar_container_graph',
+              type: 'bar'
             },
             title: {
-                text: 'Bar graph'
+              text: 'Bar graph'
             },
             subtitle: {
-                text: ''
+              text: ''
             },
             xAxis: {
-                categories: <%=@report_day_date%>
+              categories: <%=@report_day_date%>
             },
             yAxis: {
-                min: 0,
-                title: {
-                    text: ''
-                }
+              min: 0,
+              title: {
+                text: ''
+              }
             },
             legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
+              layout: 'vertical',
+              backgroundColor: '#FFFFFF',
+              align: 'left',
+              verticalAlign: 'top',
+              x: 100,
+              y: 70,
+              floating: true,
+              shadow: true
             },
             tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +' Visits';
-                }
+              formatter: function() {
+                return '' +
+                    this.x + ': ' + this.y + ' Visits';
+              }
             },
             plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
+              column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+              }
             },
-                series: [{
+            series: [
+              {
                 name: 'Visits',
                 data: <%=@report_day_array.to_s%>
 
-            }]
+              }
+            ]
+          });
         });
-    });
 
-});
-</script>
-<% if @pie_sum_totals.to_i > 0 %>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
+      });
+    </script>
+    <% if @pie_sum_totals.to_i > 0 %>
+      <script type="text/javascript">
+        $(function() {
+          var chart;
+          $(document).ready(function() {
+            chart = new Highcharts.Chart({
+              chart: {
                 renderTo: 'pie_container_graph',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false
-            },
-            title: {
+              },
+              title: {
                 text: 'Pie graph'
-            },
-            tooltip: {
+              },
+              tooltip: {
                 formatter: function() {
-                    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+                  return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                 }
-            },
-            plotOptions: {
+              },
+              plotOptions: {
                 pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
-                        }
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    formatter: function() {
+                      return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                     }
+                  }
                 }
-            },
-             series: [{
-                type: 'pie',
-                name: 'Visits in %',
-                data: <%= @pie_graph_view_data %>
-            }]
+              },
+              series: [
+                {
+                  type: 'pie',
+                  name: 'Visits in %',
+                  data: <%= @pie_graph_view_data %>
+                }
+              ]
+            });
+          });
+
         });
-    });
+      </script>
+    <% end %>
+  <% elsif params[:graph_view] == "3" %>
+    <%= render 'screen_2' %>
+  <% end %>
+  <% if params[:graph_view] == "1" %>
+    <div style="border:5px grey solid;">
+      <div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;"></div>
+    </div>
+    <br /><br />
+    <%= render 'graph_condition' %>
 
-});
-</script>
-<%end%>
-<%elsif params[:graph_view] == "3" %>
-<%= render 'screen_2' %>
-<%end%>
-<%if params[:graph_view] == "1" %>
-<div style="border:5px grey solid;">
-<div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;"></div>
-</div>
-<br /><br />
-<%= render 'graph_condition' %>
+  <% end %>
 
-<%end%>
-
-<%if params[:graph_view] == "2" %>
-<p></p>
-<div id="main_container">
-<div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
-</div>
-<div id="bar_container" style="display: none;">
-<div id="bar_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
-</div>
-<div id="pie_container" style="display: none;">
-  <% if @pie_sum_totals.to_i > 0 %>
-     <div id="pie_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
-  <%else%>
-      <div id="pie_container_graph" style="min-width: 900px; height: 400px; margin: 0 auto">No Records Found </div>
-  <%end%>
-</div>
-<%end%>
+  <% if params[:graph_view] == "2" %>
+    <p></p>
+    <div id="main_container">
+      <div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+    </div>
+    <div id="bar_container" style="display: none;">
+      <div id="bar_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+    </div>
+    <div id="pie_container" style="display: none;">
+      <% if @pie_sum_totals.to_i > 0 %>
+        <div id="pie_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+      <% else %>
+        <div id="pie_container_graph" style="min-width: 900px; height: 400px; margin: 0 auto">No Records Found</div>
+      <% end %>
+    </div>
+  <% end %>
 
 <% else %>
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found </div>
+  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found</div>
 <% end %>
-<%= hidden_field_tag "graph_view",params[:graph_view]%>
+<%= hidden_field_tag "graph_view", params[:graph_view] %>
 
 
