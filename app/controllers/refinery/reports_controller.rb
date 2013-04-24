@@ -185,7 +185,7 @@ class Refinery::ReportsController < ApplicationController
         # This flag only for My EQ ( Hack )
         $flag = false
         if @reports.count == @reports.reject { |x| x.part.nil? }.count
-          $flag = true               
+          $flag = true
         end
 
         # Rails.logger.info @reports.count
@@ -257,18 +257,12 @@ class Refinery::ReportsController < ApplicationController
     end
 
   end
-  
+
   def screen_1_data
     @report_day_array = ""
     @report_day_date = ""
 
-    @report_day_array_array = []
-
     count = 0
-
-    #Rails.logger.info '#'*1000
-    #Rails.logger.info @from_date.to_date
-    #Rails.logger.info @to_date.to_date
 
     (@from_date.to_date..@to_date.to_date).each do |date_t|
       if count == 0
@@ -315,55 +309,26 @@ class Refinery::ReportsController < ApplicationController
       end
       date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
 
-      @report_day_array_array << @day_count.size
-
       @report_day_array += @day_count.size.to_s
       @report_day_date += date_string
       count = count + 1
-
-
-
-      #Rails.logger.info '*'*400
-      #Rails.logger.info "'#{date_t.strftime("%d %B").to_s}'"
     end
     @report_day_array += "]" if !@report_day_array.blank?
     @report_day_date += "]" if !@report_day_date.blank?
-
-    #Rails.logger.info @report_day_date
-
-    @year  = @report_day_date[2..5].to_i
-    @month = @report_day_date[7..8].to_i - 1
-    @day   = @report_day_date[10..11].to_i
-
-
-    Rails.logger.info '#'*1000
-    Rails.logger.info @report_day_array_array
-    Rails.logger.info '#'*100
-    Rails.logger.info @report_day_array
 
 
     if params[:frequency]
       @round = params[:frequency].to_i
     else
-      @round = 7
+      @round = 1
     end
 
-    @brr = []
-    avarage = 0
-    @report_day_array_array.each_slice(@round) do |sub_arr|
-      size = sub_arr.size.to_f
-      sub_arr.each do |x|
-        avarage += x
-      end
-      #avarage = avarage/size
-      @brr << avarage
-      avarage = 0
-    end
-
-    @report_day_array = @brr
-
-
-    #Rails.logger.info @brr
+    #@report_day_array  # => массив данных за каждый день промежутка
+    #@report_day_date   # => массив ДАТ за каждый день промежутка
+    Rails.logger.info @report_day_array
+    Rails.logger.info '*'*100
+    Rails.logger.info @report_day_date
+    #@round             # => число - соответствующее значению списка
   end
 
   def screen_2_data
