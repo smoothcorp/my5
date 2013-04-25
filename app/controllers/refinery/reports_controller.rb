@@ -221,16 +221,19 @@ class Refinery::ReportsController < ApplicationController
     @audio_programs = AudioProgram.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
-      @to_date = params[:to_date].to_date
+      @to_date   = params[:to_date].to_date
     else
-      @from_date = 3.month.ago - 6.days
-      @to_date = 3.month.ago
+      if params[:frequency].to_i == 7
+        @from_date = 7.weeks.ago
+      elsif params[:frequency].to_i == 30
+        @from_date = 7.month.ago
+      elsif params[:frequency].to_i == 60
+        @from_date = 14.month.ago
+      else
+        @from_date = 7.days.ago
+      end
+      @to_date = Time.now
     end
-
-
-    Rails.logger.info '=='*100
-    Rails.logger.info @from_date
-    Rails.logger.info '=='*100
 
     @is_condition = false
     customer_condition = ""
