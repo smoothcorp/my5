@@ -223,9 +223,15 @@ class Refinery::ReportsController < ApplicationController
       @from_date = params[:from_date].to_date
       @to_date = params[:to_date].to_date
     else
-      @from_date = Time.now - 6.days
-      @to_date = Time.now
+      @from_date = 3.month.ago - 6.days
+      @to_date = 3.month.ago
     end
+
+
+    Rails.logger.info '=='*100
+    Rails.logger.info @from_date
+    Rails.logger.info '=='*100
+
     @is_condition = false
     customer_condition = ""
     @customer_ids = []

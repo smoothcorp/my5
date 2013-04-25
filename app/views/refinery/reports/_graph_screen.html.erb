@@ -5,21 +5,16 @@
         var chart;
         $(document).ready(function() {
 //  =========================================================================================================
-          reversed_arr_function = function(count, start_date){
-//            console.log(count);
-//            console.log(start_date);
-
+          countin_direction = function(count, start_date){
             // Вычисление количества дней/round > 7 ( вычисление направления отсчета - flag )
+
             var splited_first_date = start_date.split(' ');
             var sum_of_days_in_seven = 0;
             i = 0;
             while (++i < 8) {
               dayCount = new Date(splited_first_date[0], splited_first_date[1] -1 + i, 0).getDate();
-//              console.log(dayCount);
-
               sum_of_days_in_seven += dayCount;
             }
-//            console.log(sum_of_days_in_seven);
 
             if ( count > sum_of_days_in_seven ) {
               return false;
@@ -44,174 +39,183 @@
               count_of_day_in_month.push(dayCount);
             }
             return count_of_day_in_month;
-//            count_of_day_in_month => [31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, ... ]
+            //   count_of_day_in_month => [31, 30, 31, 30, 31, 31, 28, 31, 30, 31, 30, 31, ... ]
+          };
+
+          slicing_for_day_and_week = function(values, dates, round) {
+
+              Array.prototype.each_slice_seven = function( size, callback ) {
+                for ( var i = 0, l = this.length; i < l; ) {
+                  callback.call(this, this.slice(i, i + size));
+                  i += size;
+                }
+              };
+
+              /*Count!*/
+              avarage = 0;
+              values.each_slice_seven(7, function( sub_array ) {
+                $.each(sub_array, function() {
+                  avarage += this;
+                });
+
+                values_arr.push(avarage);
+                avarage = 0;
+              });
+
+              /*Weeks!*/
+              dates.each_slice_seven(7, function( sub_array ) {
+                dates_arr.push(sub_array[0]);
+              });
+
+              return [dates_arr, values_arr];
           };
 
 
 
 
-          var dates, values, from_date, to_date, count_of_data, round, dayCount, count_of_day_arr;
+          var dates, values, from_date, to_date, count_of_data, round, dayCount, count_of_day_arr, checked_only_days, returned_data;
+          var values_arr = [];
+          var dates_arr = [];
+
+            checked_only_days = $("#days_only").prop("checked");
+
             round  = <%= @round %>;
             dates  = <%= @report_day_date %>;
             values = <%= @report_day_array %>;
-
 
             count_of_data = dates.length;
             from_date = dates[0];
             to_date = dates[dates.length - 1];
 
 
+          if ( checked_only_days ) {
+            //  Если нажат чекбокс - мы должны вывести на экра датаренж по дням
+            //  Инача будет делить по месяцам и т.д.
+            //  Select вообще не работает если нажат чекбокс
 
-
-
-
-
-
-
-
-          // flag - больше семи точек или меньше ( откуда начинать считать );
-          // если false - нужено ситать от конца;
-          // если true считаем от начала.
-
-          var flag = reversed_arr_function(count_of_data, from_date);
-
-
-          if ( flag ) {
-            var splited_from_date = from_date.split(' ');
-            var from_date_year  = splited_from_date[0];
-            var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
-
-            count_of_day_arr = counting_of_days(from_date_year, from_date_month, true)
-          } else {
-            var splited_to_date = to_date.split(' ');
-            var to_date_year  = splited_to_date[0];
-            var to_date_month = splited_to_date[1] - 1; // for Javascript nedd '-1'
-            var to_date_day   = splited_to_date[2];
-            count_of_day_arr = counting_of_days(to_date_year, to_date_month, false)
-          }
-
-
-
-
-
-
-
-
-
-
-
-
-
-          var values_arr = [];
-          var dates_arr = [];
-
-          Array.prototype.each_slice = function( size, callback ) {
-            var j = 0;
-            for ( var i = 0, l = this.length; i < l; ) {
-              callback.call(this, this.slice(i, i + size[j]));
-              i += size[j];
-              j++;
-            }
-          };
-
-          var avarage;
-          if ( flag ) {
-            /*Count!*/  avarage = 0;
-            values.each_slice( count_of_day_arr, function( sub_array ) {
-              $.each(sub_array, function() {
-                avarage += this;
-              });
-
-              values_arr.push(avarage);
-              avarage = 0;
-            });
-
-            /*Month!*/
-            dates.each_slice( count_of_day_arr, function( sub_array ) {
-              dates_arr.push(sub_array[0]);
-            });
 
           } else {
-//            console.log('==');
-//            console.log(count_of_day_arr);
-//            console.log('+++');
-//            console.log(count_of_day_arr);
-//            console.log('+++');
+            if ( round == 1 || round == 7 ) {
+              // Отображение для дней и недель
+              // Должны оставить только 7мь точек ( 7мь дат )
 
-//          some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
-//                     =>  Но если заданная дата больше чем кол-во днейв предидущем месяце - то берем с "0" так какнам нуже декабрь , а не июнь в примере
-            var some_digit;
-            if ( count_of_day_arr[1] > to_date_day ) {
-              some_digit = 1;
-            } else {
-              some_digit = 0;
-            }
+              if ( (round * 7) > count_of_data ) {
+                if ( round == 7 ) {
+                  returned_data = slicing_for_day_and_week(values, dates, round);
+                  dates = returned_data[0];
+                  values = returned_data[1];
+                }
 
-            var cuted_array = count_of_day_arr.slice(some_digit, 7 + some_digit);
+              } else {
+                values = values.reverse().slice(0, 7*round).reverse();
+                dates = dates.reverse().slice(0, 7*round).reverse();
+                if ( round == 7 ) {
+                  returned_data = slicing_for_day_and_week(values, dates, round);
+                  dates = returned_data[0];
+                  values = returned_data[1];
+                }
+              }
 
-//            console.log(cuted_array);
-//            console.log(count_of_day_arr);
 
-            cuted_array.reverse();
 
-//            console.log(cuted_array);
-//            console.log(cuted_array);
-//            console.log('==');
+            } else if ( round == 30 ) {
+              // Отображение для одного месяца
 
+              // flag - больше семи точек или меньше ( откуда начинать считать );
+              // если false - нужено ситать от конца;
+              // если true считаем от начала.
 
-            /*Count!*/  avarage = 0;
-            var total = eval(cuted_array.join('+'));
+              var flag = countin_direction(count_of_data, from_date);
 
-//            console.log(total);
 
+              if ( flag ) {
+                var splited_from_date = from_date.split(' ');
+                var from_date_year  = splited_from_date[0];
+                var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
 
-            values = values.reverse().slice(0, total).reverse();
-            dates = dates.reverse().slice(0, total).reverse();
+                count_of_day_arr = counting_of_days(from_date_year, from_date_month, true)
+              } else {
+                var splited_to_date = to_date.split(' ');
+                var to_date_year  = splited_to_date[0];
+                var to_date_month = splited_to_date[1] - 1; // for Javascript nedd '-1'
+                var to_date_day   = splited_to_date[2];
+                count_of_day_arr = counting_of_days(to_date_year, to_date_month, false)
+              }
 
 
-//            console.log(dates);
-//            console.log(values);
-//            console.log(cuted_array);
 
 
-            values.each_slice( cuted_array, function( sub_array ) {
-              $.each(sub_array, function() {
-                avarage += this;
-              });
 
-              values_arr.push(avarage);
-              avarage = 0;
-            });
 
-//            console.log('===');
-//            console.log(values_arr);
 
-            /*Month!*/
 
-//            console.log(dates);
-            dates.each_slice( cuted_array, function( sub_array ) {
-//              console.log(sub_array);
 
-              dates_arr.push(sub_array[0]);
-            });
-          }
+              Array.prototype.each_slice = function( size, callback ) {
+                var j = 0;
+                for ( var i = 0, l = this.length; i < l; ) {
+                  callback.call(this, this.slice(i, i + size[j]));
+                  i += size[j];
+                  j++;
+                }
+              };
 
+              var avarage;
+              if ( flag ) {
+                /*Count!*/  avarage = 0;
+                values.each_slice( count_of_day_arr, function( sub_array ) {
+                  $.each(sub_array, function() {
+                    avarage += this;
+                  });
 
+                  values_arr.push(avarage);
+                  avarage = 0;
+                });
 
+                /*Month!*/
+                dates.each_slice( count_of_day_arr, function( sub_array ) {
+                  dates_arr.push(sub_array[0]);
+                });
 
+              } else {
+                //  some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
+                //             =>  Но если заданная дата больше чем кол-во днейв предидущем месяце - то берем с "0" так какнам нуже декабрь , а не июнь в примере
 
+                var some_digit;
+                if ( count_of_day_arr[1] > to_date_day ) {
+                  some_digit = 1;
+                } else {
+                  some_digit = 0;
+                }
 
+                var cuted_array = count_of_day_arr.slice(some_digit, 7 + some_digit);
 
+                cuted_array.reverse();
 
 
 
 
+                /*Count!*/  avarage = 0;
+                var total = eval(cuted_array.join('+'));
 
+                values = values.reverse().slice(0, total).reverse();
+                dates = dates.reverse().slice(0, total).reverse();
 
+                values.each_slice( cuted_array, function( sub_array ) {
+                  $.each(sub_array, function() {
+                    avarage += this;
+                  });
 
+                  values_arr.push(avarage);
+                  avarage = 0;
+                });
 
 
+                /*Month!*/
 
+                dates.each_slice( cuted_array, function( sub_array ) {
+                  dates_arr.push(sub_array[0]);
+                });
+              }
 
 
 
@@ -304,18 +308,36 @@
 
 
 
-          if ( round == 30 ) {
-            dates  = dates_arr;
-            values = values_arr;
-          }
 
-//          console.log(dates);
-          console.log(values);
-          console.log(eval(values.join('+')));
-//          console.warn(flag);
 
 
-          var some = [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                dates  = dates_arr;
+                values = values_arr;
+              }
+
+            // console.log(dates);
+            // console.log(values);
+            // console.log(eval(values.join('+')));
+            // console.warn(flag);
+
+          } // закрыл checked_only_days
+
+          var output_arr = [];
 
           function toDate( strDate ) {
             var args = strDate.split(' ').map(Number);
@@ -324,7 +346,7 @@
           }
 
           for ( var i = 0, length = dates.length; i < length; i += 1 ) {
-            some[i] = {
+            output_arr[i] = {
               x: toDate(dates[i]),
               y: values[ i ]
             };
@@ -338,74 +360,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          var output_arr = [];
-          output_arr = [
-            [Date.UTC(1970,  9, 27), 0   ],
-            [Date.UTC(1970, 10, 10), 0.6 ],
-            [Date.UTC(1970, 10, 18), 0.7 ],
-            [Date.UTC(1970, 11,  2), 0.8 ],
-            [Date.UTC(1970, 11,  9), 0.6 ],
-            [Date.UTC(1970, 11, 16), 0.6 ],
-            [Date.UTC(1970, 11, 28), 0.67],
-            [Date.UTC(1971,  0,  1), 0.81],
-            [Date.UTC(1971,  0,  8), 0.78],
-            [Date.UTC(1971,  0, 12), 0.98],
-            [Date.UTC(1971,  0, 27), 1.84],
-            [Date.UTC(1971,  1, 10), 1.80],
-            [Date.UTC(1971,  1, 18), 1.80],
-            [Date.UTC(1971,  1, 24), 1.92],
-            [Date.UTC(1971,  2,  4), 2.49],
-            [Date.UTC(1971,  2, 11), 2.79],
-            [Date.UTC(1971,  2, 15), 2.73],
-            [Date.UTC(1971,  2, 25), 2.61],
-            [Date.UTC(1971,  3,  2), 2.76],
-            [Date.UTC(1971,  3,  6), 2.82],
-            [Date.UTC(1971,  3, 13), 2.8 ],
-            [Date.UTC(1971,  4,  3), 2.1 ],
-            [Date.UTC(1971,  4, 26), 1.1 ],
-            [Date.UTC(1971,  5,  9), 0.25],
-            [Date.UTC(1971,  5, 12), 0   ]
-          ];
-          output_arr = some;
 
 
           chart = new Highcharts.Chart({
