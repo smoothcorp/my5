@@ -122,20 +122,14 @@
               //}
 
 
-            } else if ( round == 30 || round == 60 || round == 90 ) {
+            } else if ( round > 10 ) { // для всех round 30, 60, 90, 120...
               // Отображение для одного месяца
 
               // flag - больше семи точек или меньше ( откуда начинать считать );
               // если false - нужено ситать от конца;
               // если true считаем от начала.
 
-              if ( round == 30 ) { // round % 30 = 2 или 3 или 4
-                count_of_month = 1;
-              } else if ( round == 60 ) {
-                count_of_month = 2;
-              } else if ( round == 90 ) {
-                count_of_month = 3;
-              }
+               count_of_month = round/30;
 
               // countin_direction - убрали, так как не нужно отображать последние 7мь месяцев
               // надо отобразить все месяцы
@@ -160,15 +154,18 @@
               }
 
 
-              if ( count_of_month == 2 ) {
-                var new_arr = [];
+              var new_arr = [];
+              var sum_of_days = 0;
 
-                for ( var t = 0; t < count_of_day_arr.length - 1; t = t + 2 ) {
-                  new_arr.push(count_of_day_arr[t] + count_of_day_arr[t + 1]);
+              for ( var h = 0; h < ( count_of_day_arr.length - count_of_month + 1 ); h = h + count_of_month ) {
+                for (var g = 0; g < count_of_month; g++) {
+                  sum_of_days += count_of_day_arr[h + g];
                 }
-
-                count_of_day_arr = new_arr;
+                new_arr.push(sum_of_days);
+                sum_of_days = 0;
               }
+
+              count_of_day_arr = new_arr;
 
 
               Array.prototype.each_slice = function( size, callback ) {

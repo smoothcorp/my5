@@ -220,6 +220,26 @@ class Refinery::ReportsController < ApplicationController
         @from_date = 7.month.ago + 1.day
       elsif params[:frequency].to_i == 60
         @from_date = 14.month.ago + 1.day
+      elsif params[:frequency].to_i == 90
+        @from_date = 21.months.ago + 1.day
+      elsif params[:frequency].to_i == 120
+        @from_date = 28.months.ago + 1.day
+      elsif params[:frequency].to_i == 150
+        @from_date = 35.months.ago + 1.day
+      elsif params[:frequency].to_i == 180
+        @from_date = 42.months.ago + 1.day
+      elsif params[:frequency].to_i == 210
+        @from_date = 49.months.ago + 1.day
+      elsif params[:frequency].to_i == 240
+        @from_date = 56.months.ago + 1.day
+      elsif params[:frequency].to_i == 270
+        @from_date = 63.months.ago + 1.day
+      elsif params[:frequency].to_i == 300
+        @from_date = 70.months.ago + 1.day
+      elsif params[:frequency].to_i == 330
+        @from_date = 77.months.ago + 1.day
+      elsif params[:frequency].to_i == 360
+        @from_date = 7.year.ago
       else
         @from_date = 7.days.ago + 1.day
       end
