@@ -80,7 +80,7 @@
           var values_arr = [];
           var dates_arr = [];
 
-          checked_only_days = $("#days_only").prop("checked");
+          checked_only_days = $('#days_only').attr('checked')?true:false;
 
           round = <%= @round %>;
           dates = <%= @report_day_date %>;
