@@ -310,7 +310,7 @@
             tooltip: {
               formatter: function() {
                 return '<b>' + this.series.name + '</b><br/>' +
-                    Highcharts.dateFormat("%e %b'%y", this.x) + ': ' + Math.round(this.y).toFixed(1) + ' \u00A0 ';
+                    Highcharts.dateFormat("%e %b %Y", this.x) + ': ' + Math.round(this.y).toFixed(1);
               }
             },
             legend: {
