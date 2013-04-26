@@ -214,16 +214,14 @@ class Refinery::ReportsController < ApplicationController
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
     else
-      @from_date = 3.month.ago - 6.days
-      @to_date = 3.month.ago
       if params[:frequency].to_i == 7
-        @from_date = 7.weeks.ago
+        @from_date = 7.weeks.ago + 1.day
       elsif params[:frequency].to_i == 30
-        @from_date = 7.month.ago
+        @from_date = 7.month.ago + 1.day
       elsif params[:frequency].to_i == 60
-        @from_date = 14.month.ago
+        @from_date = 14.month.ago + 1.day
       else
-        @from_date = 7.days.ago
+        @from_date = 7.days.ago + 1.day
       end
 
       @to_date = Time.now

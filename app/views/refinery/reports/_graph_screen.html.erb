@@ -103,25 +103,26 @@
               // Отображение для дней и недель
               // Должны оставить только 7мь точек ( 7мь дат )
 
-              if ( (round * 7) > count_of_data ) {
+              //if ( (round * 7) > count_of_data ) {
                 if ( round == 7 ) {
                   returned_data = slicing_for_day_and_week(values, dates, round);
                   dates = returned_data[0];
                   values = returned_data[1];
                 }
 
-              } else {
-                values = values.reverse().slice(0, 7 * round).reverse();
-                dates = dates.reverse().slice(0, 7 * round).reverse();
-                if ( round == 7 ) {
-                  returned_data = slicing_for_day_and_week(values, dates, round);
-                  dates = returned_data[0];
-                  values = returned_data[1];
-                }
-              }
+              //}
+              //else {
+              //  values = values.reverse().slice(0, 7 * round).reverse();
+              //  dates = dates.reverse().slice(0, 7 * round).reverse();
+              //  if ( round == 7 ) {
+              //    returned_data = slicing_for_day_and_week(values, dates, round);
+              //    dates = returned_data[0];
+              //    values = returned_data[1];
+              //  }
+              //}
 
 
-            } else if ( round == 30 || round == 60 ) {
+            } else if ( round == 30 || round == 60 || round == 90 ) {
               // Отображение для одного месяца
 
               // flag - больше семи точек или меньше ( откуда начинать считать );
@@ -132,9 +133,15 @@
                 count_of_month = 1;
               } else if ( round == 60 ) {
                 count_of_month = 2;
+              } else if ( round == 90 ) {
+                count_of_month = 3;
               }
 
-              var flag = countin_direction(count_of_data, from_date, count_of_month);
+              // countin_direction - убрали, так как не нужно отображать последние 7мь месяцев
+              // надо отобразить все месяцы
+              // var flag = countin_direction(count_of_data, from_date, count_of_month);
+
+              var flag = true;
 
 
               if ( flag ) {
