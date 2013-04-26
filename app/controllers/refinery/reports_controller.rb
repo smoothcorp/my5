@@ -212,50 +212,23 @@ class Refinery::ReportsController < ApplicationController
     @audio_programs = AudioProgram.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
-      @to_date = params[:to_date].to_date
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 7
-      @from_date = 7.weeks.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 30
-      @from_date = 7.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 60
-      @from_date = 14.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 90
-      @from_date = 21.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 120
-      @from_date = 28.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 150
-      @from_date = 35.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 180
-      @from_date = 42.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 210
-      @from_date = 49.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 240
-      @from_date = 56.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 270
-      @from_date = 63.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 300
-      @from_date = 70.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 330
-      @from_date = 77.months.ago
-      @to_date = Time.now
-    elsif params[:from_date].blank? && params[:to_date].blank?  && params[:frequency].to_i == 360
-      @from_date = 7.year.ago
-      @to_date = Time.now
+      @to_date   = params[:to_date].to_date
     else
-      @from_date = 7.days.ago
+      @from_date = 3.month.ago - 6.days
+      @to_date = 3.month.ago
+      if params[:frequency].to_i == 7
+        @from_date = 7.weeks.ago
+      elsif params[:frequency].to_i == 30
+        @from_date = 7.month.ago
+      elsif params[:frequency].to_i == 60
+        @from_date = 14.month.ago
+      else
+        @from_date = 7.days.ago
+      end
+
       @to_date = Time.now
     end
+
     @is_condition = false
     customer_condition = ""
     @customer_ids = []

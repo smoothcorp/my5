@@ -1,45 +1,47 @@
 <%= link_to "Download CSV report", '/refinery/reports/download_excel', :class => "button" %>
 <div style="width: 99%;border:1px grey solid;margin:10px 10px 5px 5px;">
-<div align="right">
+  <div align="right">
+    <br />
+    From  <%= text_field_tag "from_date", "", :id => "from_date", :placeholder => "DD/MM/YYYY" %>
+    TO <%= text_field_tag "to_date", "", :id => "to_date", :placeholder => "DD/MM/YYYY" %> <%= link_to "OK", "#", :id => "Ok", :class => "button" %>
+  </div>
+
+  <div style='float: right'>
+    <%= check_box_tag 'days only' %>
+    <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1)) %>
+  </div>
+  <tr>
+  <table border="0" style="flaot:left;">
+    <tr>
+      <td>Company Name :</td>
+      <td><%= select_tag("company_id", options_for_select(@companies.map { |company| [company.name, company.id] }), { :include_blank => true }) %><%= image_tag("/images/loader.gif", :id => "loading", :style => "display:none;margin-top:5px;") %></td>
+    </tr>
+
+    <tr>
+      <td>Department :</td>
+      <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true }) %></td>
+    </tr>
+
+    <tr>
+      <td>Suburb :</td>
+      <td><%= select_tag("city", options_for_select(@locations.map { |location| [location.to_s.humanize, location] }), { :include_blank => true }) %></td>
+    </tr>
+    <tr>
+      <td>City :</td>
+      <td><%= select_tag("state", options_for_select(@state.map { |state| [state.to_s.humanize, state] }), { :include_blank => true }) %></td>
+    </tr>
+    <tr>
+      <td>Country :</td>
+      <td><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true }) %></td>
+    </tr>
+
+    <tr>
+      <td>Role :</td>
+      <td><%= select_tag("role_id", options_for_select(Customer::ROLES.map { |role| [role.to_s.humanize, role] }), { :include_blank => true }) %></td>
+    </tr>
+  </table>
+</div>
 <br />
-From  <%= text_field_tag "from_date" ,"",:id=>"from_date",:placeholder=>"DD/MM/YYYY"  %> TO <%= text_field_tag "to_date" ,"",:id=>"to_date",:placeholder=>"DD/MM/YYYY"  %> <%= link_to "OK", "#",:id=>"Ok", :class =>"button" %>
-</div>
-
-<div style='float: right'>
-  <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1))%>
-</div>
-<tr>
-<table border="0" style="flaot:left;" >
-<tr>
-<td>Company Name :</td>
-<td><%= select_tag("company_id", options_for_select(@companies.map{|company| [company.name,company.id ] }), {:include_blank => true})%><%= image_tag("/images/loader.gif", :id=>"loading",:style=>"display:none;margin-top:5px;")%></td>
-</tr>
-
-<tr>
-<td>Department :</td>
-<td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), {:include_blank => true})%></td>
-</tr>
-
-<tr>
-<td>Suburb :</td>
-<td><%= select_tag("city", options_for_select(@locations.map{|location| [location.to_s.humanize,location] }), {:include_blank => true})%></td>
-</tr>
-<tr>
-<td>City :</td>
-<td><%= select_tag("state", options_for_select(@state.map{|state| [state.to_s.humanize,state] }), {:include_blank => true})%></td>
-</tr>
-<tr>
-<td>Country :</td>
-<td><%= select_tag("country", options_for_select(@country.map{|country| [country.to_s.humanize,country] }), {:include_blank => true})%></td>
-</tr>
-
-<tr>
-<td>Role :</td>
-<td><%= select_tag("role_id", options_for_select(Customer::ROLES.map {|role| [role.to_s.humanize,role] }), {:include_blank => true})%></td>
-</tr>
-</table>
-</div>
-<br/>
 </div>
 
 

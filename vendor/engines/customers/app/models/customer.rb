@@ -13,17 +13,7 @@ DEPARTMENTS = [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7",
   FREQUENCY = [['Daily', 1],
                ['Weekly', 7],
                ['1 Month', 30],
-               ['2 Months', 60],
-               ['3 Months', 90],
-               ['4 Months', 120],
-               ['5 Months', 160],
-               ['6 Months', 190],
-               ['7 Months', 210],
-               ['8 Months', 240],
-               ['9 Months', 270],
-               ['10 Months', 300],
-               ['11 Months', 330],
-               ['12 Months', 360]]
+               ['2 Months', 60]]
 
   ## --- DEVISE
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
