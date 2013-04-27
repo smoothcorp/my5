@@ -80,7 +80,6 @@
           var values_arr = [];
           var dates_arr = [];
 
-          checked_only_days = $('#days_only').attr('checked')?true:false;
 
           round = <%= @round %>;
           dates = <%= @report_day_date %>;
@@ -92,159 +91,150 @@
           to_date = dates[dates.length - 1];
 
 
-          if ( checked_only_days ) {
-            //  Если нажат чекбокс - мы должны вывести на экра датаренж по дням
-            //  Инача будет делить по месяцам и т.д.
-            //  Select вообще не работает если нажат чекбокс
+          if ( round == 1 || round == 7 ) {
+            // Отображение для дней и недель
+            // Должны оставить только 7мь точек ( 7мь дат )
 
-
-          } else {
-            if ( round == 1 || round == 7 ) {
-              // Отображение для дней и недель
-              // Должны оставить только 7мь точек ( 7мь дат )
-
-              //if ( (round * 7) > count_of_data ) {
-                if ( round == 7 ) {
-                  returned_data = slicing_for_day_and_week(values, dates, round);
-                  dates = returned_data[0];
-                  values = returned_data[1];
-                }
-
-              //}
-              //else {
-              //  values = values.reverse().slice(0, 7 * round).reverse();
-              //  dates = dates.reverse().slice(0, 7 * round).reverse();
-              //  if ( round == 7 ) {
-              //    returned_data = slicing_for_day_and_week(values, dates, round);
-              //    dates = returned_data[0];
-              //    values = returned_data[1];
-              //  }
-              //}
-
-
-            } else if ( round > 10 ) { // для всех round 30, 60, 90, 120...
-              // Отображение для одного месяца
-
-              // flag - больше семи точек или меньше ( откуда начинать считать );
-              // если false - нужено ситать от конца;
-              // если true считаем от начала.
-
-               count_of_month = round/30;
-
-              // countin_direction - убрали, так как не нужно отображать последние 7мь месяцев
-              // надо отобразить все месяцы
-              // var flag = countin_direction(count_of_data, from_date, count_of_month);
-
-              var flag = true;
-
-
-              if ( flag ) {
-                var splited_from_date = from_date.split(' ');
-                var from_date_year = splited_from_date[0];
-                var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
-
-                count_of_day_arr = counting_of_days(from_date_year, from_date_month, true)
-              } else {
-                var splited_to_date = to_date.split(' ');
-                var to_date_year = splited_to_date[0];
-                var to_date_month = splited_to_date[1] - 1; // for Javascript nedd '-1'
-                var to_date_day = splited_to_date[2];
-
-                count_of_day_arr = counting_of_days(to_date_year, to_date_month, false)
-              }
-
-
-              var new_arr = [];
-              var sum_of_days = 0;
-
-              for ( var h = 0; h < ( count_of_day_arr.length - count_of_month + 1 ); h = h + count_of_month ) {
-                for (var g = 0; g < count_of_month; g++) {
-                  sum_of_days += count_of_day_arr[h + g];
-                }
-                new_arr.push(sum_of_days);
-                sum_of_days = 0;
-              }
-
-              count_of_day_arr = new_arr;
-
-
-              Array.prototype.each_slice = function( size, callback ) {
-                var j = 0;
-                for ( var i = 0, l = this.length; i < l; ) {
-                  callback.call(this, this.slice(i, i + size[j]));
-                  i += size[j];
-                  j++;
-                }
-              };
-
-              var avarage;
-              if ( flag ) {
-                /*Count!*/
-                avarage = 0;
-                values.each_slice(count_of_day_arr, function( sub_array ) {
-                  $.each(sub_array, function() {
-                    avarage += this;
-                  });
-
-                  values_arr.push(avarage);
-                  avarage = 0;
-                });
-
-                /*Month!*/
-                dates.each_slice(count_of_day_arr, function( sub_array ) {
-                  dates_arr.push(sub_array[0]);
-                });
-
-              } else {
-                //  some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
-                //             =>  Но если заданная дата больше чем кол-во днейв предидущем месяце - то берем с "0" так как нам нуже декабрь , а не июнь в примере
-                //   UPD. вроде как нужно только при работе с одним месяцем ( range = 1 month )
-
-                var some_digit = 0;
-                if ( count_of_day_arr[1] > to_date_day ) {
-                  some_digit = 1;
-                }
-
-                if ( count_of_month > 1 ) {
-                  some_digit = 0
-                }
-
-
-                var cuted_array = count_of_day_arr.slice(some_digit, 7 + some_digit);
-
-                cuted_array.reverse();
-
-
-                /*Count!*/
-                avarage = 0;
-                var total = eval(cuted_array.join('+'));
-
-                values = values.reverse().slice(0, total).reverse();
-                dates = dates.reverse().slice(0, total).reverse();
-
-                values.each_slice(cuted_array, function( sub_array ) {
-                  $.each(sub_array, function() {
-                    avarage += this;
-                  });
-
-                  values_arr.push(avarage);
-                  avarage = 0;
-                });
-
-
-                /*Month!*/
-
-                dates.each_slice(cuted_array, function( sub_array ) {
-                  dates_arr.push(sub_array[0]);
-                });
-              }
-
-
-              dates = dates_arr;
-              values = values_arr;
+            //if ( (round * 7) > count_of_data ) {
+            if ( round == 7 ) {
+              returned_data = slicing_for_day_and_week(values, dates, round);
+              dates = returned_data[0];
+              values = returned_data[1];
             }
 
-          } // закрыл checked_only_days
+            //}
+            //else {
+            //  values = values.reverse().slice(0, 7 * round).reverse();
+            //  dates = dates.reverse().slice(0, 7 * round).reverse();
+            //  if ( round == 7 ) {
+            //    returned_data = slicing_for_day_and_week(values, dates, round);
+            //    dates = returned_data[0];
+            //    values = returned_data[1];
+            //  }
+            //}
+
+
+          } else if ( round > 10 ) { // для всех round 30, 60, 90, 120...
+            // Отображение для одного месяца
+
+            // flag - больше семи точек или меньше ( откуда начинать считать );
+            // если false - нужено ситать от конца;
+            // если true считаем от начала.
+
+            count_of_month = round / 30;
+
+            // countin_direction - убрали, так как не нужно отображать последние 7мь месяцев
+            // надо отобразить все месяцы
+            // var flag = countin_direction(count_of_data, from_date, count_of_month);
+
+            var flag = true;
+
+
+            if ( flag ) {
+              var splited_from_date = from_date.split(' ');
+              var from_date_year = splited_from_date[0];
+              var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
+
+              count_of_day_arr = counting_of_days(from_date_year, from_date_month, true)
+            } else {
+              var splited_to_date = to_date.split(' ');
+              var to_date_year = splited_to_date[0];
+              var to_date_month = splited_to_date[1] - 1; // for Javascript nedd '-1'
+              var to_date_day = splited_to_date[2];
+
+              count_of_day_arr = counting_of_days(to_date_year, to_date_month, false)
+            }
+
+
+            var new_arr = [];
+            var sum_of_days = 0;
+
+            for ( var h = 0; h < ( count_of_day_arr.length - count_of_month + 1 ); h = h + count_of_month ) {
+              for ( var g = 0; g < count_of_month; g++ ) {
+                sum_of_days += count_of_day_arr[h + g];
+              }
+              new_arr.push(sum_of_days);
+              sum_of_days = 0;
+            }
+
+            count_of_day_arr = new_arr;
+
+
+            Array.prototype.each_slice = function( size, callback ) {
+              var j = 0;
+              for ( var i = 0, l = this.length; i < l; ) {
+                callback.call(this, this.slice(i, i + size[j]));
+                i += size[j];
+                j++;
+              }
+            };
+
+            var avarage;
+            if ( flag ) {
+              /*Count!*/
+              avarage = 0;
+              values.each_slice(count_of_day_arr, function( sub_array ) {
+                $.each(sub_array, function() {
+                  avarage += this;
+                });
+
+                values_arr.push(avarage);
+                avarage = 0;
+              });
+
+              /*Month!*/
+              dates.each_slice(count_of_day_arr, function( sub_array ) {
+                dates_arr.push(sub_array[0]);
+              });
+
+            } else {
+              //  some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
+              //             =>  Но если заданная дата больше чем кол-во днейв предидущем месяце - то берем с "0" так как нам нуже декабрь , а не июнь в примере
+              //   UPD. вроде как нужно только при работе с одним месяцем ( range = 1 month )
+
+              var some_digit = 0;
+              if ( count_of_day_arr[1] > to_date_day ) {
+                some_digit = 1;
+              }
+
+              if ( count_of_month > 1 ) {
+                some_digit = 0
+              }
+
+
+              var cuted_array = count_of_day_arr.slice(some_digit, 7 + some_digit);
+
+              cuted_array.reverse();
+
+
+              /*Count!*/
+              avarage = 0;
+              var total = eval(cuted_array.join('+'));
+
+              values = values.reverse().slice(0, total).reverse();
+              dates = dates.reverse().slice(0, total).reverse();
+
+              values.each_slice(cuted_array, function( sub_array ) {
+                $.each(sub_array, function() {
+                  avarage += this;
+                });
+
+                values_arr.push(avarage);
+                avarage = 0;
+              });
+
+
+              /*Month!*/
+
+              dates.each_slice(cuted_array, function( sub_array ) {
+                dates_arr.push(sub_array[0]);
+              });
+            }
+
+
+            dates = dates_arr;
+            values = values_arr;
+          }
 
 
           //          console.log(dates);
@@ -256,7 +246,14 @@
           var output_arr = [];
 
           function toDate( strDate ) {
-            var args = strDate.split(' ').map(Number);
+            var args = strDate.split(' ');
+
+            // for IE 8 => .map(Number) was removed
+            args = $.map(args, function( x ) {
+              return Number(x);
+            });
+
+
             args[1] = args[1] - 1;
             return Date.UTC.apply(Date, args);
           }
