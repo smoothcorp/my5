@@ -5,7 +5,7 @@ class ContactMailer < ActionMailer::Base
       @email = email
 
       mail(
-        :to => ['tim@my5.com.au'],
+        :to => ['friendsofmy5@my5.com.au'],
         :subject => "Someone named #{email.name} has sent a new message.")
   end
 end
