@@ -22,7 +22,8 @@ class My5::ReminderEmailsController < ApplicationController
     if @reminder_email.save
       redirect_to my5_reminder_emails_url, :notice => 'Your reminder emails are now setup.'
     else
-      render :action => "index"
+      flash[:alert] = "You must select one or more days for this reminder."
+      render :action => "new"
     end
   end
 
