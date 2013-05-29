@@ -9,12 +9,10 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
-    temp = Time.now.wday - 1
-    temp = 6 if temp < 0
-
     Time.zone = self.customer.time_zone
-    #Time.zone = 'Tokyo' if self.customer.time_zone == 'Sydney(9)'
-    #Time.zone = 'Vladivostok' if self.customer.time_zone == 'Sydney(11)'
+
+    temp = Time.zone.now.wday - 1
+    temp = 6 if temp < 0
 
     curH      = Time.zone.now.strftime("%H")
     curM      = Time.zone.now.strftime("%M")
