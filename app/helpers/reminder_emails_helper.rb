@@ -20,13 +20,6 @@ module ReminderEmailsHelper
 
   def time_for_reminder(reminder)
     return "" if reminder.nil? or reminder.time.nil?
-
-    Time.zone = current_customer.time_zone
-    z = Time.zone.now.to_s
-    hou = z[-5] + z[-4] + z[-3]
-    min = z[-2] + z[-1]
-
-    rem = reminder.time.utc + hou.to_i.hour + min.to_i.minutes
-    rem.strftime("%l:%M%P")
+    reminder.time.strftime("%l:%M%P")
   end
 end
