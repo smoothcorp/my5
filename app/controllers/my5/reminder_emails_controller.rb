@@ -49,18 +49,12 @@ class My5::ReminderEmailsController < ApplicationController
   def update_model_with_params(model_obj)
     Time.zone = current_customer.time_zone
 
-    z = Time.zone.now.to_s
-    hou = z[-5] + z[-4] + z[-3]
-    min = z[-2] + z[-1]
-
-    offset = hou.to_i.hours + min.to_i.minutes
-
     update_params = params[:reminder_email]
     model_obj.days_of_week = update_params[:days_of_week_input].reject(&:blank?).join(',')
     model_obj.time = Time.zone.parse("#{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }")
 
     if Time.zone.name == 'London'
-      model_obj.time = "2012-12-13 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }".to_datetime - offset
+      model_obj.time = "2012-12-13 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }".to_datetime - Time.zone.formatted_offset.to_i.hours
     end
 
     model_obj
