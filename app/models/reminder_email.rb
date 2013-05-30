@@ -22,16 +22,52 @@ class ReminderEmail < ActiveRecord::Base
     curM2 = curM - 5
 
     remH = self.time.utc.strftime("%H")
+
+# puts '===='*20        
+# puts self.time        #  2013-05-27 10:25:00 +0800   ( Регистрировал на 10:25 )
+# puts self.time.utc    #  02:25:00                    ( Перевел в utc )
+# puts remH             #  02  - взял только часы
+
     remM = self.time.utc.strftime("%M")
     remH = remH.to_i
-    remM = remM.to_i
+
+# puts '===='*20
+# puts remH             # 2 -> to.i
+
 
     #remH = (remH - 13 + 24) % 24
-    offset = Time.zone.formatted_offset.to_i
-    remH = (remH + offset) % 24
+    # offset = Time.zone.formatted_offset.to_i
+
+
+    z = Time.zone.now.to_s
+    hou = z[-5] + z[-4] + z[-3]
+    min = z[-2] + z[-1]
+
+    remM = remM.to_i + min.to_i
+    remH = (remH + hou.to_i) % 24
+
+    if remM == 60
+      remH += 1
+      remM = 0
+    end
+
+# puts '===='*20
+# puts 'reminder Hour'
+# puts remH
+# puts 'current Hour'
+# puts curH
+# puts '===='*20
+# puts remM
+# puts curM
+# puts '===='*20
+# puts remM
+# puts curM2
+# puts '===='*20
 
     if remH == curH && remM <= curM && remM > curM2
-      #if self.customer_id == 254
+
+      # puts '%'*200
+
       return self
     end
     nil
