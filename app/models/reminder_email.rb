@@ -32,6 +32,40 @@ class ReminderEmail < ActiveRecord::Base
 
     if remH == curH && remM <= curM && remM > curM2
       #if self.customer_id == 254
+# =======
+#     # offset = Time.zone.formatted_offset.to_i
+
+
+#     z = Time.zone.now.to_s
+#     hou = z[-5] + z[-4] + z[-3]
+#     min = z[-2] + z[-1]
+
+#     remM = remM.to_i + min.to_i
+#     remH = (remH + hou.to_i) % 24
+
+#     if remM == 60
+#       remH += 1
+#       remM = 0
+#     end
+
+# puts '===='*20
+# puts 'reminder Hour'
+# puts remH
+# puts 'current Hour'
+# puts curH
+# puts '===='*20
+# puts remM
+# puts curM
+# puts '===='*20
+# puts remM
+# puts curM2
+# puts '===='*20
+
+#     if remH == curH && remM <= curM && remM > curM2
+
+#       puts '%'*200
+
+# >>>>>>> Stashed changes
       return self
     end
     nil
