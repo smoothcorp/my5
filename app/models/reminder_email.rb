@@ -34,24 +34,24 @@ class ReminderEmail < ActiveRecord::Base
     remM = remM.to_i + min.to_i                 # 30 минут + 00 минут
     remH = (remH.to_i + hou.to_i) % 24          # (08 часов + "+03") % 24 => 11 часов
 
-    if remM == 60
+    if remM >= 60
       remH += 1
       remM = 0
     end
 
-Rails.logger.info '===='*20
-Rails.logger.info 'reminder Hour'
-Rails.logger.info remH
-Rails.logger.info 'current Hour'
-Rails.logger.info curH
-Rails.logger.info '===='*20
-Rails.logger.info 'current Minutes top'
-Rails.logger.info curM
-Rails.logger.info 'reminder Minutes'
-Rails.logger.info remM
-Rails.logger.info 'current Minutes bottom'
-Rails.logger.info curM2
-Rails.logger.info '===='*20
+# Rails.logger.info '===='*20
+# Rails.logger.info 'reminder Hour'
+# Rails.logger.info remH
+# Rails.logger.info 'current Hour'
+# Rails.logger.info curH
+# Rails.logger.info '===='*20
+# Rails.logger.info 'current Minutes top'
+# Rails.logger.info curM
+# Rails.logger.info 'reminder Minutes'
+# Rails.logger.info remM
+# Rails.logger.info 'current Minutes bottom'
+# Rails.logger.info curM2
+# Rails.logger.info '===='*20
 
     if remH == curH && remM <= curM && remM > curM2
       puts '>'*200
