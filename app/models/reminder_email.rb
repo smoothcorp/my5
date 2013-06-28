@@ -9,44 +9,35 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
-    Time.zone = self.customer.time_zone
+    # Ремаиндер на 11:30 по киеву 
+    # В БД лежит под 8:30
 
-    temp = Time.zone.now.wday - 1
-    temp = 6 if temp < 0
+    Time.zone = self.customer.time_zone              # Kiyv
 
-    curH      = Time.zone.now.strftime("%H")
-    curM      = Time.zone.now.strftime("%M")
+    temp = Time.zone.now.wday - 1                    # 4 - пятница - 1 день
+    temp = 6 if temp < 0                             # nil
 
-    curH  = curH.to_i
-    curM  = curM.to_i
-    curM2 = curM - 5
+    curH = Time.zone.now.strftime("%H")              # 11 - утро ( 11 часов утра )
+    curM = Time.zone.now.strftime("%M")              # 34 - 11:34 время
+ 
+    curH  = curH.to_i                                # 11 - число ( 11 утра )
+    curM  = curM.to_i                                # 34 - число 11:34 время
+    curM2 = curM - 5                                 # 29 - минус ( 5 минут от 34 )
+ 
+    remH = self.time.utc.strftime("%H")              # 08 - ремаиндер в БД - часы 
+    remM = self.time.utc.strftime("%M")              # 30 - ремаиндер в БД - минуты
 
-    remH = self.time.utc.strftime("%H")
-    remM = self.time.utc.strftime("%M")
-    remH = remH.to_i
-    remM = remM.to_i
+    z = Time.zone.now.to_s                      # 2013-06-28 11:42:06 +0300   - время на данный момент
+    hou = z[-5] + z[-4] + z[-3]                 # "+03" - часы
+    min = z[-2] + z[-1]                         # "00" - минуты
 
-    #remH = (remH - 13 + 24) % 24
-    offset = Time.zone.formatted_offset.to_i
-    remH = (remH + offset) % 24
+    remM = remM.to_i + min.to_i                 # 30 минут + 00 минут
+    remH = (remH.to_i + hou.to_i) % 24          # (08 часов + "+03") % 24 => 11 часов
 
-    if remH == curH && remM <= curM && remM > curM2
-      #if self.customer_id == 254
-# =======
-#     # offset = Time.zone.formatted_offset.to_i
-
-
-#     z = Time.zone.now.to_s
-#     hou = z[-5] + z[-4] + z[-3]
-#     min = z[-2] + z[-1]
-
-#     remM = remM.to_i + min.to_i
-#     remH = (remH + hou.to_i) % 24
-
-#     if remM == 60
-#       remH += 1
-#       remM = 0
-#     end
+    if remM == 60
+      remH += 1
+      remM = 0
+    end
 
 # puts '===='*20
 # puts 'reminder Hour'
@@ -54,18 +45,16 @@ class ReminderEmail < ActiveRecord::Base
 # puts 'current Hour'
 # puts curH
 # puts '===='*20
-# puts remM
+# puts 'current Minutes top'
 # puts curM
-# puts '===='*20
+# puts 'reminder Minutes'
 # puts remM
+# puts 'current Minutes bottom'
 # puts curM2
 # puts '===='*20
 
-#     if remH == curH && remM <= curM && remM > curM2
-
-#       puts '%'*200
-
-# >>>>>>> Stashed changes
+    if remH == curH && remM <= curM && remM > curM2
+      # puts '>'*200
       return self
     end
     nil

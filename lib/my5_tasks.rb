@@ -22,16 +22,16 @@ class My5Tasks
 
   def send_email_reminders
     count = 0
-	ReminderEmail.active_in_days_of_week.each do |reminder|
-	  
-	  if reminder.customer 
-	    if reminder.is_in_last_5mins
-		  puts reminder.customer_id
-		  reminder.remind
-		  count += 1
-	    end
-	  end
-    end
+  	ReminderEmail.active_in_days_of_week.each do |reminder|
+  	  
+  	  if reminder.customer
+  	    if reminder.is_in_last_5mins
+  		  puts reminder.customer_id
+  		  reminder.remind
+  		  count += 1
+  	    end
+  	  end
+      end
     count
   end
 
