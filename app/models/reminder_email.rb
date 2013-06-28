@@ -39,22 +39,22 @@ class ReminderEmail < ActiveRecord::Base
       remM = 0
     end
 
-# puts '===='*20
-# puts 'reminder Hour'
-# puts remH
-# puts 'current Hour'
-# puts curH
-# puts '===='*20
-# puts 'current Minutes top'
-# puts curM
-# puts 'reminder Minutes'
-# puts remM
-# puts 'current Minutes bottom'
-# puts curM2
-# puts '===='*20
+Rails.logger.info '===='*20
+Rails.logger.info 'reminder Hour'
+Rails.logger.info remH
+Rails.logger.info 'current Hour'
+Rails.logger.info curH
+Rails.logger.info '===='*20
+Rails.logger.info 'current Minutes top'
+Rails.logger.info curM
+Rails.logger.info 'reminder Minutes'
+Rails.logger.info remM
+Rails.logger.info 'current Minutes bottom'
+Rails.logger.info curM2
+Rails.logger.info '===='*20
 
     if remH == curH && remM <= curM && remM > curM2
-      # puts '>'*200
+      puts '>'*200
       return self
     end
     nil
