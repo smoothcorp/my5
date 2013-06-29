@@ -26,6 +26,7 @@ module ReminderEmailsHelper
     # min = z[-2] + z[-1]
 
     # rem = reminder.time.utc + hou.to_i.hour + min.to_i.minutes
-    rem.strftime("%l:%M%P")
+    # rem.strftime("%l:%M%P")
+    reminder.time.strftime("%l:%M%P")
   end
 end
