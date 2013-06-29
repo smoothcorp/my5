@@ -9,6 +9,20 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
+    danielle = Customer.where(first_name: 'Danielle')
+    if danielle == self.customer
+      Rails.logger.info '===='*200
+      puts Time.zone.now
+      puts Time.zone.now.wday - 1
+      puts Time.zone.now.strftime("%H")
+      puts Time.zone.now.strftime("%M")
+      puts 'Time of reminder'
+      puts self.time.utc.strftime("%H")
+      puts self.time.utc.strftime("%M")
+
+      Rails.logger.info '===='*200
+    end
+
     # Ремаиндер на 11:30 по киеву 
     # В БД лежит под 8:30
 
@@ -36,10 +50,9 @@ class ReminderEmail < ActiveRecord::Base
 
     if remM >= 60
       remH += 1
-      remM = 0
+      remM = remM - 60
     end
 
-# Rails.logger.info '===='*20
 # Rails.logger.info 'reminder Hour'
 # Rails.logger.info remH
 # Rails.logger.info 'current Hour'
@@ -54,7 +67,7 @@ class ReminderEmail < ActiveRecord::Base
 # Rails.logger.info '===='*20
 
     if remH == curH && remM <= curM && remM > curM2
-      puts '>'*200
+      # puts '>'*200
       return self
     end
     nil
