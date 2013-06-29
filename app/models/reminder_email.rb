@@ -9,7 +9,7 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
-    danielle = Customer.first
+    danielle = Customer.where(:first_name => 'Danielle')
     if danielle == self.customer
       Rails.logger.info '===='*200
       puts Time.zone.now
