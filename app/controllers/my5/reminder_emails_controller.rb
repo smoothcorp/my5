@@ -73,5 +73,5 @@ class My5::ReminderEmailsController < ApplicationController
   #    model_obj.time = "2012-12-13 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }".to_datetime - offset
  
   #    model_obj    
-  # end
+  end
 end
