@@ -9,49 +9,49 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
-    danielle = Customer.where(:first_name => 'Danielle')
-    if danielle == self.customer
-      Rails.logger.info '===='*200
-      puts Time.zone.now
-      puts Time.zone.now.wday - 1
-      puts Time.zone.now.strftime("%H")
-      puts Time.zone.now.strftime("%M")
-      puts 'Time of reminder'
-      puts self.time.utc.strftime("%H")
-      puts self.time.utc.strftime("%M")
+    # danielle = Customer.where(:first_name => 'Danielle')
+    # if danielle == self.customer
+    #   Rails.logger.info '===='*200
+    #   puts Time.zone.now
+    #   puts Time.zone.now.wday - 1
+    #   puts Time.zone.now.strftime("%H")
+    #   puts Time.zone.now.strftime("%M")
+    #   puts 'Time of reminder'
+    #   puts self.time.utc.strftime("%H")
+    #   puts self.time.utc.strftime("%M")
 
-      Rails.logger.info '===='*200
-    end
+    #   Rails.logger.info '===='*200
+    # end
 
-    # Ремаиндер на 11:30 по киеву 
-    # В БД лежит под 8:30
+    # # Ремаиндер на 11:30 по киеву 
+    # # В БД лежит под 8:30
 
-    Time.zone = self.customer.time_zone              # Kiyv
+    # Time.zone = self.customer.time_zone              # Kiyv
 
-    temp = Time.zone.now.wday - 1                    # 4 - пятница - 1 день
-    temp = 6 if temp < 0                             # nil
+    # temp = Time.zone.now.wday - 1                    # 4 - пятница - 1 день
+    # temp = 6 if temp < 0                             # nil
 
-    curH = Time.zone.now.strftime("%H")              # 11 - утро ( 11 часов утра )
-    curM = Time.zone.now.strftime("%M")              # 34 - 11:34 время
+    # curH = Time.zone.now.strftime("%H")              # 11 - утро ( 11 часов утра )
+    # curM = Time.zone.now.strftime("%M")              # 34 - 11:34 время
  
-    curH  = curH.to_i                                # 11 - число ( 11 утра )
-    curM  = curM.to_i                                # 34 - число 11:34 время
-    curM2 = curM - 5                                 # 29 - минус ( 5 минут от 34 )
+    # curH  = curH.to_i                                # 11 - число ( 11 утра )
+    # curM  = curM.to_i                                # 34 - число 11:34 время
+    # curM2 = curM - 5                                 # 29 - минус ( 5 минут от 34 )
  
-    remH = self.time.utc.strftime("%H")              # 08 - ремаиндер в БД - часы 
-    remM = self.time.utc.strftime("%M")              # 30 - ремаиндер в БД - минуты
+    # remH = self.time.utc.strftime("%H")              # 08 - ремаиндер в БД - часы 
+    # remM = self.time.utc.strftime("%M")              # 30 - ремаиндер в БД - минуты
 
-    z = Time.zone.now.to_s                      # 2013-06-28 11:42:06 +0300   - время на данный момент
-    hou = z[-5] + z[-4] + z[-3]                 # "+03" - часы
-    min = z[-2] + z[-1]                         # "00" - минуты
+    # z = Time.zone.now.to_s                      # 2013-06-28 11:42:06 +0300   - время на данный момент
+    # hou = z[-5] + z[-4] + z[-3]                 # "+03" - часы
+    # min = z[-2] + z[-1]                         # "00" - минуты
 
-    remM = remM.to_i + min.to_i                 # 30 минут + 00 минут
-    remH = (remH.to_i + hou.to_i) % 24          # (08 часов + "+03") % 24 => 11 часов
+    # remM = remM.to_i + min.to_i                 # 30 минут + 00 минут
+    # remH = (remH.to_i + hou.to_i) % 24          # (08 часов + "+03") % 24 => 11 часов
 
-    if remM >= 60
-      remH += 1
-      remM = remM - 60
-    end
+    # if remM >= 60
+    #   remH += 1
+    #   remM = remM - 60
+    # end
 
 # Rails.logger.info 'reminder Hour'
 # Rails.logger.info remH
@@ -66,8 +66,30 @@ class ReminderEmail < ActiveRecord::Base
 # Rails.logger.info curM2
 # Rails.logger.info '===='*20
 
+
+
+
+    Time.zone = self.customer.time_zone
+
+    temp = Time.zone.now.wday - 1
+    temp = 6 if temp < 0
+
+    curH      = Time.zone.now.strftime("%H")
+    curM      = Time.zone.now.strftime("%M")
+
+    curH  = curH.to_i
+    curM  = curM.to_i
+    curM2 = curM - 5
+
+    remH = self.time.utc.strftime("%H")
+    remM = self.time.utc.strftime("%M")
+    remH = remH.to_i
+    remM = remM.to_i
+
+    offset = Time.zone.formatted_offset.to_i
+    remH = (remH + offset) % 24
+
     if remH == curH && remM <= curM && remM > curM2
-      # puts '>'*200
       return self
     end
     nil
