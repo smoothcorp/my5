@@ -14,7 +14,21 @@ class My5::ReminderEmailsController < ApplicationController
     @reminder_email = current_customer.reminders.find(params[:id])
 
     @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',')
-    @reminder_email.time = @reminder_email.time.localtime
+
+    variable = {"London"=>[0, 0], "Kyiv"=>[3, 0], "Sydney"=>[11, 0]}
+    if variable[current_customer.time_zone]
+      hour_off_set = variable[current_customer.time_zone][0]
+      mins_off_set = variable[current_customer.time_zone][1]
+      offset = hour_off_set.hour + mins_off_set.minutes
+    else
+      Time.zone = current_customer.time_zone
+      z = Time.zone.now.to_s
+      hou = z[-5] + z[-4] + z[-3]
+      min = z[0] + z[1]
+      offset = min.to_i.minutes
+    end
+
+    @reminder_email.time = @reminder_email.time - 10.hours + offset
   end
 
   def create
@@ -62,17 +76,28 @@ class My5::ReminderEmailsController < ApplicationController
 
     # model_obj
 
-     Time.zone = current_customer.time_zone
+    variable = {"London"=>[0, 0], "Kyiv"=>[3, 0], "Sydney"=>[11, 0]}
+     
+    if variable[current_customer.time_zone]
+      hour_off_set = variable[current_customer.time_zone][0]
+      mins_off_set = variable[current_customer.time_zone][1]
+      offset = hour_off_set.hour + mins_off_set.minutes
+    else
+
+
+    Time.zone = current_customer.time_zone
  
      z = Time.zone.now.to_s
      hou = z[-5] + z[-4] + z[-3]
-     min = z[-2] + z[-1]
- 
-     offset = hou.to_i.hours + min.to_i.minutes
- 
+     min = z[0] + z[1] 
+     offset = min.to_i.minutes
+
+    end
+  
      update_params = params[:reminder_email]
      model_obj.days_of_week = update_params[:days_of_week_input].reject(&:blank?).join(',')
-     model_obj.time = "2012-12-13 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }".to_datetime - offset
+
+     model_obj.time = DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset
  
      model_obj    
   end

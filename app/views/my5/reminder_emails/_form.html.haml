@@ -1,6 +1,8 @@
 = semantic_form_for [:my5, @reminder_email] do |f|
 
   %h3 Time
+  %div
+    = link_to @reminder_email.time, "/", :style => "display: none;"
   = f.input :time, :as => :time, :minute_step => 5, :include_blank => false, :input_html => {:class => "short"}, :label => false
 
   %h3 Frequency
