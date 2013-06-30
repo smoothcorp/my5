@@ -82,7 +82,7 @@ class My5::ReminderEmailsController < ApplicationController
 
 
     now_wday = DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time.wday
-    cur_wday = (DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset.hours).wday
+    cur_wday = (DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset).wday
 
     
     if now_wday > cur_wday
