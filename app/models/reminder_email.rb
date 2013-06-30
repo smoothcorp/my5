@@ -27,7 +27,7 @@ class ReminderEmail < ActiveRecord::Base
 
     now = Time.now.utc
     curH = now.strftime("%H").to_i
-    curM = now.strftime("%H").to_i
+    curM = now.strftime("%M").to_i
     curM2 = curM - 5
 
     # так как в БД хранится инфа по UTC - то преобразовывать не надо
