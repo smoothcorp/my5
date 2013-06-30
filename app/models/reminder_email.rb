@@ -9,27 +9,38 @@ class ReminderEmail < ActiveRecord::Base
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
   def is_in_last_5mins
-    # danielle = Customer.where(:first_name => 'Danielle')
-    # if danielle == self.customer
-    #   Rails.logger.info '===='*200
-    #   puts Time.zone.now
-    #   puts Time.zone.now.wday - 1
-    #   puts Time.zone.now.strftime("%H")
-    #   puts Time.zone.now.strftime("%M")
-    #   puts 'Time of reminder'
-    #   puts self.time.utc.strftime("%H")
-    #   puts self.time.utc.strftime("%M")
+    # ZONE = {"London"=>[0, 0], "Kiyv"=>[3, 30], "Sydney"=>[11, 0]}
+    
+    # hour_off_set = ZONE[self.customer.time_zone][0]
+    # mins_off_set = ZONE[self.customer.time_zone][1]
 
-    #   Rails.logger.info '===='*200
-    # end
+    # now = Time.now.utc + hour_off_set.hour + mins_off_set.minutes
+    # curH = now.hour
+    # curM = now.min
+    # curM2 = curM - 5
+
+    # rem = self.time.utc + hour_off_set.hour + mins_off_set.minutes
+    # remH = rem.strftime("%H").to_i # 23 - часа
+    # remM = rem.strftime("%M").to_i # 49 - минут
+
+
+
+    now = Time.now.utc
+    curH = now.strftime("%H").to_i
+    curM = now.strftime("%H").to_i
+    curM2 = curM - 5
+
+    # так как в БД хранится инфа по UTC - то преобразовывать не надо
+    rem = self.time.utc
+    remH = rem.strftime("%H").to_i     # 08 - ремаиндер в БД - часы 
+    remM = rem.strftime("%M").to_i     # 30 - ремаиндер в БД - минуты
+
+
 
     # # Ремаиндер на 11:30 по киеву 
     # # В БД лежит под 8:30
 
     # Time.zone = self.customer.time_zone              # Kiyv
-
-    # temp = Time.zone.now.wday - 1                    # 4 - пятница - 1 день
-    # temp = 6 if temp < 0                             # nil
 
     # curH = Time.zone.now.strftime("%H")              # 11 - утро ( 11 часов утра )
     # curM = Time.zone.now.strftime("%M")              # 34 - 11:34 время
@@ -66,28 +77,22 @@ class ReminderEmail < ActiveRecord::Base
 # Rails.logger.info curM2
 # Rails.logger.info '===='*20
 
+    # Time.zone = self.customer.time_zone
 
+    # curH      = Time.zone.now.strftime("%H")
+    # curM      = Time.zone.now.strftime("%M")
 
+    # curH  = curH.to_i
+    # curM  = curM.to_i
+    # curM2 = curM - 5
 
-    Time.zone = self.customer.time_zone
+    # remH = self.time.utc.strftime("%H")
+    # remM = self.time.utc.strftime("%M")
+    # remH = remH.to_i
+    # remM = remM.to_i
 
-    temp = Time.zone.now.wday - 1
-    temp = 6 if temp < 0
-
-    curH      = Time.zone.now.strftime("%H")
-    curM      = Time.zone.now.strftime("%M")
-
-    curH  = curH.to_i
-    curM  = curM.to_i
-    curM2 = curM - 5
-
-    remH = self.time.utc.strftime("%H")
-    remM = self.time.utc.strftime("%M")
-    remH = remH.to_i
-    remM = remM.to_i
-
-    offset = Time.zone.formatted_offset.to_i
-    remH = (remH + offset) % 24
+    # offset = Time.zone.formatted_offset.to_i
+    # remH = (remH + offset) % 24
 
     if remH == curH && remM <= curM && remM > curM2
       return self
@@ -100,7 +105,7 @@ class ReminderEmail < ActiveRecord::Base
   end
 
   def self.active_in_days_of_week
-    temp = Time.now.wday - 1
+    temp = Time.now.utc.wday - 1
     temp = 6 if temp < 0
     todays_reminders = ReminderEmail.where(:days_of_week.matches => "%#{temp}%")
     todays_reminders
