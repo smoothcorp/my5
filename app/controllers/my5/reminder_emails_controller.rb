@@ -77,12 +77,25 @@ class My5::ReminderEmailsController < ApplicationController
       offset = min.to_i.minutes
     end
   
-     update_params = params[:reminder_email]
-     model_obj.days_of_week = update_params[:days_of_week_input].reject(&:blank?).join(',')
+    update_params = params[:reminder_email]
+    model_obj.time = DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset
 
-     model_obj.time = DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset
- 
-     model_obj    
+
+    now_wday = DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time.wday
+    cur_wday = (DateTime.strptime("2009-09-10 #{ update_params['time(4i)'] }:#{ update_params['time(5i)'] }", '%Y-%m-%d %H:%M').to_time - offset.hours).wday
+
+    
+    if now_wday > cur_wday
+      str_with_dates = update_params[:days_of_week_input].reject(&:blank?).map(&:succ).join(',')
+    elsif now_wday < cur_wday
+      str_with_dates = update_params[:days_of_week_input].reject(&:blank?).map { |x| x -= 1 }.join(',')
+    else
+      str_with_dates = update_params[:days_of_week_input].reject(&:blank?).join(',')  
+    end
+
+    model_obj.days_of_week = str_with_dates
+
+    model_obj
   end
 
   private
