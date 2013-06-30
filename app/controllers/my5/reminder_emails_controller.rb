@@ -86,9 +86,9 @@ class My5::ReminderEmailsController < ApplicationController
 
     
     if now_wday > cur_wday
-      str_with_dates = update_params[:days_of_week_input].reject(&:blank?).map(&:succ).join(',')
-    elsif now_wday < cur_wday
       str_with_dates = update_params[:days_of_week_input].reject(&:blank?).map { |x| x -= 1 }.join(',')
+    elsif now_wday < cur_wday
+      str_with_dates = update_params[:days_of_week_input].reject(&:blank?).map(&:succ).join(',')
     else
       str_with_dates = update_params[:days_of_week_input].reject(&:blank?).join(',')  
     end
