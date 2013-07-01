@@ -13,20 +13,43 @@ class My5::ReminderEmailsController < ApplicationController
   def edit
     @reminder_email = current_customer.reminders.find(params[:id])
 
-    @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',')
-
+# Переписываю отображение дня недели ( если он меняеться )
     variable = own_time_zones
     if variable[current_customer.time_zone]
       hour_off_set = variable[current_customer.time_zone][0]
       mins_off_set = variable[current_customer.time_zone][1]
       offset = hour_off_set.hour + mins_off_set.minutes
     else
-      Time.zone = current_customer.time_zone
-      z = Time.zone.now.to_s
-      hou = z[-5] + z[-4] + z[-3]
-      min = z[0] + z[1]
-      offset = min.to_i.minutes
+      offset = 0.minutes
     end
+
+    hour_from_datetime = @reminder_email.time.utc.hour
+    mins_from_datetime = @reminder_email.time.utc.min
+    now_wday = DateTime.strptime("2009-09-10 #{hour_from_datetime}:#{mins_from_datetime}", '%Y-%m-%d %H:%M').to_time.wday
+    cur_wday = (DateTime.strptime("2009-09-10 #{hour_from_datetime}:#{mins_from_datetime}", '%Y-%m-%d %H:%M').to_time + offset).wday
+
+    if now_wday > cur_wday
+      @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',').map do |x|
+        x = x.to_i - 1
+        x = 6 if x < 0
+        x
+      end
+
+      @reminder_email.days_of_week_input = @reminder_email.days_of_week_input.map{ |x| x.to_s }
+    elsif now_wday < cur_wday
+      @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',').map do |x|
+        x = x.to_i + 1
+        x = 0 if x > 6
+        x
+      end
+
+      @reminder_email.days_of_week_input = @reminder_email.days_of_week_input.map{ |x| x.to_s }
+    else
+      
+      @reminder_email.days_of_week_input = @reminder_email.days_of_week.split(',')
+    end
+
+# ---------------------------------------------------------
 
     @reminder_email.time = @reminder_email.time - 10.hours + offset
   end
@@ -98,7 +121,7 @@ class My5::ReminderEmailsController < ApplicationController
       str_with_dates = update_params[:days_of_week_input].reject(&:blank?)
       str_with_dates = str_with_dates.map do |x|
         x = x.to_i + 1
-        x = 6 if x > 0
+        x = 0 if x > 6
         x
       end
       str_with_dates = str_with_dates.join(',')
