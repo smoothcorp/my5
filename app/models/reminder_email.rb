@@ -64,19 +64,6 @@ class ReminderEmail < ActiveRecord::Base
     #   remM = remM - 60
     # end
 
-# Rails.logger.info 'reminder Hour'
-# Rails.logger.info remH
-# Rails.logger.info 'current Hour'
-# Rails.logger.info curH
-# Rails.logger.info '===='*20
-# Rails.logger.info 'current Minutes top'
-# Rails.logger.info curM
-# Rails.logger.info 'reminder Minutes'
-# Rails.logger.info remM
-# Rails.logger.info 'current Minutes bottom'
-# Rails.logger.info curM2
-# Rails.logger.info '===='*20
-
     # Time.zone = self.customer.time_zone
 
     # curH      = Time.zone.now.strftime("%H")
