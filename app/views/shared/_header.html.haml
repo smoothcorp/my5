@@ -3,7 +3,7 @@
 	%ul
 		- Page.where(:show_in_menu => true).where("parent_id = 1").order("-custom_position DESC, id ASC").each do |p|
 			%li
-				= link_to p.title, page_path(p), :class => 'button'
+				= link_to p.title, page_path(p)
 		%li
 			= link_to "Sign In", new_customer_session_path, :class => "button"
 #bars.top

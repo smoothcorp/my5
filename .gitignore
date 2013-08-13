@@ -9,3 +9,4 @@ log/
 tmp/
 .hg
 .idea
+vendor/bundle
