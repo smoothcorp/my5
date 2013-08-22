@@ -1,8 +1,8 @@
-/* DO NOT MODIFY. This file was compiled Wed, 12 Oct 2011 04:59:38 GMT from
- * /Users/chrishexton/Desktop/workspaces/rails/my5/app/coffeescripts/pages/contact.coffee
+/* DO NOT MODIFY. This file was compiled Thu, 22 Aug 2013 10:55:11 GMT from
+ * /home/Skvirskiy_Roman/projects/my5/app/coffeescripts/pages/contact.coffee
  */
 
-(function() {
+
   $(document).ready(function() {
     return $('#email_submit').click(function(event) {
       var data;
@@ -29,4 +29,3 @@
       });
     });
   });
-}).call(this);

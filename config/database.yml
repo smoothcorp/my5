@@ -1,8 +1,6 @@
 defaults: &defaults
   adapter: mysql2
   host: localhost
-  username: root
-  password: root
   encoding: utf8
 
 development:
@@ -14,8 +12,6 @@ test: &test
   <<: *defaults
 
 staging:
-  username: root
-  password: root
   database: staging
   <<: *defaults
 
@@ -23,5 +19,4 @@ production:
   adapter: mysql2
   database: my5_developments
   host: localhost
-  username: root
-  password: root
+
