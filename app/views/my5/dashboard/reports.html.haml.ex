@@ -20,6 +20,6 @@
     %h4 Time per section over the last 90 days
     #time_per_section_90_days
     = render :partial => "shared/column_chart", :locals => {:axis_labels => ['Two months ago', 'Last month', 'This month'], :data_series_labels => ["Dashboard", "Symptomatics", "Mini Modules", "My EQs", "Audio Programs"], :data_sets => [@time_in_dashboard_90_days, @time_in_symptomatics_90_days, @time_in_mini_modules_90_days, @time_in_my_eqs_90_days, @time_in_audio_programs_90_days], :div => "time_per_section_90_days", :data_type => 'number', :width => 940, :height => 400}
-    
-    
   
+    
+    

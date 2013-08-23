@@ -8,5 +8,6 @@ public/javascripts
 log/
 tmp/
 .hg
-.idea
+.idea/
 vendor/bundle
+config/database.yml

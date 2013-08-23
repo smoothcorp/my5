@@ -1,0 +1,6 @@
+<% if !@departments.nil? && !@departments.blank? %>
+$('#department_id').html("<%=escape_javascript(options_for_select(@departments))%>");
+<%else%>
+$('#department_id').html("<%=escape_javascript(options_for_select(["",""]))%>");
+<%end%>
+$("#loading").hide('fast');

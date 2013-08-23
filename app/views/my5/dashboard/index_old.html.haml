@@ -1,0 +1,48 @@
+= stylesheet_link_tag "refinery/reports/index"
+
+%h1 User Reports
+%h2.top Detailed customer report
+%p This report lists all customers (corporate and retail) and their specific details, including:
+%ul
+  %li User ID
+  %li Title
+  %li First name
+  %li Surname
+  %li Department
+  %li Organisation
+  %li Suburb
+  %li Postcode
+  %li User type (Corporate or Consumer)
+  %li Last login date
+  %li Last login duration
+  %li Login time last 30 days
+  %li Login time last 90 days
+  %li Time per section (each of the four sections) last 30 days
+  %li Time per section (each of the four sections) last 90 days
+
+%p= link_to "Download CSV report", '/refinery/reports.csv', :class => "button"
+
+%h1 Aggregate Reports
+%h2.top Analytics overview
+%ul#ga_overview.stats
+  %li
+    .number= @visitors
+    .text Total visitors
+  %li
+    .number= number_to_human(@pageviews, :units => :large_number_shorthand, :format => "%n%u")
+    .text Total pageviews 
+  %li.last
+    .number #{@bouncerate}%
+    .text Bouncerate
+    
+.separator
+
+%h2 Time per section over the last 30 days
+#time_per_section_30_days
+= render :partial => "shared/column_chart", :locals => {:axis_labels => ['Four weeks ago', 'Three weeks ago', 'Last week', 'This week'], :data_series_labels => ["Dashboard", "Symptomatics", "Mini Modules", "My EQs", "Audio Programs"], :data_sets => [@time_in_dashboard_30_days, @time_in_symptomatics_30_days, @time_in_mini_modules_30_days, @time_in_my_eqs_30_days, @time_in_audio_programs_30_days], :div => "time_per_section_30_days", :data_type => 'number', :width => 1230, :height => 400}
+
+.separator
+
+%h2 Time per section over the last 90 days
+#time_per_section_90_days
+= render :partial => "shared/column_chart", :locals => {:axis_labels => ['Two months ago', 'Last month', 'This month'], :data_series_labels => ["Dashboard", "Symptomatics", "Mini Modules", "My EQs", "Audio Programs"], :data_sets => [@time_in_dashboard_90_days, @time_in_symptomatics_90_days, @time_in_mini_modules_90_days, @time_in_my_eqs_90_days, @time_in_audio_programs_90_days], :div => "time_per_section_90_days", :data_type => 'number', :width => 1230, :height => 400}
