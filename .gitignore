@@ -10,3 +10,4 @@ tmp/
 .hg
 .idea
 vendor/bundle
+config/database.yml
