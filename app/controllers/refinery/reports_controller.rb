@@ -289,8 +289,8 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def screen_1_data
-    @report_day_array = ""
-    @report_day_date = ""
+  @report_day_array = ""
+  @report_day_date = ""
 
     @report_day_array_array = Array.new()
 

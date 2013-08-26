@@ -2,10 +2,13 @@ Semblance::Application.routes.draw do
 
 # highcharts
   match 'refinery/reports/screen1' => 'refinery/reports#screen_1'
+  match 'my5/dashboard/screen1' => 'my5/dashboard#screen_1'
   match 'refinery/reports/update_department' => 'refinery/reports#update_department'
+  match 'my5/dashboard/update_department' => 'my5/dashboard#update_department'
   
   #excel
   match 'refinery/reports/download_excel' => 'refinery/reports#download_excel'
+  match 'my5/dashboard/download_excel' => 'my5/dashboard#download_excel'
 
 
   devise_for :customers, :controllers => { :registrations => 'customer_registrations'}
