@@ -1,12 +1,12 @@
-<div style="border:1px grey solid;">
+<div style="border:1px grey solid;" class="left_menu_wrap">
 <div style="padding: 10px 5px;"> Content</div>
 <div style="padding: 10px 22px;">
-  <%= link_to "All", "#", :id =>"all",:class=>"graph_for"  %><br/><br/>
+  <%= link_to "All", "#", :id =>"all",:class=>"graph_for"  %>
   <div class="sub_menu">
   <%= link_to "Symptomatics", "#", :id =>"symptomatics",:class=>"graph_for" %>
-  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
-  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-  <br/>
+  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:class=> 'toggle_plus') %>
+  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:class=> 'toggle_minus') %>
+  
   <% if !@symptomatics.nil? && !@symptomatics.blank? %>
     <div style="padding: 10px 10px;">
        <ul style="display:none;" class="first_child">
@@ -14,13 +14,13 @@
            <li> 
              <%= link_to "#{sympto.condition}", "#", :id =>"#{sympto.id}",:class=>"graph_for_items" %>
                <% if !sympto.videos.blank? %>
-                     <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus",:style=>"margin-top:5px;height:25px;") %>
-                     <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-                     <br/><br/>
+                     <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus", :class=> 'toggle_plus') %>
+                     <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus", :class=> 'toggle_minus') %>
+                     
                      <ul style="display:none;" class="second_child">
                          <% sympto.videos.each do |video| %>                       
                          <li>
-                             <%= link_to "#{video.title}", "#", :id =>"#{video.id}",:class=>"graph_for_items_child" %><br/><br/>
+                             <%= link_to "#{video.title}", "#", :id =>"#{video.id}",:class=>"graph_for_items_child" %>
                           </li>
                           <%end%>
                      </ul>          
@@ -31,28 +31,28 @@
     </div>
   <%end%>
 </div>
-  <br/>
+  
   <div class="sub_menu">
   <%= link_to "Mini Modules", "#", :id =>"mini_modules",:class=>"graph_for"%>
-  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
-  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-  <br/>
+    <%= image_tag("/images/toggle_plus.png", :id=>"plus",:class=> 'toggle_plus') %>
+    <%= image_tag("/images/toggle_minus.png", :id=>"minus",:class=> 'toggle_minus') %>
+  
    <% if !@mini_modules.nil? && !@mini_modules.blank? %>
     <div style="padding: 10px 10px;">
         <ul style="display:none;" class="first_child">
         <% @mini_modules.each do |mini_module| %>
-         <li> <%= link_to "#{mini_module.title}", "#", :id =>"#{mini_module.id}",:class=>"graph_for_items" %><br/><br/></li>
+         <li> <%= link_to "#{mini_module.title}", "#", :id =>"#{mini_module.id}",:class=>"graph_for_items" %></li>
         <%end%>
         </ul>  
     </div>
   <%end%>
   </div>
-  <br/>
+  
   <div class="sub_menu">
   <%= link_to "My EQ", "#", :id =>"my_eqs",:class=>"graph_for"%>
-  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
-  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-  <br/>
+    <%= image_tag("/images/toggle_plus.png", :id=>"plus",:class=> 'toggle_plus') %>
+    <%= image_tag("/images/toggle_minus.png", :id=>"minus",:class=> 'toggle_minus') %>
+  
  <% if !@my_eqs.nil? && !@my_eqs.blank? %>
     <div style="padding: 10px 10px;">
        <ul style="display:none;" class="first_child">
@@ -61,13 +61,13 @@
             <%= link_to "#{my_eq.emotional_grouping}", "#", :id =>"#{my_eq.id}",:class=>"graph_for_items" %>
 <!-- MyEq STEPS END -->
                <% if !MyEq.steps.blank? %>
-                     <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus",:style=>"margin-top:5px;height:25px;") %>
-                     <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-                     <br/><br/>
+                <%= image_tag("/images/toggle_plus.png", :id=>"sub_plus", :class=> 'toggle_plus') %>
+                <%= image_tag("/images/toggle_minus.png", :id=>"sub_minus", :class=> 'toggle_minus') %>
+                     
                      <ul style="display:none;" class="second_child">
                          <% MyEq.steps.each_with_index do |step, i| %>                   
                          <li>
-                             <%= link_to "#{step}", "#", :id =>"#{i}",:class=>"graph_for_items_child" %><br/><br/>
+                             <%= link_to "#{step}", "#", :id =>"#{i}",:class=>"graph_for_items_child" %>
                           </li>
                           <%end%>
                      </ul>          
@@ -79,23 +79,23 @@
     </div>
   <%end%>
   </div>
-  <br/>
+  
   <div class="sub_menu">
   <%= link_to "Audio Programs","#", :id =>"audio_programs",:class=>"graph_for"%>
-  <%= image_tag("/images/toggle_plus.png", :id=>"plus",:style=>"margin-top:5px;height:25px;") %>
-  <%= image_tag("/images/toggle_minus.png", :id=>"minus",:style=>"display:none;margin-top:5px;height:25px;") %>
-  <br/>
+    <%= image_tag("/images/toggle_plus.png", :id=>"plus",:class=> 'toggle_plus') %>
+    <%= image_tag("/images/toggle_minus.png", :id=>"minus",:class=> 'toggle_minus') %>
+  
  <% if !@audio_programs.nil? && !@audio_programs.blank? %>
     <div style="padding: 10px 10px;">
         <ul style="display:none;" class="first_child">
         <% @audio_programs.each do |audio_program| %>
-            <li><%= link_to "#{audio_program.title}", "#", :id =>"#{audio_program.id}",:class=>"graph_for_items" %><br/><br/></li>
+            <li><%= link_to "#{audio_program.title}", "#", :id =>"#{audio_program.id}",:class=>"graph_for_items" %></li>
         <%end%>
         </ul>  
     </div>
   <%end%>
   </div>
-  <br/>
-  <%= link_to "Health Checkin", "#", :id =>"health_checkin",:class=>"graph_for"%><br/><br/>  <br/>  <br/>  <br/>
+  
+  <%= link_to "Health Checkin", "#", :id =>"health_checkin",:class=>"graph_for"%>      
 </div>
 </div>

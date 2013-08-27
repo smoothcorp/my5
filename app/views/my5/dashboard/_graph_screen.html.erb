@@ -262,7 +262,8 @@
               renderTo: 'container',
               type: 'line',
               marginRight: 130,
-              marginBottom: 25
+              marginBottom: 25,
+              width: 700
             },
             title: {
               text: 'Line - Graph',
@@ -338,7 +339,8 @@
           chart = new Highcharts.Chart({
             chart: {
               renderTo: 'container',
-              type: 'column'
+              type: 'column',
+              width: 700
             },
             title: {
               text: 'Column graph'
@@ -396,7 +398,8 @@
           chart = new Highcharts.Chart({
             chart: {
               renderTo: 'bar_container_graph',
-              type: 'bar'
+              type: 'bar',
+              width: 700
             },
             title: {
               text: 'Bar graph'
@@ -457,7 +460,8 @@
                 renderTo: 'pie_container_graph',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false
+                plotShadow: false,
+                width: 700
               },
               title: {
                 text: 'Pie graph'
@@ -499,7 +503,7 @@
   <% end %>
   <% if params[:graph_view] == "1" %>
     <div style="border:5px grey solid;">
-      <div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;"></div>
+      <div id="container" style="min-height: 400px; margin: 0 auto;"></div>
     </div>
     <br /><br />
     <%= render 'graph_condition' %>
@@ -509,16 +513,16 @@
   <% if params[:graph_view] == "2" %>
     <p></p>
     <div id="main_container">
-      <div id="container" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+      <div id="container" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
     </div>
     <div id="bar_container" style="display: none;">
-      <div id="bar_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+      <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
     </div>
     <div id="pie_container" style="display: none;">
       <% if @pie_sum_totals.to_i > 0 %>
-        <div id="pie_container_graph" style="min-width: 900px;min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+        <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
       <% else %>
-        <div id="pie_container_graph" style="min-width: 900px; height: 400px; margin: 0 auto">No Records Found</div>
+        <div id="pie_container_graph" style=" height: 400px; margin: 0 auto">No Records Found</div>
       <% end %>
     </div>
   <% end %>

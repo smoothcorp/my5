@@ -1,9 +1,9 @@
 <table style="width: 100%; height: auto; margin: 0 auto;" >
   <tr>
     <td width="100%">
-        <table style="height: auto; margin: 0 0;border:5px grey solid;" width="100%" cellspadding="4" cellspacing="12">
+        <table style="height: auto; margin: 0 0;border:5px grey solid;" width="100%" cellspadding="4" cellspacing="12" class="content_graph_table">
         <tr>
-        <th >Page Name</th><th >Page url</th><th width="5%">Views</th>
+        <th >Page Name</th><th >Page url</th><th width="5%" class="col3">Views</th>
         </tr>
        <% case page_name
          when "symptomatics"
@@ -15,12 +15,12 @@
                 
                 %>
                 
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+                <tr><td> Main </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
              <% @symptomatics.each do |sympto| 
                 @side_array.push(sympto.condition)
                 total = page_url("my5/symptomatics",sympto.id)
                  %>
-                <tr><td> <%= sympto.condition%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+                <tr><td> <%= sympto.condition%> </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                 <%  end 
                 count_percentage(@side_array,@side_data)
                 %>
@@ -31,13 +31,13 @@
                  total = page_url("my5/mini_modules",0) 
                  @side_array = ["Main"]
                  %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+                <tr><td> Main </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                <%
                @mini_modules.each do |mini_module| 
                 @side_array.push(mini_module.title)
                total = page_url("my5/mini_modules",mini_module.id)   
                %>
-               <tr><td> <%= mini_module.title %> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+               <tr><td> <%= mini_module.title %> </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                 <%  end 
                 count_percentage(@side_array,@side_data)
                 %>
@@ -50,13 +50,13 @@
                 total = page_url("my5/my_eqs",0)
                  @side_array = ["Main"]
                  %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+                <tr><td> Main </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                <%
                 @my_eqs.each do |my_eq|
                 @side_array.push(my_eq.emotional_grouping) 
                 total = page_url("my5/my_eqs",my_eq.id)    
                 %>
-               <tr><td> <%= my_eq.emotional_grouping%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+               <tr><td> <%= my_eq.emotional_grouping%> </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                 <%  end 
                count_percentage(@side_array,@side_data)
                 %>
@@ -68,13 +68,13 @@
                 total = page_url("my5/audio_programs",0) 
                  @side_array = ["Main"]
                 %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+                <tr><td> Main </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                <% 
                 @audio_programs.each do |audio_program| 
                 @side_array.push(audio_program.title)
                 total = page_url("my5/audio_programs",audio_program.id)  
                 %>
-               <tr><td> <%=audio_program.title%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
+               <tr><td> <%=audio_program.title%> </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
                 <% 
                  end
                  count_percentage(@side_array,@side_data)
@@ -92,7 +92,7 @@
                %>
               <td>Symptomatics</td>
               <td><%=total[0]%></td>
-              <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
+              <td class="col3" align="center"><%=total[1]%></td>
          </tr>
          <tr>
                   <% total = page_url("my5/mini_modules")
@@ -100,28 +100,28 @@
                  
                  <td>Mini Modules</td>
                  <td><%=total[0]%></td>
-                 <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
+                 <td class="col3" align="center"><%=total[1]%></td>
          </tr>
          <tr>
                <% total = page_url("my5/my_eqs")   
                %>
                <td>My EQ</td>
                <td><%=total[0]%></td>
-               <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
+               <td class="col3" align="center"><%=total[1]%></td>
           </tr>
          <tr>
                <% total = page_url("my5/audio_programs")
                %>  
                <td>Audio Programs</td>
                <td><%=total[0]%></td>
-               <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
+               <td class="col3" align="center"><%=total[1]%></td>
           </tr>
          <tr>
             <% total = page_url("my5/health_checkins")  
              %>
             <td>Health Checkin</td>
             <td><%=total[0]%></td>
-            <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
+            <td class="col3" align="center"><%=total[1]%></td>
          </tr>
        <%
          count_percentage(@side_array,@side_data)
@@ -141,9 +141,9 @@
    <td width="100%">
     <div id="pie_container" style="display: none;" >
      <% if @page_total.to_i > 0 %>
-       <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
+       <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
      <%else%>
-       <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto">No Records Found </div>
+       <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto">No Records Found </div>
      <%end%>
     </div>
     </td>
@@ -151,7 +151,7 @@
       <tr>
    <td width="100%">
     <div id="bar_container" style="">
-     <div id="bar_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
+     <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
    </div>
         
    </td>
@@ -167,7 +167,8 @@ $(function () {
                 renderTo: 'pie_container_graph',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false
+                plotShadow: false,
+                width: 700
             },
             title: {
                 text: 'Pie graph'
@@ -209,7 +210,8 @@ $(function () {
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'bar_container_graph',
-                type: 'bar'
+                type: 'bar',
+                width: 700
             },
             title: {
                 text: 'Bar graph'

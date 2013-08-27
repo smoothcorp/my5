@@ -17,8 +17,8 @@
    </td>
    </tr>
    <tr>
-   <td width="30%" valign="top">
-   <table style="height: auto; margin: 0 auto;border:3px grey solid;" cellspadding="4" cellspacing="12">
+   <td width="30%" style="vertical-align: top" valign="top">
+   <table class="table_count_visits" cellspadding="4" cellspacing="12">
     <tr>
       <th>Count of Visits
       </th>
@@ -121,23 +121,23 @@
    <div align="right" style="margin-top:15px;"><%= link_to("COLUMN", '#', :class => "button graphs_type",:id=>"column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph",:style=>"margin-right:20px;") %></div>
    <div id="main_container">
        <% if @page_total.to_i > 0 %>
-      <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+      <div id="container" style="min-height: 350px; margin: 0 auto;float:left;"></div>
        <%else%>
-       <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
+       <div id="container" style="min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
        <%end%>
    </div>
     <div id="pie_container" style="margin-left:20px;display:none;" >
      <% if @page_total.to_i > 0 %>
-       <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+       <div id="pie_container_graph" style="min-height: 350px; margin: 0 auto;float:left;"></div>
      <%else%>
-       <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto">No Records Found </div>
+       <div id="pie_container_graph" style="min-height: 350px; margin: 0 auto">No Records Found </div>
      <%end%>
     </div>
     <div id="bar_container" style="display:none;">
      <% if @page_total.to_i > 0 %>
-     <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+     <div id="bar_container_graph" style="min-height: 350px; margin: 0 auto;float:left;"></div>
       <%else%>
-      <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
+      <div id="bar_container_graph" style="min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
       <%end%>
    </div>
         
@@ -154,7 +154,8 @@ $(function () {
                 renderTo: 'pie_container_graph',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false
+                plotShadow: false,
+                width: 650
             },
             title: {
                 text: 'Pie graph'
@@ -196,7 +197,8 @@ $(function () {
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'bar_container_graph',
-                type: 'bar'
+                type: 'bar',
+                width: 650
             },
             title: {
                 text: 'Bar graph'
@@ -252,7 +254,8 @@ $(function () {
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
-                type: 'column'
+                type: 'column',
+                width: 650
             },
             title: {
                 text: 'Column graph'
