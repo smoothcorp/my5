@@ -11,18 +11,18 @@
 
 
 <div id="graph_filter" style="margin-top:40px;">
-<%= link_to("Content", '#', :class => "button screens",:id=>"screen_1",:style=>"backgroundColor:#22A7F2;") %> <%= link_to("Time", '#', :class => "button screens",:id=>"screen_2") %>  <%= link_to("Frequency", '#', :class => "button screens",:id=>"screen_3") %>    <%= image_tag("/images/loading.gif", :id=>"loader",:style=>"display:none;margin-top:5px;") %>
+<%= link_to("Content", '#', :class => "button screens",:id=>"screen_1",:style=>"backgroundColor:inherit") %> <%= link_to("Time", '#', :class => "button screens",:id=>"screen_2") %>  <%= link_to("Frequency", '#', :class => "button screens",:id=>"screen_3") %>    <%= image_tag("/images/loading.gif", :id=>"loader",:style=>"display:none;") %>
 <div style="width: 100%; margin: 10px;"></div>
 </div>
 
 
 <table style="width:100%;">
 <tr>
-<td style="width:30%;" valign="top">
+<td style="width:30%; background-color: #ffffff" >
 <%= render 'left_menu' %>
 </td>
-<td style="width:70%;border:2px solid grey;" valign="top">
-<div id="graph" style="margin-top:20px;" ><%= render 'graph_screen' %></div>
+<td style="width:70%;border:2px solid grey;" >
+<div id="graph" ><%= render 'graph_screen' %></div>
 </td>
 </tr>
 </table>
@@ -224,7 +224,7 @@
              $.ajax({
                 type: "GET",
                 async: false,
-                url: "/refinery/reports/screen1",
+                url: "/my5/dashboard/screen1",
                 data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency},
                 beforeSend: function() {
                  $("#loader").show('fast');
@@ -237,7 +237,6 @@
  }
 function graph_view(id, page,page_id,video_id)
 {
-    console.log('graph_view');
            var from_date= $('#from_date').val();
            var to_date = $('#to_date').val();
            var company_id = $('#company_id').val();
@@ -247,12 +246,11 @@ function graph_view(id, page,page_id,video_id)
            var state = $('#state').val();
            var country = $('#country').val();
            var frequency = $("#frequency").val();
-           console.log('qweqweqwe');
 
               $.ajax({
                 type: "GET",
                 async: false,
-                url: "/refinery/reports/screen1",
+                url: "/my5/dashboard/screen1",
                 data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id, "frequency": frequency},
                 beforeSend: function() {
                     $("#loader").show('fast');

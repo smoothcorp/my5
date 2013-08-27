@@ -4,13 +4,10 @@
       $(function() {
         var chart;
         $(document).ready(function() {
-            console.log("test");
-
 
 //  =========================================================================================================
           countin_direction = function( count, start_date, count_of_month ) {
             // Вычисление количества дней/round > 7 ( вычисление направления отсчета - flag )
-
             var splited_first_date = start_date.split(' ');
 
             var sum_of_days_in_seven = 0;
@@ -237,13 +234,6 @@
             values = values_arr;
           }
 
-
-          //          console.log(dates);
-          //          console.log(values);
-          //          console.log(eval(values.join('+')));
-          //          console.warn(flag);
-
-
           var output_arr = [];
 
           function toDate( strDate ) {
@@ -327,6 +317,7 @@
             ]
           });
         });
+
 
       });
     </script>
