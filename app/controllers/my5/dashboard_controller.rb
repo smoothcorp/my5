@@ -13,7 +13,7 @@ class My5::DashboardController < ApplicationController
   def reports
     if current_customer.can_view_reports?
 
-      @companie = current_customer.corporation
+      @company = current_customer.corporation_id
       @customers_locations = Customer.group("city").collect(&:city)
       @customers_location_states = Customer.group("state").collect(&:state)
       @customers_location_country = Customer.group("country").collect(&:country)

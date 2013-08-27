@@ -192,7 +192,7 @@
              var graph_views = $("#graph_view").val();
              if(company_id == "")
              {
-                company_id = $('#company_id').val();
+                company_id = $('#company_id').text();
              }
              if(department_id == "")
              {
@@ -238,7 +238,7 @@ function graph_view(id, page,page_id,video_id)
 {
            var from_date= $('#from_date').val();
            var to_date = $('#to_date').val();
-           var company_id = $('#company_id').val();
+           var company_id = $('#company_id').text();
            var department_id = $('#department_id').val();
            var location_name = $('#city').val();
            var role = $('#role_id').val();
