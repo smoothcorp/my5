@@ -40,7 +40,7 @@ class My5::DashboardController < ApplicationController
 
       respond_to do |format|
         format.html
-        format.csv { render :csv => Customer.all, :style => :brief, :filename => "my5_detailed_user_report_#{Time.now.strftime('%H:%M %b-%d-%Y')}" }
+        format.csv { render :csv => Customer.where(corporation_id: @company), :style => :brief, :filename => "my5_detailed_user_report_#{Time.now.strftime('%H:%M %b-%d-%Y')}" }
       end
     else
       redirect_to my5_dashboard_customer_path
@@ -107,11 +107,11 @@ class My5::DashboardController < ApplicationController
   def download_excel
     book = Spreadsheet::Workbook.new
     sheet = book.create_worksheet :name => "details"
-    sheet.row(0).concat %w{User_System_ID Title First_Name Last_Name Corporation User_type Suburb Postcode Signed_up Date_subscription_started,Date_subscription_ends,Login_Time_Last_30_Days,Login_Time_Last_90_Days,Last_login_duration,Time_in_Symptomatics_last_30_days,Time_in_Mini_Modules_last_30_days,Time_in_My_EQs_30_days,Time_in_Audio_Programs_last_30_days,Time_in_Symptomatics_last_90_days,Time_in_Mini_Modules_last_90_days,Time_in_My_EQs_90_days,Time_in_Audio_Programs_last_90_days }
-    @custmer = Customer.all
+    sheet.row(0).concat %w{Title First_Name Last_Name Corporation User_type Suburb Postcode Signed_up Date_subscription_started Date_subscription_ends Login_Time_Last_30_Days Login_Time_Last_90_Days Last_login_duration Time_in_Symptomatics_last_30_days Time_in_Mini_Modules_last_30_days Time_in_My_EQs_30_days Time_in_Audio_Programs_last_30_days Time_in_Symptomatics_last_90_days Time_in_Mini_Modules_last_90_days Time_in_My_EQs_90_days Time_in_Audio_Programs_last_90_days }
+    @custmer = Customer.where(corporation: current_customer.corporation)
     count = 1
-    @custmer.each do |custmer|
-      sheet.row(count.to_i).push custmer.id, custmer.title, custmer.first_name, custmer.last_name, custmer.first_name, "#{custmer.corporation.name if !custmer.corporation.nil?}", "#{!custmer.corporation.nil? ? 'Corporate' : 'Retail' }", custmer.city, custmer.zip_code, custmer.created_at.strftime("%e %B %Y"), "#{custmer.subscriptions.blank? ? 'No subscription' : custmer.subscriptions.last.expiry_date.strftime('%e %B %Y')}", custmer.login_time_last_30_days, custmer.login_time_last_30_days, custmer.login_time_last_90_days, custmer.last_login_duration, custmer.time_in_symptomatics_last_30_days, custmer.time_in_mini_modules_last_30_days, custmer.time_in_my_eqs_last_30_days, custmer.time_in_audio_programs_last_30_days, custmer.time_in_symptomatics_last_90_days, custmer.time_in_mini_modules_last_90_days, custmer.time_in_my_eqs_last_90_days, custmer.time_in_audio_programs_last_90_days
+    @custmer.each do |customer|
+      sheet.row(count.to_i).push customer.title, customer.first_name, customer.last_name, "#{customer.corporation.name if !customer.corporation.nil?}", customer.role, customer.city, customer.zip_code, customer.created_at.strftime("%e %B %Y"), "#{customer.subscriptions.blank? ? 'No subscription' : customer.subscriptions.last.expiry_date.strftime('%e %B %Y')}", customer.login_time_last_30_days, customer.login_time_last_30_days, customer.login_time_last_90_days, customer.last_login_duration, customer.time_in_symptomatics_last_30_days, customer.time_in_mini_modules_last_30_days, customer.time_in_my_eqs_last_30_days, customer.time_in_audio_programs_last_30_days, customer.time_in_symptomatics_last_90_days, customer.time_in_mini_modules_last_90_days, customer.time_in_my_eqs_last_90_days, customer.time_in_audio_programs_last_90_days
       count = count.to_i + 1
     end
     spreadsheet = StringIO.new
