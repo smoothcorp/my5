@@ -269,6 +269,9 @@ console.log(data)
 </script>
 <script type="text/javascript">
 	window.onload = function(){
+        $(document).ready(function() {
+            $('#department_id').dropdownchecklist( {icon: {}, width: 70,  maxDropHeight: 150 });
+        });
 		new JsDatePick({
 			useMode:2,
 			target:"from_date",

@@ -1,2 +1,2 @@
 set :deploy_to, '/root/apps/my5_staging'
-set :branch, '2_user_specific_statistics_old'
+set :branch, '4_multiple_filtering_options_for_graph'

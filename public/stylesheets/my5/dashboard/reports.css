@@ -1,0 +1,103 @@
+/* line 1, ../../../../app/stylesheets/shared/stats.sass */
+.separator {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px dotted #bbbbbb;
+  clear: both;
+}
+
+/* line 7, ../../../../app/stylesheets/shared/stats.sass */
+.stats {
+  display: inline-block;
+  padding: 0;
+  width: 100%;
+  height: 140px;
+  margin-left: 2%;
+}
+/* line 14, ../../../../app/stylesheets/shared/stats.sass */
+.stats li {
+  list-style: none !important;
+  width: 30%;
+  float: left;
+  margin-right: 2%;
+}
+/* line 20, ../../../../app/stylesheets/shared/stats.sass */
+.stats li .number {
+  font-size: 100px;
+  line-height: 120px;
+  float: left;
+}
+/* line 24, ../../../../app/stylesheets/shared/stats.sass */
+.stats li .text {
+  float: left;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: bottom;
+}
+/* line 29, ../../../../app/stylesheets/shared/stats.sass */
+.stats li.last {
+  width: 30% !important;
+}
+
+/* line 3, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats {
+  height: 200px;
+}
+/* line 5, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li {
+  width: 44%;
+}
+/* line 7, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li div {
+  width: 100%;
+  text-align: center;
+}
+/* line 10, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li .numbers {
+  font-size: 80px;
+}
+
+/* line 13, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.hide {
+  display: none;
+}
+
+/* line 16, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.report_layout_table {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+/* line 20, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_count_visits {
+  width: 52%;
+  height: auto;
+  margin: 0 auto;
+  border: 3px grey solid;
+}
+/* line 25, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_count_visits td, .table_count_visits th {
+  padding: 2px 5px;
+}
+
+/* line 29, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.left_menu_wrap {
+  font-size: 12px;
+  width: 170px;
+}
+
+/* line 34, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.sub_menu .toggle_plus, .sub_menu .toggle_minus {
+  vertical-align: bottom;
+  height: 25px;
+}
+/* line 37, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.sub_menu .toggle_minus {
+  display: none;
+}
+
+/* line 41, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.content_graph_table .col3 {
+  text-align: center;
+  border: 1px solid gray;
+}

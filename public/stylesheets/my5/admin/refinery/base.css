@@ -1,0 +1,33 @@
+/* line 2, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records div.header {
+  display: list-item;
+  line-height: 30px;
+  background: white !important;
+  font-weight: bold;
+}
+/* line 7, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records div.header span {
+  padding-left: 2px;
+}
+/* line 11, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records li span, #records div.header span {
+  display: inline-block;
+}
+/* line 13, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records li img, #records div.header img {
+  vertical-align: middle;
+  margin-top: -4px;
+}
+/* line 17, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records li .title, #records div.header .title {
+  width: 360px;
+  font-weight: bold;
+}
+/* line 20, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records li .symptomatic, #records div.header .symptomatic {
+  width: 220px;
+}
+/* line 22, ../../../../../app/stylesheets/my5/admin/refinery/base.sass */
+#records li .customer-type, #records li .corporation-active, #records div.header .customer-type, #records div.header .corporation-active {
+  width: 180px;
+}

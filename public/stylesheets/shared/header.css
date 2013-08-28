@@ -1,0 +1,211 @@
+/* line 3, ../../../app/stylesheets/shared/header.sass */
+#header {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  height: 80px;
+  line-height: 70px;
+}
+/* line 7, ../../../app/stylesheets/shared/header.sass */
+#header a {
+  color: white;
+  font-weight: bold;
+}
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:visited {
+  color: white;
+}
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:focus {
+  color: white;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:hover {
+  color: white;
+}
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:active {
+  color: white;
+}
+/* line 10, ../../../app/stylesheets/shared/header.sass */
+#header #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+  margin-left: 0;
+}
+/* line 13, ../../../app/stylesheets/shared/header.sass */
+#header #logo img {
+  vertical-align: middle;
+}
+/* line 15, ../../../app/stylesheets/shared/header.sass */
+#header .nav {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 540px;
+}
+/* line 17, ../../../app/stylesheets/shared/header.sass */
+#header .nav a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* line 24, ../../../app/stylesheets/shared/header.sass */
+#header .nav#signup {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  margin-right: 0;
+}
+/* line 27, ../../../app/stylesheets/shared/header.sass */
+#header .nav#signup a {
+  width: 100%;
+  float: right;
+}
+/* line 30, ../../../app/stylesheets/shared/header.sass */
+#header .nav#signup a.button {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px;
+  font-family: Helvetica;
+}
+
+/* line 36, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu {
+  float: left;
+  font-family: Verdana;
+  font-size: 13px;
+  font-weight: bold;
+  height: 37px;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* line 47, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul {
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 54, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li {
+  display: inline;
+  float: left;
+  margin-left: 1px;
+  padding-right: 5px;
+  position: relative;
+}
+
+/* line 62, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a {
+  color: white;
+  border-right: 1px solid #777788;
+  text-decoration: none;
+  height: auto !important;
+  border: none;
+  font-size: 14px !important;
+  padding: 10px !important;
+}
+
+/* line 74, ../../../app/stylesheets/shared/header.sass */
+* html .ddsmoothmenu ul li a {
+  display: inline-block;
+}
+
+/* line 78, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited {
+  color: white;
+}
+
+/* line 82, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a.selected {
+  background: #cf6000;
+  color: white;
+}
+
+/* line 87, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li a.hover {
+  background: #cf6000;
+  color: white;
+}
+
+/* line 91, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul {
+  position: absolute;
+  left: 0;
+  display: none;
+  visibility: hidden;
+  list-style-type: none !important;
+}
+
+/* line 98, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li {
+  display: list-item;
+  float: none;
+  list-style: none !important;
+}
+
+/* line 103, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li ul {
+  top: 0;
+}
+
+/* line 106, ../../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li a {
+  font: normal 13px Verdana;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  border-top-width: 0;
+  border-bottom: 1px solid gray;
+  font-size: 12px !important;
+  padding: 10px !important;
+}
+
+/* line 116, ../../../app/stylesheets/shared/header.sass */
+* html .ddsmoothmenu {
+  height: 1%;
+}
+
+/* line 120, ../../../app/stylesheets/shared/header.sass */
+.downarrowclass {
+  position: absolute;
+  top: 12px;
+  right: 7px;
+}
+
+/* line 126, ../../../app/stylesheets/shared/header.sass */
+.rightarrowclass {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+}
+
+/* line 132, ../../../app/stylesheets/shared/header.sass */
+.ddshadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  background: silver;
+}
+
+/* line 141, ../../../app/stylesheets/shared/header.sass */
+.toplevelshadow {
+  opacity: 0.8;
+}

@@ -1,0 +1,21 @@
+/* line 1, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 8, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started img {
+  float: left;
+  margin-right: 20px;
+}
+/* line 12, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started h2 {
+  color: #109900;
+}
+/* line 14, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started h2, #get_started p {
+  margin: 5px 0;
+  clear: none !important;
+}

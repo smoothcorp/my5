@@ -1,0 +1,198 @@
+/* line 7, ../../../../app/stylesheets/my5/shared/header.sass */
+#header_background {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 84px;
+  width: 100%;
+  background-color: grey;
+}
+/* line 15, ../../../../app/stylesheets/my5/shared/header.sass */
+#header_background #colour_strip {
+  height: 5px;
+  background: url("/images/coloured_bars.png") repeat-x;
+}
+/* line 18, ../../../../app/stylesheets/my5/shared/header.sass */
+#header_background #dark_gradient {
+  height: 37px;
+  background-color: black;
+}
+/* line 21, ../../../../app/stylesheets/my5/shared/header.sass */
+#header_background #grey_gradient {
+  height: 36px;
+  background-color: grey;
+}
+
+/* line 25, ../../../../app/stylesheets/my5/shared/header.sass */
+#header {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  position: relative;
+  z-index: 2;
+  height: 78px;
+  margin-top: 6px;
+  line-height: 8px;
+}
+/* line 32, ../../../../app/stylesheets/my5/shared/header.sass */
+#header a {
+  color: white;
+  font-weight: bold;
+}
+/* line 18, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:visited {
+  color: white;
+}
+/* line 21, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:focus {
+  color: white;
+}
+/* line 24, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:hover {
+  color: white;
+}
+/* line 27, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:active {
+  color: white;
+}
+/* line 35, ../../../../app/stylesheets/my5/shared/header.sass */
+#header #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 380px;
+  margin-left: 0;
+  height: 36px;
+  line-height: 36px;
+}
+/* line 40, ../../../../app/stylesheets/my5/shared/header.sass */
+#header #logo img {
+  vertical-align: middle;
+  height: 30px;
+}
+/* line 43, ../../../../app/stylesheets/my5/shared/header.sass */
+#header #actions {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 540px;
+  margin-right: 0;
+  height: 36px;
+  line-height: 40px;
+  color: #cccccc;
+  text-align: right;
+}
+/* line 50, ../../../../app/stylesheets/my5/shared/header.sass */
+#header #actions a.management-reports {
+  margin-right: 5px;
+}
+/* line 53, ../../../../app/stylesheets/my5/shared/header.sass */
+#header #actions img {
+  height: 24px;
+  vertical-align: middle;
+  margin-top: -6px;
+  margin-right: 5px;
+}
+/* line 59, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav {
+  height: 36px;
+  line-height: 44px;
+  padding-top: 5px;
+}
+/* line 63, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav a {
+  display: block;
+  float: left;
+  width: 135px;
+}
+/* line 67, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav a#home {
+  width: 60px;
+  height: 37px;
+  background: url("/images/dashboard/home_tab.png") 0px -37px no-repeat !important;
+  vertical-align: middle;
+}
+/* line 72, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav a#home img {
+  margin-top: 12px;
+}
+/* line 74, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav a#home:hover {
+  background-position: 0px 0px !important;
+}
+/* line 76, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#modules {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 740px;
+  margin-left: 0;
+}
+/* line 79, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#modules a {
+  height: 37px !important;
+  background: url("/images/dashboard/tab.png") no-repeat;
+}
+/* line 82, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#modules a:hover {
+  background-position: 0px -37px;
+  color: #3e3e3e;
+}
+/* line 85, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#health_checkin {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+  margin-right: 0;
+  float: right !important;
+  margin-right: 20px;
+}
+/* line 90, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#health_checkin a {
+  padding-left: 10px;
+  padding-right: 10px;
+  background: url("/images/dashboard/green_tab.png") no-repeat;
+}
+/* line 95, ../../../../app/stylesheets/my5/shared/header.sass */
+#header .nav#health_checkin a img {
+  margin-right: 5px;
+  margin-top: -8px;
+  vertical-align: middle;
+}
+
+/* line 104, ../../../../app/stylesheets/my5/shared/header.sass */
+#dashboard #header nav #home {
+  background-position: 0px 0px !important;
+}
+
+/* line 107, ../../../../app/stylesheets/my5/shared/header.sass */
+#symptomatics #symptomatics_link, .symptomatic_video #symptomatics_link {
+  background-position: 0px -37px !important;
+  color: #3e3e3e !important;
+}
+
+/* line 110, ../../../../app/stylesheets/my5/shared/header.sass */
+#my_eqs #my_eq_link {
+  background-position: 0px -37px !important;
+  color: #3e3e3e !important;
+}
+
+/* line 113, ../../../../app/stylesheets/my5/shared/header.sass */
+#mini_modules #mini_modules_link {
+  background-position: 0px -37px !important;
+  color: #3e3e3e !important;
+}
+
+/* line 116, ../../../../app/stylesheets/my5/shared/header.sass */
+#audio_programs #audio_programs_link {
+  background-position: 0px -37px !important;
+  color: #3e3e3e !important;
+}

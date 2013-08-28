@@ -1,0 +1,20 @@
+/* line 2, ../../../../app/stylesheets/refinery/shared/forms.sass */
+form .separator {
+  width: 400px;
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px dotted #3e3e3e;
+}
+/* line 11, ../../../../app/stylesheets/refinery/shared/forms.sass */
+form .grey label, form .grey input {
+  color: #cccccc !important;
+}
+/* line 13, ../../../../app/stylesheets/refinery/shared/forms.sass */
+form .grey label, form .grey input {
+  border-color: #cccccc !important;
+}
+/* line 15, ../../../../app/stylesheets/refinery/shared/forms.sass */
+form .warning, form .warning b {
+  width: 400px;
+  color: #b00000 !important;
+}

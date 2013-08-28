@@ -1,0 +1,95 @@
+/* line 3, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.content {
+  padding-top: 0 !important;
+}
+
+/* line 7, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.padded {
+  padding-top: 15px;
+}
+
+/* line 11, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.green-bar {
+  width: 100%;
+  height: 10px;
+  background: #419e36;
+}
+
+/* line 16, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.steps {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #3e3e3e;
+}
+/* line 21, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.steps li {
+  width: 25%;
+  list-style: none;
+  float: left;
+  margin: 0 0 20px 0;
+  margin-top: 0;
+  margin-left: 0 !important;
+  font-size: 40px;
+  line-height: 50px;
+}
+/* line 31, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.steps li img {
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+/* line 38, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#slider input[type="submit"] {
+  float: right;
+  margin-top: 45px;
+}
+/* line 42, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#slider input[type="submit"].back_button {
+  clear: both;
+  float: left !important;
+}
+/* line 46, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#slider .ui-slider:focus, #slider .ui-slider a:focus, #slider .ui-slider span:focus {
+  outline: none !important;
+}
+/* line 48, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#slider span.ui-slider-tooltip {
+  margin-left: -46px !important;
+}
+
+/* line 52, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#description {
+  text-align: center;
+  margin-top: 15px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+/* line 59, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#new_health_checkin {
+  width: 100%;
+  margin-top: 15px;
+}
+/* line 63, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+#new_health_checkin #clear_checkins {
+  float: right;
+  display: inline-block;
+}
+
+/* line 68, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.scale p {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 16px;
+}
+/* line 76, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.scale .left {
+  float: left;
+  text-align: left;
+}
+/* line 79, ../../../../app/stylesheets/my5/health_checkins/base.sass */
+.scale .right {
+  float: right;
+  text-align: right;
+}

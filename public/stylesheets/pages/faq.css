@@ -1,0 +1,15 @@
+/* line 2, ../../../app/stylesheets/pages/faq.sass */
+.gsfn_content label {
+  margin-left: 0;
+}
+/* line 4, ../../../app/stylesheets/pages/faq.sass */
+.gsfn_content input[type="submit"] {
+  font-size: 14px;
+  padding: 9px 12px 8px;
+}
+/* line 8, ../../../app/stylesheets/pages/faq.sass */
+.gsfn_content ul li {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
