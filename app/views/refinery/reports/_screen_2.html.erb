@@ -1,306 +1,319 @@
-<table style="width: 100%; height: auto; margin: 0 auto;" >
-  <tr >
-   <td>
-        <div align="center">
-          Unique Visits
-          <br/>
-          <div style="border:1px grey solid;width:100px;height:20px;"><b><%=@unique_visits.size%></b></div>
-        </div>
-   </td>
-   <td>
-        <div align="center">
-           Totals Visits
-           <br/>
-          <div style="border:1px grey solid;width:100px;height:20px;"> <b><%=@reports.size%></b></div>
-           
-        </div>
-   </td>
-   </tr>
-   <tr>
-   <td width="30%" valign="top">
-   <table style="height: auto; margin: 0 auto;border:3px grey solid;" cellspadding="4" cellspacing="12">
-    <tr>
-      <th>Count of Visits
-      </th>
-      <th> 
-          Visits
-      </th>
-    </tr>
-     <tr>
-      <td>
-      1
-      </td>
-      <td style="border:1px grey solid;" align="center">
-            <b><%= @last_count[1]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      2
-      </td>
-      <td style="border:1px grey solid;" align="center">
-      <b> <%= @last_count[2]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      3
-      </td>
-      <td style="border:1px grey solid;" align="center">
-        <b> <%= @last_count[3]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      4
-      </td>
-      <td style="border:1px grey solid;" align="center">
-       <b> <%= @last_count[4]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      5
-      </td>
-      <td style="border:1px grey solid;" align="center">
-      <b>  <%= @last_count[5]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      6
-      </td>
-      <td style="border:1px grey solid;" align="center">
-        <b> <%= @last_count[6]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      7
-      </td>
-      <td style="border:1px grey solid;" align="center">
-        <b> <%= @last_count[7]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      8
-      </td>
-      <td style="border:1px grey solid;" align="center">
-         <b>   <%= @last_count[8]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      9-14
-      </td>
-      <td style="border:1px grey solid;" align="center">
-       <b> <%= @last_count[9]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      15-25
-      </td>
-      <td style="border:1px grey solid;" align="center">
-        <b>  <%= @last_count[10]%></b>
-      </td>
-    </tr>
-     <tr>
-      <td>
-      26-50+
-      </td>
-      <td style="border:1px grey solid;" align="center">
-       <b>   <%= @last_count[11]%></b>
-      </td>
-    </tr>
-   </table>
-   
-   </td>
-   <td style="border:3px grey solid;" valign="top">
-   <div align="right" style="margin-top:15px;"><%= link_to("COLUMN", '#', :class => "button graphs_type",:id=>"column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph",:style=>"margin-right:20px;") %></div>
-   <div id="main_container">
-       <% if @page_total.to_i > 0 %>
-      <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
-       <%else%>
-       <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
-       <%end%>
-   </div>
-    <div id="pie_container" style="margin-left:20px;display:none;" >
-     <% if @page_total.to_i > 0 %>
-       <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
-     <%else%>
-       <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto">No Records Found </div>
-     <%end%>
-    </div>
-    <div id="bar_container" style="display:none;">
-     <% if @page_total.to_i > 0 %>
-     <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
-      <%else%>
-      <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No Records Found</div>
-      <%end%>
-   </div>
-        
-   </td>
- </tr>
+<table style="width: 100%; height: auto; margin: 0 auto;">
+  <tr>
+    <td>
+      <div align="center">
+        Unique Visits
+        <br/>
+
+        <div style="border:1px grey solid;width:100px;height:20px;"><b><%= @last_count[1] %></b></div>
+        <!--earlier @unique_visits.size-->
+      </div>
+    </td>
+    <td>
+      <div align="center">
+        Totals Visits
+        <br/>
+
+        <div style="border:1px grey solid;width:100px;height:20px;"><b><%= @reports.size %></b></div>
+
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top">
+      <table style="height: auto; margin: 0 auto;border:3px grey solid;" cellspadding="4" cellspacing="12">
+        <tr>
+          <th>Count of Visits
+          </th>
+          <th>
+            Visits
+          </th>
+        </tr>
+        <tr>
+          <td>
+            1
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b><%= @last_count[1] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[2] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[3] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            4
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[4] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            5
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b>  <%= @last_count[5] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            6
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[6] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            7
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[7] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            8
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b>   <%= @last_count[8] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            9-14
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b> <%= @last_count[9] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            15-25
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b>  <%= @last_count[10] %></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            26-50+
+          </td>
+          <td style="border:1px grey solid;" align="center">
+            <b>   <%= @last_count[11] %></b>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+    <td style="border:3px grey solid;" valign="top">
+      <div align="right" style="margin-top:15px;"><%= link_to("COLUMN", '#', :class => "button graphs_type", :id => "column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph", :style => "margin-right:20px;") %></div>
+      <div id="main_container">
+        <% if @page_total.to_i > 0 %>
+            <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+        <% else %>
+            <div id="container" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No Records Found
+            </div>
+        <% end %>
+      </div>
+      <div id="pie_container" style="margin-left:20px;display:none;">
+        <% if @page_total.to_i > 0 %>
+            <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+        <% else %>
+            <div id="pie_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto">No Records Found
+            </div>
+        <% end %>
+      </div>
+      <div id="bar_container" style="display:none;">
+        <% if @page_total.to_i > 0 %>
+            <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;"></div>
+        <% else %>
+            <div id="bar_container_graph" style="min-width:750px;min-height: 350px; margin: 0 auto;float:left;">No
+              Records Found
+            </div>
+        <% end %>
+      </div>
+
+    </td>
+  </tr>
 </table>
 <% if @page_total.to_i > 0 %>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'pie_container_graph',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: 'Pie graph'
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
-                }
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+    <script type="text/javascript">
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'pie_container_graph',
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Pie graph'
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                         }
-                    }
-                }
-            },
-             series: [{
-                type: 'pie',
-                name: 'Visits in %',
-                data: <%= @percentage_data %>
-            }]
-        });
-    });
-    
-});
-</script>
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                color: '#000000',
+                                connectorColor: '#000000',
+                                formatter: function () {
+                                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                                }
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            name: 'Visits in %',
+                            data: <%= @percentage_data %>
+                        }
+                    ]
+                });
+            });
 
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'bar_container_graph',
-                type: 'bar'
-            },
-            title: {
-                text: 'Bar graph'
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories:  <%= @page_1 %>
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: ''
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 300,
-                y: 10,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +'% Visits';
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-                series: [{
-                name: 'Visits',
-                data: <%= @page_2 %>
-    
-            }]
         });
-    });
-    
-});
-</script>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'column'
-            },
-            title: {
-                text: 'Column graph'
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories: <%= @page_1 %>
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: ''
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +' Times';
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-                series: [{
-                name: 'Visits',
-                data: <%=@page_data%>
-    
-            }]
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'bar_container_graph',
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Bar graph'
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories:  <%= @page_1 %>
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        backgroundColor: '#FFFFFF',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 300,
+                        y: 10,
+                        floating: true,
+                        shadow: true
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '' +
+                                    this.x + ': ' + this.y + '% Visits';
+                        }
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'Visits',
+                            data: <%= @page_2 %>
+
+                        }
+                    ]
+                });
+            });
+
         });
-    });
-    
-});
-</script>
-<%end%>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'container',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Column graph'
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: <%= @page_1 %>
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        backgroundColor: '#FFFFFF',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 100,
+                        y: 70,
+                        floating: true,
+                        shadow: true
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '' +
+                                    this.x + ': ' + this.y + ' Times';
+                        }
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'Visits',
+                            data: <%=@page_data%>
+
+                        }
+                    ]
+                });
+            });
+
+        });
+    </script>
+<% end %>
 
 

@@ -11,7 +11,7 @@ Semblance::Application.routes.draw do
   match 'my5/dashboard/download_excel' => 'my5/dashboard#download_excel'
 
 
-  devise_for :customers, :controllers => { :registrations => 'customer_registrations'}
+  devise_for :customers, :controllers => { :registrations => 'customer_registrations', :sessions => 'customer_sessions' }
   devise_scope :customer do
     post '/customers/confirm_details' => 'customer_registrations#confirm_details', :as => :customer_confirm_details
     get '/customers/success' => 'customer_registrations#confirmed_sign_up', :as => :customer_confirmed_sign_up

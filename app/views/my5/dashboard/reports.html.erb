@@ -1,283 +1,326 @@
-<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/refinery/reports/jsDatePick_ltr.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/refinery/reports/jsDatePick_ltr.min.css"/>
 <script type="text/javascript" src="/javascripts/date/jsDatePick.min.1.3.js"></script>
-<script src="/javascripts/jquery-1.7.2.js"></script>
 <script src="/javascripts/highcharts.js"></script>
 <script src="/javascripts/exporting.js"></script>
 
-<h1> Detailed customer report</h1>
+<h1 class="h1">Client Usage Report</h1>
 
 
 <%= render 'filter_index' %>
 
 
-<div id="graph_filter" style="margin-top:40px;">
-<%= link_to("Content", '#', :class => "button screens",:id=>"screen_1",:style=>"backgroundColor:inherit") %> <%= link_to("Time", '#', :class => "button screens",:id=>"screen_2") %>  <%= link_to("Frequency", '#', :class => "button screens",:id=>"screen_3") %>    <%= image_tag("/images/loading.gif", :id=>"loader",:style=>"display:none;") %>
-<div style="width: 100%; margin: 10px;"></div>
+<div id="graph_filter">
+  <%= link_to("Content", '#', :class => 'button screens orange_button', :id => 'screen_1') %> <%= link_to("Time", '#', :class => 'button screens blue_button', :id => 'screen_2') %>  <%= link_to("Frequency", '#', :class => 'button screens grey_button', :id => 'screen_3') %>    <%= image_tag("/images/loading.gif", :id => "loader", :style => "display:none;") %>
+  <div style="display: none" id="buttons_separated_merged">
+    <td><%= link_to "Separated", '#', :class => "button screens", :id => "separated", :style => "backgroundColor:#22A7F2;" %></td>
+    <td><%= link_to "Merged", '#', :class => "button screens", :id => "merged", :style => "backgroundColor:#22A7F2;" %></td>
+  </div>
+  <div style="width: 100%; margin: 10px;"></div>
 </div>
 
 
-<table class="report_layout_table" style="width:100%;">
-<tr>
-<td style="background-color: #ffffff; vertical-align: top;" >
-<%= render 'left_menu' %>
-</td>
-<td style="border:2px solid grey;" >
-<div id="graph" ><%= render 'graph_screen' %></div>
-</td>
-</tr>
+<table class="report_layout_table table_layout">
+  <tr>
+    <td class="td">
+      <%= render 'left_menu' %>
+    </td>
+    <td class="td">
+      <div id="graph"><%= render 'graph_screen' %></div>
+    </td>
+  </tr>
 </table>
 
 
 
 <script language="javascript" type="text/javascript">
-  $(document).ready(function() {
-     $('#screen_1').live('click',function(e) {
-        change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).css("backgroundColor","green");
-        graph_view(1,"all","","");
-        return false;
-     });
-     $('#screen_2').live('click',function(e) {
-        change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-       $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).css("backgroundColor","green");
-        graph_view(2,"all","","");
-         return false;
-     });
-     $('#screen_3').live('click',function(e) {
-         change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-         $(this).css("backgroundColor","green");
-         graph_view(3,"all","","");
-         return false;
-     });
-     $('#company_id').live('change',function(e) {
-        company_filter("all",$(this).val(),"","","","","");
-        return false;
-     });
-     $('#city').live('change',function(e) {
-        company_filter("all","",$(this).val(),"","","");
-        return false;
-     });
-     $('#role_id').live('change',function(e) {
-        company_filter("all","","","",$(this).val(),"","");
-        return false;
-     });
-     $('#state').live('change',function(e) {
-        company_filter("all","","","",$(this).val(),"");
-        return false;
-     });
-     $('#country').live('change',function(e) {
-        company_filter("all","","","","","",$(this).val());
-        return false;
-     });
-     $('#department_id').live('change',function(e) {
-        company_filter("all","",$(this).val(),"","","","");
-        return false;
-     });
-     $('.graph_for').live('click',function(e) {
-        var page_type = $(this).attr('id');
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).css("color","#3E576F").css("border","1px black solid");
-        var graph_views = $("#graph_view").val();
-        graph_view(graph_views,page_type,"","");
-         return false;
-     });
-     $('.graph_for_items').live('click',function(e) {
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).closest('div').parent().find(".graph_for").css("color","#3E576F").css("border","1px black solid");
-        $(this).css("color","#3E576F").css("border","1px black solid");
-        var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
-        var page_id = $(this).attr('id');
-        var graph_views = $("#graph_view").val();
-        graph_view(graph_views,page_type,page_id,"");
-        return false;
-     });
-     $('.graph_for_items_child').live('click',function(e) {
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).closest('div').parent().find(".graph_for").css("color","#3E576F").css("border","1px black solid");
-        $(this).closest('.graph_for_items').css("color","#3E576F").css("border","1px black solid");
-        $(this).css("color","#3E576F").css("border","1px black solid");
-        var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
-        var page_id = $(this).closest('ul.second_child').parent().find(".graph_for_items").attr('id');
-        var video_id = $(this).attr('id');
-        var graph_views = $("#graph_view").val();
-        graph_view(graph_views,page_type,page_id,video_id);
-        return false;
-     });
-     $('#Ok').live('click',function(e) {
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        var graph_views = $("#graph_view").val();
-        graph_view(graph_views,"all","","");
-     });
-     $('#plus').live('click',function(e) {
-        var submenu = $(this).closest('div')
-        submenu.find("#minus").css("display","inline");
-        $(this).css("display","none");
-        submenu.find('ul.first_child').css("display","inline");
-        return false;
-     });
-     $('#sub_plus').live('click',function(e) {
-        var submenu = $(this).closest('li')
-        submenu.find("#sub_minus").css("display","inline");
-        $(this).css("display","none");
-        submenu.find('ul').css("display","inline");
-        return false;
-     });
-     $('#sub_minus').live('click',function(e) {
-        var submenu = $(this).closest('li')
-        submenu.find("#sub_plus").css("display","inline");
-        $(this).css("display","none");
-        submenu.find('ul').css("display","none");
-        return false;
-     });
-     $('#minus').live('click',function(e) {
-        var submenu = $(this).closest('div')
-        submenu.find("#plus").css("display","inline");
-        submenu.find("#sub_minus").css("display","none");
-        submenu.find("#sub_plus").css("display","inline");
-        submenu.find("ul.second_child").css("display","none");
-        $(this).css("display","none");;
-        submenu.find('ul').css("display","none");;
-        return false;
-     });
-     $('#column_graph').live('click',function(e) {
-        $('#main_container').show("fast");
-        $('#bar_container').hide("fast");
-        $('#pie_container').hide("fast");
-        return false;
-     });
-     $('#bar_graph').live('click',function(e) {
-        $('#main_container').hide("fast");
-        $('#bar_container').show("fast");
-        $('#pie_container').hide("fast");
-        return false;
-     });
-     $('#pie_graph').live('click',function(e) {
-        $('#main_container').hide("fast");
-        $('#bar_container').hide("fast");
-        $('#pie_container').show("fast");
-        return false;
-     });
- });
+    $(document).ready(function () {
+        $('#screen_1').live('click', function (e) {
+            change_color_of_screen();
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
+            if ($('#department_id').val() || $('#role_id').val() || $('#state').val() || $('#state2').val() || $('#city').val() || $('country').val())
+                $("#buttons_separated_merged").show();
+            graph_view(1, "all", "", "");
+            return false;
+        });
+        $('#screen_2').live('click', function (e) {
+            change_color_of_screen();
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
+            $("#buttons_separated_merged").hide();
+            graph_view(2, "all", "", "");
+            return false;
+        });
+        $('#screen_3').live('click', function (e) {
+            change_color_of_screen();
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
+            $("#buttons_separate_merged").hide();
+            graph_view(3, "all", "", "");
+            return false;
+        });
 
- function change_color_of_screen()
- {
-   $('.screens').each(function(index) {
-     $(this).css("backgroundColor","#22A7F2");
-   });
- }
- function company_filter(page,company_id,department_id,location_name,role,state,country)
- {
-             $('.graph_for').css("color","black").css("border","0px black solid");
-             $('.graph_for_items').css("color","black").css("border","0px black solid");
-             $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-             var from_date= $('#from_date').val();
-             var to_date = $('#to_date').val();
-             var graph_views = $("#graph_view").val();
-             if(company_id == "")
-             {
-                company_id = $('#company_id').text();
-             }
-             if(department_id == "")
-             {
-                 department_id = $('#department_id').val();
-             }
-             if(location_name == "")
-             {
-                 location_name = $('#city').val();
-             }
-             if(role == "")
-             {
-                 role = $('#role_id').val();
-             }
-              if(state == "")
-             {
-                 state = $('#state').val();
-             }
-              if(country == "")
-             {
-                 country = $('#country').val();
-             }
-             if($.trim(graph_views) == "undefined"  || graph_views == "")
-             {
-                graph_views = 1;
-             }
-             var frequency = $("#frequency").val();
+        $('#separated').live('click', function (e) {
+            change_color_of_screen();
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
+            department_view_mode("separated", "all");
+            return false;
+        });
 
-             $.ajax({
-                type: "GET",
-                async: false,
-                url: "/my5/dashboard/screen1",
-                data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency},
-                beforeSend: function() {
-                 $("#loader").show('fast');
-                  $('#screen_'+graph_views).css("backgroundColor","green");
-                },
-                success: function(data) {
-                 $("#loader").hide('fast');
-                }
-              });
- }
-function graph_view(id, page,page_id,video_id)
-{
-           var from_date= $('#from_date').val();
-           var to_date = $('#to_date').val();
-           var company_id = $('#company_id').text();
-           var department_id = $('#department_id').val();
-           var location_name = $('#city').val();
-           var role = $('#role_id').val();
-           var state = $('#state').val();
-           var country = $('#country').val();
-           var frequency = $("#frequency").val();
 
-              $.ajax({
-                type: "GET",
-                async: false,
-                url: "/my5/dashboard/screen1",
-                data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id, "frequency": frequency},
-                beforeSend: function() {
-                    $("#loader").show('fast');
-                },
-complete: function(data) {
-console.log(data)
-},
-                success: function(data) {
-                 $("#loader").hide('fast');
-                }
-              });
+        $('#merged').live('click', function (e) {
+            change_color_of_screen();
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
+            department_view_mode("merged", "all");
+            return false;
+        });
 
-}
+        $('.graph_for').live('click', function (e) {
+            var page_type = $(this).attr('id');
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
+            var graph_views = $("#graph_view").val();
+            graph_view(graph_views, page_type, "", "");
+            return false;
+        });
+        $('.graph_for_items').live('click', function (e) {
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
+            $(this).closest('div').parent().find(".graph_for").addClass("active");
+            var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
+            var page_id = $(this).attr('id');
+            var graph_views = $("#graph_view").val();
+            graph_view(graph_views, page_type, page_id, "");
+            return false;
+        });
+        $('.graph_for_items_child').live('click', function (e) {
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
+            $(this).closest('div').parent().find(".graph_for").addClass("active");
+            $(this).closest('.graph_for_items').addClass("active");
+            var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
+            var page_id = $(this).closest('ul.second_child').parent().find(".graph_for_items").attr('id');
+            var video_id = $(this).attr('id');
+            var graph_views = $("#graph_view").val();
+            graph_view(graph_views, page_type, page_id, video_id);
+            return false;
+        });
+        $('#Ok').live('click', function (e) {
+            e.preventDefault();
+            $('[class^="graph_for"]').removeClass("active");
+            var graph_views = $("#graph_view").val();
+            graph_view(graph_views, "all", "", "");
+        });
+        $('#plus').live('click', function (e) {
+            var submenu = $(this).closest('div')
+            submenu.find("#minus").css("display", "inline");
+            $(this).css("display", "none");
+            submenu.find('ul.first_child').css("display", "inline");
+            return false;
+        });
+        $('#sub_plus').live('click', function (e) {
+            var submenu = $(this).closest('li')
+            submenu.find("#sub_minus").css("display", "inline");
+            $(this).css("display", "none");
+            submenu.find('ul').css("display", "inline");
+            return false;
+        });
+        $('#sub_minus').live('click', function (e) {
+            var submenu = $(this).closest('li')
+            submenu.find("#sub_plus").css("display", "inline");
+            $(this).css("display", "none");
+            submenu.find('ul').css("display", "none");
+            return false;
+        });
+        $('#minus').live('click', function (e) {
+            var submenu = $(this).closest('div')
+            submenu.find("#plus").css("display", "inline");
+            submenu.find("#sub_minus").css("display", "none");
+            submenu.find("#sub_plus").css("display", "inline");
+            submenu.find("ul.second_child").css("display", "none");
+            $(this).css("display", "none");
+            ;
+            submenu.find('ul').css("display", "none");
+            ;
+            return false;
+        });
+        $('#column_graph').live('click', function (e) {
+            $('#main_container').show("fast");
+            $('#bar_container').hide("fast");
+            $('#pie_container').hide("fast");
+            return false;
+        });
+        $('#bar_graph').live('click', function (e) {
+            $('#main_container').hide("fast");
+            $('#bar_container').show("fast");
+            $('#pie_container').hide("fast");
+            return false;
+        });
+        $('#pie_graph').live('click', function (e) {
+            $('#main_container').hide("fast");
+            $('#bar_container').hide("fast");
+            $('#pie_container').show("fast");
+            return false;
+        });
+    });
+
+    function change_color_of_screen() {
+        $('.screens').each(function (index) {
+            $(this).removeClass("active");
+        });
+
+    }
+
+    function department_view_mode(dep_mode, page) {
+        $('.graph_for').addClass("active");
+        $('.graph_for_items').addClass("active");
+        $('.graph_for_items_child').addClass("active");
+        var from_date = $('#from_date').val();
+        var to_date = $('#to_date').val();
+        var graph_views = $("#graph_view").val();
+        var company_id = $('#company_id').val();
+        var department_id = $('#department_id').val();
+        var role = $('#role_id').val();
+        var state = $('#state').val();
+        var state2 = $('#state2').val();
+        var city = $('#city').val();
+        var country = $('#country').val();
+        var frequency = $("#frequency").val();
+        var dep_mode = dep_mode;
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: "/my5/dashboard/screen1",
+            data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "role": role, "state": state, "state2": state2, "city": city, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
+            beforeSend: function () {
+                $("#loader").show('fast');
+                $('#screen_' + graph_views).css("backgroundColor", "green");
+            },
+            complete: function (data) {
+                $("#loader").hide('fast');
+            }
+        });
+
+    }
+
+
+    function company_filter(page, company_id, department_id, location_name, role, state, state2, city, country) {
+        $('.graph_for').css("color", "black").css("border", "0px black solid");
+        $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+        $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+        var from_date = $('#from_date').val();
+        var to_date = $('#to_date').val();
+        var graph_views = $("#graph_view").val();
+        if (company_id == "") {
+            company_id = $('#company_id').val();
+        }
+        if (department_id == 'null') {
+            department_id = $('#department_id').val();
+        }
+
+        if (role == "null") {
+            role = $('#role_id').val();
+        }
+        if (state == "null") {
+            state = $('#state').val();
+        }
+        if (city == "null") {
+            city = $('#city').val();
+        }
+        if (state2 == "null") {
+            state2 = $('#state2').val();
+        }
+        if (country == "null") {
+            country = $('#country').val();
+        }
+        if ($.trim(graph_views) == "undefined" || graph_views == "") {
+            graph_views = 1;
+        }
+        var frequency = $("#frequency").val();
+        var dep_mode;
+        var department_views = $("#department_view_mode").val();
+        if (graph_views == "1")
+            if (department_views == 'undefined' || department_views == "")
+                dep_mode = "merged"
+            else
+                dep_mode = $("#department_view_mode").val();
+        else
+            dep_mode = "merged"
+
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: "/my5/dashboard/screen1",
+            data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "state2": state2, "city": city, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
+            beforeSend: function () {
+                $("#loader").show('fast');
+                $('#screen_' + graph_views).css("backgroundColor", "green");
+            },
+            complete: function (data) {
+                $("#loader").hide('fast');
+            }
+        });
+    }
+    function graph_view(id, page, page_id, video_id) {
+        console.log('graph_view');
+        var from_date = $('#from_date').val();
+        var to_date = $('#to_date').val();
+        var company_id = $('#company_id').val();
+        var department_id = $('#department_id').val();
+        var role = $('#role_id').val();
+        var state = $('#state').val();
+        var state2 = $('#state2').val();
+        var city = $('#city').val();
+        var country = $('#country').val();
+        var frequency = $("#frequency").val();
+        var dep_mode;
+        if (id == 1)
+            dep_mode = $("#department_view_mode").val();
+        else
+            dep_mode = "merged"
+
+
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: "/my5/dashboard/screen1",
+            data: {"graph_view": id, "page": page, "page_id": page_id, "company_id": company_id, "department_id": department_id, "from_date": from_date, "to_date": to_date, "state": state, "state2": state2, "city": city, "country": country, "role": role, "video_id": video_id, "frequency": frequency, "department_view_mode": dep_mode},
+            beforeSend: function () {
+                $("#loader").show('fast');
+            },
+            success: function (data) {
+                $("#loader").hide('fast');
+            }
+        });
+
+    }
 </script>
 <script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"from_date",
-			dateFormat:"%d-%m-%Y"
-		});
-		new JsDatePick({
-			useMode:2,
-			target:"to_date",
-			dateFormat:"%d-%m-%Y",
-			imgPath:"img/"
-		});
-    $("#Ok").click();
-	};
+    window.onload = function () {
+        new JsDatePick({
+            useMode: 2,
+            target: "from_date",
+            dateFormat: "%d-%m-%Y"
+        });
+        new JsDatePick({
+            useMode: 2,
+            target: "to_date",
+            dateFormat: "%d-%m-%Y",
+            imgPath: "img/"
+        });
+        $("#Ok").click();
+    };
 </script>
 

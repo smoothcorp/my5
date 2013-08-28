@@ -1,0 +1,139 @@
+/* line 3, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 20px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e8e8e8));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e8e8e8);
+  background-image: -moz-linear-gradient(top, #ffffff, #e8e8e8);
+  background-image: -o-linear-gradient(top, #ffffff, #e8e8e8);
+  background-image: -ms-linear-gradient(top, #ffffff, #e8e8e8);
+  background-image: linear-gradient(top, #ffffff, #e8e8e8);
+}
+/* line 10, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 2px;
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+/* line 18, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li.first {
+  padding-left: 20px;
+  margin-left: 0;
+}
+/* line 22, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li.last {
+  margin-right: 0;
+}
+/* line 24, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li a {
+  display: block;
+  margin-left: 7px;
+  width: 161px;
+  height: 161px;
+  padding: 21px;
+  background: url("/images/dashboard/round_button.png") no-repeat;
+}
+/* line 31, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li a:hover {
+  background-position: 0px -203px;
+}
+/* line 34, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li#symptomatics h2 {
+  color: #ff4c3c;
+}
+/* line 37, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li#mini h2 {
+  color: #419e36;
+}
+/* line 40, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li#eq h2 {
+  color: #76c0f0;
+}
+/* line 43, ../../../../app/stylesheets/my5/dashboard/base.sass */
+.nav#intro li#audio h2 {
+  color: #d67336;
+}
+
+/* line 46, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal {
+  padding-left: 40px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 500px;
+  margin-left: 0;
+  margin-top: 20px;
+}
+/* line 51, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal p {
+  font-size: 1.2em;
+}
+/* line 53, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal a {
+  display: block;
+}
+/* line 55, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal a img {
+  margin-right: 5px;
+}
+/* line 57, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal li, #personal a {
+  border-top: 1px solid #cccccc;
+  padding: 10px 0;
+  font-size: 1.2em;
+}
+/* line 61, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#personal li img, #personal a img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* line 66, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 340px;
+  margin-right: 0;
+  margin-top: 20px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e8e8e8), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #e8e8e8, #ffffff);
+  background-image: -moz-linear-gradient(top, #e8e8e8, #ffffff);
+  background-image: -o-linear-gradient(top, #e8e8e8, #ffffff);
+  background-image: -ms-linear-gradient(top, #e8e8e8, #ffffff);
+  background-image: linear-gradient(top, #e8e8e8, #ffffff);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 72, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips h3, #quick-tips li {
+  padding: 0px 20px;
+}
+/* line 74, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips li {
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0 !important;
+}

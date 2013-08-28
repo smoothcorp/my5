@@ -1,0 +1,115 @@
+/* line 3, ../../../app/stylesheets/pages/home.sass */
+#banner {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+  background: white url("/images/pages/home/lady_with_ball.png") right no-repeat;
+  height: 450px;
+}
+/* line 9, ../../../app/stylesheets/pages/home.sass */
+#banner #text {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 500px;
+  margin-left: 0;
+  padding: 0 20px 20px;
+}
+/* line 13, ../../../app/stylesheets/pages/home.sass */
+#banner #text a {
+  margin: 20px 0;
+  color: #109a00;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#banner #text a:visited {
+  color: #109a00;
+}
+/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#banner #text a:focus {
+  color: #109a00;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#banner #text a:hover {
+  color: #109a00;
+}
+/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#banner #text a:active {
+  color: #109a00;
+}
+/* line 19, ../../../app/stylesheets/pages/home.sass */
+#banner #text a.button {
+  color: white;
+  padding: 10px 20px;
+}
+/* line 22, ../../../app/stylesheets/pages/home.sass */
+#banner #text ul {
+  list-style: circle;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+/* line 27, ../../../app/stylesheets/pages/home.sass */
+#banner #text ul li {
+  margin-left: 10px;
+}
+/* line 30, ../../../app/stylesheets/pages/home.sass */
+#banner #text p {
+  margin-bottom: 5px;
+}
+
+/* line 33, ../../../app/stylesheets/pages/home.sass */
+#verbs {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+  background: white;
+  border-bottom: 1px solid #cccccc;
+}
+/* line 39, ../../../app/stylesheets/pages/home.sass */
+#verbs li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+}
+/* line 41, ../../../app/stylesheets/pages/home.sass */
+#verbs li.first, #verbs li.last {
+  width: 210px;
+}
+/* line 43, ../../../app/stylesheets/pages/home.sass */
+#verbs li img {
+  float: left;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+/* line 48, ../../../app/stylesheets/pages/home.sass */
+#verbs li h2 {
+  clear: none !important;
+}
+
+/* line 51, ../../../app/stylesheets/pages/home.sass */
+#quote {
+  padding-left: 40px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 860px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: 40px;
+  background: white;
+  text-align: center;
+}

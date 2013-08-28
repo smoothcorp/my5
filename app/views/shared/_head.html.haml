@@ -2,3 +2,13 @@
 = render 'shared/javascripts'
 = render 'shared/stylesheets', :include_common => include_common
 = csrf_meta_tag
+
+:javascript
+  $(document).ready(function () {
+              $('#department_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+              $('#role_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+              $('#city').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+              $('#state').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+              $('#state2').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+              $('#country').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+          });

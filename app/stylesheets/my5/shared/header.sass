@@ -56,14 +56,30 @@
             margin:
                 top: -6px
                 right: 5px
+    #health_checkin
+        float: right
+        margin-right: 20px !important
+        background: url("/images/dashboard/green_tab.png") no-repeat
+        width: 156px
+        img
+            margin:
+                right: 5px
+                top: -8px
+            vertical-align: middle
     .nav
         height: 36px
+        width: 100%
         line-height: 44px
         padding-top: 5px
         a
             display: block
             float: left
             width: 135px
+            height: 37px !important
+            background: url("/images/dashboard/tab.png") no-repeat
+            &:hover
+                background-position: 0px -37px
+                color: #3e3e3e
             &#home
                 width: 60px
                 height: 37px
@@ -74,29 +90,7 @@
                 &:hover
                     background-position: 0px 0px !important
         &#modules
-            +grid(19)
-            +alpha
-            a
-                height: 37px !important
-                background: url("/images/dashboard/tab.png") no-repeat
-                &:hover
-                    background-position: 0px -37px
-                    color: #3e3e3e
-        &#health_checkin
-            +grid(4)
-            +omega
-            float: right !important
-            margin-right: 20px
-            a
-                padding:
-                    left: 10px
-                    right: 10px
-                background: url("/images/dashboard/green_tab.png") no-repeat
-                img
-                    margin:
-                        right: 5px
-                        top: -8px
-                    vertical-align: middle
+            width: 100%
 
 #dashboard
     #header

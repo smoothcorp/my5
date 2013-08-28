@@ -1,0 +1,81 @@
+/* line 3, ../../../app/stylesheets/shared/footer.sass */
+#footer {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+/* line 8, ../../../app/stylesheets/shared/footer.sass */
+#footer nav {
+  border-top: 1px solid #cccccc;
+}
+/* line 10, ../../../app/stylesheets/shared/footer.sass */
+#footer ul {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+}
+/* line 11, ../../../app/stylesheets/shared/footer.sass */
+#footer ul li {
+  list-style: none !important;
+  margin-left: 0;
+}
+/* line 15, ../../../app/stylesheets/shared/footer.sass */
+#footer ul li.double-line {
+  line-height: 18px;
+}
+/* line 18, ../../../app/stylesheets/shared/footer.sass */
+#footer ul.first, #footer ul.last {
+  width: 120px;
+}
+/* line 20, ../../../app/stylesheets/shared/footer.sass */
+#footer ul.titles {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid #cccccc;
+  font-weight: bold;
+  line-height: 34px;
+}
+/* line 27, ../../../app/stylesheets/shared/footer.sass */
+#footer ul.titles li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+}
+/* line 29, ../../../app/stylesheets/shared/footer.sass */
+#footer ul.titles li.first, #footer ul.titles li.last {
+  width: 120px;
+}
+/* line 31, ../../../app/stylesheets/shared/footer.sass */
+#footer #line {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 740px;
+  margin-top: 25px;
+  border-top: 1px solid #cccccc;
+}
+/* line 35, ../../../app/stylesheets/shared/footer.sass */
+#footer #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100px;
+  padding-left: 40px;
+  margin-right: 0;
+}

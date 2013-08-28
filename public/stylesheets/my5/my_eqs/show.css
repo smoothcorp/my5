@@ -1,0 +1,129 @@
+/* line 22, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+#description h2 {
+  padding-top: 10px;
+  border-top: 1px solid #cccccc;
+}
+
+/* line 28, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+#steps li {
+  list-style: none !important;
+  margin-left: 5px !important;
+  clear: both;
+  border-top: 1px solid #cccccc;
+}
+/* line 34, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+#steps li a {
+  color: black;
+}
+/* line 18, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#steps li a:visited {
+  color: black;
+}
+/* line 21, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#steps li a:focus {
+  color: black;
+}
+/* line 24, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#steps li a:hover {
+  color: #888888;
+}
+/* line 27, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#steps li a:active {
+  color: black;
+}
+/* line 36, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+#steps li img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  vertical-align: middle;
+}
+/* line 39, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+#steps li a.my_eq_button {
+  float: right;
+  margin-top: 5px;
+}
+
+/* line 44, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step h1 {
+  margin-bottom: 0px;
+}
+/* line 46, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step h1 img {
+  margin-bottom: -5px;
+}
+/* line 49, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .back a {
+  color: black;
+}
+/* line 18, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.my_eq_step .back a:visited {
+  color: black;
+}
+/* line 21, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.my_eq_step .back a:focus {
+  color: black;
+}
+/* line 24, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.my_eq_step .back a:hover {
+  color: #888888;
+}
+/* line 27, ../../../../../../.rvm/gems/ruby-1.8.7-p374/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.my_eq_step .back a:active {
+  color: black;
+}
+/* line 18, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .back a:hover {
+  text-decoration: none;
+}
+/* line 51, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .back img {
+  margin-right: 10px;
+}
+/* line 54, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .normal_step_content {
+  padding: 10px 0;
+  margin-top: 15px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+/* line 59, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .normal_step_content img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+/* line 61, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .normal_step_content h1, .my_eq_step .normal_step_content h2, .my_eq_step .normal_step_content h3 {
+  font-size: 20px !important;
+  margin: 0 0 10px;
+  clear: none !important;
+  line-height: 24px !important;
+}
+/* line 66, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .normal_step_content p, .my_eq_step .normal_step_content ul, .my_eq_step .normal_step_content ol {
+  margin: 5px 0;
+}
+/* line 68, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .normal_step_content ol, .my_eq_step .normal_step_content ul {
+  width: 400px;
+  float: left;
+}
+/* line 71, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .actions {
+  padding-top: 10px;
+}
+/* line 74, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .actions .previous {
+  float: left;
+}
+/* line 76, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .actions .next {
+  float: right;
+}
+/* line 78, ../../../../app/stylesheets/my5/my_eqs/show.sass */
+.my_eq_step .video {
+  margin-top: 15px;
+}

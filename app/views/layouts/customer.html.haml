@@ -18,3 +18,7 @@
         %div#footer= render 'shared/footer'
 
         = render 'shared/seo'
+        :javascript
+            $(document).ready(function(){
+                $(document).foundation({ disable_class: 'no-custom' });
+            });
