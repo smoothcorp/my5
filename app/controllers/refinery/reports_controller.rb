@@ -37,9 +37,11 @@ class Refinery::ReportsController < ApplicationController
     @customers_locations = Customer.group("city").collect(&:city)
     @customers_location_states = Customer.group("state").collect(&:state)
     @customers_location_country = Customer.group("country").collect(&:country)
+    @customers_location_state2 = Customer.group("state2").collect(&:state2)
     @locations = []
     @state = []
     @country = []
+    @state2 = []
     @customers_locations.each do |loc|
       @locations.push(loc) if !loc.nil? && loc != "" && !@locations.include?(loc)
     end
@@ -51,10 +53,14 @@ class Refinery::ReportsController < ApplicationController
       @country.push(loc) if !loc.nil? && loc != "" && !@country.include?(loc)
     end
 
+    @customers_location_state2.each do |loc|
+      @state2.push(loc) if !loc.nil? && loc != "" && !@state2.include?(loc)
+    end
+
     list_of_pages
     params[:graph_view] = "1"
     params[:page]="all"
-    @reports = filter_screen1
+    filter_screen1
     @side_data = []
     screen_1_data
 
@@ -68,7 +74,7 @@ class Refinery::ReportsController < ApplicationController
     list_of_pages
     @side_data = []
 
-    @reports = filter_screen1
+    filter_screen1
 
     if params["graph_view"] == "1"
       screen_1_data
@@ -141,29 +147,44 @@ class Refinery::ReportsController < ApplicationController
   def filter_screen1
     case page_name
       when "symptomatics"
-        return @reports = filter_query("my5/symptomatics")
+        @reports = filter_query("my5/symptomatics")
       when "mini_modules"
-        return @reports = filter_query("my5/mini_modules")
+        @reports = filter_query("my5/mini_modules")
       when "my_eqs"
-        return @reports = filter_query("my5/my_eqs")
+        @reports = filter_query("my5/my_eqs")
       when "audio_programs"
-        return @reports = filter_query("my5/audio_programs")
+        @reports = filter_query("my5/audio_programs")
       when "health_checkins"
-        return @reports = filter_query("my5/health_checkins")
+        @reports = filter_query("my5/health_checkins")
       else
+        customer_ids = []
+        if params[:department_view_mode] == "separated" && @customer_ids_separated
+          @customer_ids_separated.each do |array|
+            customer_ids.concat(array)
+          end
+        else
+          customer_ids = @customer_ids
+        end
         if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-          @reports = CustomerVisit.where(:customer_id => @customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date)
+          @reports = CustomerVisit.where(:customer_id => customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date)
         else
           @reports = CustomerVisit.find(:all, :conditions => ["Date(created_at) between ? and ?", @from_date.to_date, @to_date.to_date])
         end
         @custmer_visit = @reports
-        return @reports
     end
   end
 
   def filter_query(page)
-    if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-      @custmer_visit = CustomerVisit.where(:customer_id => @customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
+    customer_ids = []
+    if params[:department_view_mode] == "separated"
+      @customer_ids_separated.each do |array|
+        customer_ids.concat(array)
+      end
+    else
+      customer_ids = @customer_ids
+    end
+    if @is_condition || (!customer_ids.nil? && !customer_ids.blank?)
+      @custmer_visit = CustomerVisit.where(:customer_id => customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
     else
       @custmer_visit = CustomerVisit.where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
     end
@@ -206,10 +227,11 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def list_of_pages
-    @symptomatics = Symptomatic.all
-    @mini_modules = MiniModule.all
-    @my_eqs = MyEq.all
-    @audio_programs = AudioProgram.all
+    @separated_params = ""
+    @symptomatics     = Symptomatic.all
+    @mini_modules     = MiniModule.all
+    @my_eqs           = MyEq.all
+    @audio_programs   = AudioProgram.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -247,45 +269,135 @@ class Refinery::ReportsController < ApplicationController
       @to_date = Time.now
     end
 
-    @is_condition = false
+    @is_condition      = false
     customer_condition = ""
-    @customer_ids = []
+    @customer_ids      = []
     if !params[:company_id].blank?
       customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "
-      @is_condition = true
+      @is_condition      = true
     end
-    if !params[:department_id].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "department_id = '#{params[:department_id].to_s}'  "
-      @is_condition = true
+
+    if !(params[:state] == 'null' || params[:state].blank?)
+      if params[:department_view_mode] == 'merged' || params[:state].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "state IN (#{params[:state].map { |p| "'#{p}'" }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:location].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "city LIKE '%#{params[:location].to_s}%' "
-      @is_condition = true
+
+    if !(params[:state2] == 'null' || params[:state2].blank?)
+      if params[:department_view_mode] == 'merged' || params[:state2].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "state2 IN (#{params[:state2].map { |p| "'#{p}'" }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:role].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "role = '#{params[:role].to_s}'"
-      @is_condition = true
+
+    if !(params[:city] == 'null' || params[:city].blank?)
+      if params[:department_view_mode] == 'merged' || params[:city].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "city IN (#{params[:city].map { |p| "'#{p}'" }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:state].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "state LIKE '%#{params[:state].to_s}%' "
-      @is_condition = true
+
+    if !(params[:country] == 'null' || params[:country].blank?)
+      if params[:department_view_mode] == 'merged' || params[:country].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "country IN (#{params[:country].map { |p| "'#{p}'" }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:country].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "country = '#{params[:country].to_s}'"
-      @is_condition = true
+
+    if !(params[:department_id] == 'null' || params[:department_id].blank?)
+      if params[:department_view_mode] == 'merged' || params[:department_id].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "department_id IN (#{params[:department_id].join(',')})"
+        @is_condition      = true
+      end
     end
-    if @is_condition
+    if !(params[:role] == 'null' || params[:role].blank?)
+      if params[:department_view_mode] == 'merged' || params[:role].count < 2
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "role IN (#{params[:role].map { |p| "'#{p}'" }.join(',')})"
+        @is_condition      = true
+      end
+    end
+    if params[:department_view_mode] == "separated"
+      @customer_ids_separated = []
+      customer_condition      += @is_condition ? " AND " : ""
+      if params[:department_id] != 'null' && params[:department_id].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:department_id].each do |department_id|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @separated_params += "'#{department_id.to_s}'"
+          count             +=1
+        end
+        @separated_params += "]"
+      end
+      if params[:role] != 'null' && params[:role].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:role].each do |role|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role}'").collect(&:id)
+          @separated_params += "'#{role.humanize}'"
+          count             += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:city] != 'null' && params[:city].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:city].each do |city|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
+          @separated_params += "'#{city.humanize}'"
+          count             += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:country] != 'null' && params[:country].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:country].each do |country|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
+          @separated_params += "'#{country.humanize}'"
+          count             += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:state2] != 'null' && params[:state2].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:state2].each do |state2|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
+          @separated_params += "'#{state2.humanize}'"
+          count             += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:state] != 'null' && params[:state].count > 1
+        @separated_params += "["
+        count             = 0
+        params[:state].each do |state|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
+          @separated_params += "'#{state.humanize}'"
+          count             += 1
+        end
+        @separated_params += "]"
+      end
+    else
       @customers = Customer.where(customer_condition)
       if !@customers.blank? && !@customers.nil?
         @customer_ids = @customers.collect(&:id)
       end
     end
-
   end
 
   def screen_1_data
@@ -293,146 +405,81 @@ class Refinery::ReportsController < ApplicationController
   @report_day_date = ""
 
     @report_day_array_array = Array.new()
+    if params[:department_view_mode] == "separated" && @customer_ids_separated
+      customer_ids_screen_1 = @customer_ids_separated
+    else
+      customer_ids_screen_1 = [@customer_ids]
+    end
 
-    Rails.logger.info '==='*20
-    Rails.logger.info @report_day_array_array
-    Rails.logger.info '==='*20
-
-    count = 0
-
-    #Rails.logger.info '#'*1000
-    #Rails.logger.info @from_date.to_date
-    #Rails.logger.info @to_date.to_date
-
-    (@from_date.to_date..@to_date.to_date).each do |date_t|
-      if count == 0
+    counter_for_array = 0
+    customer_ids_screen_1.each do |customer_ids|
+      if counter_for_array == 0
         @report_day_array = "["
-        @report_day_date = "["
       else
         @report_day_array += ", "
-        @report_day_date += ","
       end
-
-      if page_name =="all"
-        if  @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-          @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => @customer_ids)
+      count = 0
+      (@from_date.to_date..@to_date.to_date).each do |date_t|
+        if count == 0
+          @report_day_array += "["
+          @report_day_date = "["
         else
-          @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date)
+          @report_day_array += ", "
+          @report_day_date += ","
         end
-      else
-        if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-          if !params[:page_id].blank?
-            if !params[:video_id].blank?
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => @customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
-            else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => @customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
-            end
+
+        if page_name =="all"
+          if  @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
+            @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids)
           else
-            @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => @customer_ids).where(:controller_name => "my5/#{page_name}")
+            @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date)
           end
         else
-          if !params[:page_id].blank?
-            if !params[:video_id].blank?
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
-
-              # Hack for MyEQ/../Stop! Take a breath in, Pressure point  ( correct graphs for this subparagraphs)
-              if $flag
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:part => params[:video_id])
+          if @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
+            if !params[:page_id].blank?
+              if !params[:video_id].blank?
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+              else
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
               end
             else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}")
             end
           else
-            @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}")
+            if !params[:page_id].blank?
+              if !params[:video_id].blank?
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+
+                # Hack for MyEQ/../Stop! Take a breath in, Pressure point  ( correct graphs for this subparagraphs)
+                if $flag
+                  @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:part => params[:video_id])
+                end
+              else
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+              end
+            else
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}")
+            end
           end
         end
+        date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
+
+        @report_day_array += @day_count.size.to_s
+        @report_day_date += date_string
+        count = count + 1
       end
-      date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
-
-      #@report_day_array_array << @day_count.size
-      #
-      #Rails.logger.info '+++'*20
-      #Rails.logger.info @report_day_array_array
-      #Rails.logger.info '+++'*20
-
-      @report_day_array += @day_count.size.to_s
-      @report_day_date += date_string
-      count = count + 1
-
-
-
-      #Rails.logger.info '*'*400
-      #Rails.logger.info "'#{date_t.strftime("%d %B").to_s}'"
+      @report_day_array += "]" if !@report_day_array.blank?
+      @report_day_date += "]" if !@report_day_date.blank?
+      counter_for_array = counter_for_array + 1
     end
     @report_day_array += "]" if !@report_day_array.blank?
-    @report_day_date += "]" if !@report_day_date.blank?
 
-    # Rails.logger.info '#'*1000
-    # Rails.logger.info @report_day_array
-    # Rails.logger.info '#'*1000
-
-
-    #@year  = @report_day_date[2..5].to_i
-    #@month = @report_day_date[7..8].to_i - 1
-    #@day   = @report_day_date[10..11].to_i
-
-    #Rails.logger.info '='*50
-    #Rails.logger.info @year
-    #Rails.logger.info @month
-    #Rails.logger.info @day
-    #Rails.logger.info '='*50
-    #
-    #
     if params[:frequency]
       @round = params[:frequency].to_i
     else
       @round = 1
     end
-    #
-    #@brr = []
-    #avarage = 0
-    #
-    #@report_day_array_array.reverse.each_slice(@round) do |sub_arr|
-    #
-    #  Rails.logger.info '#'*100
-    #  Rails.logger.info sub_arr
-    #  Rails.logger.info '#'*100
-    #
-    #  sub_arr.each do |x|
-    #    avarage += x
-    #  end
-    #
-    #  @brr << avarage
-    #  avarage = 0
-    #end
-    #
-    ##Rails.logger.info '#'*1000
-    ##Rails.logger.info @brr    # => 2022 2036 1261 597 550
-    ##Rails.logger.info @report_day_array
-    #
-    #if @brr.size > 7
-    #  @brr = @brr[0..6]
-    #
-    #  #Rails.logger.info '#'*1000
-    #  #Rails.logger.info @brr
-    #
-    #  data_to = params[:to_date]
-    #  data_to = data_to.split('-')
-    #  data_to = (Date.new(data_to[2].to_i, data_to[1].to_i, data_to[0].to_i) - (6 * @round).day).strftime('%Y-%m-%d')
-    #  data_to = data_to.split('-')
-    #  @year  = data_to[0].to_i
-    #  @month = data_to[1].to_i - 1
-    #  @day   = data_to[2].to_i
-    #
-    #  #Rails.logger.info '#'*1000
-    #  #Rails.logger.info data_to
-    #  #Rails.logger.info @year
-    #  #Rails.logger.info @month
-    #  #Rails.logger.info @day
-    #  #Rails.logger.info '#'*100
-    #end
-    #
-    ##@report_day_array = @brr.reverse
+
   end
 
   def screen_2_data

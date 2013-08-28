@@ -1,0 +1,34 @@
+/* line 1, ../../../app/stylesheets/customers/index.sass */
+h2 {
+  line-height: 30px;
+}
+
+/* line 4, ../../../app/stylesheets/customers/index.sass */
+h1 .small {
+  font-size: 14px;
+}
+/* line 6, ../../../app/stylesheets/customers/index.sass */
+h1 a {
+  text-decoration: underline;
+}
+
+/* line 9, ../../../app/stylesheets/customers/index.sass */
+table {
+  width: 100%;
+  border: 1px solid #cccccc;
+}
+/* line 12, ../../../app/stylesheets/customers/index.sass */
+table th {
+  border-left: 1px dotted #cccccc;
+  border-right: 1px dotted #cccccc;
+  padding: 5px;
+  background: #bbbbbb;
+  font-weight: bold;
+}
+/* line 19, ../../../app/stylesheets/customers/index.sass */
+table td {
+  border-left: 1px dotted #cccccc;
+  border-right: 1px dotted #cccccc;
+  padding: 5px;
+  line-height: 30px;
+}
