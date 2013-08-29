@@ -257,8 +257,6 @@ class Refinery::ReportsController < ApplicationController
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
       customer_condition += @is_condition ? " AND " : ""
       customer_condition += "department_id IN (#{params[:department_id].join(',').to_s})  "
-      puts "PARAMS"
-      puts params[:department_id]
       @is_condition = true
     end
     if !params[:location].blank?

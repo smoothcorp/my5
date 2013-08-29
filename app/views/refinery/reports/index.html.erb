@@ -33,32 +33,56 @@
 <script language="javascript" type="text/javascript">
   $(document).ready(function() {
      $('#screen_1').live('click',function(e) {
-        change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).css("backgroundColor","green");
+         change_color_of_screen();
+         $('.graph_for').css("color","black").css("border","0px black solid");
+         $('.graph_for_items').css("color","black").css("border","0px black solid");
+         $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+         $(this).css("backgroundColor","green");
         graph_view(1,"all","","");
         return false;
      });
      $('#screen_2').live('click',function(e) {
-        change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-       $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-        $(this).css("backgroundColor","green");
+         change_color_of_screen();
+         $('.graph_for').css("color","black").css("border","0px black solid");
+         $('.graph_for_items').css("color","black").css("border","0px black solid");
+         $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+         $(this).css("backgroundColor","green");
         graph_view(2,"all","","");
          return false;
      });
      $('#screen_3').live('click',function(e) {
          change_color_of_screen();
-        $('.graph_for').css("color","black").css("border","0px black solid");
-        $('.graph_for_items').css("color","black").css("border","0px black solid");
-        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+         $('.graph_for').css("color","black").css("border","0px black solid");
+         $('.graph_for_items').css("color","black").css("border","0px black solid");
+         $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
          graph_view(3,"all","","");
          return false;
      });
+
+     $('#separated').live('click',function(e) {
+         change_color_of_screen();
+         $('.graph_for').css("color","black").css("border","0px black solid");
+         $('.graph_for_items').css("color","black").css("border","0px black solid");
+         $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+         $(this).css("backgroundColor","green");
+         department_view_mode("separated","all");
+         return false;
+     });
+
+
+      $('#merged').live('click',function(e) {
+         change_color_of_screen();
+         $('.graph_for').css("color","black").css("border","0px black solid");
+         $('.graph_for_items').css("color","black").css("border","0px black solid");
+         $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+         $(this).css("backgroundColor","green");
+         department_view_mode("merged","all");
+         return false;
+     });
+
+
+
      $('#company_id').live('change',function(e) {
         company_filter("all",$(this).val(),"","","","","");
         return false;
@@ -183,89 +207,143 @@
      $(this).css("backgroundColor","#22A7F2");
    });
  }
- function company_filter(page,company_id,department_id,location_name,role,state,country)
- {
-             $('.graph_for').css("color","black").css("border","0px black solid");
-             $('.graph_for_items').css("color","black").css("border","0px black solid");
-             $('.graph_for_items_child').css("color","black").css("border","0px black solid");
-             var from_date= $('#from_date').val();
-             var to_date = $('#to_date').val();
-             var graph_views = $("#graph_view").val();
-             if(company_id == "")
-             {
-                company_id = $('#company_id').val();
-             }
-             if(department_id == 'null')
-             {
-                 department_id = $('#department_id').val();
-             }
-             if(location_name == "")
-             {
-                 location_name = $('#city').val();
-             }
-             if(role == "")
-             {
-                 role = $('#role_id').val();
-             }
-              if(state == "")
-             {
-                 state = $('#state').val();
-             }
-              if(country == "")
-             {
-                 country = $('#country').val();
-             }
-             if($.trim(graph_views) == "undefined"  || graph_views == "")
-             {
-                graph_views = 1;
-             }
-             var frequency = $("#frequency").val();
 
-             $.ajax({
-                type: "GET",
-                async: false,
-                url: "/refinery/reports/screen1",
-                data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency},
-                beforeSend: function() {
-                 $("#loader").show('fast');
-                  $('#screen_'+graph_views).css("backgroundColor","green");
-                },
-                success: function(data) {
-                 $("#loader").hide('fast');
-                }
-              });
- }
-function graph_view(id, page,page_id,video_id)
-{
-    console.log('graph_view');
-           var from_date= $('#from_date').val();
-           var to_date = $('#to_date').val();
-           var company_id = $('#company_id').val();
-           var department_id = $('#department_id').val();
-           var location_name = $('#city').val();
-           var role = $('#role_id').val();
-           var state = $('#state').val();
-           var country = $('#country').val();
-           var frequency = $("#frequency").val();
-           console.log('qweqweqwe');
+  function department_view_mode(dep_mode, page)
+  {
+      $('.graph_for').css("color","black").css("border","0px black solid");
+      $('.graph_for_items').css("color","black").css("border","0px black solid");
+      $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+      var from_date= $('#from_date').val();
+      var to_date = $('#to_date').val();
+      var graph_views = $("#graph_view").val();
+      var company_id = $('#company_id').val();
+      var department_id = $('#department_id').val();
+      var location_name = $('#city').val();
+      var role = $('#role_id').val();
+      var state = $('#state').val();
+      var country = $('#country').val();
+      var frequency = $("#frequency").val();
+      var dep_mode = dep_mode;
+      $.ajax({
+          type: "GET",
+          async: false,
+          url: "/refinery/reports/screen1",
+          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
+          beforeSend: function() {
+              $("#loader").show('fast');
+              $('#screen_'+graph_views).css("backgroundColor","green");
+          },
+          success: function(data) {
+              $("#loader").hide('fast');
+          }
+      });
 
-              $.ajax({
-                type: "GET",
-                async: false,
-                url: "/refinery/reports/screen1",
-                data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id, "frequency": frequency},
-                beforeSend: function() {
-                    $("#loader").show('fast');
-                },
-complete: function(data) {
-console.log(data)
-},
-                success: function(data) {
-                 $("#loader").hide('fast');
-                }
-              });
+  }
 
-}
+  function company_filter(page,company_id,department_id,location_name,role,state,country)
+  {
+      $('.graph_for').css("color","black").css("border","0px black solid");
+      $('.graph_for_items').css("color","black").css("border","0px black solid");
+      $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+      var from_date= $('#from_date').val();
+      var to_date = $('#to_date').val();
+      var graph_views = $("#graph_view").val();
+      if(company_id == "")
+      {
+          company_id = $('#company_id').val();
+      }
+      if(department_id == 'null')
+      {
+          department_id = $('#department_id').val();
+      }
+      if(location_name == "")
+      {
+          location_name = $('#city').val();
+      }
+      if(role == "")
+      {
+          role = $('#role_id').val();
+      }
+      if(state == "")
+      {
+          state = $('#state').val();
+      }
+      if(country == "")
+      {
+          country = $('#country').val();
+      }
+      if($.trim(graph_views) == "undefined"  || graph_views == "")
+      {
+          graph_views = 1;
+      }
+      var frequency = $("#frequency").val();
+      var dep_mode = get_dep_mode();
+
+      $.ajax({
+          type: "GET",
+          async: false,
+          url: "/refinery/reports/screen1",
+          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
+          beforeSend: function() {
+              $("#loader").show('fast');
+              $('#screen_'+graph_views).css("backgroundColor","green");
+          },
+          success: function(data) {
+              $("#loader").hide('fast');
+          }
+      });
+  }
+  function graph_view(id, page,page_id,video_id)
+  {
+      console.log('graph_view');
+      var from_date= $('#from_date').val();
+      var to_date = $('#to_date').val();
+      var company_id = $('#company_id').val();
+      var department_id = $('#department_id').val();
+      var location_name = $('#city').val();
+      var role = $('#role_id').val();
+      var state = $('#state').val();
+      var country = $('#country').val();
+      var frequency = $("#frequency").val();
+      var dep_mode = get_dep_mode();
+
+      $.ajax({
+          type: "GET",
+          async: false,
+          url: "/refinery/reports/screen1",
+          data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"country":country,"role":role,"video_id":video_id, "frequency": frequency, "department_view_mode": dep_mode},
+          beforeSend: function() {
+              $("#loader").show('fast');
+          },
+          complete: function(data) {
+          },
+          success: function(data) {
+              $("#loader").hide('fast');
+          }
+      });
+
+  }
+
+
+  function rgb2hex(rgb) {
+      function hex(x) {
+          return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+      }
+      var hexDigits = new Array
+      ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f");
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
+
+  function get_dep_mode()
+  {
+      var merged = $("#merged").css("background-color");
+      if (rgb2hex(merged) == "#008000") // if merged pushed
+          dep_mode = "merged"
+      else dep_mode = "separated"
+      return dep_mode;
+  }
+
 </script>
 <script type="text/javascript">
 	window.onload = function(){
