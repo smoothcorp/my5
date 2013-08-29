@@ -1,5 +1,5 @@
 <% if  (!@reports.nil? && !@reports.blank?) || (!@custmer_visit.blank? && !@custmer_visit.nil?) %>
-  <% if  params[:graph_view] == "1" %>
+  <% if  params[:graph_view] == '1'%>
     <script type="text/javascript">
       $(function() {
         var chart;
@@ -83,6 +83,7 @@
           round = <%= @round %>;
           dates = <%= @report_day_date %>;
           values = <%= @report_day_array %>;
+          values = values[0];
 
 
           count_of_data = dates.length;
@@ -264,6 +265,9 @@
             };
           }
 
+          var series_chart = [];
+          series_chart.push({ name: "Visits", data: output_arr });
+
 
           chart = new Highcharts.Chart({
             chart: {
@@ -318,12 +322,7 @@
               y: 100,
               borderWidth: 0
             },
-            series: [
-              {
-                name: 'Visits',
-                data: output_arr
-              }
-            ]
+            series: series_chart
           });
         });
 
@@ -535,5 +534,6 @@
   <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found</div>
 <% end %>
 <%= hidden_field_tag "graph_view", params[:graph_view] %>
+<%= hidden_field_tag "department_view_mode", params[:department_view_mode] %>
 
 

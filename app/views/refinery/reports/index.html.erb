@@ -277,7 +277,15 @@
           graph_views = 1;
       }
       var frequency = $("#frequency").val();
-      var dep_mode = get_dep_mode();
+      var dep_mode;
+      var department_views = $("#department_view_mode").val();
+      if (graph_views == "1")
+        if (department_views == 'undefined' || department_views == "")
+            dep_mode = "separated"
+        else
+            dep_mode = $("#department_view_mode").val();
+      else
+        dep_mode = "separated"
 
       $.ajax({
           type: "GET",
@@ -305,7 +313,11 @@
       var state = $('#state').val();
       var country = $('#country').val();
       var frequency = $("#frequency").val();
-      var dep_mode = get_dep_mode();
+      if (id == 1)
+          dep_mode = $("#department_view_mode").val();
+      else
+          dep_mode = "separated"
+
 
       $.ajax({
           type: "GET",
@@ -322,26 +334,6 @@
           }
       });
 
-  }
-
-
-  function rgb2hex(rgb) {
-      function hex(x) {
-          return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
-      }
-      var hexDigits = new Array
-      ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f");
-      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-  }
-
-  function get_dep_mode()
-  {
-      var merged = $("#merged").css("background-color");
-      if (rgb2hex(merged) == "#008000") // if merged pushed
-          dep_mode = "merged"
-      else dep_mode = "separated"
-      return dep_mode;
   }
 
 </script>
