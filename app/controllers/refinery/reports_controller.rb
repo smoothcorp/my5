@@ -300,10 +300,10 @@ class Refinery::ReportsController < ApplicationController
   @report_day_date = ""
 
     @report_day_array_array = Array.new()
-    if params[:department_view_mode] == "separated"
-      customer_ids_screen_1 = [@customer_ids]
-    else
+    if params[:department_view_mode] == "merged"
       customer_ids_screen_1 = @customer_ids
+    else
+      customer_ids_screen_1 = [@customer_ids]
     end
 
     counter_for_array = 0
