@@ -3,6 +3,7 @@
 <script src="/javascripts/jquery-1.7.2.js"></script>
 <script src="/javascripts/highcharts.js"></script>
 <script src="/javascripts/exporting.js"></script>
+<script src="/javascripts/js_for_screen1.js"></script>
 
 <h1> Detailed customer report</h1>
 
@@ -38,6 +39,8 @@
          $('.graph_for_items').css("color","black").css("border","0px black solid");
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
+         if ( $('#department_id').val() != null)
+            $("#buttons_separate_merged").show();
         graph_view(1,"all","","");
         return false;
      });
@@ -47,6 +50,7 @@
          $('.graph_for_items').css("color","black").css("border","0px black solid");
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
+         $("#buttons_separate_merged").hide();
         graph_view(2,"all","","");
          return false;
      });
@@ -57,6 +61,7 @@
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
          graph_view(3,"all","","");
+         $("#buttons_separate_merged").hide();
          return false;
      });
 
@@ -104,6 +109,9 @@
         return false;
      });
      $('#department_id').live('change',function(e) {
+        if ( $('#department_id').val() != null)
+            $("#buttons_separate_merged").show();
+        else $("#buttons_separate_merged").hide();
         company_filter("all","",$(this).val(),"","","","");
         return false;
      });

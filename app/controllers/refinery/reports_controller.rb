@@ -68,7 +68,7 @@ class Refinery::ReportsController < ApplicationController
     list_of_pages
     @side_data = []
 
-    @reports = filter_screen1
+    filter_screen1
 
     if params["graph_view"] == "1"
       screen_1_data
@@ -141,29 +141,44 @@ class Refinery::ReportsController < ApplicationController
   def filter_screen1
     case page_name
       when "symptomatics"
-        return @reports = filter_query("my5/symptomatics")
+        @reports = filter_query("my5/symptomatics")
       when "mini_modules"
-        return @reports = filter_query("my5/mini_modules")
+        @reports = filter_query("my5/mini_modules")
       when "my_eqs"
-        return @reports = filter_query("my5/my_eqs")
+        @reports = filter_query("my5/my_eqs")
       when "audio_programs"
-        return @reports = filter_query("my5/audio_programs")
+        @reports = filter_query("my5/audio_programs")
       when "health_checkins"
-        return @reports = filter_query("my5/health_checkins")
+        @reports = filter_query("my5/health_checkins")
       else
+        customer_ids = []
+        if params[:department_view_mode] == "merged" && @customer_ids_merged
+          @customer_ids_merged.each do |array|
+            customer_ids.concat(array)
+          end
+        else
+          customer_ids = @customer_ids
+        end
         if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-          @reports = CustomerVisit.where(:customer_id => @customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date)
+          @reports = CustomerVisit.where(:customer_id => customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date)
         else
           @reports = CustomerVisit.find(:all, :conditions => ["Date(created_at) between ? and ?", @from_date.to_date, @to_date.to_date])
         end
         @custmer_visit = @reports
-        return @reports
     end
   end
 
   def filter_query(page)
-    if @is_condition || (!@customer_ids.nil? && !@customer_ids.blank?)
-      @custmer_visit = CustomerVisit.where(:customer_id => @customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
+    customer_ids = []
+    if params[:department_view_mode] == "merged"
+      @customer_ids_merged.each do |array|
+        customer_ids.concat(array)
+      end
+    else
+      customer_ids = @customer_ids
+    end
+    if @is_condition || (!customer_ids.nil? && !customer_ids.blank?)
+      @custmer_visit = CustomerVisit.where(:customer_id => customer_ids).where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
     else
       @custmer_visit = CustomerVisit.where("(Date(created_at) between ? and ?)", @from_date.to_date, @to_date.to_date).where(:controller_name => page)
     end
@@ -288,8 +303,9 @@ class Refinery::ReportsController < ApplicationController
           @customer_ids = @customers.collect(&:id)
         end
       else
+        @customer_ids_merged = []
         params[:department_id].each do |department_id|
-          @customer_ids << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @customer_ids_merged << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
         end
       end
     end
@@ -300,8 +316,8 @@ class Refinery::ReportsController < ApplicationController
   @report_day_date = ""
 
     @report_day_array_array = Array.new()
-    if params[:department_view_mode] == "merged"
-      customer_ids_screen_1 = @customer_ids
+    if params[:department_view_mode] == "merged" && @customer_ids_merged
+      customer_ids_screen_1 = @customer_ids_merged
     else
       customer_ids_screen_1 = [@customer_ids]
     end
