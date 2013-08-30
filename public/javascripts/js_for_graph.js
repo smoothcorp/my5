@@ -385,3 +385,145 @@ function setup_graph_screen_1(dates,values,round) {
         series: series_chart
     });
 }
+
+function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_data, pie_sum_totals){
+    var chart;
+    chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column'
+        },
+        title: {
+            text: 'Column graph'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: report_day_date
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: ''
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            backgroundColor: '#FFFFFF',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 100,
+            y: 70,
+            floating: true,
+            shadow: true
+        },
+        tooltip: {
+            formatter: function() {
+                return '' +
+                this.x + ': ' + this.y + ' Visits';
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+            {
+                name: 'Visits',
+                data: report_day_array
+            }
+        ]
+    });
+    chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'bar_container_graph',
+            type: 'bar'
+        },
+        title: {
+            text: 'Bar graph'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: report_day_date
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: ''
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            backgroundColor: '#FFFFFF',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 100,
+            y: 70,
+            floating: true,
+            shadow: true
+        },
+        tooltip: {
+            formatter: function() {
+                return '' +
+                this.x + ': ' + this.y + ' Visits';
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+            {
+                name: 'Visits',
+                data: report_day_array
+            }
+        ]
+    });
+    if (pie_sum_totals > 0) {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'pie_container_graph',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Pie graph'
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Visits in %',
+                    data: pie_graph_view_data
+                }
+            ]
+        });
+    }
+}
+

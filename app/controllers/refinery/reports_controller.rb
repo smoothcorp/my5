@@ -54,7 +54,7 @@ class Refinery::ReportsController < ApplicationController
     list_of_pages
     params[:graph_view] = "1"
     params[:page]="all"
-    @reports = filter_screen1
+    filter_screen1
     @side_data = []
     screen_1_data
 
