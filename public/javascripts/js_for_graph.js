@@ -51,6 +51,7 @@ function setup_graph_screen_1(dates,values,round) {
                 i += size;
             }
         };
+        values_arr = [];
 
         /*Count!*/
         avarage = 0;
@@ -181,6 +182,7 @@ function setup_graph_screen_1(dates,values,round) {
             /*Count!*/
             avarage = 0;
             if (merged) {
+                var values_arr = [];
                 values.map( function (value) {
                     value.each_slice(count_of_day_arr, function( sub_array ) {
                         $.each(sub_array, function() {
@@ -191,7 +193,6 @@ function setup_graph_screen_1(dates,values,round) {
                         avarage = 0;
                     });
                 } );
-                return value;
             }
             else {
                 values.each_slice(count_of_day_arr, function( sub_array ) {
@@ -277,8 +278,8 @@ function setup_graph_screen_1(dates,values,round) {
             var j=0;
              var val_array = [];
              values = values.map( function (value) {
-                 val_array = values_arr.slice(j,j+value.length);
-                 j+=value.length;
+                 val_array = values_arr.slice(j,j+7);
+                 j+=7;
                  return val_array;
              } );
         }
