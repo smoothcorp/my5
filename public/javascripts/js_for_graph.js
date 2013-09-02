@@ -52,6 +52,7 @@ function setup_graph_screen_1(dates,values,round) {
             }
         };
         values_arr = [];
+        dates_arr = [];
 
         /*Count!*/
         avarage = 0;
@@ -75,12 +76,12 @@ function setup_graph_screen_1(dates,values,round) {
 
     var from_date, to_date, count_of_data, dayCount, count_of_day_arr, checked_only_days, returned_data, count_of_month;
     var values_arr = [];
-    var dates_arr = [];
+    var  dates_arr = [];
 
-    var merged = false;
-    if ($("#department_view_mode").val() == "merged")
-        merged = true;
-    if (!merged)
+    var separated = false;
+    if ($("#department_view_mode").val() == "separated")
+        separated = true;
+    if (!separated)
         values = values[0];
 
     count_of_data = dates.length;
@@ -94,12 +95,14 @@ function setup_graph_screen_1(dates,values,round) {
 
         //if ( (round * 7) > count_of_data ) {
         if ( round == 7 ) {
-            if (merged) {
+            if (separated) {
+                returned_data = slicing_for_day_and_week(values[0], dates, round);
+                var dates_buf = returned_data[0].slice(0);//slice(0) hack for copy array, otherwise this is make link to array
                 values = values.map( function (value) {
                   returned_data = slicing_for_day_and_week(value, dates, round);
-                  dates = returned_data[0];
                   return returned_data[1];
                 } );
+                dates = dates_buf;
             }
             else {
                 returned_data = slicing_for_day_and_week(values, dates, round);
@@ -181,7 +184,7 @@ function setup_graph_screen_1(dates,values,round) {
         if ( flag ) {
             /*Count!*/
             avarage = 0;
-            if (merged) {
+            if (separated) {
                 var values_arr = [];
                 values.map( function (value) {
                     value.each_slice(count_of_day_arr, function( sub_array ) {
@@ -233,7 +236,7 @@ function setup_graph_screen_1(dates,values,round) {
             /*Count!*/
             avarage = 0;
             var total = eval(cuted_array.join('+'));
-            if (merged) {
+            if (separated) {
                 values = values.map( function (value) {
                  return value.reverse().slice(0, total).reverse();
                  } );
@@ -241,27 +244,27 @@ function setup_graph_screen_1(dates,values,round) {
             else { values.reverse().slice(0, total).reverse(); }
             dates = dates.reverse().slice(0, total).reverse();
 
-            if (merged) {
-            values.map( function (value) {
-                value.each_slice(cuted_array, function( sub_array ) {
+            if (separated) {
+                values.map( function (value) {
+                    value.each_slice(cuted_array, function( sub_array ) {
+                        $.each(sub_array, function() {
+                            avarage += this;
+                        });
+
+                        values_arr.push(avarage);
+                        avarage = 0;
+                    });
+                } );
+            }
+            else {
+                values.each_slice(cuted_array, function( sub_array ) {
                     $.each(sub_array, function() {
                         avarage += this;
                     });
 
-                    values_arr.push(avarage);
-                    avarage = 0;
-                });
-            } );
-        }
-        else {
-        values.each_slice(cuted_array, function( sub_array ) {
-            $.each(sub_array, function() {
-                avarage += this;
+                values_arr.push(avarage);
+                avarage = 0;
             });
-
-        values_arr.push(avarage);
-        avarage = 0;
-        });
         }
 
 
@@ -274,7 +277,7 @@ function setup_graph_screen_1(dates,values,round) {
 
 
         dates = dates_arr;
-        if (merged) {
+        if (separated) {
             var j=0;
              var val_array = [];
              values = values.map( function (value) {
@@ -301,7 +304,7 @@ function setup_graph_screen_1(dates,values,round) {
         return Date.UTC.apply(Date, args);
     }
     var series_chart = [];
-    if (merged) {
+    if (separated) {
         var departments = $("#department_id").val();
         var i=0;
         values.map( function (value) {

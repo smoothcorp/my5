@@ -152,8 +152,8 @@ class Refinery::ReportsController < ApplicationController
         @reports = filter_query("my5/health_checkins")
       else
         customer_ids = []
-        if params[:department_view_mode] == "merged" && @customer_ids_merged
-          @customer_ids_merged.each do |array|
+        if params[:department_view_mode] == "separated" && @customer_ids_separated
+          @customer_ids_separated.each do |array|
             customer_ids.concat(array)
           end
         else
@@ -170,8 +170,8 @@ class Refinery::ReportsController < ApplicationController
 
   def filter_query(page)
     customer_ids = []
-    if params[:department_view_mode] == "merged"
-      @customer_ids_merged.each do |array|
+    if params[:department_view_mode] == "separated"
+      @customer_ids_separated.each do |array|
         customer_ids.concat(array)
       end
     else
@@ -290,22 +290,22 @@ class Refinery::ReportsController < ApplicationController
       @is_condition = true
     end
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
-      if params[:department_view_mode] == "separated"
+      if params[:department_view_mode] == "merged"
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "department_id IN (#{params[:department_id].join(',').to_s})"
       end
       @is_condition = true
     end
     if @is_condition
-      if params[:department_view_mode] == "separated"
+      if params[:department_view_mode] == "merged"
         @customers = Customer.where(customer_condition)
         if !@customers.blank? && !@customers.nil?
           @customer_ids = @customers.collect(&:id)
         end
       else
-        @customer_ids_merged = []
+        @customer_ids_separated = []
         params[:department_id].each do |department_id|
-          @customer_ids_merged << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
         end
       end
     end
@@ -316,8 +316,8 @@ class Refinery::ReportsController < ApplicationController
   @report_day_date = ""
 
     @report_day_array_array = Array.new()
-    if params[:department_view_mode] == "merged" && @customer_ids_merged
-      customer_ids_screen_1 = @customer_ids_merged
+    if params[:department_view_mode] == "separated" && @customer_ids_separated
+      customer_ids_screen_1 = @customer_ids_separated
     else
       customer_ids_screen_1 = [@customer_ids]
     end

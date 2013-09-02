@@ -40,7 +40,7 @@
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
          if ( $('#department_id').val() != null)
-            $("#buttons_separate_merged").show();
+            $("#buttons_separated_merged").show();
         graph_view(1,"all","","");
         return false;
      });
@@ -50,7 +50,7 @@
          $('.graph_for_items').css("color","black").css("border","0px black solid");
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
-         $("#buttons_separate_merged").hide();
+         $("#buttons_separated_merged").hide();
         graph_view(2,"all","","");
          return false;
      });
@@ -110,8 +110,8 @@
      });
      $('#department_id').live('change',function(e) {
         if ( $('#department_id').val() != null)
-            $("#buttons_separate_merged").show();
-        else $("#buttons_separate_merged").hide();
+            $("#buttons_separated_merged").show();
+        else $("#buttons_separated_merged").hide();
         company_filter("all","",$(this).val(),"","","","");
         return false;
      });
@@ -289,11 +289,11 @@
       var department_views = $("#department_view_mode").val();
       if (graph_views == "1")
         if (department_views == 'undefined' || department_views == "")
-            dep_mode = "separated"
+            dep_mode = "merged"
         else
             dep_mode = $("#department_view_mode").val();
       else
-        dep_mode = "separated"
+        dep_mode = "merged"
 
       $.ajax({
           type: "GET",
@@ -324,7 +324,7 @@
       if (id == 1)
           dep_mode = $("#department_view_mode").val();
       else
-          dep_mode = "separated"
+          dep_mode = "merged"
 
 
       $.ajax({
