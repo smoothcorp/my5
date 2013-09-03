@@ -32,6 +32,7 @@ gem "time_diff"
 gem 'time_of_day'
 gem 'execjs'
 gem 'therubyracer'
+gem 'newrelic_rpm'
 
 ##--- Dev and test specific
 group :development, :test do
