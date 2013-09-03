@@ -271,7 +271,7 @@ function setup_graph_screen_1(dates,values,round) {
         /*Month!*/
 
         dates.each_slice(cuted_array, function( sub_array ) {
-        dates_arr.push(sub_array[0]);
+            dates_arr.push(sub_array[0]);
         });
         }
 
@@ -395,7 +395,8 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
     chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            type: 'column'
+            type: 'column',
+            width: 700
         },
         title: {
             text: 'Column graph'
@@ -444,7 +445,8 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
     chart = new Highcharts.Chart({
         chart: {
             renderTo: 'bar_container_graph',
-            type: 'bar'
+            type: 'bar',
+            width: 700
         },
         title: {
             text: 'Bar graph'
@@ -496,7 +498,8 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
                 renderTo: 'pie_container_graph',
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false
+                plotShadow: false,
+                width: 700
             },
             title: {
                 text: 'Pie graph'

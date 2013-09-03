@@ -51,7 +51,7 @@
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
          $("#buttons_separated_merged").hide();
-        graph_view(2,"all","","");
+         graph_view(2,"all","","");
          return false;
      });
      $('#screen_3').live('click',function(e) {
@@ -321,6 +321,7 @@
       var state = $('#state').val();
       var country = $('#country').val();
       var frequency = $("#frequency").val();
+      var dep_mode;
       if (id == 1)
           dep_mode = $("#department_view_mode").val();
       else
