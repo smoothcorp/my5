@@ -21,15 +21,6 @@
 
 <%= javascript_include_tag 'jquery.refinery.wymeditor.fix.js', 'admin' %>
 
-<script type="text/javascript">
-    ddsmoothmenu.init({
-    mainmenuid: "smoothmenu",
-    orientation: 'h',
-    classname: 'ddsmoothmenu',
-    contentsource: "markup"
-    })
-</script>
-
 <%= yield :after_javascript_libraries -%>
 <%= javascript_include_tag 'refinery/boot_wym',
                            'refinery/core',
