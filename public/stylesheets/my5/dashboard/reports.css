@@ -101,3 +101,8 @@
   text-align: center;
   border: 1px solid gray;
 }
+
+/* line 45, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#buttons_separated_merged {
+  float: right;
+}
