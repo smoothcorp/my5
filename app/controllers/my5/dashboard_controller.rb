@@ -277,20 +277,19 @@ class My5::DashboardController < ApplicationController
       if params[:department_view_mode] == "merged"
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "department_id IN (#{params[:department_id].join(',').to_s})"
+        @is_condition = true
       end
-      @is_condition = true
     end
-    if @is_condition
-      if params[:department_view_mode] == "separated"
-        @customer_ids_separated = []
-        params[:department_id].each do |department_id|
-          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
-        end
-      else
-        @customers = Customer.where(customer_condition)
-        if !@customers.blank? && !@customers.nil?
-          @customer_ids = @customers.collect(&:id)
-        end
+    if params[:department_view_mode] == "separated"
+      @customer_ids_separated = []
+      customer_condition += @is_condition ? " AND " : ""
+      params[:department_id].each do |department_id|
+        @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+      end
+    else
+      @customers = Customer.where(customer_condition)
+      if !@customers.blank? && !@customers.nil?
+        @customer_ids = @customers.collect(&:id)
       end
     end
   end
