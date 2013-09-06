@@ -6,4 +6,5 @@
 				= link_to p.title, page_path(p)
 		%li
 			= link_to "Sign In", new_customer_session_path, :class => "button"
+			= link_to "Company Sign In", new_customer_session_path(:company_login => true), :class => "button"
 #bars.top

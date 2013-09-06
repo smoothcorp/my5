@@ -14,6 +14,7 @@ class CustomerRegistrationsController < Devise::RegistrationsController
     end
   end
 
+
   def confirm_details
     session[:new_customer] = params[:customer]
     self.resource = Customer.new(session[:new_customer])
