@@ -346,7 +346,9 @@ console.log(data)
 }
 </script>
 <script type="text/javascript">
-
+    $(document).ready(function() {
+        $('#department_id').dropdownchecklist( {icon: {}, width: 70,  maxDropHeight: 150 });
+    });
 	window.onload = function(){
 		new JsDatePick({
 			useMode:2,

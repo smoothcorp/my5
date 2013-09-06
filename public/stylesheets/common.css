@@ -873,3 +873,12 @@ button.small, input[type="submit"].small, .button.small {
 a.green {
   color: #419e36 !important;
 }
+
+/* line 100, ../../app/stylesheets/common.sass */
+.sign_in_page {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  width: 940px;
+  background-color: white;
+}
