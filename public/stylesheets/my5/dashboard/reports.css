@@ -106,3 +106,7 @@
 #buttons_separated_merged {
   float: right;
 }
+
+#department_id {
+    width: 140px;
+}
