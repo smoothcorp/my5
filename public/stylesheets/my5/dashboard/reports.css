@@ -80,33 +80,38 @@
   padding: 2px 5px;
 }
 
-/* line 29, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 28, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .left_menu_wrap {
   font-size: 12px;
   width: 170px;
 }
 
-/* line 34, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 33, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .sub_menu .toggle_plus, .sub_menu .toggle_minus {
   vertical-align: bottom;
   height: 25px;
 }
-/* line 37, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 36, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .sub_menu .toggle_minus {
   display: none;
 }
 
-/* line 41, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 40, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table .col3 {
   text-align: center;
   border: 1px solid gray;
 }
 
-/* line 45, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 44, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #buttons_separated_merged {
   float: right;
 }
 
-#department_id {
-    width: 140px;
+/* line 47, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#dep_button {
+  backgroundColor: #22a7f2;
+  float: left;
+  margin-left: -60px;
+  margin-bottom: 2px;
+  display: none;
 }

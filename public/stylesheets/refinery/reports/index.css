@@ -1,58 +1,63 @@
 /* line 1, ../../../../app/stylesheets/shared/stats.sass */
 .separator {
-  width: 100%;
-  position: relative;
-  border-bottom: 1px dotted #bbbbbb;
-  clear: both;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px dotted #bbbbbb;
+    clear: both;
 }
 
 /* line 7, ../../../../app/stylesheets/shared/stats.sass */
 .stats {
-  display: inline-block;
-  padding: 0;
-  width: 100%;
-  height: 140px;
-  margin-left: 2%;
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+    height: 140px;
+    margin-left: 2%;
 }
+
 /* line 14, ../../../../app/stylesheets/shared/stats.sass */
 .stats li {
-  list-style: none !important;
-  width: 30%;
-  float: left;
-  margin-right: 2%;
+    list-style: none !important;
+    width: 30%;
+    float: left;
+    margin-right: 2%;
 }
+
 /* line 20, ../../../../app/stylesheets/shared/stats.sass */
 .stats li .number {
-  font-size: 100px;
-  line-height: 120px;
-  float: left;
+    font-size: 100px;
+    line-height: 120px;
+    float: left;
 }
+
 /* line 24, ../../../../app/stylesheets/shared/stats.sass */
 .stats li .text {
-  float: left;
-  font-size: 16px;
-  line-height: 20px;
-  vertical-align: bottom;
+    float: left;
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: bottom;
 }
+
 /* line 29, ../../../../app/stylesheets/shared/stats.sass */
 .stats li.last {
-  width: 30% !important;
+    width: 30% !important;
 }
 
 /* line 3, ../../../../app/stylesheets/refinery/reports/index.sass */
 h2 {
-  padding-top: 35px;
-  clear: both;
+    padding-top: 35px;
+    clear: both;
 }
+
 /* line 7, ../../../../app/stylesheets/refinery/reports/index.sass */
 h2.top {
-  padding-top: 15px !important;
+    padding-top: 15px !important;
 }
 
 /* line 13, ../../../../app/stylesheets/refinery/reports/index.sass */
 .stats li .text {
-  word-wrap: break-word;
-  width: 95px;
-  padding-top: 25px;
-  padding-left: 5px;
+    word-wrap: break-word;
+    width: 95px;
+    padding-top: 25px;
+    padding-left: 5px;
 }

@@ -1,7 +1,7 @@
 <%= link_to "Download CSV report", '/refinery/reports/download_excel', :class => "button" %>
 <div style="width: 99%;border:1px grey solid;margin:10px 10px 5px 5px;">
   <div align="right">
-    <br />
+    <br/>
     From  <%= text_field_tag "from_date", "", :id => "from_date", :placeholder => "DD/MM/YYYY" %>
     TO <%= text_field_tag "to_date", "", :id => "to_date", :placeholder => "DD/MM/YYYY" %> <%= link_to "OK", "#", :id => "Ok", :class => "button" %>
   </div>
@@ -18,7 +18,8 @@
 
     <tr>
       <td>Department :</td>
-      <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
+      <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :multiple => true, :size => 5 }) %></td>
+      <td><%= link_to "OK", '#', :class => "button screens", :id => "dep_button", :style => "backgroundColor:#22A7F2; float:left; margin-left: -70px; display:none;" %></td>
     </tr>
 
     <tr>
@@ -40,7 +41,7 @@
     </tr>
   </table>
 </div>
-<br />
+<br/>
 </div>
 
 
