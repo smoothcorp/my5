@@ -386,6 +386,14 @@ function setup_graph_screen_1(dates,values,round) {
             y: 100,
             borderWidth: 0
         },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
         series: series_chart
     });
 }
@@ -533,4 +541,3 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
         });
     }
 }
-
