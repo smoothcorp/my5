@@ -36,7 +36,7 @@
     <%= render 'screen_2' %>
   <% end %>
   <% if params[:graph_view] == "1" %>
-    <div style="border:5px grey solid;">
+    <div>
       <div id="container" style="min-height: 400px; margin: 0 auto;"></div>
     </div>
     <br /><br />
@@ -47,14 +47,14 @@
   <% if params[:graph_view] == "2" %>
     <p></p>
     <div id="main_container">
-      <div id="container" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+      <div id="container" style="min-height: 400px; margin: 0 auto;float:left;"></div>
     </div>
     <div id="bar_container" style="display: none;">
-      <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+      <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
     </div>
     <div id="pie_container" style="display: none;">
       <% if @pie_sum_totals.to_i > 0 %>
-        <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;border:4px grey solid;"></div>
+        <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
       <% else %>
         <div id="pie_container_graph" style=" height: 400px; margin: 0 auto">No Records Found</div>
       <% end %>

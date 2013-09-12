@@ -3,14 +3,14 @@
 <script src="/javascripts/highcharts.js"></script>
 <script src="/javascripts/exporting.js"></script>
 
-<h1> Detailed customer report</h1>
+<h1 class="h1"> Detailed customer report</h1>
 
 
 <%= render 'filter_index' %>
 
 
-<div id="graph_filter" style="margin-top:40px;">
-  <%= link_to("Content", '#', :class => "button screens", :id => "screen_1", :style => "backgroundColor:inherit") %> <%= link_to("Time", '#', :class => "button screens", :id => "screen_2") %>  <%= link_to("Frequency", '#', :class => "button screens", :id => "screen_3") %>    <%= image_tag("/images/loading.gif", :id => "loader", :style => "display:none;") %>
+<div id="graph_filter">
+  <%= link_to("Content", '#', :class => 'button screens orange_button', :id => 'screen_1') %> <%= link_to("Time", '#', :class => 'button screens blue_button', :id => 'screen_2') %>  <%= link_to("Frequency", '#', :class => 'button screens grey_button', :id => 'screen_3') %>    <%= image_tag("/images/loading.gif", :id => "loader", :style => "display:none;") %>
   <div style="display: none" id="buttons_separated_merged">
     <td><%= link_to "Separated", '#', :class => "button screens", :id => "separated", :style => "backgroundColor:#22A7F2;" %></td>
     <td><%= link_to "Merged", '#', :class => "button screens", :id => "merged", :style => "backgroundColor:#22A7F2;" %></td>
@@ -19,12 +19,12 @@
 </div>
 
 
-<table class="report_layout_table" style="width:100%;">
+<table class="report_layout_table table_layout">
   <tr>
-    <td style="background-color: #ffffff; vertical-align: top;">
+    <td class="td">
       <%= render 'left_menu' %>
     </td>
-    <td style="border:2px solid grey;">
+    <td class="td">
       <div id="graph"><%= render 'graph_screen' %></div>
     </td>
   </tr>
@@ -36,10 +36,10 @@
     $(document).ready(function () {
         $('#screen_1').live('click', function (e) {
             change_color_of_screen();
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("backgroundColor", "green");
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
             if ($('#department_id').val() != null)
                 $("#buttons_separated_merged").show();
             graph_view(1, "all", "", "");
@@ -47,20 +47,20 @@
         });
         $('#screen_2').live('click', function (e) {
             change_color_of_screen();
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("backgroundColor", "green");
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
             $("#buttons_separated_merged").hide();
             graph_view(2, "all", "", "");
             return false;
         });
         $('#screen_3').live('click', function (e) {
             change_color_of_screen();
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("backgroundColor", "green");
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
             $("#buttons_separate_merged").hide();
             graph_view(3, "all", "", "");
             return false;
@@ -68,10 +68,10 @@
 
         $('#separated').live('click', function (e) {
             change_color_of_screen();
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("backgroundColor", "green");
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
             department_view_mode("separated", "all");
             return false;
         });
@@ -79,10 +79,10 @@
 
         $('#merged').live('click', function (e) {
             change_color_of_screen();
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("backgroundColor", "green");
+            $('.graph_for').addClass("active");
+            $('.graph_for_items').addClass("active");
+            $('.graph_for_items_child').addClass("active");
+            $(this).addClass("active");
             department_view_mode("merged", "all");
             return false;
         });
@@ -128,20 +128,16 @@
 
         $('.graph_for').live('click', function (e) {
             var page_type = $(this).attr('id');
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).css("color", "#3E576F").css("border", "1px black solid");
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
             var graph_views = $("#graph_view").val();
             graph_view(graph_views, page_type, "", "");
             return false;
         });
         $('.graph_for_items').live('click', function (e) {
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).closest('div').parent().find(".graph_for").css("color", "#3E576F").css("border", "1px black solid");
-            $(this).css("color", "#3E576F").css("border", "1px black solid");
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
+            $(this).closest('div').parent().find(".graph_for").addClass("active");
             var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
             var page_id = $(this).attr('id');
             var graph_views = $("#graph_view").val();
@@ -149,12 +145,10 @@
             return false;
         });
         $('.graph_for_items_child').live('click', function (e) {
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
-            $(this).closest('div').parent().find(".graph_for").css("color", "#3E576F").css("border", "1px black solid");
-            $(this).closest('.graph_for_items').css("color", "#3E576F").css("border", "1px black solid");
-            $(this).css("color", "#3E576F").css("border", "1px black solid");
+            $('[class^="graph_for"]').removeClass("active");
+            $(this).addClass("active");
+            $(this).closest('div').parent().find(".graph_for").addClass("active");
+            $(this).closest('.graph_for_items').addClass("active");
             var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
             var page_id = $(this).closest('ul.second_child').parent().find(".graph_for_items").attr('id');
             var video_id = $(this).attr('id');
@@ -163,9 +157,7 @@
             return false;
         });
         $('#Ok').live('click', function (e) {
-            $('.graph_for').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-            $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+            $('[class^="graph_for"]').removeClass("active");;
             var graph_views = $("#graph_view").val();
             graph_view(graph_views, "all", "", "");
         });
@@ -224,14 +216,15 @@
 
     function change_color_of_screen() {
         $('.screens').each(function (index) {
-            $(this).css("backgroundColor", "#22A7F2");
+            $(this).removeClass("active");
         });
+
     }
 
     function department_view_mode(dep_mode, page) {
-        $('.graph_for').css("color", "black").css("border", "0px black solid");
-        $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-        $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+        $('.graph_for').addClass("active");
+        $('.graph_for_items').addClass("active");
+        $('.graph_for_items_child').addClass("active");
         var from_date = $('#from_date').val();
         var to_date = $('#to_date').val();
         var graph_views = $("#graph_view").val();
@@ -261,9 +254,9 @@
 
 
     function company_filter(page, company_id, department_id, location_name, role, state, country) {
-        $('.graph_for').css("color", "black").css("border", "0px black solid");
-        $('.graph_for_items').css("color", "black").css("border", "0px black solid");
-        $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+        $('.graph_for').addClass("active");
+        $('.graph_for_items').addClass("active");
+        $('.graph_for_items_child').addClass("active");
         var from_date = $('#from_date').val();
         var to_date = $('#to_date').val();
         var graph_views = $("#graph_view").val();

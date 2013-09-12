@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://localhost:3000/my5/dashboard/reports# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>My 5</title>
+    <script type="text/javascript" src="./My 5_files/sidebarv2.js"></script><script type="text/javascript" async="" src="./My 5_files/ga.js"></script><script type="text/javascript" src="./My 5_files/bugherd.js"></script><script src="./My 5_files/jquery.min.js" type="text/javascript"></script>
+    <script src="./My 5_files/jquery_ujs.js" type="text/javascript"></script>
+    <script src="./My 5_files/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
+    <script src="./My 5_files/jquery.iframe-transport.js" type="text/javascript"></script>
+    <script src="./My 5_files/jquery.remotipart.js" type="text/javascript"></script>
+    <script src="./My 5_files/application.js" type="text/javascript"></script>
+    <script src="./My 5_files/ui.dropdownchecklist-1.4-min.js" type="text/javascript"></script>
+    <script src="./My 5_files/js_for_graph.js" type="text/javascript"></script>
+    <script src="./My 5_files/foundation.js" type="text/javascript"></script><meta class="foundation-mq-small"><meta class="foundation-mq-medium"><meta class="foundation-mq-large"><style></style>
+    <script src="./My 5_files/foundation.forms.js" type="text/javascript"></script>
+    <link href="./My 5_files/common.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/base.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/base(1).css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/reports.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/ui.dropdownchecklist.standalone.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/chosen.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./My 5_files/base.css" media="screen" rel="stylesheet" type="text/css">
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token" content="aPYf8KQ6l1VMT8/tjA9/H+/SMNoP/XMMH7Q7zXuRl+M=">
+  </head>
+  <body class="reports" id="dashboard">
+    <!-- #{'symptomatic_video' if (@video && @video.symptomatic)} -->
+    <div id="header_background">
+      <div class="bars_whole"></div>
+      <div id="dark_gradient"></div>
+      <div id="grey_gradient"></div>
+    </div>
+    <div id="header">
+      <div id="logo"><a href="http://localhost:3000/my5/dashboard/reports"><img alt="Logo" src="./My 5_files/logo.png"></a></div>
+      <div id="actions">
+        <a href="http://localhost:3000/customers">test Admin</a>
+        |
+        <a href="http://localhost:3000/customers/edit"><img alt="Missing" src="./My 5_files/missing.png">Rtest Rtest</a>
+        |
+        <a href="http://localhost:3000/customers/sign_out">Sign out</a>
+      </div>
+      <ul class="nav" id="modules">
+        <a href="http://localhost:3000/my5/dashboard/reports" id="management_reports">Reports</a>
+      </ul>
+      <ul class="nav" id="health_checkin">
+        <a href="http://localhost:3000/my5/health_checkins"><img alt="Health_checkin" src="./My 5_files/health_checkin.png">Health Checkin</a>
+      </ul>
+    </div>
+    <div class="content" id="reports">
+      
+      <link rel="stylesheet" type="text/css" media="all" href="./My 5_files/jsDatePick_ltr.min.css">
+      <script type="text/javascript" src="./My 5_files/jsDatePick.min.1.3.js"></script>
+      <script src="./My 5_files/highcharts.js"></script>
+      <script src="./My 5_files/exporting.js"></script>
+      
+      <h1 class="h1"> Detailed customer report</h1>
+      
+      
+      <a href="http://localhost:3000/my5/dashboard/download_excel" class="button">Download CSV report</a>
+      <div class="table_wrap">
+        <table class="table_layout">
+          <tbody><tr>
+            <td class="td">
+              <table border="0" style="flaot:left;">
+                <tbody><tr class="hide">
+                  <td>Company Name :</td>
+                  <td id="company_id">21</td>
+                </tr>
+      
+                <tr>
+                  <td>Department :</td>
+                  <td><select id="department_id" multiple="" name="department_id[]" size="5" style="display: none;"><option value=""></option><option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="34">34</option>
+      <option value="35">35</option>
+      <option value="36">36</option>
+      <option value="37">37</option>
+      <option value="38">38</option>
+      <option value="39">39</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="42">42</option>
+      <option value="43">43</option>
+      <option value="44">44</option>
+      <option value="45">45</option>
+      <option value="46">46</option>
+      <option value="47">47</option>
+      <option value="48">48</option>
+      <option value="49">49</option>
+      <option value="50">50</option>
+      <option value="51">51</option>
+      <option value="52">52</option>
+      <option value="53">53</option>
+      <option value="54">54</option>
+      <option value="55">55</option>
+      <option value="56">56</option>
+      <option value="57">57</option>
+      <option value="58">58</option>
+      <option value="59">59</option>
+      <option value="60">60</option>
+      <option value="61">61</option>
+      <option value="62">62</option>
+      <option value="63">63</option>
+      <option value="64">64</option>
+      <option value="65">65</option>
+      <option value="66">66</option>
+      <option value="67">67</option>
+      <option value="68">68</option>
+      <option value="69">69</option>
+      <option value="70">70</option>
+      <option value="71">71</option>
+      <option value="72">72</option>
+      <option value="73">73</option>
+      <option value="74">74</option>
+      <option value="75">75</option>
+      <option value="76">76</option>
+      <option value="77">77</option>
+      <option value="78">78</option>
+      <option value="79">79</option>
+      <option value="80">80</option>
+      <option value="81">81</option>
+      <option value="82">82</option>
+      <option value="83">83</option>
+      <option value="84">84</option>
+      <option value="85">85</option>
+      <option value="86">86</option>
+      <option value="87">87</option>
+      <option value="88">88</option>
+      <option value="89">89</option>
+      <option value="90">90</option>
+      <option value="91">91</option>
+      <option value="92">92</option>
+      <option value="93">93</option>
+      <option value="94">94</option>
+      <option value="95">95</option>
+      <option value="96">96</option>
+      <option value="97">97</option>
+      <option value="98">98</option>
+      <option value="99">99</option>
+      <option value="100">100</option>
+      <option value="101">101</option>
+      <option value="102">102</option>
+      <option value="103">103</option>
+      <option value="104">104</option>
+      <option value="105">105</option>
+      <option value="106">106</option>
+      <option value="107">107</option>
+      <option value="108">108</option>
+      <option value="109">109</option>
+      <option value="110">110</option>
+      <option value="111">111</option>
+      <option value="112">112</option>
+      <option value="113">113</option>
+      <option value="114">114</option>
+      <option value="115">115</option>
+      <option value="116">116</option>
+      <option value="117">117</option>
+      <option value="118">118</option>
+      <option value="119">119</option>
+      <option value="120">120</option>
+      <option value="121">121</option>
+      <option value="122">122</option>
+      <option value="123">123</option>
+      <option value="124">124</option>
+      <option value="125">125</option>
+      <option value="126">126</option>
+      <option value="127">127</option>
+      <option value="128">128</option>
+      <option value="129">129</option>
+      <option value="130">130</option>
+      <option value="131">131</option>
+      <option value="132">132</option>
+      <option value="133">133</option>
+      <option value="134">134</option>
+      <option value="135">135</option>
+      <option value="136">136</option>
+      <option value="137">137</option>
+      <option value="138">138</option>
+      <option value="139">139</option>
+      <option value="140">140</option>
+      <option value="141">141</option>
+      <option value="142">142</option>
+      <option value="143">143</option>
+      <option value="144">144</option>
+      <option value="145">145</option>
+      <option value="146">146</option>
+      <option value="147">147</option>
+      <option value="148">148</option>
+      <option value="149">149</option>
+      <option value="150">150</option>
+      <option value="151">151</option>
+      <option value="152">152</option>
+      <option value="153">153</option>
+      <option value="154">154</option>
+      <option value="155">155</option>
+      <option value="156">156</option>
+      <option value="157">157</option>
+      <option value="158">158</option>
+      <option value="159">159</option>
+      <option value="160">160</option>
+      <option value="161">161</option>
+      <option value="162">162</option>
+      <option value="163">163</option>
+      <option value="164">164</option>
+      <option value="165">165</option>
+      <option value="166">166</option>
+      <option value="167">167</option>
+      <option value="168">168</option>
+      <option value="169">169</option>
+      <option value="170">170</option>
+      <option value="171">171</option>
+      <option value="172">172</option>
+      <option value="173">173</option>
+      <option value="174">174</option>
+      <option value="175">175</option>
+      <option value="176">176</option>
+      <option value="177">177</option>
+      <option value="178">178</option>
+      <option value="179">179</option>
+      <option value="180">180</option>
+      <option value="181">181</option>
+      <option value="182">182</option>
+      <option value="183">183</option>
+      <option value="184">184</option>
+      <option value="185">185</option>
+      <option value="186">186</option>
+      <option value="187">187</option>
+      <option value="188">188</option>
+      <option value="189">189</option>
+      <option value="190">190</option>
+      <option value="191">191</option>
+      <option value="192">192</option>
+      <option value="193">193</option>
+      <option value="194">194</option>
+      <option value="195">195</option>
+      <option value="196">196</option>
+      <option value="197">197</option>
+      <option value="198">198</option>
+      <option value="199">199</option>
+      <option value="200">200</option></select><span class="ui-dropdownchecklist ui-dropdownchecklist-selector-wrapper ui-widget" id="ddcl-department_id" style="display: inline-block; cursor: default; overflow: hidden;"><span class="ui-dropdownchecklist-selector ui-state-default" tabindex="0" style="display: inline-block; overflow: hidden; white-space: nowrap; width: 70px;"><span class="ui-dropdownchecklist-text" title=" " style="display: inline-block; white-space: nowrap; overflow: hidden; width: 66px;">&nbsp;</span></span></span><div class="ui-dropdownchecklist ui-dropdownchecklist-dropcontainer-wrapper ui-widget" id="ddcl-department_id-ddw" style="position: absolute; left: -33000px; top: -33000px; height: 150px; width: 76px;"><div class="ui-dropdownchecklist-dropcontainer ui-widget-content" style="overflow-y: auto; height: 150px;"><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i1" class="active" tabindex="0" index="1" value="1"><label for="ddcl-department_id-i1" class="ui-dropdownchecklist-text" style="cursor: default;">1</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i2" class="active" tabindex="0" index="2" value="2"><label for="ddcl-department_id-i2" class="ui-dropdownchecklist-text" style="cursor: default;">2</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i3" class="active" tabindex="0" index="3" value="3"><label for="ddcl-department_id-i3" class="ui-dropdownchecklist-text" style="cursor: default;">3</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i4" class="active" tabindex="0" index="4" value="4"><label for="ddcl-department_id-i4" class="ui-dropdownchecklist-text" style="cursor: default;">4</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i5" class="active" tabindex="0" index="5" value="5"><label for="ddcl-department_id-i5" class="ui-dropdownchecklist-text" style="cursor: default;">5</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i6" class="active" tabindex="0" index="6" value="6"><label for="ddcl-department_id-i6" class="ui-dropdownchecklist-text" style="cursor: default;">6</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i7" class="active" tabindex="0" index="7" value="7"><label for="ddcl-department_id-i7" class="ui-dropdownchecklist-text" style="cursor: default;">7</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i8" class="active" tabindex="0" index="8" value="8"><label for="ddcl-department_id-i8" class="ui-dropdownchecklist-text" style="cursor: default;">8</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i9" class="active" tabindex="0" index="9" value="9"><label for="ddcl-department_id-i9" class="ui-dropdownchecklist-text" style="cursor: default;">9</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i10" class="active" tabindex="0" index="10" value="10"><label for="ddcl-department_id-i10" class="ui-dropdownchecklist-text" style="cursor: default;">10</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i11" class="active" tabindex="0" index="11" value="11"><label for="ddcl-department_id-i11" class="ui-dropdownchecklist-text" style="cursor: default;">11</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i12" class="active" tabindex="0" index="12" value="12"><label for="ddcl-department_id-i12" class="ui-dropdownchecklist-text" style="cursor: default;">12</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i13" class="active" tabindex="0" index="13" value="13"><label for="ddcl-department_id-i13" class="ui-dropdownchecklist-text" style="cursor: default;">13</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i14" class="active" tabindex="0" index="14" value="14"><label for="ddcl-department_id-i14" class="ui-dropdownchecklist-text" style="cursor: default;">14</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i15" class="active" tabindex="0" index="15" value="15"><label for="ddcl-department_id-i15" class="ui-dropdownchecklist-text" style="cursor: default;">15</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i16" class="active" tabindex="0" index="16" value="16"><label for="ddcl-department_id-i16" class="ui-dropdownchecklist-text" style="cursor: default;">16</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i17" class="active" tabindex="0" index="17" value="17"><label for="ddcl-department_id-i17" class="ui-dropdownchecklist-text" style="cursor: default;">17</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i18" class="active" tabindex="0" index="18" value="18"><label for="ddcl-department_id-i18" class="ui-dropdownchecklist-text" style="cursor: default;">18</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i19" class="active" tabindex="0" index="19" value="19"><label for="ddcl-department_id-i19" class="ui-dropdownchecklist-text" style="cursor: default;">19</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i20" class="active" tabindex="0" index="20" value="20"><label for="ddcl-department_id-i20" class="ui-dropdownchecklist-text" style="cursor: default;">20</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i21" class="active" tabindex="0" index="21" value="21"><label for="ddcl-department_id-i21" class="ui-dropdownchecklist-text" style="cursor: default;">21</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i22" class="active" tabindex="0" index="22" value="22"><label for="ddcl-department_id-i22" class="ui-dropdownchecklist-text" style="cursor: default;">22</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i23" class="active" tabindex="0" index="23" value="23"><label for="ddcl-department_id-i23" class="ui-dropdownchecklist-text" style="cursor: default;">23</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i24" class="active" tabindex="0" index="24" value="24"><label for="ddcl-department_id-i24" class="ui-dropdownchecklist-text" style="cursor: default;">24</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i25" class="active" tabindex="0" index="25" value="25"><label for="ddcl-department_id-i25" class="ui-dropdownchecklist-text" style="cursor: default;">25</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i26" class="active" tabindex="0" index="26" value="26"><label for="ddcl-department_id-i26" class="ui-dropdownchecklist-text" style="cursor: default;">26</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i27" class="active" tabindex="0" index="27" value="27"><label for="ddcl-department_id-i27" class="ui-dropdownchecklist-text" style="cursor: default;">27</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i28" class="active" tabindex="0" index="28" value="28"><label for="ddcl-department_id-i28" class="ui-dropdownchecklist-text" style="cursor: default;">28</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i29" class="active" tabindex="0" index="29" value="29"><label for="ddcl-department_id-i29" class="ui-dropdownchecklist-text" style="cursor: default;">29</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i30" class="active" tabindex="0" index="30" value="30"><label for="ddcl-department_id-i30" class="ui-dropdownchecklist-text" style="cursor: default;">30</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i31" class="active" tabindex="0" index="31" value="31"><label for="ddcl-department_id-i31" class="ui-dropdownchecklist-text" style="cursor: default;">31</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i32" class="active" tabindex="0" index="32" value="32"><label for="ddcl-department_id-i32" class="ui-dropdownchecklist-text" style="cursor: default;">32</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i33" class="active" tabindex="0" index="33" value="33"><label for="ddcl-department_id-i33" class="ui-dropdownchecklist-text" style="cursor: default;">33</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i34" class="active" tabindex="0" index="34" value="34"><label for="ddcl-department_id-i34" class="ui-dropdownchecklist-text" style="cursor: default;">34</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i35" class="active" tabindex="0" index="35" value="35"><label for="ddcl-department_id-i35" class="ui-dropdownchecklist-text" style="cursor: default;">35</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i36" class="active" tabindex="0" index="36" value="36"><label for="ddcl-department_id-i36" class="ui-dropdownchecklist-text" style="cursor: default;">36</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i37" class="active" tabindex="0" index="37" value="37"><label for="ddcl-department_id-i37" class="ui-dropdownchecklist-text" style="cursor: default;">37</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i38" class="active" tabindex="0" index="38" value="38"><label for="ddcl-department_id-i38" class="ui-dropdownchecklist-text" style="cursor: default;">38</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i39" class="active" tabindex="0" index="39" value="39"><label for="ddcl-department_id-i39" class="ui-dropdownchecklist-text" style="cursor: default;">39</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i40" class="active" tabindex="0" index="40" value="40"><label for="ddcl-department_id-i40" class="ui-dropdownchecklist-text" style="cursor: default;">40</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i41" class="active" tabindex="0" index="41" value="41"><label for="ddcl-department_id-i41" class="ui-dropdownchecklist-text" style="cursor: default;">41</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i42" class="active" tabindex="0" index="42" value="42"><label for="ddcl-department_id-i42" class="ui-dropdownchecklist-text" style="cursor: default;">42</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i43" class="active" tabindex="0" index="43" value="43"><label for="ddcl-department_id-i43" class="ui-dropdownchecklist-text" style="cursor: default;">43</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i44" class="active" tabindex="0" index="44" value="44"><label for="ddcl-department_id-i44" class="ui-dropdownchecklist-text" style="cursor: default;">44</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i45" class="active" tabindex="0" index="45" value="45"><label for="ddcl-department_id-i45" class="ui-dropdownchecklist-text" style="cursor: default;">45</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i46" class="active" tabindex="0" index="46" value="46"><label for="ddcl-department_id-i46" class="ui-dropdownchecklist-text" style="cursor: default;">46</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i47" class="active" tabindex="0" index="47" value="47"><label for="ddcl-department_id-i47" class="ui-dropdownchecklist-text" style="cursor: default;">47</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i48" class="active" tabindex="0" index="48" value="48"><label for="ddcl-department_id-i48" class="ui-dropdownchecklist-text" style="cursor: default;">48</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i49" class="active" tabindex="0" index="49" value="49"><label for="ddcl-department_id-i49" class="ui-dropdownchecklist-text" style="cursor: default;">49</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i50" class="active" tabindex="0" index="50" value="50"><label for="ddcl-department_id-i50" class="ui-dropdownchecklist-text" style="cursor: default;">50</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i51" class="active" tabindex="0" index="51" value="51"><label for="ddcl-department_id-i51" class="ui-dropdownchecklist-text" style="cursor: default;">51</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i52" class="active" tabindex="0" index="52" value="52"><label for="ddcl-department_id-i52" class="ui-dropdownchecklist-text" style="cursor: default;">52</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i53" class="active" tabindex="0" index="53" value="53"><label for="ddcl-department_id-i53" class="ui-dropdownchecklist-text" style="cursor: default;">53</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i54" class="active" tabindex="0" index="54" value="54"><label for="ddcl-department_id-i54" class="ui-dropdownchecklist-text" style="cursor: default;">54</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i55" class="active" tabindex="0" index="55" value="55"><label for="ddcl-department_id-i55" class="ui-dropdownchecklist-text" style="cursor: default;">55</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i56" class="active" tabindex="0" index="56" value="56"><label for="ddcl-department_id-i56" class="ui-dropdownchecklist-text" style="cursor: default;">56</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i57" class="active" tabindex="0" index="57" value="57"><label for="ddcl-department_id-i57" class="ui-dropdownchecklist-text" style="cursor: default;">57</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i58" class="active" tabindex="0" index="58" value="58"><label for="ddcl-department_id-i58" class="ui-dropdownchecklist-text" style="cursor: default;">58</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i59" class="active" tabindex="0" index="59" value="59"><label for="ddcl-department_id-i59" class="ui-dropdownchecklist-text" style="cursor: default;">59</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i60" class="active" tabindex="0" index="60" value="60"><label for="ddcl-department_id-i60" class="ui-dropdownchecklist-text" style="cursor: default;">60</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i61" class="active" tabindex="0" index="61" value="61"><label for="ddcl-department_id-i61" class="ui-dropdownchecklist-text" style="cursor: default;">61</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i62" class="active" tabindex="0" index="62" value="62"><label for="ddcl-department_id-i62" class="ui-dropdownchecklist-text" style="cursor: default;">62</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i63" class="active" tabindex="0" index="63" value="63"><label for="ddcl-department_id-i63" class="ui-dropdownchecklist-text" style="cursor: default;">63</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i64" class="active" tabindex="0" index="64" value="64"><label for="ddcl-department_id-i64" class="ui-dropdownchecklist-text" style="cursor: default;">64</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i65" class="active" tabindex="0" index="65" value="65"><label for="ddcl-department_id-i65" class="ui-dropdownchecklist-text" style="cursor: default;">65</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i66" class="active" tabindex="0" index="66" value="66"><label for="ddcl-department_id-i66" class="ui-dropdownchecklist-text" style="cursor: default;">66</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i67" class="active" tabindex="0" index="67" value="67"><label for="ddcl-department_id-i67" class="ui-dropdownchecklist-text" style="cursor: default;">67</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i68" class="active" tabindex="0" index="68" value="68"><label for="ddcl-department_id-i68" class="ui-dropdownchecklist-text" style="cursor: default;">68</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i69" class="active" tabindex="0" index="69" value="69"><label for="ddcl-department_id-i69" class="ui-dropdownchecklist-text" style="cursor: default;">69</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i70" class="active" tabindex="0" index="70" value="70"><label for="ddcl-department_id-i70" class="ui-dropdownchecklist-text" style="cursor: default;">70</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i71" class="active" tabindex="0" index="71" value="71"><label for="ddcl-department_id-i71" class="ui-dropdownchecklist-text" style="cursor: default;">71</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i72" class="active" tabindex="0" index="72" value="72"><label for="ddcl-department_id-i72" class="ui-dropdownchecklist-text" style="cursor: default;">72</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i73" class="active" tabindex="0" index="73" value="73"><label for="ddcl-department_id-i73" class="ui-dropdownchecklist-text" style="cursor: default;">73</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i74" class="active" tabindex="0" index="74" value="74"><label for="ddcl-department_id-i74" class="ui-dropdownchecklist-text" style="cursor: default;">74</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i75" class="active" tabindex="0" index="75" value="75"><label for="ddcl-department_id-i75" class="ui-dropdownchecklist-text" style="cursor: default;">75</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i76" class="active" tabindex="0" index="76" value="76"><label for="ddcl-department_id-i76" class="ui-dropdownchecklist-text" style="cursor: default;">76</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i77" class="active" tabindex="0" index="77" value="77"><label for="ddcl-department_id-i77" class="ui-dropdownchecklist-text" style="cursor: default;">77</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i78" class="active" tabindex="0" index="78" value="78"><label for="ddcl-department_id-i78" class="ui-dropdownchecklist-text" style="cursor: default;">78</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i79" class="active" tabindex="0" index="79" value="79"><label for="ddcl-department_id-i79" class="ui-dropdownchecklist-text" style="cursor: default;">79</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i80" class="active" tabindex="0" index="80" value="80"><label for="ddcl-department_id-i80" class="ui-dropdownchecklist-text" style="cursor: default;">80</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i81" class="active" tabindex="0" index="81" value="81"><label for="ddcl-department_id-i81" class="ui-dropdownchecklist-text" style="cursor: default;">81</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i82" class="active" tabindex="0" index="82" value="82"><label for="ddcl-department_id-i82" class="ui-dropdownchecklist-text" style="cursor: default;">82</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i83" class="active" tabindex="0" index="83" value="83"><label for="ddcl-department_id-i83" class="ui-dropdownchecklist-text" style="cursor: default;">83</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i84" class="active" tabindex="0" index="84" value="84"><label for="ddcl-department_id-i84" class="ui-dropdownchecklist-text" style="cursor: default;">84</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i85" class="active" tabindex="0" index="85" value="85"><label for="ddcl-department_id-i85" class="ui-dropdownchecklist-text" style="cursor: default;">85</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i86" class="active" tabindex="0" index="86" value="86"><label for="ddcl-department_id-i86" class="ui-dropdownchecklist-text" style="cursor: default;">86</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i87" class="active" tabindex="0" index="87" value="87"><label for="ddcl-department_id-i87" class="ui-dropdownchecklist-text" style="cursor: default;">87</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i88" class="active" tabindex="0" index="88" value="88"><label for="ddcl-department_id-i88" class="ui-dropdownchecklist-text" style="cursor: default;">88</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i89" class="active" tabindex="0" index="89" value="89"><label for="ddcl-department_id-i89" class="ui-dropdownchecklist-text" style="cursor: default;">89</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i90" class="active" tabindex="0" index="90" value="90"><label for="ddcl-department_id-i90" class="ui-dropdownchecklist-text" style="cursor: default;">90</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i91" class="active" tabindex="0" index="91" value="91"><label for="ddcl-department_id-i91" class="ui-dropdownchecklist-text" style="cursor: default;">91</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i92" class="active" tabindex="0" index="92" value="92"><label for="ddcl-department_id-i92" class="ui-dropdownchecklist-text" style="cursor: default;">92</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i93" class="active" tabindex="0" index="93" value="93"><label for="ddcl-department_id-i93" class="ui-dropdownchecklist-text" style="cursor: default;">93</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i94" class="active" tabindex="0" index="94" value="94"><label for="ddcl-department_id-i94" class="ui-dropdownchecklist-text" style="cursor: default;">94</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i95" class="active" tabindex="0" index="95" value="95"><label for="ddcl-department_id-i95" class="ui-dropdownchecklist-text" style="cursor: default;">95</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i96" class="active" tabindex="0" index="96" value="96"><label for="ddcl-department_id-i96" class="ui-dropdownchecklist-text" style="cursor: default;">96</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i97" class="active" tabindex="0" index="97" value="97"><label for="ddcl-department_id-i97" class="ui-dropdownchecklist-text" style="cursor: default;">97</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i98" class="active" tabindex="0" index="98" value="98"><label for="ddcl-department_id-i98" class="ui-dropdownchecklist-text" style="cursor: default;">98</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i99" class="active" tabindex="0" index="99" value="99"><label for="ddcl-department_id-i99" class="ui-dropdownchecklist-text" style="cursor: default;">99</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i100" class="active" tabindex="0" index="100" value="100"><label for="ddcl-department_id-i100" class="ui-dropdownchecklist-text" style="cursor: default;">100</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i101" class="active" tabindex="0" index="101" value="101"><label for="ddcl-department_id-i101" class="ui-dropdownchecklist-text" style="cursor: default;">101</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i102" class="active" tabindex="0" index="102" value="102"><label for="ddcl-department_id-i102" class="ui-dropdownchecklist-text" style="cursor: default;">102</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i103" class="active" tabindex="0" index="103" value="103"><label for="ddcl-department_id-i103" class="ui-dropdownchecklist-text" style="cursor: default;">103</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i104" class="active" tabindex="0" index="104" value="104"><label for="ddcl-department_id-i104" class="ui-dropdownchecklist-text" style="cursor: default;">104</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i105" class="active" tabindex="0" index="105" value="105"><label for="ddcl-department_id-i105" class="ui-dropdownchecklist-text" style="cursor: default;">105</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i106" class="active" tabindex="0" index="106" value="106"><label for="ddcl-department_id-i106" class="ui-dropdownchecklist-text" style="cursor: default;">106</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i107" class="active" tabindex="0" index="107" value="107"><label for="ddcl-department_id-i107" class="ui-dropdownchecklist-text" style="cursor: default;">107</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i108" class="active" tabindex="0" index="108" value="108"><label for="ddcl-department_id-i108" class="ui-dropdownchecklist-text" style="cursor: default;">108</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i109" class="active" tabindex="0" index="109" value="109"><label for="ddcl-department_id-i109" class="ui-dropdownchecklist-text" style="cursor: default;">109</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i110" class="active" tabindex="0" index="110" value="110"><label for="ddcl-department_id-i110" class="ui-dropdownchecklist-text" style="cursor: default;">110</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i111" class="active" tabindex="0" index="111" value="111"><label for="ddcl-department_id-i111" class="ui-dropdownchecklist-text" style="cursor: default;">111</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i112" class="active" tabindex="0" index="112" value="112"><label for="ddcl-department_id-i112" class="ui-dropdownchecklist-text" style="cursor: default;">112</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i113" class="active" tabindex="0" index="113" value="113"><label for="ddcl-department_id-i113" class="ui-dropdownchecklist-text" style="cursor: default;">113</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i114" class="active" tabindex="0" index="114" value="114"><label for="ddcl-department_id-i114" class="ui-dropdownchecklist-text" style="cursor: default;">114</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i115" class="active" tabindex="0" index="115" value="115"><label for="ddcl-department_id-i115" class="ui-dropdownchecklist-text" style="cursor: default;">115</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i116" class="active" tabindex="0" index="116" value="116"><label for="ddcl-department_id-i116" class="ui-dropdownchecklist-text" style="cursor: default;">116</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i117" class="active" tabindex="0" index="117" value="117"><label for="ddcl-department_id-i117" class="ui-dropdownchecklist-text" style="cursor: default;">117</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i118" class="active" tabindex="0" index="118" value="118"><label for="ddcl-department_id-i118" class="ui-dropdownchecklist-text" style="cursor: default;">118</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i119" class="active" tabindex="0" index="119" value="119"><label for="ddcl-department_id-i119" class="ui-dropdownchecklist-text" style="cursor: default;">119</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i120" class="active" tabindex="0" index="120" value="120"><label for="ddcl-department_id-i120" class="ui-dropdownchecklist-text" style="cursor: default;">120</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i121" class="active" tabindex="0" index="121" value="121"><label for="ddcl-department_id-i121" class="ui-dropdownchecklist-text" style="cursor: default;">121</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i122" class="active" tabindex="0" index="122" value="122"><label for="ddcl-department_id-i122" class="ui-dropdownchecklist-text" style="cursor: default;">122</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i123" class="active" tabindex="0" index="123" value="123"><label for="ddcl-department_id-i123" class="ui-dropdownchecklist-text" style="cursor: default;">123</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i124" class="active" tabindex="0" index="124" value="124"><label for="ddcl-department_id-i124" class="ui-dropdownchecklist-text" style="cursor: default;">124</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i125" class="active" tabindex="0" index="125" value="125"><label for="ddcl-department_id-i125" class="ui-dropdownchecklist-text" style="cursor: default;">125</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i126" class="active" tabindex="0" index="126" value="126"><label for="ddcl-department_id-i126" class="ui-dropdownchecklist-text" style="cursor: default;">126</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i127" class="active" tabindex="0" index="127" value="127"><label for="ddcl-department_id-i127" class="ui-dropdownchecklist-text" style="cursor: default;">127</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i128" class="active" tabindex="0" index="128" value="128"><label for="ddcl-department_id-i128" class="ui-dropdownchecklist-text" style="cursor: default;">128</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i129" class="active" tabindex="0" index="129" value="129"><label for="ddcl-department_id-i129" class="ui-dropdownchecklist-text" style="cursor: default;">129</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i130" class="active" tabindex="0" index="130" value="130"><label for="ddcl-department_id-i130" class="ui-dropdownchecklist-text" style="cursor: default;">130</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i131" class="active" tabindex="0" index="131" value="131"><label for="ddcl-department_id-i131" class="ui-dropdownchecklist-text" style="cursor: default;">131</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i132" class="active" tabindex="0" index="132" value="132"><label for="ddcl-department_id-i132" class="ui-dropdownchecklist-text" style="cursor: default;">132</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i133" class="active" tabindex="0" index="133" value="133"><label for="ddcl-department_id-i133" class="ui-dropdownchecklist-text" style="cursor: default;">133</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i134" class="active" tabindex="0" index="134" value="134"><label for="ddcl-department_id-i134" class="ui-dropdownchecklist-text" style="cursor: default;">134</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i135" class="active" tabindex="0" index="135" value="135"><label for="ddcl-department_id-i135" class="ui-dropdownchecklist-text" style="cursor: default;">135</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i136" class="active" tabindex="0" index="136" value="136"><label for="ddcl-department_id-i136" class="ui-dropdownchecklist-text" style="cursor: default;">136</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i137" class="active" tabindex="0" index="137" value="137"><label for="ddcl-department_id-i137" class="ui-dropdownchecklist-text" style="cursor: default;">137</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i138" class="active" tabindex="0" index="138" value="138"><label for="ddcl-department_id-i138" class="ui-dropdownchecklist-text" style="cursor: default;">138</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i139" class="active" tabindex="0" index="139" value="139"><label for="ddcl-department_id-i139" class="ui-dropdownchecklist-text" style="cursor: default;">139</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i140" class="active" tabindex="0" index="140" value="140"><label for="ddcl-department_id-i140" class="ui-dropdownchecklist-text" style="cursor: default;">140</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i141" class="active" tabindex="0" index="141" value="141"><label for="ddcl-department_id-i141" class="ui-dropdownchecklist-text" style="cursor: default;">141</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i142" class="active" tabindex="0" index="142" value="142"><label for="ddcl-department_id-i142" class="ui-dropdownchecklist-text" style="cursor: default;">142</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i143" class="active" tabindex="0" index="143" value="143"><label for="ddcl-department_id-i143" class="ui-dropdownchecklist-text" style="cursor: default;">143</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i144" class="active" tabindex="0" index="144" value="144"><label for="ddcl-department_id-i144" class="ui-dropdownchecklist-text" style="cursor: default;">144</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i145" class="active" tabindex="0" index="145" value="145"><label for="ddcl-department_id-i145" class="ui-dropdownchecklist-text" style="cursor: default;">145</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i146" class="active" tabindex="0" index="146" value="146"><label for="ddcl-department_id-i146" class="ui-dropdownchecklist-text" style="cursor: default;">146</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i147" class="active" tabindex="0" index="147" value="147"><label for="ddcl-department_id-i147" class="ui-dropdownchecklist-text" style="cursor: default;">147</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i148" class="active" tabindex="0" index="148" value="148"><label for="ddcl-department_id-i148" class="ui-dropdownchecklist-text" style="cursor: default;">148</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i149" class="active" tabindex="0" index="149" value="149"><label for="ddcl-department_id-i149" class="ui-dropdownchecklist-text" style="cursor: default;">149</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i150" class="active" tabindex="0" index="150" value="150"><label for="ddcl-department_id-i150" class="ui-dropdownchecklist-text" style="cursor: default;">150</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i151" class="active" tabindex="0" index="151" value="151"><label for="ddcl-department_id-i151" class="ui-dropdownchecklist-text" style="cursor: default;">151</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i152" class="active" tabindex="0" index="152" value="152"><label for="ddcl-department_id-i152" class="ui-dropdownchecklist-text" style="cursor: default;">152</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i153" class="active" tabindex="0" index="153" value="153"><label for="ddcl-department_id-i153" class="ui-dropdownchecklist-text" style="cursor: default;">153</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i154" class="active" tabindex="0" index="154" value="154"><label for="ddcl-department_id-i154" class="ui-dropdownchecklist-text" style="cursor: default;">154</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i155" class="active" tabindex="0" index="155" value="155"><label for="ddcl-department_id-i155" class="ui-dropdownchecklist-text" style="cursor: default;">155</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i156" class="active" tabindex="0" index="156" value="156"><label for="ddcl-department_id-i156" class="ui-dropdownchecklist-text" style="cursor: default;">156</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i157" class="active" tabindex="0" index="157" value="157"><label for="ddcl-department_id-i157" class="ui-dropdownchecklist-text" style="cursor: default;">157</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i158" class="active" tabindex="0" index="158" value="158"><label for="ddcl-department_id-i158" class="ui-dropdownchecklist-text" style="cursor: default;">158</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i159" class="active" tabindex="0" index="159" value="159"><label for="ddcl-department_id-i159" class="ui-dropdownchecklist-text" style="cursor: default;">159</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i160" class="active" tabindex="0" index="160" value="160"><label for="ddcl-department_id-i160" class="ui-dropdownchecklist-text" style="cursor: default;">160</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i161" class="active" tabindex="0" index="161" value="161"><label for="ddcl-department_id-i161" class="ui-dropdownchecklist-text" style="cursor: default;">161</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i162" class="active" tabindex="0" index="162" value="162"><label for="ddcl-department_id-i162" class="ui-dropdownchecklist-text" style="cursor: default;">162</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i163" class="active" tabindex="0" index="163" value="163"><label for="ddcl-department_id-i163" class="ui-dropdownchecklist-text" style="cursor: default;">163</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i164" class="active" tabindex="0" index="164" value="164"><label for="ddcl-department_id-i164" class="ui-dropdownchecklist-text" style="cursor: default;">164</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i165" class="active" tabindex="0" index="165" value="165"><label for="ddcl-department_id-i165" class="ui-dropdownchecklist-text" style="cursor: default;">165</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i166" class="active" tabindex="0" index="166" value="166"><label for="ddcl-department_id-i166" class="ui-dropdownchecklist-text" style="cursor: default;">166</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i167" class="active" tabindex="0" index="167" value="167"><label for="ddcl-department_id-i167" class="ui-dropdownchecklist-text" style="cursor: default;">167</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i168" class="active" tabindex="0" index="168" value="168"><label for="ddcl-department_id-i168" class="ui-dropdownchecklist-text" style="cursor: default;">168</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i169" class="active" tabindex="0" index="169" value="169"><label for="ddcl-department_id-i169" class="ui-dropdownchecklist-text" style="cursor: default;">169</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i170" class="active" tabindex="0" index="170" value="170"><label for="ddcl-department_id-i170" class="ui-dropdownchecklist-text" style="cursor: default;">170</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i171" class="active" tabindex="0" index="171" value="171"><label for="ddcl-department_id-i171" class="ui-dropdownchecklist-text" style="cursor: default;">171</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i172" class="active" tabindex="0" index="172" value="172"><label for="ddcl-department_id-i172" class="ui-dropdownchecklist-text" style="cursor: default;">172</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i173" class="active" tabindex="0" index="173" value="173"><label for="ddcl-department_id-i173" class="ui-dropdownchecklist-text" style="cursor: default;">173</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i174" class="active" tabindex="0" index="174" value="174"><label for="ddcl-department_id-i174" class="ui-dropdownchecklist-text" style="cursor: default;">174</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i175" class="active" tabindex="0" index="175" value="175"><label for="ddcl-department_id-i175" class="ui-dropdownchecklist-text" style="cursor: default;">175</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i176" class="active" tabindex="0" index="176" value="176"><label for="ddcl-department_id-i176" class="ui-dropdownchecklist-text" style="cursor: default;">176</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i177" class="active" tabindex="0" index="177" value="177"><label for="ddcl-department_id-i177" class="ui-dropdownchecklist-text" style="cursor: default;">177</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i178" class="active" tabindex="0" index="178" value="178"><label for="ddcl-department_id-i178" class="ui-dropdownchecklist-text" style="cursor: default;">178</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i179" class="active" tabindex="0" index="179" value="179"><label for="ddcl-department_id-i179" class="ui-dropdownchecklist-text" style="cursor: default;">179</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i180" class="active" tabindex="0" index="180" value="180"><label for="ddcl-department_id-i180" class="ui-dropdownchecklist-text" style="cursor: default;">180</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i181" class="active" tabindex="0" index="181" value="181"><label for="ddcl-department_id-i181" class="ui-dropdownchecklist-text" style="cursor: default;">181</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i182" class="active" tabindex="0" index="182" value="182"><label for="ddcl-department_id-i182" class="ui-dropdownchecklist-text" style="cursor: default;">182</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i183" class="active" tabindex="0" index="183" value="183"><label for="ddcl-department_id-i183" class="ui-dropdownchecklist-text" style="cursor: default;">183</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i184" class="active" tabindex="0" index="184" value="184"><label for="ddcl-department_id-i184" class="ui-dropdownchecklist-text" style="cursor: default;">184</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i185" class="active" tabindex="0" index="185" value="185"><label for="ddcl-department_id-i185" class="ui-dropdownchecklist-text" style="cursor: default;">185</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i186" class="active" tabindex="0" index="186" value="186"><label for="ddcl-department_id-i186" class="ui-dropdownchecklist-text" style="cursor: default;">186</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i187" class="active" tabindex="0" index="187" value="187"><label for="ddcl-department_id-i187" class="ui-dropdownchecklist-text" style="cursor: default;">187</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i188" class="active" tabindex="0" index="188" value="188"><label for="ddcl-department_id-i188" class="ui-dropdownchecklist-text" style="cursor: default;">188</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i189" class="active" tabindex="0" index="189" value="189"><label for="ddcl-department_id-i189" class="ui-dropdownchecklist-text" style="cursor: default;">189</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i190" class="active" tabindex="0" index="190" value="190"><label for="ddcl-department_id-i190" class="ui-dropdownchecklist-text" style="cursor: default;">190</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i191" class="active" tabindex="0" index="191" value="191"><label for="ddcl-department_id-i191" class="ui-dropdownchecklist-text" style="cursor: default;">191</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i192" class="active" tabindex="0" index="192" value="192"><label for="ddcl-department_id-i192" class="ui-dropdownchecklist-text" style="cursor: default;">192</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i193" class="active" tabindex="0" index="193" value="193"><label for="ddcl-department_id-i193" class="ui-dropdownchecklist-text" style="cursor: default;">193</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i194" class="active" tabindex="0" index="194" value="194"><label for="ddcl-department_id-i194" class="ui-dropdownchecklist-text" style="cursor: default;">194</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i195" class="active" tabindex="0" index="195" value="195"><label for="ddcl-department_id-i195" class="ui-dropdownchecklist-text" style="cursor: default;">195</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i196" class="active" tabindex="0" index="196" value="196"><label for="ddcl-department_id-i196" class="ui-dropdownchecklist-text" style="cursor: default;">196</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i197" class="active" tabindex="0" index="197" value="197"><label for="ddcl-department_id-i197" class="ui-dropdownchecklist-text" style="cursor: default;">197</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i198" class="active" tabindex="0" index="198" value="198"><label for="ddcl-department_id-i198" class="ui-dropdownchecklist-text" style="cursor: default;">198</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i199" class="active" tabindex="0" index="199" value="199"><label for="ddcl-department_id-i199" class="ui-dropdownchecklist-text" style="cursor: default;">199</label></div><div class="ui-dropdownchecklist-item ui-state-default" style="white-space: nowrap;"><input disabled="" type="checkbox" id="ddcl-department_id-i200" class="active" tabindex="0" index="200" value="200"><label for="ddcl-department_id-i200" class="ui-dropdownchecklist-text" style="cursor: default;">200</label></div></div></div></td>
+                  <td><a href="./My 5_files/My 5.html" class="button screens" id="dep_button">OK</a></td>
+                </tr>
+      
+                <tr>
+                  <td>Suburb :</td>
+                  <td>
+                    <form class="custom"><select class="dropdown" id="city" name="city"><option value=""></option><option value="Sydney">Sydney</option>
+      <option value="ujjain">Ujjain</option></select></form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>City :</td>
+                  <td>
+                    <form class="custom"><select class="dropdown" id="state" name="state"><option value=""></option><option value="mp">Mp</option>
+      <option value="New South Wales">New south wales</option>
+      <option value="NSW">Nsw</option></select></form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Country :</td>
+                  <td>
+                    <form class="custom"><select class="dropdown" id="country" name="country"><option value=""></option><option value="AU">Au</option>
+      <option value="Australia">Australia</option>
+      <option value="Syndney">Syndney</option></select></form>
+                  </td>
+                </tr>
+      
+                <tr>
+                  <td>Role :</td>
+                  <td>
+                    <form class="custom"><select class="dropdown" id="role_id" name="role_id"><option value=""></option><option value="Assistant/Admin">Assistant/admin</option>
+      <option value="Customer_support">Customer support</option>
+      <option value="field_expert">Field expert</option>
+      <option value="standard">Standard</option>
+      <option value="team_leader">Team leader</option>
+      <option value="line_manager">Line manager</option>
+      <option value="manager">Manager</option>
+      <option value="department_manager">Department manager</option>
+      <option value="general_manager">General manager</option>
+      <option value="state_manager">State manager</option>
+      <option value="national_manager">National manager</option>
+      <option value="global_manager">Global manager</option>
+      <option value="executive">Executive</option></select></form>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+            <td class="td">
+              <div class="date_wrap pull_right">
+                From  <span style="position: relative;"><input class="input" id="from_date" name="from_date" placeholder="DD/MM/YYYY" type="text" value="" globalnumber="730"><div class="JsDatePickBox" style="z-index: 3; position: absolute; top: 18px; left: 0px; display: none;"><div class="boxLeftWall"><div class="leftTopCorner"></div><div class="leftWall"></div><div class="leftBottomCorner"></div></div><div class="boxMain"><div class="boxMainInner"><div class="controlsBar" globalnumber="730"><div class="monthForwardButton" globalnumber="730"></div><div class="monthBackwardButton" globalnumber="730"></div><div class="yearForwardButton" globalnumber="730"></div><div class="yearBackwardButton" globalnumber="730"></div><div class="controlsBarText">September, 2013</div></div><div class="clearfix"></div><div class="tooltip"></div><div class="weekDaysRow"><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div><div class="weekDay" style="margin-right: 0px;">Sun</div></div><div class="boxMainCellsContainer"><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div globalnumber="730" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">1</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">2</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">3</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">4</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">5</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">6</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">7</div><div globalnumber="730" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">8</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">9</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">10</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">11</div><div globalnumber="730" istoday="1" class="dayNormalToday" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">12</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">13</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">14</div><div globalnumber="730" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">15</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">16</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">17</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">18</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">19</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">20</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">21</div><div globalnumber="730" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">22</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">23</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">24</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">25</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">26</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">27</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">28</div><div globalnumber="730" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">29</div><div globalnumber="730" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">30</div></div><div class="clearfix"></div></div></div><div class="boxRightWall"><div class="rightTopCorner"></div><div class="rightWall"></div><div class="rightBottomCorner"></div></div><div class="clearfix"></div><div class="jsDatePickCloseButton" globalnumber="730"></div><div class="topWall"></div><div class="bottomWall"></div></div></span>
+                To <span style="position: relative;"><input class="input" id="to_date" name="to_date" placeholder="DD/MM/YYYY" type="text" value="" globalnumber="83"><div class="JsDatePickBox" style="z-index: 3; position: absolute; top: 18px; left: 0px; display: none;"><div class="boxLeftWall"><div class="leftTopCorner"></div><div class="leftWall"></div><div class="leftBottomCorner"></div></div><div class="boxMain"><div class="boxMainInner"><div class="controlsBar" globalnumber="83"><div class="monthForwardButton" globalnumber="83"></div><div class="monthBackwardButton" globalnumber="83"></div><div class="yearForwardButton" globalnumber="83"></div><div class="yearBackwardButton" globalnumber="83"></div><div class="controlsBarText">September, 2013</div></div><div class="clearfix"></div><div class="tooltip"></div><div class="weekDaysRow"><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div><div class="weekDay" style="margin-right: 0px;">Sun</div></div><div class="boxMainCellsContainer"><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div class="skipDay"></div><div globalnumber="83" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">1</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">2</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">3</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">4</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">5</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">6</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">7</div><div globalnumber="83" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">8</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">9</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">10</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">11</div><div globalnumber="83" istoday="1" class="dayNormalToday" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">12</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">13</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">14</div><div globalnumber="83" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">15</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">16</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">17</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">18</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">19</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">20</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">21</div><div globalnumber="83" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">22</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">23</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">24</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">25</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">26</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">27</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">28</div><div globalnumber="83" class="dayNormal" style="margin-right: 0px; background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">29</div><div globalnumber="83" class="dayNormal" style="background-image: url(http://localhost:3000/my5/dashboard/img/ocean_blue_dayNormal.gif); background-position: 0% 0%; background-repeat: no-repeat no-repeat;">30</div></div><div class="clearfix"></div></div></div><div class="boxRightWall"><div class="rightTopCorner"></div><div class="rightWall"></div><div class="rightBottomCorner"></div></div><div class="clearfix"></div><div class="jsDatePickCloseButton" globalnumber="83"></div><div class="topWall"></div><div class="bottomWall"></div></div></span>
+                <form class="custom">
+                  <select class="dropdown" id="frequency" name="frequency"><option value="1" selected="selected">Daily</option>
+      <option value="7">Weekly</option>
+      <option value="30">1 Month</option>
+      <option value="60">2 Months</option>
+      <option value="90">3 Months</option>
+      <option value="120">4 Months</option>
+      <option value="160">5 Months</option>
+      <option value="190">6 Months</option>
+      <option value="210">7 Months</option>
+      <option value="240">8 Months</option>
+      <option value="270">9 Months</option>
+      <option value="300">10 Months</option>
+      <option value="330">11 Months</option>
+      <option value="360">12 Months</option></select>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody></table>
+        <div class="clear"></div>
+        <a href="./My 5_files/My 5.html" class="button ok_bottom" id="Ok">OK</a>
+      </div>
+      <br>
+      
+      
+      
+      
+      
+      <div id="graph_filter">
+        <a href="./My 5_files/My 5.html" class="button screens orange_button" id="screen_1">Content</a> <a href="./My 5_files/My 5.html" class="button screens blue_button" id="screen_2">Time</a>  <a href="./My 5_files/My 5.html" class="button screens grey_button" id="screen_3">Frequency</a>    <img alt="Loading" id="loader" src="./My 5_files/loading.gif" style="display: none;">
+        <div style="display: none" id="buttons_separated_merged">
+          <a href="./My 5_files/My 5.html" class="button screens" id="separated" style="backgroundColor:#22A7F2;">Separated</a>
+          <a href="./My 5_files/My 5.html" class="button screens" id="merged" style="backgroundColor:#22A7F2;">Merged</a>
+        </div>
+        <div style="width: 100%; margin: 10px;"></div>
+      </div>
+      
+      
+      <table class="report_layout_table table_layout">
+        <tbody><tr>
+          <td class="td">
+            <div class="left_menu_wrap">
+        <div class="left_menu_header"> Content</div>
+        <div style="padding: 10px 22px;">
+          <a href="./My 5_files/My 5.html" class="graph_for" id="all" style="color: black; border: 0px solid black;">All</a>
+          <div class="sub_menu">
+            <a href="./My 5_files/My 5.html" class="graph_for" id="symptomatics" style="color: black; border: 0px solid black;">Symptomatics</a>
+            <span class="toggle_plus" id="plus" style="display: inline;">+</span>
+            <span class="toggle_minus" id="minus" style="display: none;">-</span>
+      
+                <div>
+                  <ul style="display: none;" class="first_child">
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="1" style="color: black; border: 0px solid black;">Headache</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="41" style="color: black; border: 0px solid black;">Headache and tired eyes pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="42" style="color: black; border: 0px solid black;">Headache and neck pain pressure point</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="2" style="color: black; border: 0px solid black;">Fatigue</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="37" style="color: black; border: 0px solid black;">Energise</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="43" style="color: black; border: 0px solid black;">Fatigue pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="65" style="color: black; border: 0px solid black;">Kick start your day</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="3" style="color: black; border: 0px solid black;">Stress</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="31" style="color: black; border: 0px solid black;">De-stress</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="44" style="color: black; border: 0px solid black;">Stress and calming the mind pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="45" style="color: black; border: 0px solid black;">Stress and nausea pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="49" style="color: black; border: 0px solid black;">Abdomen breathing</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="50" style="color: black; border: 0px solid black;">Get it out of your head</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="51" style="color: black; border: 0px solid black;">Learn to recognise the triggers</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="52" style="color: black; border: 0px solid black;">Learn to say no!</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="53" style="color: black; border: 0px solid black;">Count to 10</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="54" style="color: black; border: 0px solid black;">Smile</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="55" style="color: black; border: 0px solid black;">Line of personalisation</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="4" style="color: black; border: 0px solid black;">Tired Eyes</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="5" style="color: black; border: 0px solid black;">Lazy eight</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="48" style="color: black; border: 0px solid black;">Eye stretches</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="62" style="color: black; border: 0px solid black;">Palming</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="63" style="color: black; border: 0px solid black;">Look into the distance</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="5" style="color: black; border: 0px solid black;">Concentration</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="13" style="color: black; border: 0px solid black;">Cross crawl</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="56" style="color: black; border: 0px solid black;">Picture this</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="57" style="color: black; border: 0px solid black;">Visualise</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="58" style="color: black; border: 0px solid black;">Near to far</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="59" style="color: black; border: 0px solid black;">Counting words</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="60" style="color: black; border: 0px solid black;">Counting numbers</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="68" style="color: black; border: 0px solid black;">Energy yawn</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="69" style="color: black; border: 0px solid black;">Brain buttons</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="70" style="color: black; border: 0px solid black;">Balance buttons</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="6" style="color: black; border: 0px solid black;">Neck Pain and Stiffness</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="28" style="color: black; border: 0px solid black;">Neck stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="29" style="color: black; border: 0px solid black;">Backward bend</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="30" style="color: black; border: 0px solid black;">Head turns</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="34" style="color: black; border: 0px solid black;">Head tilts</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="39" style="color: black; border: 0px solid black;">Neck and shoulder pain pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="40" style="color: black; border: 0px solid black;">Neck and shoulder pain pressure point 2</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="7" style="color: black; border: 0px solid black;">Shoulder Tension</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="7" style="color: black; border: 0px solid black;">Up and over</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="10" style="color: black; border: 0px solid black;">Shoulder rolls</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="11" style="color: black; border: 0px solid black;">Arm openings</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="24" style="color: black; border: 0px solid black;">Two-armed backward stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="25" style="color: black; border: 0px solid black;">Shoulder extensions</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="26" style="color: black; border: 0px solid black;">Upper arm stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="27" style="color: black; border: 0px solid black;">Cross body stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="64" style="color: black; border: 0px solid black;">Shoulder openings</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="66" style="color: black; border: 0px solid black;">Shoulder and neck pain pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="67" style="color: black; border: 0px solid black;">Shoulder and neck pain pressure point 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="72" style="color: black; border: 0px solid black;">Shoulder shrugs</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="8" style="color: black; border: 0px solid black;">Tension in Arms</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Overhead arm stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="18" style="color: black; border: 0px solid black;">Finger stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="19" style="color: black; border: 0px solid black;">Praying stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="20" style="color: black; border: 0px solid black;">Backward stretch</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="9" style="color: black; border: 0px solid black;">Tension in Legs</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="14" style="color: black; border: 0px solid black;">Calf stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="15" style="color: black; border: 0px solid black;">Thigh stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="16" style="color: black; border: 0px solid black;">Gluteal stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="17" style="color: black; border: 0px solid black;">Hamstring stretch</a>
+                                    </li>
+                              </ul>
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="10" style="color: black; border: 0px solid black;">Back Pain</a>
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Upper back stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Upward stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="8" style="color: black; border: 0px solid black;">Spine twists</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="21" style="color: black; border: 0px solid black;">Thread the needle</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="22" style="color: black; border: 0px solid black;">Body stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="23" style="color: black; border: 0px solid black;">Back stretch and turn</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="35" style="color: black; border: 0px solid black;">Rolldowns</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="46" style="color: black; border: 0px solid black;">Side stretch</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="47" style="color: black; border: 0px solid black;">Side reach</a>
+                                    </li>
+                              </ul>
+                        </li>
+                  </ul>
+                </div>
+          </div>
+      
+          <div class="sub_menu">
+            <a href="./My 5_files/My 5.html" class="graph_for" id="mini_modules" style="color: black; border: 0px solid black;">Mini Modules</a>
+            <span class="toggle_plus" id="plus" style="display: inline;">+</span>
+            <span class="toggle_minus" id="minus" style="display: none;">-</span>
+      
+                <div style="padding: 10px 10px;">
+                  <ul style="display: none;" class="first_child">
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="3" style="color: black; border: 0px solid black;">Wake Up Exercises</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="4" style="color: black; border: 0px solid black;">Work Station Workout</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="5" style="color: black; border: 0px solid black;">Energise</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="6" style="color: black; border: 0px solid black;">Back Care</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="7" style="color: black; border: 0px solid black;">De-Stress</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="8" style="color: black; border: 0px solid black;">Simply Stretch</a></li>
+                        <li> <a href="./My 5_files/My 5.html" class="graph_for_items" id="10" style="color: black; border: 0px solid black;">Kick Start Your Day</a></li>
+                  </ul>
+                </div>
+          </div>
+      
+          <div class="sub_menu">
+            <a href="./My 5_files/My 5.html" class="graph_for" id="my_eqs" style="color: black; border: 0px solid black;">My EQ</a>
+            <span class="toggle_plus" id="plus" style="display: inline;">+</span>
+            <span class="toggle_minus" id="minus" style="display: none;">-</span>
+      
+                <div style="padding: 10px 10px;">
+                  <ul style="display: none;" class="first_child">
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="1" style="color: black; border: 0px solid black;">Worry / Anxiety</a>
+                          <!-- MyEq STEPS END -->
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="0" style="color: black; border: 0px solid black;">Stop! Take a breath in</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="1" style="color: black; border: 0px solid black;">Pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Personal inventory</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Design a strategy</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Breathe it out</a>
+                                    </li>
+                              </ul>
+                          <!-- MyEq STEPS END -->
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="2" style="color: black; border: 0px solid black;">Insecure / Fearful</a>
+                          <!-- MyEq STEPS END -->
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="0" style="color: black; border: 0px solid black;">Stop! Take a breath in</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="1" style="color: black; border: 0px solid black;">Pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Personal inventory</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Design a strategy</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Breathe it out</a>
+                                    </li>
+                              </ul>
+                          <!-- MyEq STEPS END -->
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="3" style="color: black; border: 0px solid black;">Anger / Procrastination / Frustration</a>
+                          <!-- MyEq STEPS END -->
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="0" style="color: black; border: 0px solid black;">Stop! Take a breath in</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="1" style="color: black; border: 0px solid black;">Pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Personal inventory</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Design a strategy</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Breathe it out</a>
+                                    </li>
+                              </ul>
+                          <!-- MyEq STEPS END -->
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="4" style="color: black; border: 0px solid black;">Sad / Overly Sensitive</a>
+                          <!-- MyEq STEPS END -->
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="0" style="color: black; border: 0px solid black;">Stop! Take a breath in</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="1" style="color: black; border: 0px solid black;">Pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Personal inventory</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Design a strategy</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Breathe it out</a>
+                                    </li>
+                              </ul>
+                          <!-- MyEq STEPS END -->
+                        </li>
+                        <li>
+                          <a href="./My 5_files/My 5.html" class="graph_for_items" id="5" style="color: black; border: 0px solid black;">Vague / Overwhelmed</a>
+                          <!-- MyEq STEPS END -->
+                              <span class="toggle_plus" id="sub_plus" style="display: inline;">+</span>
+                              <span class="toggle_minus" id="sub_minus" style="display: none;">-</span>
+      
+                              <ul style="display: none;" class="second_child">
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="0" style="color: black; border: 0px solid black;">Stop! Take a breath in</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="1" style="color: black; border: 0px solid black;">Pressure point</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="2" style="color: black; border: 0px solid black;">Personal inventory</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="3" style="color: black; border: 0px solid black;">Design a strategy</a>
+                                    </li>
+                                    <li>
+                                      <a href="./My 5_files/My 5.html" class="graph_for_items_child" id="4" style="color: black; border: 0px solid black;">Breathe it out</a>
+                                    </li>
+                              </ul>
+                          <!-- MyEq STEPS END -->
+                        </li>
+                  </ul>
+                </div>
+          </div>
+      
+          <div class="sub_menu">
+            <a href="./My 5_files/My 5.html" class="graph_for" id="audio_programs" style="color: black; border: 0px solid black;">Audio Programs</a>
+            <span class="toggle_plus" id="plus" style="display: inline;">+</span>
+            <span class="toggle_minus" id="minus" style="display: none;">-</span>
+      
+                <div style="padding: 10px 10px;">
+                  <ul style="display: none;" class="first_child">
+                        <li><a href="./My 5_files/My 5.html" class="graph_for_items" id="1" style="color: black; border: 0px solid black;">Concentration/Focus exercises</a></li>
+                        <li><a href="./My 5_files/My 5.html" class="graph_for_items" id="2" style="color: black; border: 0px solid black;">Eye exercises</a></li>
+                        <li><a href="./My 5_files/My 5.html" class="graph_for_items" id="3" style="color: black; border: 0px solid black;">Stress Buster exercises</a></li>
+                  </ul>
+                </div>
+          </div>
+      
+          <a href="./My 5_files/My 5.html" class="graph_for" id="health_checkin" style="color: black; border: 0px solid black;">Health Checkin</a>
+        </div>
+      </div>
+      
+          </td>
+          <td class="td">
+            <div id="graph">  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found</div>
+<input id="graph_view" name="graph_view" type="hidden" value="1">
+<input id="department_view_mode" name="department_view_mode" type="hidden" value="">
+
+
+</div>
+          </td>
+        </tr>
+      </tbody></table>
+      
+      
+      
+      <script language="javascript" type="text/javascript">
+          $(document).ready(function () {
+              $('#screen_1').live('click', function (e) {
+                  change_color_of_screen();
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("backgroundColor", "green");
+                  if ($('#department_id').val() != null)
+                      $("#buttons_separated_merged").show();
+                  graph_view(1, "all", "", "");
+                  return false;
+              });
+              $('#screen_2').live('click', function (e) {
+                  change_color_of_screen();
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("backgroundColor", "green");
+                  $("#buttons_separated_merged").hide();
+                  graph_view(2, "all", "", "");
+                  return false;
+              });
+              $('#screen_3').live('click', function (e) {
+                  change_color_of_screen();
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("backgroundColor", "green");
+                  $("#buttons_separate_merged").hide();
+                  graph_view(3, "all", "", "");
+                  return false;
+              });
+      
+              $('#separated').live('click', function (e) {
+                  change_color_of_screen();
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("backgroundColor", "green");
+                  department_view_mode("separated", "all");
+                  return false;
+              });
+      
+      
+              $('#merged').live('click', function (e) {
+                  change_color_of_screen();
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("backgroundColor", "green");
+                  department_view_mode("merged", "all");
+                  return false;
+              });
+      
+              $('#company_id').live('change', function (e) {
+                  company_filter("all", $(this).val(), "", "", "", "", "");
+                  return false;
+              });
+              $('#city').live('change', function (e) {
+                  company_filter("all", "", $(this).val(), "", "", "");
+                  return false;
+              });
+              $('#role_id').live('change', function (e) {
+                  company_filter("all", "", "", "", $(this).val(), "", "");
+                  return false;
+              });
+              $('#state').live('change', function (e) {
+                  company_filter("all", "", "", "", $(this).val(), "");
+                  return false;
+              });
+              $('#country').live('change', function (e) {
+                  company_filter("all", "", "", "", "", "", $(this).val());
+                  return false;
+              });
+              $('#department_id').live('change', function (e) {
+                  if ($('#department_id').val() != null) {
+                      $("#buttons_separated_merged").show();
+                      $('#dep_button').show();
+                  }
+      
+                  else {
+                      $("#buttons_separated_merged").hide();
+                      $('#dep_button').hide();
+                  }
+      //        company_filter("all","",$(this).val(),"","","","");
+                  return false;
+              });
+      
+              $('#dep_button').live('click', function (e) {
+                  company_filter("all", "", $('#department_id').val(), "", "", "", "");
+                  return false;
+              });
+      
+              $('.graph_for').live('click', function (e) {
+                  var page_type = $(this).attr('id');
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).css("color", "#3E576F").css("border", "1px black solid");
+                  var graph_views = $("#graph_view").val();
+                  graph_view(graph_views, page_type, "", "");
+                  return false;
+              });
+              $('.graph_for_items').live('click', function (e) {
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).closest('div').parent().find(".graph_for").css("color", "#3E576F").css("border", "1px black solid");
+                  $(this).css("color", "#3E576F").css("border", "1px black solid");
+                  var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
+                  var page_id = $(this).attr('id');
+                  var graph_views = $("#graph_view").val();
+                  graph_view(graph_views, page_type, page_id, "");
+                  return false;
+              });
+              $('.graph_for_items_child').live('click', function (e) {
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  $(this).closest('div').parent().find(".graph_for").css("color", "#3E576F").css("border", "1px black solid");
+                  $(this).closest('.graph_for_items').css("color", "#3E576F").css("border", "1px black solid");
+                  $(this).css("color", "#3E576F").css("border", "1px black solid");
+                  var page_type = $(this).closest('div').parent().find(".graph_for").attr('id');
+                  var page_id = $(this).closest('ul.second_child').parent().find(".graph_for_items").attr('id');
+                  var video_id = $(this).attr('id');
+                  var graph_views = $("#graph_view").val();
+                  graph_view(graph_views, page_type, page_id, video_id);
+                  return false;
+              });
+              $('#Ok').live('click', function (e) {
+                  $('.graph_for').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+                  $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+                  var graph_views = $("#graph_view").val();
+                  graph_view(graph_views, "all", "", "");
+              });
+              $('#plus').live('click', function (e) {
+                  var submenu = $(this).closest('div')
+                  submenu.find("#minus").css("display", "inline");
+                  $(this).css("display", "none");
+                  submenu.find('ul.first_child').css("display", "inline");
+                  return false;
+              });
+              $('#sub_plus').live('click', function (e) {
+                  var submenu = $(this).closest('li')
+                  submenu.find("#sub_minus").css("display", "inline");
+                  $(this).css("display", "none");
+                  submenu.find('ul').css("display", "inline");
+                  return false;
+              });
+              $('#sub_minus').live('click', function (e) {
+                  var submenu = $(this).closest('li')
+                  submenu.find("#sub_plus").css("display", "inline");
+                  $(this).css("display", "none");
+                  submenu.find('ul').css("display", "none");
+                  return false;
+              });
+              $('#minus').live('click', function (e) {
+                  var submenu = $(this).closest('div')
+                  submenu.find("#plus").css("display", "inline");
+                  submenu.find("#sub_minus").css("display", "none");
+                  submenu.find("#sub_plus").css("display", "inline");
+                  submenu.find("ul.second_child").css("display", "none");
+                  $(this).css("display", "none");
+                  ;
+                  submenu.find('ul').css("display", "none");
+                  ;
+                  return false;
+              });
+              $('#column_graph').live('click', function (e) {
+                  $('#main_container').show("fast");
+                  $('#bar_container').hide("fast");
+                  $('#pie_container').hide("fast");
+                  return false;
+              });
+              $('#bar_graph').live('click', function (e) {
+                  $('#main_container').hide("fast");
+                  $('#bar_container').show("fast");
+                  $('#pie_container').hide("fast");
+                  return false;
+              });
+              $('#pie_graph').live('click', function (e) {
+                  $('#main_container').hide("fast");
+                  $('#bar_container').hide("fast");
+                  $('#pie_container').show("fast");
+                  return false;
+              });
+          });
+      
+          function change_color_of_screen() {
+              $('.screens').each(function (index) {
+                  $(this).css("backgroundColor", "#22A7F2");
+              });
+          }
+      
+          function department_view_mode(dep_mode, page) {
+              $('.graph_for').css("color", "black").css("border", "0px black solid");
+              $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+              $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+              var from_date = $('#from_date').val();
+              var to_date = $('#to_date').val();
+              var graph_views = $("#graph_view").val();
+              var company_id = $('#company_id').val();
+              var department_id = $('#department_id').val();
+              var location_name = $('#city').val();
+              var role = $('#role_id').val();
+              var state = $('#state').val();
+              var country = $('#country').val();
+              var frequency = $("#frequency").val();
+              var dep_mode = dep_mode;
+              $.ajax({
+                  type: "GET",
+                  async: false,
+                  url: "/my5/dashboard/screen1",
+                  data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
+                  beforeSend: function () {
+                      $("#loader").show('fast');
+                      $('#screen_' + graph_views).css("backgroundColor", "green");
+                  },
+                  success: function (data) {
+                      $("#loader").hide('fast');
+                  }
+              });
+      
+          }
+      
+      
+          function company_filter(page, company_id, department_id, location_name, role, state, country) {
+              $('.graph_for').css("color", "black").css("border", "0px black solid");
+              $('.graph_for_items').css("color", "black").css("border", "0px black solid");
+              $('.graph_for_items_child').css("color", "black").css("border", "0px black solid");
+              var from_date = $('#from_date').val();
+              var to_date = $('#to_date').val();
+              var graph_views = $("#graph_view").val();
+              if (company_id == "") {
+                  company_id = $('#company_id').text();
+              }
+              if (department_id == 'null') {
+                  department_id = $('#department_id').val();
+              }
+              if (location_name == "") {
+                  location_name = $('#city').val();
+              }
+              if (role == "") {
+                  role = $('#role_id').val();
+              }
+              if (state == "") {
+                  state = $('#state').val();
+              }
+              if (country == "") {
+                  country = $('#country').val();
+              }
+              if ($.trim(graph_views) == "undefined" || graph_views == "") {
+                  graph_views = 1;
+              }
+              var frequency = $("#frequency").val();
+              var dep_mode;
+              var department_views = $("#department_view_mode").val();
+              if (graph_views == "1")
+                  if (department_views == 'undefined' || department_views == "")
+                      dep_mode = "merged"
+                  else
+                      dep_mode = $("#department_view_mode").val();
+              else
+                  dep_mode = "merged"
+      
+              $.ajax({
+                  type: "GET",
+                  async: false,
+                  url: "/my5/dashboard/screen1",
+                  data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
+                  beforeSend: function () {
+                      $("#loader").show('fast');
+                      $('#screen_' + graph_views).css("backgroundColor", "green");
+                  },
+                  success: function (data) {
+                      $("#loader").hide('fast');
+                  }
+              });
+          }
+          function graph_view(id, page, page_id, video_id) {
+              var from_date = $('#from_date').val();
+              var to_date = $('#to_date').val();
+              var company_id = $('#company_id').text();
+              var department_id = $('#department_id').val();
+              var location_name = $('#city').val();
+              var role = $('#role_id').val();
+              var state = $('#state').val();
+              var country = $('#country').val();
+              var frequency = $("#frequency").val();
+              var dep_mode;
+              if (id == 1)
+                  dep_mode = $("#department_view_mode").val();
+              else
+                  dep_mode = "merged"
+      
+              $.ajax({
+                  type: "GET",
+                  async: false,
+                  url: "/my5/dashboard/screen1",
+                  data: {"graph_view": id, "page": page, "page_id": page_id, "company_id": company_id, "department_id": department_id, "from_date": from_date, "to_date": to_date, "location": location_name, "state": state, "country": country, "role": role, "video_id": video_id, "frequency": frequency, "department_view_mode": dep_mode},
+                  beforeSend: function () {
+                      $("#loader").show('fast');
+                  },
+                  complete: function (data) {
+                      console.log(data)
+                  },
+                  success: function (data) {
+                      $("#loader").hide('fast');
+                  }
+              });
+      
+          }
+      </script>
+      <script type="text/javascript">
+          window.onload = function () {
+      //        $('#department_id').chosen();
+              $(document).ready(function() {
+                  $('#department_id').dropdownchecklist( { width: 70,  maxDropHeight: 150 });
+              });
+              new JsDatePick({
+                  useMode: 2,
+                  target: "from_date",
+                  dateFormat: "%d-%m-%Y"
+              });
+              new JsDatePick({
+                  useMode: 2,
+                  target: "to_date",
+                  dateFormat: "%d-%m-%Y",
+                  imgPath: "img/"
+              });
+              $("#Ok").click();
+          };
+      </script>
+    </div>
+    <div id="footer">
+      <nav>
+        <ul class="titles">
+          <li class="first"><a href="http://localhost:3000/pages/features">Features</a></li>
+          <li><a href="http://localhost:3000/pages/services">Services</a></li>
+          <li><a href="http://localhost:3000/pages/pricing">Pricing</a></li>
+          <li><a href="http://localhost:3000/pages/about">About Us</a></li>
+          <li><a href="http://localhost:3000/pages/contact-us">Contact us</a></li>
+        </ul>
+        <ul class="first">
+          <li><a href="http://localhost:3000/pages/features">Key features</a></li>
+          <li><a href="http://localhost:3000/pages/workplace">The Workplace</a></li>
+        </ul>
+        <ul>
+          <li><a href="http://localhost:3000/pages/services">Our Services</a></li>
+        </ul>
+        <ul>
+          <li><a href="http://localhost:3000/pages/pricing">Individual</a></li>
+          <li class="double-line"><a href="http://localhost:3000/pages/corporate-and-enterprise-membership">Corporate and Enterprise</a></li>
+        </ul>
+        <ul>
+          <li><a href="http://localhost:3000/pages/vision">Vision</a></li>
+          <li><a href="http://localhost:3000/pages/values">Values</a></li>
+          <li><a href="http://localhost:3000/pages/people">People</a></li>
+          <li><a href="http://localhost:3000/pages/tim-norris">Tim Norris</a></li>
+          <li><a href="http://localhost:3000/pages/testimonials">Testimonials</a></li>
+          <li><a href="http://localhost:3000/pages/careers">Careers</a></li>
+          <li><a href="http://localhost:3000/pages/terms-and-conditions">Terms and Conditions</a></li>
+          <li><a href="http://localhost:3000/pages/privacy-policy">Privacy Policy</a></li>
+        </ul>
+        <ul>
+          <li><a href="http://localhost:3000/pages/contact-us">Get in touch</a></li>
+        </ul>
+        <ul class="last">
+          <li><a href="http://localhost:3000/customers/sign_out">Sign out</a></li>
+        </ul>
+      </nav>
+      <div id="line">My 5 Pty Ltd | ABN: 19 121 460517</div>
+      <div id="logo"><img alt="Logo" src="./My 5_files/logo.png"></div>
+    </div>
+    <script>
+      //<![CDATA[
+        var _bugHerdAPIKey = '9b4d1851-3fa6-4117-812a-bf74418a4a36';
+        (function (d, t) {
+            var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            bh.type = 'text/javascript';
+            bh.src = "//www.bugherd.com/bugherd.js?";
+            s.parentNode.insertBefore(bh, s);
+        })(document, 'script');
+        
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26361746-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+    <script>
+      //<![CDATA[
+        $(document).ready(function(){
+            $(document).foundation({ disable_class: 'no-custom' });
+        });
+      //]]>
+    </script>
+  
+
+</body></html>

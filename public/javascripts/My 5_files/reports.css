@@ -84,72 +84,49 @@
 .left_menu_wrap {
   font-size: 12px;
   width: 170px;
-  padding: 20px 20px 20px 30px;
+  padding: 20px;
   background: #f2f0f0;
   border-radius: 4px;
 }
 /* line 44, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.left_menu_wrap .li {
+.left_menu_wrap .graph_for {
   position: relative;
-  margin-left: 10px;
-  list-style: none;
-}
-/* line 48, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.left_menu_wrap .graph_for, .left_menu_wrap .graph_for_items, .left_menu_wrap .graph_for_items_child {
-  position: relative;
-}
-/* line 50, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.left_menu_wrap .graph_for.active, .left_menu_wrap .graph_for_items.active, .left_menu_wrap .graph_for_items_child.active {
-  text-decoration: underline;
-}
-/* line 52, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.left_menu_wrap .all_link {
-  margin-left: 10px;
 }
 
-/* line 55, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 47, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .sub_menu {
   position: relative;
-  margin-left: 10px;
+  padding-left: 20px;
 }
-/* line 58, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 50, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .sub_menu .toggle_plus, .sub_menu .toggle_minus {
-  display: block;
   position: absolute;
-  left: -20px;
-  top: 5px;
+  left: 0;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 15px;
-  text-align: center;
+  font-weight: 700;
   color: white;
   background: #e0983a;
-  width: 13px;
-  height: 13px;
-  vertical-align: middle;
-  border-radius: 2px;
+  width: 14px;
+  height: 14px;
+  vertical-align: bottom;
 }
-/* line 73, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.sub_menu .toggle_plus:hover, .sub_menu .toggle_minus:hover {
-  cursor: pointer;
-}
-/* line 75, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 60, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .sub_menu .toggle_minus {
   display: none;
 }
 
-/* line 80, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 64, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table .col3 {
   text-align: center;
   border: 1px solid gray;
 }
 
-/* line 84, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 68, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #buttons_separated_merged {
   float: right;
 }
 
-/* line 87, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 71, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #dep_button {
   backgroundColor: #22a7f2;
   float: left;
@@ -158,11 +135,11 @@
   display: none;
 }
 
-/* line 94, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 78, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports {
   padding: 15px;
 }
-/* line 96, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 80, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .h1 {
   font-size: 20px;
   font-weight: 700;
@@ -171,7 +148,7 @@
   margin-left: 12px;
   margin-bottom: 28px;
 }
-/* line 103, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 87, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .button {
   margin-left: 12px;
   margin-bottom: 24px;
@@ -181,35 +158,19 @@
   text-shadow: none;
   box-shadow: none;
 }
-/* line 111, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-#reports .button:hover, #reports .button.active {
-  background: #284b24;
-}
-/* line 113, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 95, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .orange_button {
   background: #e0983a;
 }
-/* line 115, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-#reports .orange_button:hover, #reports .orange_button.active {
-  background: #6f4712;
-}
-/* line 117, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 97, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .blue_button {
   background: #8ec7ed;
 }
-/* line 119, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-#reports .blue_button:hover, #reports .blue_button.active {
-  background: #1f81c3;
-}
-/* line 121, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 99, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .grey_button {
   background: #bcbdbf;
 }
-/* line 123, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-#reports .grey_button:hover, #reports .grey_button.active {
-  background: #6e7074;
-}
-/* line 125, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 101, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .table_wrap {
   position: relative;
   font-size: 11px;
@@ -219,14 +180,14 @@
   background: #f2f0f0;
   border-radius: 4px;
 }
-/* line 133, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 109, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .table_wrap .ok_bottom {
   position: absolute;
   margin: 0;
   bottom: 20px;
   right: 20px;
 }
-/* line 138, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 114, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .dropdown, #reports .input {
   font-size: 11px;
   line-height: 26px;
@@ -240,17 +201,17 @@
   border-radius: 2px;
 }
 
-/* line 150, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 126, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .pull_left {
   float: left;
 }
 
-/* line 153, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 129, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .pull_right {
   float: right;
 }
 
-/* line 156, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 132, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clear {
   clear: both;
   display: block;
@@ -261,11 +222,11 @@
 }
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
-/* line 165, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 141, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix {
   zoom: 1;
 }
-/* line 167, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 143, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix:after, .clearfix:before {
   content: "\0020";
   display: block;
@@ -274,47 +235,22 @@
   width: 0;
   height: 0;
 }
-/* line 174, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 150, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix:after {
   clear: both;
 }
 
-/* line 177, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 153, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .table_layout {
   width: 100%;
 }
-/* line 179, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 155, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .table_layout .td {
   vertical-align: top;
 }
 
-/* line 182, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 158, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .left_menu_header {
   color: #e0983a;
   font-size: 16px;
-  margin-left: -10px;
-  margin-bottom: 15px;
-}
-
-/* line 188, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.content_graph_table {
-  width: 100%;
-}
-/* line 190, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.content_graph_table .col3 {
-  border: 0;
-}
-/* line 192, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.content_graph_table th {
-  text-align: center;
-  font-weight: 700;
-}
-/* line 196, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.content_graph_table tr:nth-child(2n) {
-  background: #f2f0f0;
-}
-/* line 198, ../../../../app/stylesheets/my5/dashboard/reports.sass */
-.content_graph_table td {
-  text-align: center;
-  padding: 2px 4px;
 }

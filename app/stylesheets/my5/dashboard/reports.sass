@@ -1,4 +1,14 @@
 @import "shared/stats"
+$grey: #808080
+$orange: #e0983a
+$white_grey: #f2f0f0
+$green: #62af59
+$blue: #8ec7ed
+$light_grey: #bcbdbf
+$standart_margin_bottom: 24px
+$radius: 4px
+$input_height: 26px
+$input_width: 192px
 
 .stats
   height: 200px
@@ -28,13 +38,43 @@
 .left_menu_wrap
   font-size: 12px
   width: 170px
+  padding: 20px 20px 20px 30px
+  background: $white_grey
+  border-radius: $radius
+  .li
+    position: relative
+    margin-left: 10px
+    list-style: none
+  .graph_for,.graph_for_items,.graph_for_items_child
+    position: relative
+    &.active
+      text-decoration: underline
+  .all_link
+    margin-left: 10px
 
 .sub_menu
+  position: relative
+  margin-left: 10px
   .toggle_plus, .toggle_minus
-    vertical-align: bottom
-    height: 25px
+    display: block
+    position: absolute
+    left: -20px
+    top: 5px
+    font-size: 16px
+    font-weight: 400
+    line-height: 15px
+    text-align: center
+    color: #fff
+    background: $orange
+    width: 13px
+    height: 13px
+    vertical-align: middle
+    border-radius: 2px
+    &:hover
+      cursor: pointer
   .toggle_minus
     display: none
+
 
 .content_graph_table
   .col3
@@ -50,3 +90,111 @@
   margin-left: -60px
   margin-bottom: 2px
   display: none
+
+#reports
+  padding: 15px
+  .h1
+    font-size: 20px
+    font-weight: 700
+    line-height: 24px
+    color: $grey
+    margin-left: 12px
+    margin-bottom: 28px
+  .button
+    margin-left: 12px
+    margin-bottom: $standart_margin_bottom
+    background: $green
+    border: none
+    border-radius: $radius
+    text-shadow: none
+    box-shadow: none
+    &:hover,&.active
+      background: darken($green,30%)
+  .orange_button
+    background: $orange
+    &:hover,&.active
+      background: darken($orange,30%)
+  .blue_button
+    background: $blue
+    &:hover,&.active
+      background: darken($blue,30%)
+  .grey_button
+    background: $light_grey
+    &:hover,&.active
+      background: darken($light_grey,30%)
+  .table_wrap
+    position: relative
+    font-size: 11px
+    color: $grey
+    padding: 20px
+    margin: 10px 0 $standart_margin_bottom
+    background: $white_grey
+    border-radius: $radius
+    .ok_bottom
+      position: absolute
+      margin: 0
+      bottom: 20px
+      right: 20px
+  .dropdown, .input
+    font-size: 11px
+    line-height: $input_height
+    color: $grey
+    background: #fff
+    padding: 0 10px
+    margin-bottom: 5px
+    height: $input_height
+    width: $input_width - 20
+    border: none
+    border-radius: 2px
+
+.pull_left
+  float: left
+
+.pull_right
+  float: right
+
+.clear
+  clear: both
+  display: block
+  overflow: hidden
+  visibility: hidden
+  width: 0
+  height: 0
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+.clearfix
+  zoom: 1
+  &:after, &:before
+    content: '\0020'
+    display: block
+    overflow: hidden
+    visibility: hidden
+    width: 0
+    height: 0
+  &:after
+    clear: both
+
+.table_layout
+  width: 100%
+  .td
+    vertical-align: top
+
+.left_menu_header
+  color: $orange
+  font-size: 16px
+  margin-left: -10px
+  margin-bottom: 15px
+
+.content_graph_table
+  width: 100%
+  .col3
+    border: 0
+  th
+    text-align: center
+    font-weight: 700
+  tr
+    &:nth-child(2n)
+      background: $white_grey
+  td
+    text-align: center
+    padding: 2px 4px

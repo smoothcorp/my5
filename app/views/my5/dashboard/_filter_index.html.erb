@@ -1,46 +1,61 @@
 <%= link_to "Download CSV report", '/my5/dashboard/download_excel', :class => "button" %>
-<div style="width: 99%;border:1px grey solid;margin:10px 10px 5px 5px;">
-  <div align="right">
-    <br />
-    From  <%= text_field_tag "from_date", "", :id => "from_date", :placeholder => "DD/MM/YYYY" %>
-    TO <%= text_field_tag "to_date", "", :id => "to_date", :placeholder => "DD/MM/YYYY" %> <%= link_to "OK", "#", :id => "Ok", :class => "button" %>
-  </div>
+<div class="table_wrap">
+  <table class="table_layout">
+    <tr>
+      <td class="td">
+        <table border="0" style="flaot:left;">
+          <tr class="hide">
+            <td>Company Name :</td>
+            <td id="company_id"><%= @company %></td>
+          </tr>
 
-  <div style='float: right'>
-    <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1)) %>
-  </div>
-  <tr>
-  <table border="0" style="flaot:left;">
-    <tr class="hide">
-      <td>Company Name :</td>
-      <td id="company_id"><%= @company %></td>
-    </tr>
+          <tr>
+            <td>Department :</td>
+            <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
+            <td><%= link_to "OK", '#', :class => "button screens", :id => "dep_button" %></td>
+          </tr>
 
-    <tr>
-      <td>Department :</td>
-      <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
-      <td><%= link_to "OK", '#', :class => "button screens", :id => "dep_button" %></td>
-</tr>
+          <tr>
+            <td>Suburb :</td>
+            <td>
+              <form class="custom"><%= select_tag("city", options_for_select(@locations.map { |location| [location.to_s.humanize, location] }), { :include_blank => true, :class => "dropdown" }) %></form>
+            </td>
+          </tr>
+          <tr>
+            <td>City :</td>
+            <td>
+              <form class="custom"><%= select_tag("state", options_for_select(@state.map { |state| [state.to_s.humanize, state] }), { :include_blank => true, :class => "dropdown" }) %></form>
+            </td>
+          </tr>
+          <tr>
+            <td>Country :</td>
+            <td>
+              <form class="custom"><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true, :class => "dropdown" }) %></form>
+            </td>
+          </tr>
 
-    <tr>
-      <td>Suburb :</td>
-      <td><%= select_tag("city", options_for_select(@locations.map { |location| [location.to_s.humanize, location] }), { :include_blank => true }) %></td>
-    </tr>
-    <tr>
-      <td>City :</td>
-      <td><%= select_tag("state", options_for_select(@state.map { |state| [state.to_s.humanize, state] }), { :include_blank => true }) %></td>
-    </tr>
-    <tr>
-      <td>Country :</td>
-      <td><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true }) %></td>
-    </tr>
-
-    <tr>
-      <td>Role :</td>
-      <td><%= select_tag("role_id", options_for_select(Customer::ROLES.map { |role| [role.to_s.humanize, role] }), { :include_blank => true }) %></td>
+          <tr>
+            <td>Role :</td>
+            <td>
+              <form class="custom"><%= select_tag("role_id", options_for_select(Customer::ROLES.map { |role| [role.to_s.humanize, role] }), { :include_blank => true, :class => "dropdown" }) %></form>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="td">
+        <div class="date_wrap pull_right">
+          From  <%= text_field_tag "from_date", "", :id => "from_date", :class => "input", :placeholder => "DD/MM/YYYY" %>
+          To <%= text_field_tag "to_date", "", :id => "to_date", :class => "input", :placeholder => "DD/MM/YYYY" %>
+          <form class="custom">
+            <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1), { :class => "dropdown" }) %>
+          </form>
+        </div>
+      </td>
     </tr>
   </table>
+  <div class="clear"></div>
+  <%= link_to "OK", "#", :id => "Ok", :class => "button ok_bottom" %>
 </div>
-<br />
+<br/>
 
 
