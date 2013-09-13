@@ -15,12 +15,12 @@
 }
 .ui-dropdownchecklist-dropcontainer {
 	background-color: #fff;
-	border: 1px solid #999;
+	border: 0
 }
 .ui-dropdownchecklist-item {
 }
 .ui-state-hover {
-	background-color: #39f;
+	background-color: #fff;
 }
 .ui-state-disabled label {
 	color: #ccc;
@@ -51,6 +51,7 @@
     margin-left: 5px;
     margin-top: 0;
 	font-size: medium;
+    background: url("/images/dashboard/arrow.png") no-repeat 169px 6px;
 	/* line-height: 20px; */
 }
 .ui-dropdownchecklist-group {

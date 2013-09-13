@@ -19,7 +19,7 @@
 
                         <ul style="display:none;" class="second_child">
                           <% sympto.videos.each do |video| %>
-                              <li class="li">
+                              <li class="li no_sub">
                                 <%= link_to "#{video.title}", "#", :id => "#{video.id}", :class => "graph_for_items_child" %>
                               </li>
                           <% end %>
@@ -38,10 +38,10 @@
       <span class="toggle_minus" id="minus">-</span>
 
       <% if !@mini_modules.nil? && !@mini_modules.blank? %>
-          <div style="padding: 10px 10px;">
+          <div>
             <ul style="display:none;" class="first_child">
               <% @mini_modules.each do |mini_module| %>
-                  <li class="li"> <%= link_to "#{mini_module.title}", "#", :id => "#{mini_module.id}", :class => "graph_for_items" %></li>
+                  <li class="li no_sub"> <%= link_to "#{mini_module.title}", "#", :id => "#{mini_module.id}", :class => "graph_for_items" %></li>
               <% end %>
             </ul>
           </div>
@@ -54,7 +54,7 @@
       <span class="toggle_minus" id="minus">-</span>
 
       <% if !@my_eqs.nil? && !@my_eqs.blank? %>
-          <div style="padding: 10px 10px;">
+          <div>
             <ul style="display:none;" class="first_child">
               <% @my_eqs.each do |my_eq| %>
                   <li class="li">
@@ -66,7 +66,7 @@
 
                         <ul style="display:none;" class="second_child">
                           <% MyEq.steps.each_with_index do |step, i| %>
-                              <li class="li">
+                              <li class="li no_sub">
                                 <%= link_to "#{step}", "#", :id => "#{i}", :class => "graph_for_items_child" %>
                               </li>
                           <% end %>
@@ -86,10 +86,10 @@
       <span class="toggle_minus" id="minus">-</span>
 
       <% if !@audio_programs.nil? && !@audio_programs.blank? %>
-          <div style="padding: 10px 10px;">
+          <div>
             <ul style="display:none;" class="first_child">
               <% @audio_programs.each do |audio_program| %>
-                  <li class="li"><%= link_to "#{audio_program.title}", "#", :id => "#{audio_program.id}", :class => "graph_for_items" %></li>
+                  <li class="li no_sub"><%= link_to "#{audio_program.title}", "#", :id => "#{audio_program.id}", :class => "graph_for_items" %></li>
               <% end %>
             </ul>
           </div>

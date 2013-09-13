@@ -45,12 +45,14 @@ $input_width: 192px
     position: relative
     margin-left: 10px
     list-style: none
+    &.no_sub
+      margin-left: 0
   .graph_for,.graph_for_items,.graph_for_items_child
     position: relative
     &.active
       text-decoration: underline
   .all_link
-    margin-left: 10px
+    margin-left: 11px
 
 .sub_menu
   position: relative
@@ -93,6 +95,7 @@ $input_width: 192px
 
 #reports
   padding: 15px
+  width: 910px
   .h1
     font-size: 20px
     font-weight: 700
@@ -146,6 +149,10 @@ $input_width: 192px
     width: $input_width - 20
     border: none
     border-radius: 2px
+  .dropdown
+    width: $input_width
+  .frequency_dropdown
+    margin-left: 29px
 
 .pull_left
   float: left

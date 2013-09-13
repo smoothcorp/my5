@@ -46,7 +46,7 @@
           From  <%= text_field_tag "from_date", "", :id => "from_date", :class => "input", :placeholder => "DD/MM/YYYY" %>
           To <%= text_field_tag "to_date", "", :id => "to_date", :class => "input", :placeholder => "DD/MM/YYYY" %>
           <form class="custom">
-            <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1), { :class => "dropdown" }) %>
+            <%= select_tag("frequency", options_for_select((Customer::FREQUENCY), 1), { :class => "dropdown frequency_dropdown" }) %>
           </form>
         </div>
       </td>

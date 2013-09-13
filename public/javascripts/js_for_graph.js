@@ -404,7 +404,7 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
         chart: {
             renderTo: 'container',
             type: 'column',
-            width: 700
+            width: 670
         },
         title: {
             text: 'Column graph'
@@ -454,7 +454,7 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
         chart: {
             renderTo: 'bar_container_graph',
             type: 'bar',
-            width: 700
+            width: 670
         },
         title: {
             text: 'Bar graph'
@@ -507,7 +507,7 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false,
-                width: 700
+                width: 670
             },
             title: {
                 text: 'Pie graph'

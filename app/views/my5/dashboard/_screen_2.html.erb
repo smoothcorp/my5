@@ -117,7 +117,7 @@
       </table>
 
     </td>
-    <td style="border:3px grey solid;" valign="top">
+    <td valign="top">
       <div align="right" style="margin-top:15px;"><%= link_to("COLUMN", '#', :class => "button graphs_type",:id=>"column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph",:style=>"margin-right:20px;") %></div>
       <div id="main_container">
         <% if @page_total.to_i > 0 %>
@@ -155,7 +155,7 @@
                         plotBackgroundColor: null,
                         plotBorderWidth: null,
                         plotShadow: false,
-                        width: 650
+                        width: 590
                     },
                     title: {
                         text: 'Pie graph'
@@ -198,7 +198,7 @@
                     chart: {
                         renderTo: 'bar_container_graph',
                         type: 'bar',
-                        width: 650
+                        width: 590
                     },
                     title: {
                         text: 'Bar graph'
@@ -255,7 +255,7 @@
                     chart: {
                         renderTo: 'container',
                         type: 'column',
-                        width: 650
+                        width: 590
                     },
                     title: {
                         text: 'Column graph'
