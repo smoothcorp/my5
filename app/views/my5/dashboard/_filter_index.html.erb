@@ -12,7 +12,6 @@
           <tr>
             <td>Department :</td>
             <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
-            <td><%= link_to "OK", '#', :class => "button screens", :id => "dep_button" %></td>
           </tr>
 
           <tr>

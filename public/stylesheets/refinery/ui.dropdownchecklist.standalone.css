@@ -6,8 +6,8 @@
 	color: black;
 }
 .ui-dropdownchecklist-selector {
-	height: 20px;
-	border: 1px solid #ddd;
+	height: 24px;
+	/*border: 1px solid #ddd;*/
 	background: #ffffff;
 }
 .ui-state-hover, .ui-state-active {
@@ -35,12 +35,16 @@
 /* Font size of 0 on the -selector and an explicit medium on -text required to eliminate 
    descender problems within the containers and still have a valid size for the text */
 .ui-dropdownchecklist-selector-wrapper {
+    margin-top: 6px;
+    margin-bottom: 2px;
 	vertical-align: middle;
 	font-size: 0px;
+    border-radius: 2px;
 }
 .ui-dropdownchecklist-selector {
 	padding: 1px 2px 2px 2px;
 	font-size: 0px;
+    border-radius: 2px;
 }
 .ui-dropdownchecklist-text {
     display: inline;

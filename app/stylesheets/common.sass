@@ -7,6 +7,10 @@
 
 // Set 960.gs
 $ninesixty_columns: 24
+$green: #62af59
+$blue: #8ec7ed
+$standart_margin_bottom: 24px
+$radius: 4px
 
 // Import shared global SASS files
 
@@ -16,93 +20,128 @@ $ninesixty_columns: 24
 @import "shared/forms"
 
 // General global styles
-
 body
-    +grid-container
-    font-family: Helvetica, Arial, sans-serif
-    font-size: 14px
-    color: #545454
-    line-height: 24px
-    background: url('/images/beach_big.jpg') no-repeat
-    background-size: 100%
-a
-    +hover-link
-    +link-colors(#545454, #545454, #545454, #545454, #545454)
-b
-    font-weight: bold
-h1
-    font-size: 40px
-    line-height: 50px
-    margin: 20px 0
-h2
-    font-size: 28px
-    line-height: 38px
-    margin: 20px 0
-    clear: both
-h3
-    font-size: 24px
-    line-height: 34px
-    margin: 20px 0
-p
-    margin: 20px 0
-ul
-    li
-        list-style: circle
-        margin:
-            left: 15px
-ol
-    padding:
-        left: 10px
-    li
-        list-style: decimal
-        margin:
-            left: 15px
-form
-    li
-        list-style: none
-button, input[type="submit"], .button
-    @include fancy-button-matte(#109900)
+  +grid-container
+  font-family: Helvetica, Arial, sans-serif
+  font-size: 14px
+  color: #545454
+  line-height: 24px
+  background: url('/images/beach_big.jpg') no-repeat
+  background-size: 100%
 
-    &.danger
-        @include fancy-button-matte(red)
-    &:hover
-        text-decoration: none
-    &.small
-        font-size: 14px
+a
+  +hover-link
+  +link-colors(#545454, #545454, #545454, #545454, #545454)
+
+b
+  font-weight: bold
+
+h1
+  font-size: 40px
+  line-height: 50px
+  margin: 20px 0
+
+h2
+  font-size: 28px
+  line-height: 38px
+  margin: 20px 0
+  clear: both
+
+h3
+  font-size: 24px
+  line-height: 34px
+  margin: 20px 0
+
+p
+  margin: 20px 0
+
+ul
+  li
+    list-style: circle
+    margin:
+      left: 15px
+
+ol
+  padding:
+    left: 10px
+  li
+    list-style: decimal
+    margin:
+      left: 15px
+
+form
+  li
+    list-style: none
+
+button, input[type="submit"], .button
+  @include fancy-button-matte(#109900)
+
+  &.danger
+    @include fancy-button-matte(red)
+  &:hover
+    text-decoration: none
+  &.small
+    font-size: 14px
 
 #bars
-    +grid(24)
+  +grid(24)
+  +alpha
+  height: 10px
+  background: url('/images/coloured_bars.png')
+  &.top
     +alpha
-    height: 10px
-    background: url('/images/coloured_bars.png')
-    &.top
-        +alpha
-        +omega
+    +omega
+
 .clear
-    clear: both
+  clear: both
+
 .clearfix
-    +clearfix
-    clear: both
-    content: '.'
-    display: block
-    height: 0px
-    visibility: hidden
+  +clearfix
+  clear: both
+  content: '.'
+  display: block
+  height: 0px
+  visibility: hidden
+
 .bars_whole
-    width: 100%
-    height: 6px
-    background: url('/images/coloured_bars.png')
+  width: 100%
+  height: 6px
+  background: url('/images/coloured_bars.png')
+
 .padded
-    padding: 0px 20px 15px
+  padding: 0px 20px 15px
 
 a
-    &.green
-        color: #419e36 !important
+  &.green
+    color: #419e36 !important
+
 .sign_in_page
-    display: inline
-    float: left
-    margin-left: 10px
-    width: 940px
-    background-color: #ffffff
+  display: inline
+  float: left
+  margin-left: 10px
+  width: 940px
+  background-color: #ffffff
 
 .sign_in_content
-    margin-left: 20px
+  margin-left: 20px
+
+.green_button
+  margin-bottom: $standart_margin_bottom
+  background: $green
+  border: none
+  border-radius: $radius
+  text-shadow: none
+  box-shadow: none
+  &:hover, &.active
+    background: darken($green, 30%)
+
+.blue_button
+  margin-left: 13px
+  margin-bottom: $standart_margin_bottom
+  background: $blue
+  border: none
+  border-radius: $radius
+  text-shadow: none
+  box-shadow: none
+  &:hover,&.active
+    background: darken($blue, 30%)
