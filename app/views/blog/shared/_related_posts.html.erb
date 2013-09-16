@@ -1,0 +1,10 @@
+<% if @recent_posts.many? %>
+    <h2 class="red"> Recent Articles </h2>
+    <ul class="categories_list" id="recent_articles">
+      <% @recent_posts.each do |blog_post| %>
+          <li class='item'>
+            <%= link_to blog_post.title, blog_post_url(blog_post) %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>

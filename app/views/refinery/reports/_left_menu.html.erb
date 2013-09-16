@@ -5,7 +5,7 @@
     <br/><br/>
 
     <div class="sub_menu">
-      <%= link_to "Symptomatics", "#", :id => "symptomatics", :class => "graph_for" %>
+      <%= link_to "Symptomatics", "#", :id => "my5/symptomatics", :class => "graph_for" %>
       <%= image_tag("/images/toggle_plus.png", :id => "plus", :style => "margin-top:5px;height:25px;") %>
       <%= image_tag("/images/toggle_minus.png", :id => "minus", :style => "display:none;margin-top:5px;height:25px;") %>
       <br/>
@@ -37,7 +37,7 @@
     <br/>
 
     <div class="sub_menu">
-      <%= link_to "Mini Modules", "#", :id => "mini_modules", :class => "graph_for" %>
+      <%= link_to "Mini Modules", "#", :id => "my/mini_modules", :class => "graph_for" %>
       <%= image_tag("/images/toggle_plus.png", :id => "plus", :style => "margin-top:5px;height:25px;") %>
       <%= image_tag("/images/toggle_minus.png", :id => "minus", :style => "display:none;margin-top:5px;height:25px;") %>
       <br/>
@@ -55,7 +55,7 @@
     <br/>
 
     <div class="sub_menu">
-      <%= link_to "My EQ", "#", :id => "my_eqs", :class => "graph_for" %>
+      <%= link_to "My EQ", "#", :id => "my5/my_eqs", :class => "graph_for" %>
       <%= image_tag("/images/toggle_plus.png", :id => "plus", :style => "margin-top:5px;height:25px;") %>
       <%= image_tag("/images/toggle_minus.png", :id => "minus", :style => "display:none;margin-top:5px;height:25px;") %>
       <br/>
@@ -89,7 +89,7 @@
     <br/>
 
     <div class="sub_menu">
-      <%= link_to "Audio Programs", "#", :id => "audio_programs", :class => "graph_for" %>
+      <%= link_to "Audio Programs", "#", :id => "my5/audio_programs", :class => "graph_for" %>
       <%= image_tag("/images/toggle_plus.png", :id => "plus", :style => "margin-top:5px;height:25px;") %>
       <%= image_tag("/images/toggle_minus.png", :id => "minus", :style => "display:none;margin-top:5px;height:25px;") %>
       <br/>
@@ -113,6 +113,23 @@
                         </ul>
                     <% end %>
                   </li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+    <br/>
+    <div class="sub_menu">
+      <%= link_to "My 5 Naturally", "#", :id => "blog/posts", :class => "graph_for" %>
+      <%= image_tag("/images/toggle_plus.png", :id => "plus", :style => "margin-top:5px;height:25px;") %>
+      <%= image_tag("/images/toggle_minus.png", :id => "minus", :style => "display:none;margin-top:5px;height:25px;") %>
+      <br/>
+      <% if !@posts.nil? && !@posts.blank? %>
+          <div style="padding: 10px 10px;">
+            <ul style="display:none;" class="first_child">
+              <% @posts.each do |post| %>
+                  <li> <%= link_to "#{post.title}", "#", :id => "#{post.id}", :class => "graph_for_items" %>
+                    <br/><br/></li>
               <% end %>
             </ul>
           </div>

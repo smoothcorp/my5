@@ -1,0 +1,266 @@
+@import "compass"
+@import "compass/utilities/general/clearfix"
+$color_green: #3a9b2e
+$color_gray: #333
+$color_light_gray: #9ea0a3
+$color_light_gray_2: #b0b1b3
+$color_orange: #dc8c23
+$color_red: #c92b1e
+$color_red_bright: #ec1c24
+$blog_center_column_width: 495px
+$blog_right_sideabar_width: 180px
+$font-family: Helvetica, sans-serif
+
+.orange
+  color: $color_orange
+
+.red
+  color: $color_red
+
+.gray
+  color: $color_light_gray
+#posts .content, #categories .content
+  padding: 37px
+.content#index, .content#show, .content#search, .content#archive
+  position: relative
+  background: #fff url("/images/blog/blog_bg.jpg") no-repeat 50% 90px
+  +box-sizing(border-box)
+  .colored_border
+    height: 11px
+    position: absolute
+    top: -11px
+    left: 0
+    width: 100%
+    background: #fff url("/images/coloured_bars.png") repeat-x
+  .blog_post
+    margin-bottom: 15px
+    .details
+      font-size: 12px
+    .link_more
+      text-transform: uppercase
+      color: $color_green
+      >a
+        color: $color_green
+      &:before
+        content: '|'
+        margin-right: 4px
+    em
+      font-style: italic
+      strong
+        font-weight: bold
+    strong
+      font-weight: bold
+      em
+        font-style: italic
+
+  #body_content
+    min-height: 860px
+    padding-left: 190px
+    background: url("/images/blog/sidebar_bg.jpg") no-repeat 0 26px
+    padding-top: 15px
+    margin-top: -15px
+    +clearfix
+  #body_content_left
+    width: $blog_center_column_width
+    float: left
+    border-right: 1px solid $color_light_gray_2
+    #blog_post
+      margin-bottom: 25px
+      border-bottom: 1px solid $color_light_gray_2
+      table
+        td
+          border: 1px solid #d3d3d3
+          padding: 5px
+          text-align: center
+      .text-align-right
+        text-align: right
+      .text-align-left
+        text-align: left
+      .text-align-center
+        text-align: center
+    .post_title
+      font-size: 25px
+      font-weight: bold
+      color: #808080
+
+    .green
+      color: $color_green
+
+    .eat_think_move
+      white-space: nowrap
+      font-size: 11px
+      margin-top: -10px
+      margin-bottom: 0
+      color: $color_green
+      .block
+        float: left
+        margin-right: 8px
+        padding-right: 30px
+        background: url("/images/blog/logo_naturally.png") no-repeat 100% 0
+    .naturally
+      margin-top: 0
+      margin-right: 6px
+
+  #body_content_right
+    width: $blog_right_sideabar_width
+    float: left
+    border-left: 1px solid $color_light_gray_2
+    margin-left: -1px
+    margin-top: 26px
+    .sidebar_section_wrap
+      padding: 30px 10px 30px 30px
+      border-bottom: 1px solid $color_light_gray_2
+      &.logo
+        padding: 0 10px
+      h2
+        font-size: 16px
+        font-weight: 400
+        line-height: 120%
+        margin: 0 0 10px
+  .comment_button
+    float: left
+    cursor: pointer
+    .comment_icon
+      float: left
+      height: 25px
+      width: 26px
+      background: url("/images/blog/comment.png")
+    .comment_counter
+      float: left
+      margin-left: 5px
+
+  .print_button
+    float: left
+    margin-left: 22px
+    cursor: pointer
+    .print_icon
+      float: left
+      margin-top: 5px
+      margin-left: 5px
+      height: 14px
+      width: 16px
+      background: url("/images/blog/print.png") no-repeat 0 0
+    .print_link
+      float: left
+      margin-left: 11px
+
+
+#blog_post
+  padding-right: 10px
+  .details
+    display: block
+  .link_more
+    text-transform: uppercase
+    color: $color_green
+    >a
+      color: $color_green
+    &:before
+      content: '|'
+      margin-right: 4px
+  .comment_count
+    display: block
+  h1
+    font:
+      size: 21px
+      weight: 500
+      family: $font-family
+    line-height: 130%
+    color: $color_green
+    margin: 0 0 16px
+    >a
+      color: $color_green
+  em
+    font-style: italic
+    strong
+      font-weight: bold
+  strong
+    font-weight: bold
+    em
+      font-style: italic
+  .post_description
+    overflow: hidden
+    p
+      font:
+        size: 13px
+        family: $font-family
+      line-height: 150%
+      color: $color_gray
+      margin-top: 0
+      margin-bottom: 16px
+
+.search_form
+  position: relative
+  padding: 8px 20px
+  border-bottom: 1px solid $color_light_gray_2
+  .search_input
+    font:
+      size: 11px
+      weight: 400
+      family: $font-family
+    width: 114px
+    height: 25px
+    padding: 0 5px
+    background: #ebebeb
+    border: 1px solid $color_light_gray
+    border-radius: 0
+    +box-sizing(border-box)
+  .search_button
+    font-size: 11px
+    font-weight: 400
+    text-transform: uppercase
+    color: #fff
+    position: absolute
+    top: 6px
+    background: $color_red_bright
+    border-radius: 8px
+    padding: 5px 5px 7px
+    border: 0
+    cursor: pointer
+
+#categories
+  .item
+    &:hover
+      color: $color_orange
+      >a
+        color: $color_orange
+
+#recent_articles
+  .item
+    &:hover
+      color: $color_red
+      >a
+        color: $color_red
+
+#archived_posts
+  .item
+    cursor: pointer
+    &:hover
+      color: $color_light_gray
+      >a
+        color: $color_light_gray
+
+.categories_list
+  font-family: $font-family
+  font-size: 14px
+  .active
+    color: $color_red
+    >a
+      color: $color_red
+  .item
+    list-style: none
+    margin-left: 0
+  .subcat
+    list-style: none
+    padding-left: 30px
+    font-size: 12px
+    .item
+      position: relative
+      line-height: 120%
+      margin-bottom: 5px
+      &:before
+        content: '|'
+        position: absolute
+        left: -6px
+
+.blog_title
+  color: $color_green

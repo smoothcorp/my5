@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+
   layout :layout_by_resource
   before_filter :force_devise_ssl
   require 'spreadsheet'
-  
+
   def after_sign_in_path_for(resource)
-      dashboard_url
+    dashboard_url
   end
 
   def redirect_to_dashboard_if_signed_in
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
         redirect_to new_subscription_url, :notice => 'You must have an active subscription to access My 5'
       end
     else
-      opts = {:scope => :customer}
+      opts = { :scope => :customer }
       warden.authenticate!(opts) if !devise_controller? || opts.delete(:force)
     end
   end
@@ -37,11 +37,11 @@ class ApplicationController < ActionController::Base
   def current_ability
     @current_ability ||= Ability.new(current_customer)
   end
-  
+
   def force_ssl
     force_devise_ssl
   end
-  
+
   def force_devise_ssl
     Rails.logger.debug "Deactivating SSL for #{params[:controller]}"
   end
@@ -51,9 +51,14 @@ class ApplicationController < ActionController::Base
   end
 
   def customer_views
-      if params[:controller] == "my5/audio_programs"
-       params[:video_id] = params[:audio_id]
-     end
-     current_customer.customer_visits.create(:controller_name => params[:controller], :action_name => params[:action], :conditions => params[:condition], :show_id => params[:id], :media_id => params[:video_id], :part=> params[:part])
+    if params[:controller] == "blog/posts" && params[:action] == "show"
+      post = BlogPost.find(params[:id])
+      params[:id] =  post.id
+      params[:condition] = post.title
+    end
+    if params[:controller] == "my5/audio_programs"
+      params[:video_id] = params[:audio_id]
+    end
+    current_customer.customer_visits.create(:controller_name => params[:controller], :action_name => params[:action], :conditions => params[:condition], :show_id => params[:id], :media_id => params[:video_id], :part => params[:part])
   end
 end

@@ -33,15 +33,15 @@ class Refinery::ReportsController < ApplicationController
 
     # Respond to the difference formats
 
-    @companies = Corporation.all
-    @customers_locations = Customer.group("city").collect(&:city)
-    @customers_location_states = Customer.group("state").collect(&:state)
+    @companies                  = Corporation.all
+    @customers_locations        = Customer.group("city").collect(&:city)
+    @customers_location_states  = Customer.group("state").collect(&:state)
     @customers_location_country = Customer.group("country").collect(&:country)
-    @customers_location_state2 = Customer.group("state2").collect(&:state2)
-    @locations = []
-    @state = []
-    @country = []
-    @state2 = []
+    @customers_location_state2  = Customer.group("state2").collect(&:state2)
+    @locations                  = []
+    @state                      = []
+    @country                    = []
+    @state2                     = []
     @customers_locations.each do |loc|
       @locations.push(loc) if !loc.nil? && loc != "" && !@locations.include?(loc)
     end
@@ -59,7 +59,7 @@ class Refinery::ReportsController < ApplicationController
 
     list_of_pages
     params[:graph_view] = "1"
-    params[:page]="all"
+    params[:page]       ="all"
     filter_screen1
     @side_data = []
     screen_1_data
@@ -128,11 +128,11 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def download_excel
-    book = Spreadsheet::Workbook.new
+    book  = Spreadsheet::Workbook.new
     sheet = book.create_worksheet :name => "details"
     sheet.row(0).concat %w{User_System_ID Title First_Name Last_Name Corporation User_type Suburb Postcode Signed_up Date_subscription_started,Date_subscription_ends,Login_Time_Last_30_Days,Login_Time_Last_90_Days,Last_login_duration,Time_in_Symptomatics_last_30_days,Time_in_Mini_Modules_last_30_days,Time_in_My_EQs_30_days,Time_in_Audio_Programs_last_30_days,Time_in_Symptomatics_last_90_days,Time_in_Mini_Modules_last_90_days,Time_in_My_EQs_90_days,Time_in_Audio_Programs_last_90_days }
     @custmer = Customer.all
-    count = 1
+    count    = 1
     @custmer.each do |custmer|
       sheet.row(count.to_i).push custmer.id, custmer.title, custmer.first_name, custmer.last_name, custmer.first_name, "#{custmer.corporation.name if !custmer.corporation.nil?}", "#{!custmer.corporation.nil? ? 'Corporate' : 'Retail' }", custmer.city, custmer.zip_code, custmer.created_at.strftime("%e %B %Y"), "#{custmer.subscriptions.blank? ? 'No subscription' : custmer.subscriptions.last.expiry_date.strftime('%e %B %Y')}", custmer.login_time_last_30_days, custmer.login_time_last_30_days, custmer.login_time_last_90_days, custmer.last_login_duration, custmer.time_in_symptomatics_last_30_days, custmer.time_in_mini_modules_last_30_days, custmer.time_in_my_eqs_last_30_days, custmer.time_in_audio_programs_last_30_days, custmer.time_in_symptomatics_last_90_days, custmer.time_in_mini_modules_last_90_days, custmer.time_in_my_eqs_last_90_days, custmer.time_in_audio_programs_last_90_days
       count = count.to_i + 1
@@ -156,6 +156,8 @@ class Refinery::ReportsController < ApplicationController
         @reports = filter_query("my5/audio_programs")
       when "health_checkins"
         @reports = filter_query("my5/health_checkins")
+      when "blog/posts"
+        @reports = filter_query("blog/posts")
       else
         customer_ids = []
         if params[:department_view_mode] == "separated" && @customer_ids_separated
@@ -204,7 +206,7 @@ class Refinery::ReportsController < ApplicationController
         # Rails.logger.info '-'*150
 
         # This flag only for My EQ ( Hack )
-        $flag = false
+        $flag    = false
         if @reports.count == @reports.reject { |x| x.part.nil? }.count
           $flag = true
         end
@@ -232,6 +234,8 @@ class Refinery::ReportsController < ApplicationController
     @mini_modules     = MiniModule.all
     @my_eqs           = MyEq.all
     @audio_programs   = AudioProgram.all
+    @posts = BlogPost.all
+
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -401,8 +405,8 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def screen_1_data
-  @report_day_array = ""
-  @report_day_date = ""
+    @report_day_array = ""
+    @report_day_date  = ""
 
     @report_day_array_array = Array.new()
     if params[:department_view_mode] == "separated" && @customer_ids_separated
@@ -422,10 +426,10 @@ class Refinery::ReportsController < ApplicationController
       (@from_date.to_date..@to_date.to_date).each do |date_t|
         if count == 0
           @report_day_array += "["
-          @report_day_date = "["
+          @report_day_date  = "["
         else
           @report_day_array += ", "
-          @report_day_date += ","
+          @report_day_date  += ","
         end
 
         if page_name =="all"
@@ -438,35 +442,35 @@ class Refinery::ReportsController < ApplicationController
           if @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
             if !params[:page_id].blank?
               if !params[:video_id].blank?
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
               else
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name).where(:show_id => params[:page_id])
               end
             else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}")
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name)
             end
           else
             if !params[:page_id].blank?
               if !params[:video_id].blank?
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
 
                 # Hack for MyEQ/../Stop! Take a breath in, Pressure point  ( correct graphs for this subparagraphs)
                 if $flag
-                  @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:part => params[:video_id])
+                  @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:part => params[:video_id])
                 end
               else
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id])
               end
             else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}")
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name)
             end
           end
         end
         date_string = "'#{date_t.strftime("%Y %m %d").to_s}'"
 
         @report_day_array += @day_count.size.to_s
-        @report_day_date += date_string
-        count = count + 1
+        @report_day_date  += date_string
+        count             = count + 1
       end
       @report_day_array += "]" if !@report_day_array.blank?
       @report_day_date += "]" if !@report_day_date.blank?
@@ -483,37 +487,37 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def screen_2_data
-    @part_of_24 = ['12am - 1am', '1am - 2am', '2am - 3am', '3am - 4am', '4am - 5am', '5am - 6am', '6am - 7am', '7am - 8am', '8am - 9am', '9am - 10am', '10am - 11am', '11am - 12pm', '12pm -  1 pm', '1pm - 2pm', '2pm - 3pm', '3pm - 4pm', '4pm - 5pm', '5pm - 6pm', '6pm - 7pm', '7pm - 8pm', '8pm - 9pm', '9pm - 10pm', '10pm - 11pm', '11pm - 12am']
+    @part_of_24  = ['12am - 1am', '1am - 2am', '2am - 3am', '3am - 4am', '4am - 5am', '5am - 6am', '6am - 7am', '7am - 8am', '8am - 9am', '9am - 10am', '10am - 11am', '11am - 12pm', '12pm -  1 pm', '1pm - 2pm', '2pm - 3pm', '3pm - 4pm', '4pm - 5pm', '5pm - 6pm', '6pm - 7pm', '7pm - 8pm', '8pm - 9pm', '9pm - 10pm', '10pm - 11pm', '11pm - 12am']
     @array_of_24 = []
     (0..23).each do |number|
       @array_of_24[number] = 0
     end
     if !@reports.blank?
       @reports.each do |visit|
-        date = visit.created_at.strftime("%H").to_i
+        date               = visit.created_at.strftime("%H").to_i
         @array_of_24[date] = @array_of_24[date] + 1
       end
     end
     @report_day_array = "["
-    @report_day_date = "["
+    @report_day_date  = "["
     @array_of_24.each_with_index do |item, index|
       if index == 0
         @report_day_array = "["
-        @report_day_date = "["
+        @report_day_date  = "["
       else
         @report_day_array += ", "
-        @report_day_date += ","
+        @report_day_date  += ","
       end
       @report_day_array += item.to_s
-      @report_day_date += "'#{@part_of_24[index]}'"
+      @report_day_date  += "'#{@part_of_24[index]}'"
     end
-    @report_day_array += "]"
-    @report_day_date += "]"
+    @report_day_array    += "]"
+    @report_day_date     += "]"
     @pie_graph_view_data = "["
-    @pie_sum_totals = @array_of_24.sum
+    @pie_sum_totals      = @array_of_24.sum
     if @pie_sum_totals > 0
       @array_of_24.each_with_index do |data, index|
-        percentage = (data.to_f/@pie_sum_totals)*100
+        percentage           = (data.to_f/@pie_sum_totals)*100
         @pie_graph_view_data += "['#{@part_of_24[index]}',#{percentage} ]"
         @pie_graph_view_data += "," if ((index+1) != @array_of_24.size)
       end
@@ -522,11 +526,11 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def screen_3_data
-    @symo_count = []
-    @mini_count = []
-    @myq_count = []
-    @audio_count = []
-    @health_count = []
+    @symo_count    = []
+    @mini_count    = []
+    @myq_count     = []
+    @audio_count   = []
+    @health_count  = []
     @unique_visits = @reports.group_by { |t| t.customer_id }
 
     # for symptomatics
@@ -585,7 +589,7 @@ class Refinery::ReportsController < ApplicationController
       @health_count.push(@temp1.size)
     end
 
-    @last_count = []
+    @last_count    = []
     @last_count[0] = 0
     (1..11).each do |temp|
       @last_count[temp] = 0
@@ -668,34 +672,34 @@ class Refinery::ReportsController < ApplicationController
       end
     end
     @last_count[0] = 0
-    @data_view = ['', 1, 2, 3, 4, 5, 6, 7, 8, '9-14', '15-25', '26-50+']
+    @data_view     = ['', 1, 2, 3, 4, 5, 6, 7, 8, '9-14', '15-25', '26-50+']
     if !@last_count.nil? && !@last_count.blank?
 
       @percentage_data = "["
-      @page_1 = "["
-      @page_2 = "["
-      @page_data = "["
-      @page_total = @last_count.sum
+      @page_1          = "["
+      @page_2          = "["
+      @page_data       = "["
+      @page_total      = @last_count.sum
       if @page_total > 0
         @last_count.each_with_index do |data, index|
           if index != 1 && index != 0
-            @page_1 += ","
-            @page_2 += ","
+            @page_1    += ","
+            @page_2    += ","
             @page_data += ","
           end
           if index > 0
-            per = (data.to_f/@page_total.to_f)*100
+            per              = (data.to_f/@page_total.to_f)*100
             @percentage_data += "['#{@data_view[index]}',#{per.round(2)} ]"
-            @page_1 += "'#{@data_view[index]}'"
-            @page_2 += "#{per.round(0)}"
-            @page_data += "#{data}"
+            @page_1          += "'#{@data_view[index]}'"
+            @page_2          += "#{per.round(0)}"
+            @page_data       += "#{data}"
             @percentage_data += "," if ((index+1) != @last_count.size)
           end
         end
       end
-      @page_1 += "]"
-      @page_2 += "]"
-      @page_data += "]"
+      @page_1          += "]"
+      @page_2          += "]"
+      @page_data       += "]"
       @percentage_data += "]"
     end
 

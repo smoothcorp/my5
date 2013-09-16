@@ -8,11 +8,11 @@ class My5::DashboardController < ApplicationController
 
   def customer
     log_event "Viewed Dashboard", current_customer
+    @blog_post = BlogPost.order('created_at DESC').first
   end
 
   def reports
     if current_customer.can_view_reports?
-
       @company                    = current_customer.corporation_id
       @customers_locations        = Customer.group("city").collect(&:city)
       @customers_location_states  = Customer.group("state").collect(&:state)
@@ -139,6 +139,8 @@ class My5::DashboardController < ApplicationController
         @reports = filter_query("my5/audio_programs")
       when "health_checkins"
         @reports = filter_query("my5/health_checkins")
+      when "blog/posts"
+        @reports = filter_query("blog/posts")
       else
         customer_ids = []
         if params[:department_view_mode] == "separated" && @customer_ids_separated
@@ -212,10 +214,11 @@ class My5::DashboardController < ApplicationController
 
   def list_of_pages
     @separated_params = ""
-    @symptomatics     = Symptomatic.all
-    @mini_modules     = MiniModule.all
-    @my_eqs           = MyEq.all
-    @audio_programs   = AudioProgram.all
+    @symptomatics   = Symptomatic.all
+    @mini_modules   = MiniModule.all
+    @my_eqs         = MyEq.all
+    @audio_programs = AudioProgram.all
+    @posts = BlogPost.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -387,7 +390,6 @@ class My5::DashboardController < ApplicationController
   def screen_1_data
     @report_day_array = ""
     @report_day_date  = ""
-
     @report_day_array_array = Array.new()
     if params[:department_view_mode] == "separated" && @customer_ids_separated
       customer_ids_screen_1 = @customer_ids_separated
@@ -422,27 +424,27 @@ class My5::DashboardController < ApplicationController
           if @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
             if !params[:page_id].blank?
               if !params[:video_id].blank?
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
               else
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name).where(:show_id => params[:page_id])
               end
             else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}")
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => page_name)
             end
           else
             if !params[:page_id].blank?
               if !params[:video_id].blank?
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
 
                 # Hack for MyEQ/../Stop! Take a breath in, Pressure point  ( correct graphs for this subparagraphs)
                 if $flag
-                  @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:part => params[:video_id])
+                  @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id]).where(:part => params[:video_id])
                 end
               else
-                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id])
+                @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name).where(:show_id => params[:page_id])
               end
             else
-              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => "my5/#{page_name}")
+              @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:controller_name => page_name)
             end
           end
         end
