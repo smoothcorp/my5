@@ -846,17 +846,6 @@ button.small, input[type="submit"].small, .button.small {
   clear: both;
 }
 
-/* line 98, ../../app/stylesheets/common.sass */
-.clearfix {
-  overflow: hidden;
-  *zoom: 1;
-  clear: both;
-  content: ".";
-  display: block;
-  height: 0px;
-  visibility: hidden;
-}
-
 /* line 106, ../../app/stylesheets/common.sass */
 .bars_whole {
   width: 100%;

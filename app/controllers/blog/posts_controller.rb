@@ -1,6 +1,8 @@
 module Blog
   class PostsController < BlogController
 
+    layout 'customer'
+    before_filter :authenticate_customer!
     before_filter :find_all_blog_posts, :except => [:archive]
     before_filter :find_blog_post, :only => [:show, :comment, :update_nav]
     before_filter :find_tags
