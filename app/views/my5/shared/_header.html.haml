@@ -16,4 +16,7 @@
       = link_to "Mini Modules", my5_mini_modules_path, :id => "mini_modules_link"
       = link_to "My EQ", my5_my_eqs_path, :id => "my_eq_link"
       = link_to "Audio Programs", my5_audio_programs_path, :id => "audio_programs_link"
-      = link_to image_tag("dashboard/health_checkin.png")+"Health Checkin", my5_health_checkins_path, :id => 'health_checkin'
+      = link_to "Blog", blog_root_path
+  %ul.nav#health_checkin
+    = link_to image_tag("dashboard/health_checkin.png")+"Health Checkin", my5_health_checkins_path
+

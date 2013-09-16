@@ -81,6 +81,8 @@ GEM
       activemodel (= 3.0.11)
       activesupport (= 3.0.11)
     activesupport (3.0.11)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
     acts_as_indexed (0.7.7)
     acts_as_reportable (1.1.1)
       ruport (>= 1.6.0)
@@ -153,6 +155,7 @@ GEM
       compass (>= 0.11)
     fastercsv (1.5.4)
     ffi (1.0.11)
+    filters_spam (0.3)
     find_by_param (0.2.1)
       activerecord
       activesupport
@@ -263,6 +266,11 @@ GEM
       friendly_id_globalize3 (~> 3.2.1)
       refinerycms-core (= 1.0.9)
     refinerycms-base (1.0.9)
+    refinerycms-blog (1.8.0)
+      acts-as-taggable-on
+      filters_spam (~> 0.2)
+      refinerycms-core (~> 1.0.3)
+      seo_meta (~> 1.1.0)
     refinerycms-core (1.0.9)
       acts_as_indexed (~> 0.7)
       awesome_nested_set (~> 2.0)
@@ -419,6 +427,7 @@ DEPENDENCIES
   refinerycms
   refinerycms-audio_programs (= 1.0)!
   refinerycms-audios (= 1.0)!
+  refinerycms-blog
   refinerycms-corporations (= 1.0)!
   refinerycms-customers!
   refinerycms-mini_modules (= 1.0)!
