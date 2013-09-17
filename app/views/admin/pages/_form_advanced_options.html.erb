@@ -1,7 +1,7 @@
 <div id='more_options_field'>
   <p>
     <%= link_to t('.advanced_options'), "#",
-                :id => 'toggle_advanced_options',
+                :id    => 'toggle_advanced_options',
                 :title => t('.toggle_advanced_options') %>
   </p>
   <span id='draft_field'>
@@ -27,12 +27,12 @@
       <span class='label_with_help'>
         <%= f.label :custom_position, "Order" %>
       </span>
-      <%= f.text_field :custom_position %>
-      <%= f.label :custom_position, "Order", :class => "stripped"%>
-    </div>
+    <%= f.text_field :custom_position %>
+    <%= f.label :custom_position, "Order", :class => "stripped" %>
   </div>
+</div>
 
-  <br />
+<br/>
 
 
 </div>

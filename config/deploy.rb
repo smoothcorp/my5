@@ -45,7 +45,8 @@ namespace :deploy do
     run "chmod -R a+r #{deploy_to}"
   end
 
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+
 end
-
-
-

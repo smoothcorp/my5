@@ -4,32 +4,32 @@
 
 <nav id="menu">
   <% Refinery::Plugins.active.in_menu.each do |plugin| -%>
-    <% unless plugin.title == "Files"  || plugin.title == "programs" || plugin.title == "Settings" || plugin.title == "Subscriptions"%>
-      
-        <!-- This is custom code that define the various special colours for the menu items -->
-        <% file_mgmt = (plugin.title == "Videos" || plugin.title == "Audios" ) ? true : false %>
-        <% user_mgmt = (plugin.title == "Customers" || plugin.title == "Corporations") ? true : false %>
-        <% core_content = ( plugin.title == "Symptomatics" || plugin.title == "My Eqs" || plugin.title == "Mini Modules" || plugin.title == "Audio Programs") ? true : false %>
-        <!-- End custom code -->
-        
-        <%= link_to plugin.title, plugin.url,
-                    :class => "#{(plugin.highlighted?(params) ? 'active' : '')} #{'orange' if core_content} #{'green' if user_mgmt} #{'blue' if file_mgmt}",
-                    :id => "plugin_#{plugin.name}" %>
-    <% end %>
+      <% unless plugin.title == "Files" || plugin.title == "programs" || plugin.title == "Settings" || plugin.title == "Subscriptions" %>
+
+          <!-- This is custom code that define the various special colours for the menu items -->
+          <% file_mgmt = (plugin.title == "Videos" || plugin.title == "Audios") ? true : false %>
+          <% user_mgmt = (plugin.title == "Customers" || plugin.title == "Corporations") ? true : false %>
+          <% core_content = (plugin.title == "Symptomatics" || plugin.title == "My Eqs" || plugin.title == "Mini Modules" || plugin.title == "Audio Programs") ? true : false %>
+          <!-- End custom code -->
+
+          <%= link_to plugin.title, plugin.url,
+                      :class => "#{(plugin.highlighted?(params) ? 'active' : '')} #{'orange' if core_content} #{'green' if user_mgmt} #{'blue' if file_mgmt}",
+                      :id    => "plugin_#{plugin.name}" %>
+      <% end %>
   <% end -%>
-  
+
   <!-- This is custom code to insert our custom reports menu into the CMS -->
-  <%= link_to "Reports", refinery_reports_url, :id => "plugin_reports", :class => "#{'active' if request.url == refinery_reports_url}"%>
+  <%= link_to "Reports", refinery_reports_url, :id => "plugin_reports", :class => "#{'active' if request.url == refinery_reports_url}" %>
   <!-- End custom code -->
 
   <% if Refinery::Plugins.active.in_menu.many? -%>
-    <%= link_to refinery_icon_tag('arrow_switch.png'), "",
-                :id => "menu_reorder",
-                :title => t('.reorder_menu') %>
+      <%= link_to refinery_icon_tag('arrow_switch.png'), "",
+                  :id    => "menu_reorder",
+                  :title => t('.reorder_menu') %>
 
-    <%= link_to refinery_icon_tag('tick.png'), "",
-                :id => "menu_reorder_done",
-                :title => t('.reorder_menu_done'),
-                :style => "display: none;" %>
+      <%= link_to refinery_icon_tag('tick.png'), "",
+                  :id    => "menu_reorder_done",
+                  :title => t('.reorder_menu_done'),
+                  :style => "display: none;" %>
   <% end %>
 </nav>

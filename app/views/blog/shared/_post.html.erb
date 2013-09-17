@@ -22,10 +22,6 @@
       </section>
     </header>
     <section class='clearfix'>
-      <!--<% p "a"*100 %>-->
-      <!--<% p blog_post_teaser_enabled? %>-->
-      <!--<%= p blog_post_teaser(post) %>-->
-      <!--<%= p post.body.html_safe %>-->
       <% if blog_post_teaser_enabled? %>
         <%= blog_post_teaser(post) %>
       <% else %>
