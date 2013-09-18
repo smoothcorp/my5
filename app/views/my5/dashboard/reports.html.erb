@@ -3,7 +3,7 @@
 <script src="/javascripts/highcharts.js"></script>
 <script src="/javascripts/exporting.js"></script>
 
-<h1 class="h1"> Detailed customer report</h1>
+<h1 class="h1">Client Usage Report</h1>
 
 
 <%= render 'filter_index' %>
@@ -100,6 +100,10 @@
             return false;
         });
         $('#state').live('change', function (e) {
+//            company_filter("all", "", "", "", $(this).val(), "");
+            return false;
+        });
+        $('#state2').live('change', function (e) {
 //            company_filter("all", "", "", "", $(this).val(), "");
             return false;
         });
@@ -226,6 +230,7 @@
         var location_name = $('#city').val();
         var role = $('#role_id').val();
         var state = $('#state').val();
+        var state2 = $('#state2').val();
         var country = $('#country').val();
         var frequency = $("#frequency").val();
         var dep_mode = dep_mode;
@@ -233,7 +238,7 @@
             type: "GET",
             async: false,
             url: "/my5/dashboard/screen1",
-            data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
+            data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state,"state2":state2, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
             beforeSend: function () {
                 $("#loader").show('fast');
                 $('#screen_' + graph_views).css("backgroundColor", "green");
@@ -246,32 +251,44 @@
     }
 
 
-    function company_filter(page, company_id, department_id, location_name, role, state, country) {
-        $('.graph_for').addClass("active");
-        $('.graph_for_items').addClass("active");
-        $('.graph_for_items_child').addClass("active");
-        var from_date = $('#from_date').val();
+    function company_filter(page,company_id,department_id,location_name,role,state,state2,country)
+    {
+        $('.graph_for').css("color","black").css("border","0px black solid");
+        $('.graph_for_items').css("color","black").css("border","0px black solid");
+        $('.graph_for_items_child').css("color","black").css("border","0px black solid");
+        var from_date= $('#from_date').val();
         var to_date = $('#to_date').val();
         var graph_views = $("#graph_view").val();
-        if (company_id == "") {
-            company_id = $('#company_id').text();
+        if(company_id == "")
+        {
+            company_id = $('#company_id').val();
         }
-        if (department_id == 'null') {
+        if(department_id == 'null')
+        {
             department_id = $('#department_id').val();
         }
-        if (location_name == "") {
+        if(location_name == "")
+        {
             location_name = $('#city').val();
         }
-        if (role == "") {
+        if(role == "")
+        {
             role = $('#role_id').val();
         }
-        if (state == "") {
+        if(state == "")
+        {
             state = $('#state').val();
         }
-        if (country == "") {
+        if(state2 == "")
+        {
+            state2 = $('#state2').val();
+        }
+        if(country == "")
+        {
             country = $('#country').val();
         }
-        if ($.trim(graph_views) == "undefined" || graph_views == "") {
+        if($.trim(graph_views) == "undefined"  || graph_views == "")
+        {
             graph_views = 1;
         }
         var frequency = $("#frequency").val();
@@ -289,24 +306,27 @@
             type: "GET",
             async: false,
             url: "/my5/dashboard/screen1",
-            data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
-            beforeSend: function () {
+            data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"state2":state2,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
+            beforeSend: function() {
                 $("#loader").show('fast');
-                $('#screen_' + graph_views).css("backgroundColor", "green");
+                $('#screen_'+graph_views).css("backgroundColor","green");
             },
-            success: function (data) {
+            success: function(data) {
                 $("#loader").hide('fast');
             }
         });
     }
-    function graph_view(id, page, page_id, video_id) {
-        var from_date = $('#from_date').val();
+    function graph_view(id, page,page_id,video_id)
+    {
+        console.log('graph_view');
+        var from_date= $('#from_date').val();
         var to_date = $('#to_date').val();
-        var company_id = $('#company_id').text();
+        var company_id = $('#company_id').val();
         var department_id = $('#department_id').val();
         var location_name = $('#city').val();
         var role = $('#role_id').val();
         var state = $('#state').val();
+        var state2 = $('#state2').val();
         var country = $('#country').val();
         var frequency = $("#frequency").val();
         var dep_mode;
@@ -315,18 +335,18 @@
         else
             dep_mode = "merged"
 
+
         $.ajax({
             type: "GET",
             async: false,
             url: "/my5/dashboard/screen1",
-            data: {"graph_view": id, "page": page, "page_id": page_id, "company_id": company_id, "department_id": department_id, "from_date": from_date, "to_date": to_date, "location": location_name, "state": state, "country": country, "role": role, "video_id": video_id, "frequency": frequency, "department_view_mode": dep_mode},
-            beforeSend: function () {
+            data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"state2":state2,"country":country,"role":role,"video_id":video_id, "frequency": frequency, "department_view_mode": dep_mode},
+            beforeSend: function() {
                 $("#loader").show('fast');
             },
-            complete: function (data) {
-                console.log(data)
+            complete: function(data) {
             },
-            success: function (data) {
+            success: function(data) {
                 $("#loader").hide('fast');
             }
         });

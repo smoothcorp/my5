@@ -27,6 +27,12 @@
             </td>
           </tr>
           <tr>
+            <td>State :</td>
+            <td>
+              <form class="custom"><%= select_tag("state2", options_for_select(@state2.map { |state| [state.to_s.humanize, state] }), { :include_blank => true, :class => "dropdown" }) %></form>
+            </td>
+          </tr>
+          <tr>
             <td>Country :</td>
             <td>
               <form class="custom"><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true, :class => "dropdown" }) %></form>

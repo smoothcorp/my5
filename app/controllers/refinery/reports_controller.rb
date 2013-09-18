@@ -37,9 +37,11 @@ class Refinery::ReportsController < ApplicationController
     @customers_locations = Customer.group("city").collect(&:city)
     @customers_location_states = Customer.group("state").collect(&:state)
     @customers_location_country = Customer.group("country").collect(&:country)
+    @customers_location_state2 = Customer.group("state2").collect(&:state2)
     @locations = []
     @state = []
     @country = []
+    @state2 = []
     @customers_locations.each do |loc|
       @locations.push(loc) if !loc.nil? && loc != "" && !@locations.include?(loc)
     end
@@ -49,6 +51,10 @@ class Refinery::ReportsController < ApplicationController
 
     @customers_location_country.each do |loc|
       @country.push(loc) if !loc.nil? && loc != "" && !@country.include?(loc)
+    end
+
+    @customers_location_state2.each do |loc|
+      @state2.push(loc) if !loc.nil? && loc != "" && !@state2.include?(loc)
     end
 
     list_of_pages
@@ -289,6 +295,12 @@ class Refinery::ReportsController < ApplicationController
       customer_condition += "country = '#{params[:country].to_s}' "
       @is_condition = true
     end
+    if !params[:state2].blank?
+      customer_condition += @is_condition ? " AND " : ""
+      customer_condition += "state2 = '#{params[:state2].to_s}' "
+      @is_condition = true
+    end
+
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
       if params[:department_view_mode] == "merged"
         customer_condition += @is_condition ? " AND " : ""
