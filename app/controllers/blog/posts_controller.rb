@@ -6,6 +6,9 @@ module Blog
     before_filter :find_all_blog_posts, :except => [:archive]
     before_filter :find_blog_post, :only => [:show, :comment, :update_nav]
     before_filter :find_tags
+    before_filter :customer_views, :only => :show
+
+    helper :blog
 
     respond_to :html, :js, :rss
 

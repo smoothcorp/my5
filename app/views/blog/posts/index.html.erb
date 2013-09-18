@@ -6,6 +6,9 @@
       <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
       <%= will_paginate @blog_posts %>
     </section>
+    <% if current_customer.customer_visits.any? %>
+        <%= list_recent_articles %>
+    <% end %>
   <% else %>
     <p><%= t('.no_blog_articles_yet') %></p>
   <% end %>
