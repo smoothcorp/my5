@@ -305,7 +305,6 @@ function setup_graph_screen_1(dates,values,round) {
     }
     var series_chart = [];
     if (separated) {
-        var departments = $("#department_id").val();
         var i=0;
         values.map( function (value) {
             var output_arr = [];
@@ -315,7 +314,7 @@ function setup_graph_screen_1(dates,values,round) {
                     y: value[j]
                 };
             }
-            series_chart.push({ name: "department " + departments[i].toString(), data: output_arr });
+            series_chart.push({ name: "graph " + i.toString(), data: output_arr });
             i++;
         } );
     }
