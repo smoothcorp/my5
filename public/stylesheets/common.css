@@ -905,3 +905,7 @@ a.green {
 .blue_button:hover, .blue_button.active {
   background: #1f81c3;
 }
+
+.li_year {
+    cursor: pointer;
+}

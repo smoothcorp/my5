@@ -9,6 +9,11 @@
     <% if current_customer.customer_visits.any? %>
         <%= list_recent_articles %>
     <% end %>
+    <h1>Search</h1>
+        <%= form_tag blog_search_path do %>
+            <%= search_field_tag('search', nil, :placeholder => 'Enter search term...') %>
+            <div><%= submit_tag 'Ok', :class => 'button' %></div>
+        <% end %>
   <% else %>
     <p><%= t('.no_blog_articles_yet') %></p>
   <% end %>

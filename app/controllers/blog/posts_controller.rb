@@ -84,6 +84,10 @@ module Blog
       })
     end
 
+    def search
+      @result = BlogPost.where("title LIKE '%#{params[:search]}%' OR body LIKE '%#{params[:search]}%' OR custom_teaser LIKE '%#{params[:search]}%' ")
+    end
+
   protected
 
     def find_blog_post

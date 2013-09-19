@@ -5,6 +5,7 @@ Semblance::Application.routes.draw do
   match 'my5/dashboard/screen1' => 'my5/dashboard#screen_1'
   match 'refinery/reports/update_department' => 'refinery/reports#update_department'
   match 'my5/dashboard/update_department' => 'my5/dashboard#update_department'
+  match 'blog/search' => 'blog/posts#search'
   
   #excel
   match 'refinery/reports/download_excel' => 'refinery/reports#download_excel'
