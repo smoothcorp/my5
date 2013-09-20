@@ -1,5 +1,5 @@
 <%= link_to "Download CSV report", '/refinery/reports/download_excel', :class => "button" %>
-<div style="width: 99%;border:1px grey solid;margin:10px 10px 5px 5px;">
+<div class="filter_index" >
   <div align="right">
     <br/>
     From  <%= text_field_tag "from_date", "", :id => "from_date", :placeholder => "DD/MM/YYYY" %>
@@ -53,6 +53,7 @@
   </table>
   <div class="clear"></div>
   <%= link_to "OK", "#", :id => "Ok", :class => "button ok_bottom" %>
+  <div class="clear"></div>
 </div>
 <br/>
 </div>

@@ -202,3 +202,26 @@ header {
     clear: both;
     margin-top: 25px;
 }
+
+.ok_bottom.button {
+    position: absolute;
+    float: right;
+    right: 5px;
+    bottom: 5px;
+}
+
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.filter_index {
+    position: relative;
+    width: 99%;
+    border: 1px grey solid;
+    margin: 10px 10px 5px 5px;
+}
