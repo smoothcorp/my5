@@ -227,9 +227,10 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def list_of_pages
-    @symptomatics = Symptomatic.all
-    @mini_modules = MiniModule.all
-    @my_eqs = MyEq.all
+    @separated_params = ""
+    @symptomatics   = Symptomatic.all
+    @mini_modules   = MiniModule.all
+    @my_eqs         = MyEq.all
     @audio_programs = AudioProgram.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
@@ -268,51 +269,114 @@ class Refinery::ReportsController < ApplicationController
       @to_date = Time.now
     end
 
-    @is_condition = false
+    @is_condition      = false
     customer_condition = ""
-    @customer_ids = []
+    @customer_ids      = []
     if !params[:company_id].blank?
       customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "
-      @is_condition = true
+      @is_condition      = true
     end
-    if !params[:location].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "city LIKE '%#{params[:location].to_s}%' "
-      @is_condition = true
+
+    if !(params[:state] == 'null' || params[:state].blank?)
+      if params[:department_view_mode] != "separated"
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "state IN (#{params[:state].map { |p| p.to_s.inspect }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:role].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "role = '#{params[:role].to_s}'"
-      @is_condition = true
+
+    if !(params[:state2] == 'null' || params[:state2].blank?)
+      if params[:department_view_mode] != "separated"
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "state2 IN (#{params[:state2].map { |p| p.to_s.inspect }.join(',')})"
+        @is_condition      = true
+      end
     end
-    if !params[:state].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "state LIKE '%#{params[:state].to_s}%' "
-      @is_condition = true
+
+    if !(params[:city] == 'null' || params[:city].blank?)
+      if params[:department_view_mode] != "separated"
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "city IN ('#{params[:city].map { |p| p.to_s.inspect }.join(',')}')"
+        @is_condition      = true
+      end
     end
+
     if !params[:country].blank?
       customer_condition += @is_condition ? " AND " : ""
       customer_condition += "country = '#{params[:country].to_s}' "
-      @is_condition = true
-    end
-    if !params[:state2].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "state2 = '#{params[:state2].to_s}' "
-      @is_condition = true
+      @is_condition      = true
     end
 
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
-      if params[:department_view_mode] == "merged"
+      if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "department_id IN (#{params[:department_id].join(',').to_s})"
-        @is_condition = true
+        @is_condition      = true
+      end
+    end
+    if !(params[:role] == 'null' || params[:role].blank?)
+      if params[:department_view_mode] != "separated"
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "role IN (#{params[:role].map { |p| p.to_s.inspect }.join(',')})"
+        @is_condition      = true
       end
     end
     if params[:department_view_mode] == "separated"
       @customer_ids_separated = []
-      customer_condition += @is_condition ? " AND " : ""
-      params[:department_id].each do |department_id|
-        @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+      customer_condition      += @is_condition ? " AND " : ""
+      if params[:department_id] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:department_id].each do |department_id|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @separated_params += "'#{department_id.to_s}'"
+          count +=1
+        end
+        @separated_params += "]"
+      end
+      if params[:role] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:role].each do |role|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role}'").collect(&:id)
+          @separated_params += "'#{role.humanize}'"
+          count += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:city] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:city].each do |city|
+          @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
+          @separated_params += "'#{city.humanize}'"
+          count += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:state2] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:state2].each do |state2|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
+          @separated_params += "'#{state2.humanize}'"
+          count += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:state] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:state].each do |state|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
+          @separated_params += "'#{state.humanize}'"
+          count += 1
+        end
+        @separated_params += "]"
       end
     else
       @customers = Customer.where(customer_condition)

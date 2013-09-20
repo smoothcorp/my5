@@ -3,8 +3,7 @@
         <script type="text/javascript">
             $(function () {
                 $(document).ready(function () {
-                    var dates, round, values;
-                    var separated_params = [];
+                    var dates, round, values, separated_params;
                     round = <%= @round %>;
                     dates = <%= @report_day_date %>;
                     values = <%= @report_day_array %>;
@@ -13,8 +12,6 @@
                     <% else %>
                         separated_params = <%= @separated_params %>;
                     <% end %>
-                    console.log(separated_params);
-                    console.log(values);
                     setup_graph_screen_1(dates, values, round, separated_params);
                 });
             });

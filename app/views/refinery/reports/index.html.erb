@@ -43,8 +43,8 @@
          $('.graph_for_items').css("color","black").css("border","0px black solid");
          $('.graph_for_items_child').css("color","black").css("border","0px black solid");
          $(this).css("backgroundColor","green");
-         if ( $('#department_id').val() != null)
-            $("#buttons_separated_merged").show();
+         if ($('#department_id').val() || $('#role_id').val() || $('#state').val() || $('#state2').val() || $('#city').val())
+             $("#buttons_separated_merged").show();
         graph_view(1,"all","","");
         return false;
      });
@@ -93,27 +93,55 @@
 
 
      $('#company_id').live('change',function(e) {
-        company_filter("all",$(this).val(),"","","","","","");
+//        company_filter("all",$(this).val(),"","","","","","");
         return false;
      });
-     $('#city').live('change',function(e) {
-        company_filter("all","",$(this).val(),"","","","");
-        return false;
-     });
-     $('#role_id').live('change',function(e) {
-        company_filter("all","","","",$(this).val(),"","","");
-        return false;
-     });
-     $('#state').live('change',function(e) {
-        company_filter("all","","","",$(this).val(),"","");
-        return false;
-     });
+      $('#city').live('change', function (e) {
+          if ($('#city').val() != null) {
+              $("#buttons_separated_merged").show();
+          }
+
+          else {
+              $("#buttons_separated_merged").hide();
+          }
+//            company_filter("all", "", $(this).val(), "", "", "");
+          return false;
+      });
+      $('#role_id').live('change', function (e) {
+          if ($('#role_id').val() != null) {
+              $("#buttons_separated_merged").show();
+          }
+
+          else {
+              $("#buttons_separated_merged").hide();
+          }
+//            company_filter("all", "", "", "", $(this).val(), "", "");
+          return false;
+      });
+      $('#state').live('change', function (e) {
+          if ($('#state').val() != null) {
+              $("#buttons_separated_merged").show();
+          }
+
+          else {
+              $("#buttons_separated_merged").hide();
+          }
+//            company_filter("all", "", "", "", $(this).val(), "");
+          return false;
+      });
       $('#state2').live('change', function (e) {
-          company_filter("all", "", "", "", "",$(this).val(), "");
+          if ($('#state2').val() != null) {
+              $("#buttons_separated_merged").show();
+          }
+
+          else {
+              $("#buttons_separated_merged").hide();
+          }
+//            company_filter("all", "", "", "", $(this).val(), "");
           return false;
       });
      $('#country').live('change',function(e) {
-        company_filter("all","","","","","","",$(this).val());
+//        company_filter("all","","","","","","",$(this).val());
         return false;
      });
      $('#department_id').live('change',function(e) {
@@ -129,11 +157,6 @@
 //        company_filter("all","",$(this).val(),"","","","");
         return false;
      });
-
-      $('#dep_button').live('click',function(e) {
-          company_filter("all","",$('#department_id').val(),"","","","");
-          return false;
-      });
 
      $('.graph_for').live('click',function(e) {
         var page_type = $(this).attr('id');
@@ -245,11 +268,11 @@
       var to_date = $('#to_date').val();
       var graph_views = $("#graph_view").val();
       var company_id = $('#company_id').val();
-      var department_id = $('#department_id').val();
-      var location_name = $('#city').val();
+      var department_id = $('#department_id').val();;
       var role = $('#role_id').val();
       var state = $('#state').val();
       var state2 = $('#state2').val();
+      var city = $('#city').val();
       var country = $('#country').val();
       var frequency = $("#frequency").val();
       var dep_mode = dep_mode;
@@ -257,7 +280,7 @@
           type: "GET",
           async: false,
           url: "/refinery/reports/screen1",
-          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"state2":state2,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
+          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"role":role,"state":state,"state2":state2,"city": city,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
           beforeSend: function() {
               $("#loader").show('fast');
               $('#screen_'+graph_views).css("backgroundColor","green");
@@ -269,7 +292,7 @@
 
   }
 
-  function company_filter(page,company_id,department_id,location_name,role,state,state2,country)
+  function company_filter(page,company_id,department_id,location_name,role,state,state2,city,country)
   {
       $('.graph_for').css("color","black").css("border","0px black solid");
       $('.graph_for_items').css("color","black").css("border","0px black solid");
@@ -285,21 +308,20 @@
       {
           department_id = $('#department_id').val();
       }
-      if(location_name == "")
-      {
-          location_name = $('#city').val();
-      }
-      if(role == "")
+      if(role == "null")
       {
           role = $('#role_id').val();
       }
-      if(state == "")
+      if(state == "null")
       {
           state = $('#state').val();
       }
-      if(state2 == "")
+      if(state2 == "null")
       {
           state2 = $('#state2').val();
+      }
+      if (city == "null") {
+          city = $('#city').val();
       }
       if(country == "")
       {
@@ -324,7 +346,7 @@
           type: "GET",
           async: false,
           url: "/refinery/reports/screen1",
-          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"location":location_name,"role":role,"state":state,"state2":state2,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
+          data:{"graph_view":graph_views,"page":page,"company_id":company_id,"department_id":department_id,"role":role,"state":state,"state2":state2,"city": city,"country":country,"from_date":from_date,"to_date":to_date, "frequency": frequency, "department_view_mode": dep_mode},
           beforeSend: function() {
               $("#loader").show('fast');
               $('#screen_'+graph_views).css("backgroundColor","green");
@@ -345,6 +367,7 @@
       var role = $('#role_id').val();
       var state = $('#state').val();
       var state2 = $('#state2').val();
+      var city = $('#city').val();
       var country = $('#country').val();
       var frequency = $("#frequency").val();
       var dep_mode;
@@ -358,7 +381,7 @@
           type: "GET",
           async: false,
           url: "/refinery/reports/screen1",
-          data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"location":location_name,"state":state,"state2":state2,"country":country,"role":role,"video_id":video_id, "frequency": frequency, "department_view_mode": dep_mode},
+          data:{"graph_view":id,"page":page,"page_id":page_id,"company_id":company_id,"department_id":department_id,"from_date":from_date,"to_date":to_date,"state":state,"state2":state2,"city": city,"country":country,"role":role,"video_id":video_id, "frequency": frequency, "department_view_mode": dep_mode},
           beforeSend: function() {
               $("#loader").show('fast');
           },
@@ -375,7 +398,11 @@
 <script type="text/javascript">
 	window.onload = function(){
         $(document).ready(function() {
-            $('#department_id').dropdownchecklist( {icon: {}, width: 70,  maxDropHeight: 150 });
+            $('#department_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+            $('#role_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+            $('#city').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+            $('#state').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+            $('#state2').dropdownchecklist({ width: 188, maxDropHeight: 150 });
         });
 		new JsDatePick({
 			useMode:2,

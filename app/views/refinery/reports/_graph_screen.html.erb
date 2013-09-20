@@ -3,11 +3,16 @@
         <script type="text/javascript">
             $(function () {
                 $(document).ready(function() {
-                    var dates, round,values;
+                    var dates, round, values, separated_params;
                     round = <%= @round %>;
                     dates = <%= @report_day_date %>;
                     values = <%= @report_day_array %>;
-                    setup_graph_screen_1(dates,values,round);
+                    <% if @separated_params == "" %>
+                    separated_params = "graph";
+                    <% else %>
+                    separated_params = <%= @separated_params %>;
+                    <% end %>
+                    setup_graph_screen_1(dates, values, round, separated_params);
                 });
             });
         </script>
