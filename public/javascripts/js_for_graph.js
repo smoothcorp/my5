@@ -304,17 +304,12 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         return Date.UTC.apply(Date, args);
     }
     var series_chart = [];
+    var test_chart = [];
     if (separated) {
         var i=0;
         values.map( function (value) {
             var output_arr = [];
-            for ( var j = 0, length = dates.length; j < length; j += 1 ) {
-                output_arr[j] = {
-                    x: toDate(dates[j]),
-                    y: value[j]
-                };
-            }
-            series_chart.push({ name: separated_params[i], data: output_arr });
+            series_chart.push({ name: separated_params[i], data: value });
             i++;
         } );
     }
@@ -328,8 +323,11 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             };
         }
         series_chart.push({ name: "Visits", data: output_arr });
+        test_chart.push({ name: "Visits", data: values })
     }
-
+    dates = dates.map( function(value) {
+        return value.replace(/ /g,"/");
+    } );
 
     chart = new Highcharts.Chart({
         chart: {
@@ -347,15 +345,18 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             x: -20
         },
         xAxis: {
-            type: 'datetime',
-
-            dateTimeLabelFormats: {
-                hour: '%H:%M',
-                day: '%e %b',
-                week: '%e %b',
-                month: '%b %Y',
-                year: '%b %Y'
+            categories: dates,
+            labels: {
+                rotation: 10
             }
+//            type: 'datetime'
+//            dateTimeLabelFormats: {
+//                hour: '%H:%M',
+//                day: '%e %b',
+//                week: '%e %b',
+//                month: '%b %y',
+//                year: '%b %y'
+//            }
         },
         yAxis: {
             min: 0,
@@ -374,7 +375,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         tooltip: {
             formatter: function() {
                 return '<b>' + this.series.name + '</b><br/>' +
-                Highcharts.dateFormat("%e %b %Y", this.x) + ': ' + Math.round(this.y).toFixed(1);
+                Highcharts.dateFormat("%e %b %y", this.x) + ': ' + Math.round(this.y).toFixed(1);
             }
         },
         legend: {
@@ -393,7 +394,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
                 enableMouseTracking: false
             }
         },
-        series: series_chart
+        series: test_chart
     });
 }
 
