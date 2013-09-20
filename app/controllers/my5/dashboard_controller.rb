@@ -211,6 +211,7 @@ class My5::DashboardController < ApplicationController
   end
 
   def list_of_pages
+    @separated_params = ""
     @symptomatics   = Symptomatic.all
     @mini_modules   = MiniModule.all
     @my_eqs         = MyEq.all
@@ -308,29 +309,58 @@ class My5::DashboardController < ApplicationController
       @customer_ids_separated = []
       customer_condition      += @is_condition ? " AND " : ""
       if params[:department_id] != 'null'
+        @separated_params += "["
+        count = 0
         params[:department_id].each do |department_id|
+          @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @separated_params += "'#{department_id.to_s}'"
+          count +=1
         end
+        @separated_params += "]"
       end
       if params[:role] != 'null'
+        @separated_params += "["
+        count = 0
         params[:role].each do |role|
+          @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role}'").collect(&:id)
+          @separated_params += "'#{role.humanize}'"
+          count += 1
         end
+        @separated_params += "]"
       end
       if params[:city] != 'null'
+        @separated_params += "["
+        count = 0
         params[:city].each do |city|
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
+          @separated_params += "'#{city.humanize}'"
+          count += 1
         end
+        @separated_params += "]"
       end
       if params[:state2] != 'null'
+        @separated_params += "["
+        count = 0
         params[:state2].each do |state2|
+          @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
+          @separated_params += "'#{state2.humanize}'"
+          count += 1
         end
+        @separated_params += "]"
       end
       if params[:state] != 'null'
+        @separated_params += "["
+        count = 0
         params[:state].each do |state|
+          @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
+          @separated_params += "'#{state.humanize}'"
+          count += 1
         end
+        @separated_params += "]"
       end
     else
       @customers = Customer.where(customer_condition)

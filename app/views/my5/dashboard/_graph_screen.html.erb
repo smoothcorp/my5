@@ -1,68 +1,76 @@
 <% if  (!@reports.nil? && !@reports.blank?) || (!@custmer_visit.blank? && !@custmer_visit.nil?) %>
-  <% if  params[:graph_view] == "1" %>
+    <% if  params[:graph_view] == "1" %>
         <script type="text/javascript">
             $(function () {
-                $(document).ready(function() {
-                    var dates, round,values;
+                $(document).ready(function () {
+                    var dates, round, values;
+                    var separated_params = [];
                     round = <%= @round %>;
                     dates = <%= @report_day_date %>;
                     values = <%= @report_day_array %>;
-                    setup_graph_screen_1(dates,values,round);
+                    <% if @separated_params == "" %>
+                        separated_params = "graph";
+                    <% else %>
+                        separated_params = <%= @separated_params %>;
+                    <% end %>
+                    console.log(separated_params);
+                    console.log(values);
+                    setup_graph_screen_1(dates, values, round, separated_params);
                 });
             });
         </script>
 
 
 
-    <!--//  =========================================================================================================-->
+        <!--//  =========================================================================================================-->
 
 
 
 
-  <% elsif params[:graph_view] == "2" %>
-    <div align="right"><%= link_to("COLUMN", '#', :class => "button graphs_type", :id => "column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph") %></div>
+    <% elsif params[:graph_view] == "2" %>
+        <div align="right"><%= link_to("COLUMN", '#', :class => "button graphs_type", :id => "column_graph") %> <%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph") %></div>
         <script type="text/javascript">
             $(function () {
-                $(document).ready(function() {
+                $(document).ready(function () {
                     var report_day_date = <%= @report_day_date %>;
                     var report_day_array = <%= @report_day_array.to_s%>;
                     var pie_sum_totals = <%= @pie_sum_totals.to_i %>;
                     var pie_graph_view_data = <%= @pie_graph_view_data  %>;
-                    setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_data ,pie_sum_totals);
+                    setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_data, pie_sum_totals);
                 });
             });
         </script>
-  <% elsif params[:graph_view] == "3" %>
-    <%= render 'screen_2' %>
-  <% end %>
-  <% if params[:graph_view] == "1" %>
-    <div>
-      <div id="container" style="min-height: 400px; margin: 0 auto;"></div>
-    </div>
-    <br /><br />
-    <%= render 'graph_condition' %>
+    <% elsif params[:graph_view] == "3" %>
+        <%= render 'screen_2' %>
+    <% end %>
+    <% if params[:graph_view] == "1" %>
+        <div>
+          <div id="container" style="min-height: 400px; margin: 0 auto;"></div>
+        </div>
+        <br/><br/>
+        <%= render 'graph_condition' %>
 
-  <% end %>
+    <% end %>
 
-  <% if params[:graph_view] == "2" %>
-    <p></p>
-    <div id="main_container">
-      <div id="container" style="min-height: 400px; margin: 0 auto;float:left;"></div>
-    </div>
-    <div id="bar_container" style="display: none;">
-      <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
-    </div>
-    <div id="pie_container" style="display: none;">
-      <% if @pie_sum_totals.to_i > 0 %>
-        <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
-      <% else %>
-        <div id="pie_container_graph" style=" height: 400px; margin: 0 auto">No Records Found</div>
-      <% end %>
-    </div>
-  <% end %>
+    <% if params[:graph_view] == "2" %>
+        <p></p>
+        <div id="main_container">
+          <div id="container" style="min-height: 400px; margin: 0 auto;float:left;"></div>
+        </div>
+        <div id="bar_container" style="display: none;">
+          <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
+        </div>
+        <div id="pie_container" style="display: none;">
+          <% if @pie_sum_totals.to_i > 0 %>
+              <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
+          <% else %>
+              <div id="pie_container_graph" style=" height: 400px; margin: 0 auto">No Records Found</div>
+          <% end %>
+        </div>
+    <% end %>
 
 <% else %>
-  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found</div>
+    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">No Records Found</div>
 <% end %>
 <%= hidden_field_tag "graph_view", params[:graph_view] %>
 <%= hidden_field_tag "department_view_mode", params[:department_view_mode] %>

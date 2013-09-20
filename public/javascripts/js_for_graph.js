@@ -1,4 +1,4 @@
-function setup_graph_screen_1(dates,values,round) {
+function setup_graph_screen_1(dates,values,round,separated_params) {
     var chart;
     //  =========================================================================================================
     countin_direction = function( count, start_date, count_of_month ) {
@@ -314,7 +314,7 @@ function setup_graph_screen_1(dates,values,round) {
                     y: value[j]
                 };
             }
-            series_chart.push({ name: "graph " + i.toString(), data: output_arr });
+            series_chart.push({ name: separated_params[i], data: output_arr });
             i++;
         } );
     }
