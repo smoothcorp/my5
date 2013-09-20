@@ -1,31 +1,40 @@
 <% content_for :body_content_left do %>
-  <%=raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
+    <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
 
-  <% if @blog_posts.any? %>
-    <section id="blog_posts">
-      <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
-      <%= will_paginate @blog_posts %>
-    </section>
-    <% if current_customer.customer_visits.any? %>
-        <%= list_recent_articles %>
+    <% if @blog_posts.any? %>
+        <section id="blog_posts">
+          <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
+          <%= will_paginate @blog_posts %>
+        </section>
+
+    <% else %>
+        <p><%= t('.no_blog_articles_yet') %></p>
     <% end %>
-    <h1>Search</h1>
-        <%= form_tag blog_search_path do %>
-            <%= search_field_tag('search', nil, :placeholder => 'Enter search term...') %>
-            <div><%= submit_tag 'Ok', :class => 'button' %></div>
-        <% end %>
-  <% else %>
-    <p><%= t('.no_blog_articles_yet') %></p>
-  <% end %>
 <% end %>
 
 <% content_for :body_content_right do %>
-  <%=raw @page[Page.default_parts.second.to_sym] if Page.default_parts.many? %>
-
-  <%= render :partial => "/blog/shared/categories" %>
-  <%= render :partial => "/blog/shared/tags" %>
-  <%= render :partial => "/blog/shared/rss_feed" %>
-  <%= render :partial => "/blog/shared/archive_list" %>
+    <div class="sidebar_section_wrap logo">
+      <img src="images/blog/my_five.jpg" alt=""/>
+    </div>
+    <%= form_tag blog_search_path, :class => 'search_form' do %>
+        <%= search_field_tag('search', nil, :placeholder => 'Enter search term...', :class => 'search_input') %>
+        <%= submit_tag 'Ok', :class => 'button search_button' %>
+    <% end %>
+    <%= raw @page[Page.default_parts.second.to_sym] if Page.default_parts.many? %>
+    <div class="sidebar_section_wrap">
+      <%= render :partial => "/blog/shared/categories" %>
+    </div>
+    <div class="sidebar_section_wrap">
+      <%= render :partial => "/blog/shared/tags" %>
+    </div>
+    <div class="sidebar_section_wrap">
+      <%= render :partial => "/blog/shared/archive_list" %>
+      </div>
+    <div class="sidebar_section_wrap">
+      <% if current_customer.customer_visits.any? %>
+          <%= list_recent_articles %>
+      <% end %>
+    </div>
 <% end %>
 
 <%= render :partial => "/shared/content_page" %>

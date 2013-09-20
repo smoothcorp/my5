@@ -20,13 +20,13 @@ module BlogHelper
       links.each do |l|
         months << l.split('/')[0] if l.split('/')[1] == year
       end
-      html << '<li class="li_year" >'
+      html << '<li class="li_year item" >'
       html << year
-      html << '<ul style="display:none" >'
+      html << '<ul style="display:none" class="subcat" >'
       months.each do |m|
         count = BlogPost.live.by_archive(Time.parse(m + '/' + year)).size
         text  = t("date.month_names")[m.to_i] + "(#{count})"
-        html << "<li>"
+        html << "<li class='item'>"
         html << link_to(text, archive_blog_posts_path(:year => year, :month => m))
         html << "</li>"
       end
