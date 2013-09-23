@@ -238,32 +238,33 @@
   color: gray;
   background: white;
   padding: 0 10px;
+  margin-top: 6px;
   margin-bottom: 5px;
   height: 26px;
   width: 172px;
   border: none;
   border-radius: 2px;
 }
-/* line 152, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 153, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .dropdown {
   width: 192px;
 }
-/* line 154, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 155, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 #reports .frequency_dropdown {
   margin-left: 29px;
 }
 
-/* line 157, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 158, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .pull_left {
   float: left;
 }
 
-/* line 160, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 161, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .pull_right {
   float: right;
 }
 
-/* line 163, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 164, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clear {
   clear: both;
   display: block;
@@ -274,11 +275,11 @@
 }
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
-/* line 172, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 173, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix {
   zoom: 1;
 }
-/* line 174, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 175, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix:after, .clearfix:before {
   content: "\0020";
   display: block;
@@ -287,21 +288,21 @@
   width: 0;
   height: 0;
 }
-/* line 181, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 182, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .clearfix:after {
   clear: both;
 }
 
-/* line 184, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 185, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .table_layout {
   width: 100%;
 }
-/* line 186, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 187, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .table_layout .td {
   vertical-align: top;
 }
 
-/* line 189, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 190, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .left_menu_header {
   color: #e0983a;
   font-size: 16px;
@@ -309,24 +310,24 @@
   margin-bottom: 15px;
 }
 
-/* line 195, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 196, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table {
   width: 100%;
 }
-/* line 197, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 198, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table .col3 {
   border: 0;
 }
-/* line 199, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 200, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table th {
   text-align: center;
   font-weight: 700;
 }
-/* line 203, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 204, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table tr:nth-child(2n) {
   background: #f2f0f0;
 }
-/* line 205, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+/* line 206, ../../../../app/stylesheets/my5/dashboard/reports.sass */
 .content_graph_table td {
   text-align: center;
   padding: 2px 4px;
