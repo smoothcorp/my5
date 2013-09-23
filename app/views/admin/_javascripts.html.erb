@@ -6,7 +6,7 @@
 <%= javascript_include_tag 'refinery/i18n' -%>
 <script>I18n.locale = '<%= I18n.locale %>';</script>
 <%= javascript_include_tag 'translations' if Rails.root.join('public', 'javascripts', 'translations.js').exist? -%>
-
+<%= javascript_include_tag 'jquery' %>
 <%= jquery_include_tags    :caching => js_caching -%>
 
 <%= javascript_include_tag 'rails.js' %>
@@ -29,6 +29,15 @@
                            'refinery/submenu',
                            :cache => ("cache/admin" if js_caching) unless login -%>
 <%= javascript_include_tag 'refinery/core' if login -%>
+<script>
+    $(document).ready(function () {
+        $('#department_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+        $('#role_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+        $('#city').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+        $('#state').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+        $('#state2').dropdownchecklist({ width: 188, maxDropHeight: 150 });
+    });
+</script>
 
 <%= yield :javascripts -%>
 
