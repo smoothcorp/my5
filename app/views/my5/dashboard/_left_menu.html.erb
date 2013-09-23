@@ -89,7 +89,21 @@
           <div>
             <ul style="display:none;" class="first_child">
               <% @audio_programs.each do |audio_program| %>
-                  <li class="li no_sub"><%= link_to "#{audio_program.title}", "#", :id => "#{audio_program.id}", :class => "graph_for_items" %></li>
+                  <li class="li">
+                    <%= link_to "#{audio_program.title}", "#", :id => "#{audio_program.id}", :class => "graph_for_items" %>
+                    <% unless audio_program.audios.blank? %>
+                        <span class="toggle_plus" id="sub_plus">+</span>
+                        <span class="toggle_minus" id="sub_minus">-</span>
+
+                        <ul style="display:none;" class="second_child">
+                          <% audio_program.audios.each_with_index do |audio, i| %>
+                              <li class="li no_sub">
+                                <%= link_to audio.title, "#", :id => "#{i}", :class => "graph_for_items_child" %>
+                              </li>
+                          <% end %>
+                        </ul>
+                    <% end %>
+                  </li>
               <% end %>
             </ul>
           </div>
