@@ -1,7 +1,7 @@
-function setup_graph_screen_1(dates,values,round,separated_params) {
+function setup_graph_screen_1(dates, values, round, separated_params) {
     var chart;
     //  =========================================================================================================
-    countin_direction = function( count, start_date, count_of_month ) {
+    countin_direction = function (count, start_date, count_of_month) {
         // Вычисление количества дней/round > 7 ( вычисление направления отсчета - flag )
 
         var splited_first_date = start_date.split(' ');
@@ -9,12 +9,12 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         var sum_of_days_in_seven = 0;
         i = 0;
         var z = 1 + 7 * count_of_month;
-        while ( ++i < z ) {
+        while (++i < z) {
             dayCount = new Date(splited_first_date[0], splited_first_date[1] - 1 + i, 0).getDate();
             sum_of_days_in_seven += dayCount;
         }
 
-        if ( count > sum_of_days_in_seven ) {
+        if (count > sum_of_days_in_seven) {
             return false;
         }
         else {
@@ -22,14 +22,14 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         }
     };
 
-    counting_of_days = function( year, month, direction ) {
+    counting_of_days = function (year, month, direction) {
         //  Составляем массив из количества дней в месяце
 
         var count_of_day_in_month = [];
         i = 0;
 
-        while ( ++i < 90 ) {
-            if ( direction ) {
+        while (++i < 90) {
+            if (direction) {
                 dayCount = new Date(year, month + i, 0).getDate();
             }
             else {
@@ -43,10 +43,10 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         //   count_of_day_in_month => [31, 30, 31, 31, 30...
     };
 
-    function  slicing_for_day_and_week ( values, dates, round ) {
+    function slicing_for_day_and_week(values, dates, round) {
 
-        Array.prototype.each_slice_seven = function( size, callback ) {
-            for ( var i = 0, l = this.length; i < l; ) {
+        Array.prototype.each_slice_seven = function (size, callback) {
+            for (var i = 0, l = this.length; i < l;) {
                 callback.call(this, this.slice(i, i + size));
                 i += size;
             }
@@ -56,19 +56,19 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
 
         /*Count!*/
         avarage = 0;
-        values.each_slice_seven(7, function( sub_array ) {
-            $.each(sub_array, function() {
+        values.each_slice_seven(7, function (sub_array) {
+            $.each(sub_array, function () {
                 avarage += this;
             });
 
-        values_arr.push(avarage);
-        avarage = 0;
+            values_arr.push(avarage);
+            avarage = 0;
         });
 
         /*Weeks!*/
-        dates.each_slice_seven(7, function( sub_array ) {
+        dates.each_slice_seven(7, function (sub_array) {
             dates_arr.push(sub_array[0]);
-            });
+        });
 
         return [dates_arr, values_arr];
     }
@@ -76,7 +76,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
 
     var from_date, to_date, count_of_data, dayCount, count_of_day_arr, checked_only_days, returned_data, count_of_month;
     var values_arr = [];
-    var  dates_arr = [];
+    var dates_arr = [];
 
     var separated = false;
     if ($("#department_view_mode").val() == "separated")
@@ -89,19 +89,19 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
     to_date = dates[dates.length - 1];
 
 
-    if ( round == 1 || round == 7 ) {
+    if (round == 1 || round == 7) {
         // Отображение для дней и недель
         // Должны оставить только 7мь точек ( 7мь дат )
 
         //if ( (round * 7) > count_of_data ) {
-        if ( round == 7 ) {
+        if (round == 7) {
             if (separated) {
                 returned_data = slicing_for_day_and_week(values[0], dates, round);
                 var dates_buf = returned_data[0].slice(0);//slice(0) hack for copy array, otherwise this is make link to array
-                values = values.map( function (value) {
-                  returned_data = slicing_for_day_and_week(value, dates, round);
-                  return returned_data[1];
-                } );
+                values = values.map(function (value) {
+                    returned_data = slicing_for_day_and_week(value, dates, round);
+                    return returned_data[1];
+                });
                 dates = dates_buf;
             }
             else {
@@ -124,7 +124,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
 
 
     }
-    else if ( round > 10 ) { // для всех round 30, 60, 90, 120...
+    else if (round > 10) { // для всех round 30, 60, 90, 120...
         // Отображение для одного месяца
 
         // flag - больше семи точек или меньше ( откуда начинать считать );
@@ -140,7 +140,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         var flag = true;
 
 
-        if ( flag ) {
+        if (flag) {
             var splited_from_date = from_date.split(' ');
             var from_date_year = splited_from_date[0];
             var from_date_month = splited_from_date[1] - 1; // for Javascript nedd '-1'
@@ -160,8 +160,8 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         var new_arr = [];
         var sum_of_days = 0;
 
-        for ( var h = 0; h < ( count_of_day_arr.length - count_of_month + 1 ); h = h + count_of_month ) {
-            for ( var g = 0; g < count_of_month; g++ ) {
+        for (var h = 0; h < ( count_of_day_arr.length - count_of_month + 1 ); h = h + count_of_month) {
+            for (var g = 0; g < count_of_month; g++) {
                 sum_of_days += count_of_day_arr[h + g];
             }
             new_arr.push(sum_of_days);
@@ -171,9 +171,9 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         count_of_day_arr = new_arr;
 
 
-        Array.prototype.each_slice = function( size, callback ) {
+        Array.prototype.each_slice = function (size, callback) {
             var j = 0;
-            for ( var i = 0, l = this.length; i < l; ) {
+            for (var i = 0, l = this.length; i < l;) {
                 callback.call(this, this.slice(i, i + size[j]));
                 i += size[j];
                 j++;
@@ -181,25 +181,25 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         };
 
         var avarage;
-        if ( flag ) {
+        if (flag) {
             /*Count!*/
             avarage = 0;
             if (separated) {
                 var values_arr = [];
-                values.map( function (value) {
-                    value.each_slice(count_of_day_arr, function( sub_array ) {
-                        $.each(sub_array, function() {
+                values.map(function (value) {
+                    value.each_slice(count_of_day_arr, function (sub_array) {
+                        $.each(sub_array, function () {
                             avarage += this;
                         });
 
                         values_arr.push(avarage);
                         avarage = 0;
                     });
-                } );
+                });
             }
             else {
-                values.each_slice(count_of_day_arr, function( sub_array ) {
-                    $.each(sub_array, function() {
+                values.each_slice(count_of_day_arr, function (sub_array) {
+                    $.each(sub_array, function () {
                         avarage += this;
                     });
 
@@ -209,22 +209,22 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             }
 
             /*Month!*/
-            dates.each_slice(count_of_day_arr, function( sub_array ) {
+            dates.each_slice(count_of_day_arr, function (sub_array) {
                 dates_arr.push(sub_array[0]);
             });
 
         } else {
-              //  some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
+            //  some_digit =>  Начинаем обрезать с "1" так как нам не нужен последний месяц ( декабрь ) а нужен ( июнь ) .. в примере когда конечная дата декабрь!
             //             =>  Но если заданная дата больше чем кол-во днейв предидущем месяце - то берем с "0" так как нам нуже декабрь , а не июнь в примере
             //   UPD. вроде как нужно только при работе с одним месяцем ( range = 1 month )
 
             var some_digit = 0;
-            if ( count_of_day_arr[1] > to_date_day ) {
-            some_digit = 1;
+            if (count_of_day_arr[1] > to_date_day) {
+                some_digit = 1;
             }
 
-            if ( count_of_month > 1 ) {
-            some_digit = 0
+            if (count_of_month > 1) {
+                some_digit = 0
             }
 
 
@@ -237,65 +237,67 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             avarage = 0;
             var total = eval(cuted_array.join('+'));
             if (separated) {
-                values = values.map( function (value) {
-                 return value.reverse().slice(0, total).reverse();
-                 } );
+                values = values.map(function (value) {
+                    return value.reverse().slice(0, total).reverse();
+                });
             }
-            else { values.reverse().slice(0, total).reverse(); }
+            else {
+                values.reverse().slice(0, total).reverse();
+            }
             dates = dates.reverse().slice(0, total).reverse();
 
             if (separated) {
-                values.map( function (value) {
-                    value.each_slice(cuted_array, function( sub_array ) {
-                        $.each(sub_array, function() {
+                values.map(function (value) {
+                    value.each_slice(cuted_array, function (sub_array) {
+                        $.each(sub_array, function () {
                             avarage += this;
                         });
 
                         values_arr.push(avarage);
                         avarage = 0;
                     });
-                } );
+                });
             }
             else {
-                values.each_slice(cuted_array, function( sub_array ) {
-                    $.each(sub_array, function() {
+                values.each_slice(cuted_array, function (sub_array) {
+                    $.each(sub_array, function () {
                         avarage += this;
                     });
 
-                values_arr.push(avarage);
-                avarage = 0;
+                    values_arr.push(avarage);
+                    avarage = 0;
+                });
+            }
+
+
+            /*Month!*/
+
+            dates.each_slice(cuted_array, function (sub_array) {
+                dates_arr.push(sub_array[0]);
             });
-        }
-
-
-        /*Month!*/
-
-        dates.each_slice(cuted_array, function( sub_array ) {
-            dates_arr.push(sub_array[0]);
-        });
         }
 
 
         dates = dates_arr;
         if (separated) {
-            var j=0;
-             var val_array = [];
-             values = values.map( function (value) {
-                 val_array = values_arr.slice(j,j+7);
-                 j+=7;
-                 return val_array;
-             } );
+            var j = 0;
+            var val_array = [];
+            values = values.map(function (value) {
+                val_array = values_arr.slice(j, j + 7);
+                j += 7;
+                return val_array;
+            });
         }
         else {
             values = values_arr;
         }
     }
 
-    function toDate( strDate ) {
+    function toDate(strDate) {
         var args = strDate.split(' ');
 
         // for IE 8 => .map(Number) was removed
-        args = $.map(args, function( x ) {
+        args = $.map(args, function (x) {
             return Number(x);
         });
 
@@ -303,20 +305,21 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         args[1] = args[1] - 1;
         return Date.UTC.apply(Date, args);
     }
+
     var series_chart = [];
     var test_chart = [];
     if (separated) {
-        var i=0;
-        values.map( function (value) {
+        var i = 0;
+        values.map(function (value) {
             var output_arr = [];
             series_chart.push({ name: separated_params[i], data: value });
             i++;
-        } );
+        });
     }
 
     else {
         var output_arr = [];
-        for ( var j = 0, length = dates.length; j < length; j += 1 ) {
+        for (var j = 0, length = dates.length; j < length; j += 1) {
             output_arr[j] = {
                 x: toDate(dates[j]),
                 y: values[j]
@@ -325,9 +328,9 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
         series_chart.push({ name: "Visits", data: output_arr });
         test_chart.push({ name: "Visits", data: values })
     }
-    dates = dates.map( function(value) {
-        return value.replace(/ /g,"/");
-    } );
+    dates = dates.map(function (value) {
+        return value.replace(/ /g, "/");
+    });
 
     chart = new Highcharts.Chart({
         chart: {
@@ -363,8 +366,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             title: {
                 text: 'Page views'
             },
-            plotLines:
-            [
+            plotLines: [
                 {
                     value: 0,
                     width: 1,
@@ -373,9 +375,9 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
             ]
         },
         tooltip: {
-            formatter: function() {
+            formatter: function () {
                 return '<b>' + this.series.name + '</b><br/>' +
-                Highcharts.dateFormat("%e %b %y", this.x) + ': ' + Math.round(this.y).toFixed(1);
+                    Highcharts.dateFormat("%e %b %y", this.x) + ': ' + Math.round(this.y).toFixed(1);
             }
         },
         legend: {
@@ -398,7 +400,7 @@ function setup_graph_screen_1(dates,values,round,separated_params) {
     });
 }
 
-function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_data, pie_sum_totals){
+function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_data, pie_sum_totals) {
     var chart;
     chart = new Highcharts.Chart({
         chart: {
@@ -432,9 +434,9 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
             shadow: true
         },
         tooltip: {
-            formatter: function() {
+            formatter: function () {
                 return '' +
-                this.x + ': ' + this.y + ' Visits';
+                    this.x + ': ' + this.y + ' Visits';
             }
         },
         plotOptions: {
@@ -482,9 +484,9 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
             shadow: true
         },
         tooltip: {
-            formatter: function() {
+            formatter: function () {
                 return '' +
-                this.x + ': ' + this.y + ' Visits';
+                    this.x + ': ' + this.y + ' Visits';
             }
         },
         plotOptions: {
@@ -513,7 +515,7 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
                 text: 'Pie graph'
             },
             tooltip: {
-                formatter: function() {
+                formatter: function () {
                     return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                 }
             },
@@ -525,7 +527,7 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
                         enabled: true,
                         color: '#000000',
                         connectorColor: '#000000',
-                        formatter: function() {
+                        formatter: function () {
                             return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                         }
                     }
@@ -541,3 +543,158 @@ function setup_graph_screen_2(report_day_date, report_day_array, pie_graph_view_
         });
     }
 }
+
+$(document).ready(function () {
+    $('#company_id').live('change', function (e) {
+        //            company_filter("all", $(this).val(), "", "", "", "", "");
+        return false;
+    });
+    $('#city').live('change', function (e) {
+        var city = $('#city').val();
+        var check = check_multiselectors('city');
+        if (city != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //            company_filter("all", "", $(this).val(), "", "", "");
+        return false;
+    });
+    $('#role_id').live('change', function (e) {
+        var role = $('#role_id').val();
+        var check = check_multiselectors('role');
+        if (role != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //            company_filter("all", "", "", "", $(this).val(), "", "");
+        return false;
+    });
+    $('#state').live('change', function (e) {
+        var state = $('#state').val();
+        var check = check_multiselectors('state');
+        if (state != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //            company_filter("all", "", "", "", $(this).val(), "");
+        return false;
+    });
+    $('#state2').live('change', function (e) {
+        var state2 = $('#state2').val();
+        var check = check_multiselectors('state2');
+        if (state2 != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //            company_filter("all", "", "", "", $(this).val(), "");
+        return false;
+    });
+    $('#country').live('change', function (e) {
+        //            company_filter("all", "", "", "", "", "", $(this).val());
+        return false;
+    });
+    $('#department_id').live('change', function (e) {
+        var department = $('#department_id').val();
+        var check = check_multiselectors('department');
+        if (department != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //        company_filter("all","",$(this).val(),"","","","");
+        return false;
+    });
+
+    function check_multiselectors(current) {
+
+        var city_active, state2_active, state_active, role_active, department_active;
+        department_active = $("#department_id").val();
+        role_active = $("#role_id").val();
+        state_active = $("#state").val();
+        state2_active = $("#state2").val();
+        city_active = $("#city").val();
+
+        switch (current) {
+            case 'department':
+                return city_active || state2_active || state_active || role_active
+                break;
+            case 'state':
+                return city_active || state2_active || department_active || role_active
+                break;
+            case 'state2':
+                return city_active || state_active || department_active || role_active
+                break;
+            case 'role':
+                return city_active || state_active || department_active || state2_active
+                break;
+            case 'city':
+                return role_active || state_active || department_active || state2_active
+                break;
+        }
+    }
+
+});
