@@ -157,11 +157,7 @@ ActiveRecord::Schema.define(:version => 20130918104403) do
     t.string   "time_zone",                           :default => "Sydney", :null => false
     t.string   "promo_code"
     t.integer  "free_trial_opted",     :limit => 1
-<<<<<<< HEAD
-    t.string   "suburb"
-=======
     t.string   "state2"
->>>>>>>  #5: added functional and helper method for recent posts
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true

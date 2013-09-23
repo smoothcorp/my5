@@ -42,19 +42,19 @@
   color: white;
   font-weight: bold;
 }
-/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #header a:visited {
   color: white;
 }
-/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #header a:focus {
   color: white;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #header a:hover {
   color: white;
 }
-/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #header a:active {
   color: white;
 }
@@ -101,7 +101,11 @@
 /* line 59, ../../../app/stylesheets/my5/shared/header.sass */
 #header #health_checkin {
   float: right;
+<<<<<<< HEAD
   margin-right: 20px !important;
+=======
+  margin-right: 20px;
+>>>>>>> #5: added new stylesheet for print
   background: url("/images/dashboard/green_tab.png") no-repeat;
   width: 156px;
 }
@@ -151,30 +155,50 @@
   width: 100%;
 }
 
+<<<<<<< HEAD
 /* line 98, ../../../app/stylesheets/my5/shared/header.sass */
+=======
+/* line 101, ../../../app/stylesheets/my5/shared/header.sass */
+>>>>>>> #5: added new stylesheet for print
 #dashboard #header nav #home {
   background-position: 0px 0px !important;
 }
 
+<<<<<<< HEAD
 /* line 101, ../../../app/stylesheets/my5/shared/header.sass */
+=======
+/* line 104, ../../../app/stylesheets/my5/shared/header.sass */
+>>>>>>> #5: added new stylesheet for print
 #symptomatics #symptomatics_link, .symptomatic_video #symptomatics_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
+<<<<<<< HEAD
 /* line 104, ../../../app/stylesheets/my5/shared/header.sass */
+=======
+/* line 107, ../../../app/stylesheets/my5/shared/header.sass */
+>>>>>>> #5: added new stylesheet for print
 #my_eqs #my_eq_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
+<<<<<<< HEAD
 /* line 107, ../../../app/stylesheets/my5/shared/header.sass */
+=======
+/* line 110, ../../../app/stylesheets/my5/shared/header.sass */
+>>>>>>> #5: added new stylesheet for print
 #mini_modules #mini_modules_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
+<<<<<<< HEAD
 /* line 110, ../../../app/stylesheets/my5/shared/header.sass */
+=======
+/* line 113, ../../../app/stylesheets/my5/shared/header.sass */
+>>>>>>> #5: added new stylesheet for print
 #audio_programs #audio_programs_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
@@ -224,23 +248,23 @@
   text-decoration: inherit;
   cursor: inherit;
 }
-/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .leftbar li a:visited {
   color: #3e3e3e;
 }
-/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .leftbar li a:focus {
   color: #3e3e3e;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .leftbar li a:hover {
   color: #3e3e3e;
 }
-/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .leftbar li a:active {
   color: #3e3e3e;
 }
-/* line 6, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_unstyled-link.scss */
+/* line 6, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_unstyled-link.scss */
 .leftbar li a:active, .leftbar li a:focus {
   outline: none;
 }
@@ -336,19 +360,19 @@
 .module_selection_right a {
   color: dimgrey;
 }
-/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .module_selection_right a:visited {
   color: dimgrey;
 }
-/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .module_selection_right a:focus {
   color: dimgrey;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .module_selection_right a:hover {
   color: dimgrey;
 }
-/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .module_selection_right a:active {
   color: dimgrey;
 }
@@ -388,19 +412,19 @@
 .video_header a {
   color: #3e3e3e;
 }
-/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .video_header a:visited {
   color: #3e3e3e;
 }
-/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .video_header a:focus {
   color: #3e3e3e;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .video_header a:hover {
   color: #888888;
 }
-/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .video_header a:active {
   color: #3e3e3e;
 }

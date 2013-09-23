@@ -26,10 +26,10 @@ gem 'decent_exposure'
 gem 'paperclip'
 gem 'activemerchant'
 gem 'find_by_param'
-gem 'recaptcha', :require => "recaptcha/rails"
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'yaml_db'
-gem "remotipart", "~> 1.0"
-gem "time_diff"
+gem 'remotipart', '~> 1.0'
+gem 'time_diff'
 gem 'time_of_day'
 gem 'execjs'
 gem 'therubyracer'
@@ -38,12 +38,12 @@ gem 'therubyracer'
 group :development, :test do
   gem 'sqlite3', :platform => :mri_19
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3', :platform => :mri_18
-  gem "rspec-rails", "~> 2.6"
+  gem 'rspec-rails', '~> 2.6'
 end
 
 group :test do
-  gem 'rspec', "~> 2.6"
-  gem "rspec-rails", "~> 2.6"
+  gem 'rspec', '~> 2.6'
+  gem 'rspec-rails', '~> 2.6'
   gem 'timecop'
   gem 'factory_girl_rails'
   gem 'refinerycms-testing'

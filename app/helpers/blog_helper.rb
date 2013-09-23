@@ -47,18 +47,4 @@ module BlogHelper
     end
     html.html_safe
   end
-
-  def search_list(posts)
-    html = ''
-    if posts.any?
-      posts.each do |post|
-        html << "<li>"
-        html << link_to(post.title, blog_post_path(post.id))
-        html << "</li>"
-      end
-      html.html_safe
-    else
-      html.html_safe = "Your search - #{params[:search]} - did not match any posts."
-    end
-  end
 end

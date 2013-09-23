@@ -1,10 +1,11 @@
 <% content_for :body_content_left do %>
     <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
+    <h1 class="blog_title"> Search Results </h1>
 
     <% if @blog_posts.any? %>
         <section id="blog_posts">
-          <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
-          <%= will_paginate @blog_posts %>
+          <%= render :partial => "/blog/shared/post", :collection => @posts %>
+          <%= will_paginate @posts %>
         </section>
 
     <% else %>
@@ -14,7 +15,7 @@
 
 <% content_for :body_content_right do %>
     <div class="sidebar_section_wrap logo">
-      <img src="images/blog/my_five.jpg" alt="" />
+      <img src="/images/blog/my_five.jpg" alt="" />
     </div>
     <%= form_tag blog_search_path, :class => 'search_form' do %>
         <%= search_field_tag('search', nil, :placeholder => 'Enter search term...', :class => 'search_input') %>
@@ -37,5 +38,4 @@
     </div>
 <% end %>
 
-<%= render :partial => "/shared/content_page" %>
-<% content_for :stylesheets, stylesheet_link_tag('refinerycms-blog') %>
+<%= render :partial => "/shared/content_page", :locals => { :remove_automatic_sections => true }  %>
