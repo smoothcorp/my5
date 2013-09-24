@@ -114,7 +114,7 @@ class My5::DashboardController < ApplicationController
     book  = Spreadsheet::Workbook.new
     sheet = book.create_worksheet :name => "details"
     sheet.row(0).concat %w{User_System_ID Title First_Name Last_Name Corporation User_type Suburb Postcode Signed_up Date_subscription_started,Date_subscription_ends,Login_Time_Last_30_Days,Login_Time_Last_90_Days,Last_login_duration,Time_in_Symptomatics_last_30_days,Time_in_Mini_Modules_last_30_days,Time_in_My_EQs_30_days,Time_in_Audio_Programs_last_30_days,Time_in_Symptomatics_last_90_days,Time_in_Mini_Modules_last_90_days,Time_in_My_EQs_90_days,Time_in_Audio_Programs_last_90_days }
-    @custmer = Customer.all
+    @custmer = Customer.where(:corporation_id => current_customer.corporation_id)
     count    = 1
     @custmer.each do |custmer|
       sheet.row(count.to_i).push custmer.id, custmer.title, custmer.first_name, custmer.last_name, custmer.first_name, "#{custmer.corporation.name if !custmer.corporation.nil?}", "#{!custmer.corporation.nil? ? 'Corporate' : 'Retail' }", custmer.city, custmer.zip_code, custmer.created_at.strftime("%e %B %Y"), "#{custmer.subscriptions.blank? ? 'No subscription' : custmer.subscriptions.last.expiry_date.strftime('%e %B %Y')}", custmer.login_time_last_30_days, custmer.login_time_last_30_days, custmer.login_time_last_90_days, custmer.last_login_duration, custmer.time_in_symptomatics_last_30_days, custmer.time_in_mini_modules_last_30_days, custmer.time_in_my_eqs_last_30_days, custmer.time_in_audio_programs_last_30_days, custmer.time_in_symptomatics_last_90_days, custmer.time_in_mini_modules_last_90_days, custmer.time_in_my_eqs_last_90_days, custmer.time_in_audio_programs_last_90_days
