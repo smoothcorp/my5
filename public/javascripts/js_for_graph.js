@@ -325,8 +325,8 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
                 y: values[j]
             };
         }
-        series_chart.push({ name: "Visits", data: output_arr });
-        test_chart.push({ name: "Visits", data: values })
+//        series_chart.push({ name: "Visits", data: output_arr });
+        series_chart.push({ name: "Visits", data: values })
     }
     dates = dates.map(function (value) {
         return value.replace(/ /g, "/");
@@ -396,7 +396,7 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
                 enableMouseTracking: false
             }
         },
-        series: test_chart
+        series: series_chart
     });
 }
 

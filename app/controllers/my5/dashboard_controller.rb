@@ -334,6 +334,7 @@ class My5::DashboardController < ApplicationController
         @separated_params += "["
         count = 0
         params[:city].each do |city|
+          @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
           @separated_params += "'#{city.humanize}'"
           count += 1
