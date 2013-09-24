@@ -3,7 +3,7 @@ module BlogHelper
   def blog_list_archive
     posts = BlogPost.live.select('published_at').all_previous
     return nil if posts.blank?
-    html  = ''
+    html  = '<ul class="categories_list" id="archived_posts">'
     links = []
     years = []
 
@@ -25,26 +25,28 @@ module BlogHelper
       html << '<ul style="display:none" class="subcat" >'
       months.each do |m|
         count = BlogPost.live.by_archive(Time.parse(m + '/' + year)).size
-        text  = t("date.month_names")[m.to_i] + "(#{count})"
+        text  = t('date.month_names')[m.to_i] + "(#{count})"
         html << "<li class='item'>"
         html << link_to(text, archive_blog_posts_path(:year => year, :month => m))
-        html << "</li>"
+        html << '</li>'
       end
-      html << "</ul>"
-      html << "</li>"
+      html << '</ul>'
+      html << '</li>'
     end
+    html << '</ul>'
 
     html.html_safe
   end
 
   def list_recent_articles
     blog_visits = current_customer.customer_visits.where(:controller_name => 'blog/posts').last(5)
-    html        = ''
+    html        = '<ul class="categories_list" id="recent_articles">'
     blog_visits.each do |bv|
-      html << "<li>"
+      html << "<li class='item'>"
       html << link_to("#{bv.conditions}", blog_post_path(bv.show_id))
-      html << "</li>"
+      html << '</li>'
     end
+    html << '</ul>'
     html.html_safe
   end
 end

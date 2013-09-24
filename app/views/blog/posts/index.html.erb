@@ -1,6 +1,6 @@
 <% content_for :body_content_left do %>
     <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
-
+    <h1 class="blog_title"> My 5 Naturally </h1>
     <% if @blog_posts.any? %>
         <section id="blog_posts">
           <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
@@ -14,7 +14,7 @@
 
 <% content_for :body_content_right do %>
     <div class="sidebar_section_wrap logo">
-      <img src="images/blog/my_five.jpg" alt="" />
+      <img src="/images/blog/my_five.jpg" alt=""/>
     </div>
     <%= form_tag blog_search_path, :class => 'search_form' do %>
         <%= search_field_tag('search', nil, :placeholder => 'Enter search term...', :class => 'search_input') %>
@@ -24,18 +24,16 @@
     <div class="sidebar_section_wrap">
       <%= render :partial => "/blog/shared/categories" %>
     </div>
-    <div class="sidebar_section_wrap">
-      <%= render :partial => "/blog/shared/tags" %>
-    </div>
+    <% if current_customer.customer_visits.any? %>
+        <div class="sidebar_section_wrap">
+          <h2 class="red"> Recent Articles </h2>
+          <%= list_recent_articles %>
+        </div>
+    <% end %>
     <div class="sidebar_section_wrap">
       <%= render :partial => "/blog/shared/archive_list" %>
     </div>
-    <div class="sidebar_section_wrap">
-      <% if current_customer.customer_visits.any? %>
-          <%= list_recent_articles %>
-      <% end %>
-    </div>
 <% end %>
 
-<%= render :partial => "/shared/content_page" %>
+<%= render :partial => "/shared/content_page", :locals => { :remove_automatic_sections => true } %>
 <% content_for :stylesheets, stylesheet_link_tag('refinerycms-blog') %>

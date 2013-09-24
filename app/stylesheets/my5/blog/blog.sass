@@ -20,7 +20,7 @@ $font-family: Helvetica, sans-serif
 .gray
   color: $color_light_gray
 
-.content#index, .content#show, .content#search
+.content#index, .content#show, .content#search, .content#archive
   position: relative
   padding: 37px
   background: #fff url("/images/blog/blog_bg.jpg") no-repeat 50% 90px
@@ -39,7 +39,6 @@ $font-family: Helvetica, sans-serif
   #body_content_left
     width: $blog_center_column_width
     float: left
-    border-right: 1px solid $color_light_gray_2
     .blog_post
       padding: 0 30px 30px
       margin-bottom: 30px
@@ -47,6 +46,7 @@ $font-family: Helvetica, sans-serif
   #body_content_right
     width: $blog_right_sideabar_width
     float: left
+    border-left: 1px solid $color_light_gray_2
     .sidebar_section_wrap
       padding: 30px 10px 30px 30px
       border-bottom: 1px solid $color_light_gray_2
@@ -120,16 +120,26 @@ $font-family: Helvetica, sans-serif
     cursor: pointer
 
 #categories
-  .active
-    color: $color_orange
-    >a
+  .item
+    &:hover
       color: $color_orange
+      >a
+        color: $color_orange
+
+#recent_articles
+  .item
+    &:hover
+      color: $color_red
+      >a
+        color: $color_red
 
 #archived_posts
-  .active
-    color: $color_light_gray
-    >a
+  .item
+    cursor: pointer
+    &:hover
       color: $color_light_gray
+      >a
+        color: $color_light_gray
 
 .categories_list
   font-family: $font-family
