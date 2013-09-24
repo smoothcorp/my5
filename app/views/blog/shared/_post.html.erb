@@ -23,7 +23,7 @@
       </header>
       <section class="post_description">
         <% if blog_post_teaser_enabled? %>
-            <%= blog_post_teaser(post) %>
+            <%= post_teaser(post,250) %>
         <% else %>
             <%= post.body.html_safe %>
         <% end %>

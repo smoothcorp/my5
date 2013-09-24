@@ -49,4 +49,19 @@ module BlogHelper
     html << '</ul>'
     html.html_safe
   end
+
+  def blog_post_teaser_enabled?
+    BlogPost.teasers_enabled?
+  end
+
+  def post_teaser(post,length)
+    if post.respond_to?(:custom_teaser) && post.custom_teaser.present?
+      post.custom_teaser.html_safe
+    else
+      truncate(post.body, {
+          :length =>  length,
+          :preserve_html_tags => true
+      }).html_safe
+    end
+  end
 end

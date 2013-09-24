@@ -28,7 +28,12 @@
         = link_to image_tag("logo_pinwheel.png") + "Complete or update your profile", edit_customer_registration_path
         = link_to image_tag("logo_pinwheel.png") + "Start your first exercise", my5_symptomatics_path
 #quick-tips
-    %h3 Quick Tips
-    %ul
-        %li
-            Good hydration can help enhance your mental clarity, so help keep yourself alert all day and drink water.
+    %h3.title
+        = @blog_post.title
+    .body
+        -if blog_post_teaser_enabled?
+            = post_teaser(@blog_post,150)
+        -else
+            = @blog_post.body.html_safe
+    .link
+        = link_to t('read_more', :scope => 'blog.shared.posts'), blog_post_url(@blog_post) if blog_post_teaser_enabled?

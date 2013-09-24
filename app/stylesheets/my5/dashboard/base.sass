@@ -1,5 +1,7 @@
 @import "shared/global_passives"
 
+$color_green: #3a9b2e
+
 .nav#intro
     +grid(24)
     +alpha
@@ -77,4 +79,16 @@
             top: 10px
             bottom: 10px
             left: 0 !important
-            
+    .title
+        color: $color_green
+    .body
+        margin-left: 20px
+    .link
+        color: $color_green
+        >a
+            color: $color_green
+        margin-left: 20px
+        &:before
+            content: '|'
+            margin-right: 4px
+

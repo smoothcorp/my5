@@ -8,11 +8,13 @@ class My5::DashboardController < ApplicationController
 
   def customer
     log_event "Viewed Dashboard", current_customer
+    @blog_post = BlogPost.order('created_at DESC').first
+    p "s" *100
+    p @blog_post
   end
 
   def reports
     if current_customer.can_view_reports?
-
       @company                    = current_customer.corporation_id
       @customers_locations        = Customer.group("city").collect(&:city)
       @customers_location_states  = Customer.group("state").collect(&:state)

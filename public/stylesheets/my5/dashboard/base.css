@@ -1,4 +1,4 @@
-/* line 3, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 5, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro {
   display: inline;
   float: left;
@@ -15,7 +15,7 @@
   background-image: -ms-linear-gradient(top, #ffffff, #e8e8e8);
   background-image: linear-gradient(top, #ffffff, #e8e8e8);
 }
-/* line 10, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 12, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li {
   display: inline;
   float: left;
@@ -29,16 +29,16 @@
   float: left;
   text-align: center;
 }
-/* line 18, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 20, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li.first {
   padding-left: 20px;
   margin-left: 0;
 }
-/* line 22, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 24, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li.last {
   margin-right: 0;
 }
-/* line 24, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 26, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li a {
   display: block;
   margin-left: 7px;
@@ -47,28 +47,28 @@
   padding: 21px;
   background: url("/images/dashboard/round_button.png") no-repeat;
 }
-/* line 31, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 33, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li a:hover {
   background-position: 0px -203px;
 }
-/* line 34, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 36, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li#symptomatics h2 {
   color: #ff4c3c;
 }
-/* line 37, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 39, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li#mini h2 {
   color: #419e36;
 }
-/* line 40, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 42, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li#eq h2 {
   color: #76c0f0;
 }
-/* line 43, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 45, ../../../../app/stylesheets/my5/dashboard/base.sass */
 .nav#intro li#audio h2 {
   color: #d67336;
 }
 
-/* line 46, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 48, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal {
   padding-left: 40px;
   display: inline;
@@ -79,32 +79,32 @@
   margin-left: 0;
   margin-top: 20px;
 }
-/* line 51, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 53, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal p {
   font-size: 1.2em;
 }
-/* line 53, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 55, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal a {
   display: block;
 }
-/* line 55, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 57, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal a img {
   margin-right: 5px;
 }
-/* line 57, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 59, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal li, #personal a {
   border-top: 1px solid #cccccc;
   padding: 10px 0;
   font-size: 1.2em;
 }
-/* line 61, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 63, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #personal li img, #personal a img {
   width: 20px;
   height: 20px;
   vertical-align: middle;
 }
 
-/* line 66, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 68, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips {
   display: inline;
   float: left;
@@ -126,14 +126,36 @@
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 72, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 74, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips h3, #quick-tips li {
   padding: 0px 20px;
 }
-/* line 74, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 76, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips li {
   list-style: none;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 0 !important;
+}
+/* line 82, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .title {
+  color: #3a9b2e;
+}
+/* line 84, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .body {
+  margin-left: 20px;
+}
+/* line 86, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .link {
+  color: #3a9b2e;
+  margin-left: 20px;
+}
+/* line 88, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .link > a {
+  color: #3a9b2e;
+}
+/* line 91, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .link:before {
+  content: "|";
+  margin-right: 4px;
 }
