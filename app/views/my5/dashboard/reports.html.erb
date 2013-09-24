@@ -40,7 +40,7 @@
             $('.graph_for_items').addClass("active");
             $('.graph_for_items_child').addClass("active");
             $(this).addClass("active");
-            if ($('#department_id').val() || $('#role_id').val() || $('#state').val() || $('#state2').val() || $('#city').val())
+            if ($('#department_id').val() || $('#role_id').val() || $('#state').val() || $('#state2').val() || $('#city').val() || $('country').val())
                 $("#buttons_separated_merged").show();
             graph_view(1, "all", "", "");
             return false;
@@ -242,7 +242,7 @@
         if (state2 == "null") {
             state2 = $('#state2').val();
         }
-        if (country == "") {
+        if (country == "null") {
             country = $('#country').val();
         }
         if ($.trim(graph_views) == "undefined" || graph_views == "") {

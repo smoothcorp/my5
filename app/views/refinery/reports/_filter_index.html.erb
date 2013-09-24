@@ -41,7 +41,7 @@
     </tr>
     <tr>
       <td>Country :</td>
-      <td><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true }) %></td>
+      <td><%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true,:multiple => true, :size => 5 }) %></td>
     </tr>
 
     <tr>

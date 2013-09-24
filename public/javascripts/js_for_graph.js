@@ -642,7 +642,26 @@ $(document).ready(function () {
         return false;
     });
     $('#country').live('change', function (e) {
-        //            company_filter("all", "", "", "", "", "", $(this).val());
+        var country = $('#country').val();
+        var check = check_multiselectors('country');
+        if (country != null) {
+            if (!check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+
+        else {
+            if (check) {
+                $("#buttons_separated_merged").show();
+            }
+            else {
+                $("#buttons_separated_merged").hide();
+            }
+        }
+        //            company_filter("all", "", "", "", $(this).val(), "", "");
         return false;
     });
     $('#department_id').live('change', function (e) {
@@ -671,28 +690,32 @@ $(document).ready(function () {
 
     function check_multiselectors(current) {
 
-        var city_active, state2_active, state_active, role_active, department_active;
+        var city_active, state2_active, state_active, role_active, department_active,country_active;
         department_active = $("#department_id").val();
         role_active = $("#role_id").val();
         state_active = $("#state").val();
         state2_active = $("#state2").val();
         city_active = $("#city").val();
+        country_active = $("#country").val();
 
         switch (current) {
             case 'department':
-                return city_active || state2_active || state_active || role_active
+                return city_active || state2_active || state_active || role_active || country_active;
                 break;
             case 'state':
-                return city_active || state2_active || department_active || role_active
+                return city_active || state2_active || department_active || role_active || country_active;
                 break;
             case 'state2':
-                return city_active || state_active || department_active || role_active
+                return city_active || state_active || department_active || role_active || country_active;
                 break;
             case 'role':
-                return city_active || state_active || department_active || state2_active
+                return city_active || state_active || department_active || state2_active || country_active;
                 break;
             case 'city':
-                return role_active || state_active || department_active || state2_active
+                return role_active || state_active || department_active || state2_active || country_active;
+                break;
+            case 'country':
+                return role_active || state_active || department_active || state2_active || city_active;
                 break;
         }
     }

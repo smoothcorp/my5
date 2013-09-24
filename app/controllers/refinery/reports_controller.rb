@@ -301,10 +301,12 @@ class Refinery::ReportsController < ApplicationController
       end
     end
 
-    if !params[:country].blank?
-      customer_condition += @is_condition ? " AND " : ""
-      customer_condition += "country = '#{params[:country].to_s}' "
-      @is_condition      = true
+    if !(params[:country] == 'null' || params[:country].blank?)
+      if params[:department_view_mode] != "separated"
+        customer_condition += @is_condition ? " AND " : ""
+        customer_condition += "country IN ('#{params[:country].map { |p| p.to_s.inspect }.join(',')}')"
+        @is_condition      = true
+      end
     end
 
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
@@ -352,6 +354,17 @@ class Refinery::ReportsController < ApplicationController
         params[:city].each do |city|
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
           @separated_params += "'#{city.humanize}'"
+          count += 1
+        end
+        @separated_params += "]"
+      end
+      if params[:country] != 'null'
+        @separated_params += "["
+        count = 0
+        params[:country].each do |country|
+          @separated_params += ", " unless count == 0
+          @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
+          @separated_params += "'#{country.humanize}'"
           count += 1
         end
         @separated_params += "]"
