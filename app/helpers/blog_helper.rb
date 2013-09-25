@@ -39,7 +39,7 @@ module BlogHelper
   end
 
   def list_recent_articles
-    blog_visits = current_customer.customer_visits.where(:controller_name => 'blog/posts').last(5)
+    blog_visits = current_customer.customer_visits.where(:controller_name => 'blog/posts', :action_name => 'show').last(5)
     html        = '<ul class="categories_list" id="recent_articles">'
     blog_visits.each do |bv|
       html << "<li class='item'>"
