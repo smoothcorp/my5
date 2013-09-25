@@ -74,30 +74,67 @@
   line-height: 120%;
   margin: 0 0 10px;
 }
+/* line 62, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button, .content#show .comment_button, .content#search .comment_button, .content#archive .comment_button {
+  float: left;
+  cursor: pointer;
+}
+/* line 65, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button .comment_icon, .content#show .comment_button .comment_icon, .content#search .comment_button .comment_icon, .content#archive .comment_button .comment_icon {
+  float: left;
+  height: 25px;
+  width: 26px;
+  background: url("/images/blog/comment.png");
+}
+/* line 70, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button .comment_counter, .content#show .comment_button .comment_counter, .content#search .comment_button .comment_counter, .content#archive .comment_button .comment_counter {
+  float: left;
+  margin-left: 5px;
+}
+/* line 74, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button, .content#show .print_button, .content#search .print_button, .content#archive .print_button {
+  float: left;
+  margin-left: 22px;
+  cursor: pointer;
+}
+/* line 78, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button .print_icon, .content#show .print_button .print_icon, .content#search .print_button .print_icon, .content#archive .print_button .print_icon {
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  height: 14px;
+  width: 16px;
+  background: url("/images/blog/print.png") no-repeat 0 0;
+}
+/* line 85, ../../../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button .print_link, .content#show .print_button .print_link, .content#search .print_button .print_link, .content#archive .print_button .print_link {
+  float: left;
+  margin-left: 11px;
+}
 
-/* line 64, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 91, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .details {
   display: none;
 }
-/* line 66, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 93, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .link_more {
   text-transform: uppercase;
   color: #3a9b2e;
 }
-/* line 69, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 96, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .link_more > a {
   color: #3a9b2e;
 }
-/* line 71, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 98, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .link_more:before {
   content: "|";
   margin-right: 4px;
 }
-/* line 74, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 101, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .comment_count {
   display: none;
 }
-/* line 76, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 103, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post h1 {
   font-size: 21px;
   font-weight: 500;
@@ -106,15 +143,15 @@
   color: #3a9b2e;
   margin: 0 0 16px;
 }
-/* line 84, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 111, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post h1 > a {
   color: #3a9b2e;
 }
-/* line 86, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 113, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .post_description {
   overflow: hidden;
 }
-/* line 88, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 115, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_post .post_description p {
   font-size: 13px;
   font-family: Helvetica, sans-serif;
@@ -124,13 +161,13 @@
   margin-bottom: 16px;
 }
 
-/* line 97, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 124, ../../../../app/stylesheets/my5/blog/blog.sass */
 .search_form {
   position: relative;
   padding: 8px 20px;
   border-bottom: 1px solid #b0b1b3;
 }
-/* line 101, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 128, ../../../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_input {
   font-size: 11px;
   font-weight: 400;
@@ -146,7 +183,7 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 113, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 140, ../../../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_button {
   font-size: 11px;
   font-weight: 400;
@@ -161,75 +198,75 @@
   cursor: pointer;
 }
 
-/* line 128, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 155, ../../../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover {
   color: #dc8c23;
 }
-/* line 130, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 157, ../../../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover > a {
   color: #dc8c23;
 }
 
-/* line 135, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 162, ../../../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover {
   color: #c92b1e;
 }
-/* line 137, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 164, ../../../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover > a {
   color: #c92b1e;
 }
 
-/* line 141, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 168, ../../../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item {
   cursor: pointer;
 }
-/* line 143, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 170, ../../../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover {
   color: #9ea0a3;
 }
-/* line 145, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 172, ../../../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover > a {
   color: #9ea0a3;
 }
 
-/* line 148, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 175, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list {
   font-family: Helvetica, sans-serif;
   font-size: 14px;
 }
-/* line 151, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 178, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active {
   color: #c92b1e;
 }
-/* line 153, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 180, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active > a {
   color: #c92b1e;
 }
-/* line 155, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 182, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .item {
   list-style: none;
   margin-left: 0;
 }
-/* line 158, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 185, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat {
   list-style: none;
   padding-left: 30px;
   font-size: 12px;
 }
-/* line 162, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 189, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item {
   position: relative;
   line-height: 120%;
   margin-bottom: 5px;
 }
-/* line 166, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 193, ../../../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item:before {
   content: "|";
   position: absolute;
   left: -6px;
 }
 
-/* line 171, ../../../../app/stylesheets/my5/blog/blog.sass */
+/* line 198, ../../../../app/stylesheets/my5/blog/blog.sass */
 .blog_title {
   margin-left: 28px;
   color: #3a9b2e;
