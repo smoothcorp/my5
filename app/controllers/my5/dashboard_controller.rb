@@ -9,8 +9,6 @@ class My5::DashboardController < ApplicationController
   def customer
     log_event "Viewed Dashboard", current_customer
     @blog_post = BlogPost.order('created_at DESC').first
-    p "s" *100
-    p @blog_post
   end
 
   def reports

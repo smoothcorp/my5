@@ -10,8 +10,8 @@ set :repository, 'git@github.com:smoothcorp/my5.git'
 
 set :ssh_options, {:forward_agent => true}
 set :default_run_options, {:pty => true}
-set :stages, %w(staging production)
-set :default_stage, 'staging'
+set :stages, %w(staging production blog_staging)
+set :default_stage, 'blog_staging'
 set :use_sudo, false
 after 'deploy:restart', 'deploy:db_symlink'
 after 'deploy:db_symlink', 'deploy:fix_permissions'

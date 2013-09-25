@@ -110,6 +110,22 @@
       <% end %>
     </div>
 
+    <div class="sub_menu">
+      <%= link_to "My 5 Naturally", "#", :id => "my5_naturally", :class => "graph_for" %>
+      <span class="toggle_plus" id="plus">+</span>
+      <span class="toggle_minus" id="minus">-</span>
+
+      <% if !@posts.nil? && !@posts.blank? %>
+          <div>
+            <ul style="display:none;" class="first_child">
+              <% @posts.each do |post| %>
+                  <li class="li no_sub"><%= link_to "#{post.title}", "#", :id => "#{post.id}", :class => "graph_for_items" %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+
     <%= link_to "Health Checkin", "#", :id => "health_checkin", :class => "graph_for" %>
   </div>
 </div>

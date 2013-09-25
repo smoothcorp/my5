@@ -1,7 +1,7 @@
 <% if post.live? %>
     <article class="blog_post" id="<%= dom_id(post) %>">
       <header>
-        <h1><%= link_to post.title, blog_post_url(post) %></h1>
+        <!--<%= link_to post.title, blog_post_url(post), :class => 'post_title' %>-->
         <section class='details'>
           <time datetime="<%= l post.published_at.to_date, :format => :default %>" class='posted_at'>
             <%= t('created_at', :scope => 'blog.shared.posts', :when => l(post.published_at.to_date, :format => :short)) %>
@@ -29,7 +29,7 @@
         <% end %>
       </section>
       <footer>
-        <%= link_to t('read_more', :scope => 'blog.shared.posts'), blog_post_url(post) if blog_post_teaser_enabled? %>
+       <div class="link_more"><%= link_to t('read_more', :scope => 'blog.shared.posts'), blog_post_url(post) if blog_post_teaser_enabled? %></div>
         <aside class='comment_count'>
           <% if BlogPost.comments_allowed? %>
               <% if post.comments.any? %>

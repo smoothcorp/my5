@@ -39,14 +39,16 @@ $font-family: Helvetica, sans-serif
   #body_content_left
     width: $blog_center_column_width
     float: left
+    border-right: 1px solid $color_light_gray_2
     .blog_post
-      padding: 0 30px 30px
-      margin-bottom: 30px
+      padding: 0 30px 15px
+      margin-bottom: 25px
       border-bottom: 1px solid $color_light_gray_2
   #body_content_right
     width: $blog_right_sideabar_width
     float: left
     border-left: 1px solid $color_light_gray_2
+    margin-left: -1px
     .sidebar_section_wrap
       padding: 30px 10px 30px 30px
       border-bottom: 1px solid $color_light_gray_2
@@ -64,6 +66,8 @@ $font-family: Helvetica, sans-serif
   .link_more
     text-transform: uppercase
     color: $color_green
+    >a
+      color: $color_green
     &:before
       content: '|'
       margin-right: 4px
@@ -166,3 +170,4 @@ $font-family: Helvetica, sans-serif
 
 .blog_title
   margin-left: 28px
+  color: $color_green

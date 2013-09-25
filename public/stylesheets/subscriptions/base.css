@@ -596,7 +596,7 @@
   border-radius: 5px;
 }
 /* line 74, ../../../app/stylesheets/my5/dashboard/base.sass */
-#quick-tips h3, #quick-tips li {
+#quick-tips h3, #quick-tips h2, #quick-tips li {
   padding: 0px 20px;
 }
 /* line 76, ../../../app/stylesheets/my5/dashboard/base.sass */
@@ -607,7 +607,7 @@
   margin-left: 0 !important;
 }
 /* line 82, ../../../app/stylesheets/my5/dashboard/base.sass */
-#quick-tips .title {
+#quick-tips .naturally {
   color: #3a9b2e;
 }
 /* line 84, ../../../app/stylesheets/my5/dashboard/base.sass */
@@ -617,13 +617,14 @@
 /* line 86, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link {
   color: #3a9b2e;
+  text-transform: uppercase;
   margin-left: 20px;
 }
-/* line 88, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 89, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link > a {
   color: #3a9b2e;
 }
-/* line 91, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 92, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link:before {
   content: "|";
   margin-right: 4px;
