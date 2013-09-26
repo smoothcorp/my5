@@ -264,7 +264,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:state] == 'null' || params[:state].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "state IN (#{params[:state].map { |p| p.to_s.inspect }.join(',')})"
+        customer_condition += "state IN (#{params[:state].map { |p| "'#{p}'"}.join(',')})"
         @is_condition      = true
       end
     end
@@ -272,7 +272,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:state2] == 'null' || params[:state2].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "state2 IN (#{params[:state2].map { |p| p.to_s.inspect }.join(',')})"
+        customer_condition += "state2 IN (#{params[:state2].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -280,7 +280,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:city] == 'null' || params[:city].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "city IN ('#{params[:city].map { |p| p.to_s.inspect }.join(',')}')"
+        customer_condition += "city IN (#{params[:city].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -288,7 +288,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:country] == 'null' || params[:country].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "country IN ('#{params[:country].map { |p| p.to_s.inspect }.join(',')}')"
+        customer_condition += "country IN (#{params[:country].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -296,14 +296,14 @@ class My5::DashboardController < ApplicationController
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "department_id IN (#{params[:department_id].join(',').to_s})"
+        customer_condition += "department_id IN (#{params[:department_id].join(',')})"
         @is_condition      = true
       end
     end
     if !(params[:role] == 'null' || params[:role].blank?)
       if params[:department_view_mode] != "separated"
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "role IN (#{params[:role].map { |p| p.to_s.inspect }.join(',')})"
+        customer_condition += "role IN (#{params[:role].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -413,13 +413,13 @@ class My5::DashboardController < ApplicationController
         end
 
         if page_name =="all"
-          if  @is_condition || (!customer_ids.nil? && !customer_ids.blank?)
+          if  @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
             @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids)
           else
             @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date)
           end
         else
-          if @is_condition || (!customer_ids.nil? && !customer_ids.blank?)
+          if @is_condition || (!customer_ids.nil? && !customer_ids.blank?) || @customer_ids_separated.any?
             if !params[:page_id].blank?
               if !params[:video_id].blank?
                 @day_count = CustomerVisit.where("Date(created_at)= ?", date_t.to_date).where(:customer_id => customer_ids).where(:controller_name => "my5/#{page_name}").where(:show_id => params[:page_id]).where(:media_id => params[:video_id])
