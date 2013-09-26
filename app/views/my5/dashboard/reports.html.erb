@@ -118,8 +118,8 @@
             return false;
         });
         $('#Ok').live('click', function (e) {
+            e.preventDefault();
             $('[class^="graph_for"]').removeClass("active");
-            ;
             var graph_views = $("#graph_view").val();
             graph_view(graph_views, "all", "", "");
         });
@@ -201,14 +201,14 @@
         var dep_mode = dep_mode;
         $.ajax({
             type: "GET",
-            async: false,
+            async: true,
             url: "/my5/dashboard/screen1",
             data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "role": role, "state": state, "state2": state2, "city": city, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
             beforeSend: function () {
                 $("#loader").show('fast');
                 $('#screen_' + graph_views).css("backgroundColor", "green");
             },
-            success: function (data) {
+            complete: function (data) {
                 $("#loader").hide('fast');
             }
         });
@@ -261,14 +261,14 @@
 
         $.ajax({
             type: "GET",
-            async: false,
+            async: true,
             url: "/my5/dashboard/screen1",
             data: {"graph_view": graph_views, "page": page, "company_id": company_id, "department_id": department_id, "location": location_name, "role": role, "state": state, "state2": state2, "city": city, "country": country, "from_date": from_date, "to_date": to_date, "frequency": frequency, "department_view_mode": dep_mode},
             beforeSend: function () {
                 $("#loader").show('fast');
                 $('#screen_' + graph_views).css("backgroundColor", "green");
             },
-            success: function (data) {
+            complete: function (data) {
                 $("#loader").hide('fast');
             }
         });
@@ -294,13 +294,11 @@
 
         $.ajax({
             type: "GET",
-            async: false,
+            async: true,
             url: "/my5/dashboard/screen1",
             data: {"graph_view": id, "page": page, "page_id": page_id, "company_id": company_id, "department_id": department_id, "from_date": from_date, "to_date": to_date, "state": state, "state2": state2, "city": city, "country": country, "role": role, "video_id": video_id, "frequency": frequency, "department_view_mode": dep_mode},
             beforeSend: function () {
                 $("#loader").show('fast');
-            },
-            complete: function (data) {
             },
             success: function (data) {
                 $("#loader").hide('fast');
