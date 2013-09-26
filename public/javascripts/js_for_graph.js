@@ -281,10 +281,11 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
         dates = dates_arr;
         if (separated) {
             var j = 0;
+            var size_of_array = dates_arr.length;
             var val_array = [];
             values = values.map(function (value) {
-                val_array = values_arr.slice(j, j + 7);
-                j += 7;
+                val_array = values_arr.slice(j, j + size_of_array);
+                j += size_of_array;
                 return val_array;
             });
         }
