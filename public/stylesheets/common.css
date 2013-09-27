@@ -638,53 +638,65 @@ form .actions a {
   padding: 5px;
   text-align: center;
 }
-/* line 54, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 53, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-right, .content#show #body_content_left #blog_post .text-align-right, .content#search #body_content_left #blog_post .text-align-right, .content#archive #body_content_left #blog_post .text-align-right {
+  text-align: right;
+}
+/* line 55, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-left, .content#show #body_content_left #blog_post .text-align-left, .content#search #body_content_left #blog_post .text-align-left, .content#archive #body_content_left #blog_post .text-align-left {
+  text-align: left;
+}
+/* line 57, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-center, .content#show #body_content_left #blog_post .text-align-center, .content#search #body_content_left #blog_post .text-align-center, .content#archive #body_content_left #blog_post .text-align-center {
+  text-align: center;
+}
+/* line 60, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index #body_content_right, .content#show #body_content_right, .content#search #body_content_right, .content#archive #body_content_right {
   width: 180px;
   float: left;
   border-left: 1px solid #b0b1b3;
   margin-left: -1px;
 }
-/* line 59, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 65, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index #body_content_right .sidebar_section_wrap, .content#show #body_content_right .sidebar_section_wrap, .content#search #body_content_right .sidebar_section_wrap, .content#archive #body_content_right .sidebar_section_wrap {
   padding: 30px 10px 30px 30px;
   border-bottom: 1px solid #b0b1b3;
 }
-/* line 62, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 68, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index #body_content_right .sidebar_section_wrap.logo, .content#show #body_content_right .sidebar_section_wrap.logo, .content#search #body_content_right .sidebar_section_wrap.logo, .content#archive #body_content_right .sidebar_section_wrap.logo {
   padding: 0 10px;
 }
-/* line 64, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 70, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index #body_content_right .sidebar_section_wrap h2, .content#show #body_content_right .sidebar_section_wrap h2, .content#search #body_content_right .sidebar_section_wrap h2, .content#archive #body_content_right .sidebar_section_wrap h2 {
   font-size: 16px;
   font-weight: 400;
   line-height: 120%;
   margin: 0 0 10px;
 }
-/* line 69, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 75, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .comment_button, .content#show .comment_button, .content#search .comment_button, .content#archive .comment_button {
   float: left;
   cursor: pointer;
 }
-/* line 72, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 78, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .comment_button .comment_icon, .content#show .comment_button .comment_icon, .content#search .comment_button .comment_icon, .content#archive .comment_button .comment_icon {
   float: left;
   height: 25px;
   width: 26px;
   background: url("/images/blog/comment.png");
 }
-/* line 77, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 83, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .comment_button .comment_counter, .content#show .comment_button .comment_counter, .content#search .comment_button .comment_counter, .content#archive .comment_button .comment_counter {
   float: left;
   margin-left: 5px;
 }
-/* line 81, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 87, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .print_button, .content#show .print_button, .content#search .print_button, .content#archive .print_button {
   float: left;
   margin-left: 22px;
   cursor: pointer;
 }
-/* line 85, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 91, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .print_button .print_icon, .content#show .print_button .print_icon, .content#search .print_button .print_icon, .content#archive .print_button .print_icon {
   float: left;
   margin-top: 5px;
@@ -693,35 +705,35 @@ form .actions a {
   width: 16px;
   background: url("/images/blog/print.png") no-repeat 0 0;
 }
-/* line 92, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 98, ../../app/stylesheets/my5/blog/blog.sass */
 .content#index .print_button .print_link, .content#show .print_button .print_link, .content#search .print_button .print_link, .content#archive .print_button .print_link {
   float: left;
   margin-left: 11px;
 }
 
-/* line 98, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 104, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .details {
   display: none;
 }
-/* line 100, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 106, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .link_more {
   text-transform: uppercase;
   color: #3a9b2e;
 }
-/* line 103, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 109, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .link_more > a {
   color: #3a9b2e;
 }
-/* line 105, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 111, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .link_more:before {
   content: "|";
   margin-right: 4px;
 }
-/* line 108, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 114, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .comment_count {
   display: none;
 }
-/* line 110, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 116, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post h1 {
   font-size: 21px;
   font-weight: 500;
@@ -730,23 +742,23 @@ form .actions a {
   color: #3a9b2e;
   margin: 0 0 16px;
 }
-/* line 118, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 124, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post h1 > a {
   color: #3a9b2e;
 }
-/* line 120, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 126, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post em {
   font-style: italic;
 }
-/* line 122, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 128, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post strong {
   font-weight: bold;
 }
-/* line 124, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 130, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .post_description {
   overflow: hidden;
 }
-/* line 126, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 132, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .post_description p {
   font-size: 13px;
   font-family: Helvetica, sans-serif;
@@ -756,13 +768,13 @@ form .actions a {
   margin-bottom: 16px;
 }
 
-/* line 135, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 141, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form {
   position: relative;
   padding: 8px 20px;
   border-bottom: 1px solid #b0b1b3;
 }
-/* line 139, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 145, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_input {
   font-size: 11px;
   font-weight: 400;
@@ -778,7 +790,7 @@ form .actions a {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 151, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 157, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_button {
   font-size: 11px;
   font-weight: 400;
@@ -793,75 +805,75 @@ form .actions a {
   cursor: pointer;
 }
 
-/* line 166, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 172, ../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover {
   color: #dc8c23;
 }
-/* line 168, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 174, ../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover > a {
   color: #dc8c23;
 }
 
-/* line 173, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 179, ../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover {
   color: #c92b1e;
 }
-/* line 175, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 181, ../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover > a {
   color: #c92b1e;
 }
 
-/* line 179, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 185, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item {
   cursor: pointer;
 }
-/* line 181, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 187, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover {
   color: #9ea0a3;
 }
-/* line 183, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 189, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover > a {
   color: #9ea0a3;
 }
 
-/* line 186, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 192, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list {
   font-family: Helvetica, sans-serif;
   font-size: 14px;
 }
-/* line 189, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 195, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active {
   color: #c92b1e;
 }
-/* line 191, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 197, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active > a {
   color: #c92b1e;
 }
-/* line 193, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 199, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .item {
   list-style: none;
   margin-left: 0;
 }
-/* line 196, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 202, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat {
   list-style: none;
   padding-left: 30px;
   font-size: 12px;
 }
-/* line 200, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 206, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item {
   position: relative;
   line-height: 120%;
   margin-bottom: 5px;
 }
-/* line 204, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 210, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item:before {
   content: "|";
   position: absolute;
   left: -6px;
 }
 
-/* line 209, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 215, ../../app/stylesheets/my5/blog/blog.sass */
 .blog_title {
   margin-left: 28px;
   color: #3a9b2e;
