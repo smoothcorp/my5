@@ -598,33 +598,71 @@
 /* line 74, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips h3, #quick-tips h2, #quick-tips li {
   padding: 0px 20px;
+  margin-bottom: 10px;
 }
-/* line 76, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 77, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips li {
   list-style: none;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 0 !important;
 }
-/* line 82, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 83, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .naturally {
   color: #3a9b2e;
 }
-/* line 84, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 85, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .eat_think_move {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+/* line 88, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .eat_think_move .block {
+  float: left;
+  margin-right: 15px;
+}
+/* line 91, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .eat_think_move .block .naturally {
+  float: left;
+  margin-right: 6px;
+}
+/* line 94, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .eat_think_move .block:last-of-type {
+  float: none;
+}
+/* line 96, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .eat_think_move p {
+  margin: 0;
+}
+/* line 98, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .title {
+  margin-top: 0;
+}
+/* line 100, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .title h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+/* line 103, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .body {
   margin-left: 20px;
 }
-/* line 86, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 105, ../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+/* line 108, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link {
   color: #3a9b2e;
   text-transform: uppercase;
   margin-left: 20px;
 }
-/* line 89, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 111, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link > a {
   color: #3a9b2e;
 }
-/* line 92, ../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 114, ../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link:before {
   content: "|";
   margin-right: 4px;

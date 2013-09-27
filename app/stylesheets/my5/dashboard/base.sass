@@ -73,6 +73,7 @@ $color_green: #3a9b2e
     +border-radius(5px)
     h3,h2,li
         padding: 0px 20px
+        margin-bottom: 10px
     li
         list-style: none
         margin:
@@ -81,8 +82,29 @@ $color_green: #3a9b2e
             left: 0 !important
     .naturally
         color: $color_green
+    .eat_think_move
+        margin-left: 20px
+        margin-bottom: 20px
+        .block
+            float: left
+            margin-right: 15px
+            .naturally
+                float: left
+                margin-right: 6px
+            &:last-of-type
+                float: none
+        p
+            margin: 0
+    .title
+        margin-top: 0
+        h3
+            margin-top: 0
+            margin-bottom: 10px
     .body
         margin-left: 20px
+        p
+            margin-top: 0
+            margin-bottom: 10px
     .link
         color: $color_green
         text-transform: uppercase

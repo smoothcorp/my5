@@ -30,8 +30,19 @@
 #quick-tips
     %h2.naturally
         My 5 Naturally
-    %h3.title
-        = @blog_post.title
+    .eat_think_move
+        .block
+            .naturally Eat
+            well
+        .block
+            .naturally Think
+            well
+        .block
+            .naturally Move
+            well
+        %p A holistic guide to a healthy lifestyle … naturally
+    .title
+        %h3= @blog_post.title
     .body
         -if blog_post_teaser_enabled?
             = post_teaser(@blog_post,150)
