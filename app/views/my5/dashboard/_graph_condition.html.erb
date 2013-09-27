@@ -5,7 +5,9 @@
         <tr>
         <th >Page Name</th><th >Page url</th><th width="5%" class="col3">Views</th>
         </tr>
-       <% case page_name
+       <% p "a"*100
+          p page_name
+          case page_name
          when "symptomatics"
                %>
                <%  
@@ -43,11 +45,11 @@
                 %>
           <%      
 
-         when "my_eq"
+         when 'my_eqs'
          %>
           <% 
                 total = [] 
-                total = page_url("my5/my_eqs",0)
+                total = page_url('my5/my_eqs',0)
                  @side_array = ["Main"]
                  %>
                 <tr><td> Main </td><td><%=total[0]%></td><td class="col3"  align="center"><%=total[1]%></td></tr>
