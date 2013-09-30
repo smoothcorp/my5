@@ -212,10 +212,10 @@ class My5::DashboardController < ApplicationController
 
   def list_of_pages
     @separated_params = ""
-    @symptomatics   = Symptomatic.all
-    @mini_modules   = MiniModule.all
-    @my_eqs         = MyEq.all
-    @audio_programs = AudioProgram.all
+    @symptomatics     = Symptomatic.all
+    @mini_modules     = MiniModule.all
+    @my_eqs           = MyEq.all
+    @audio_programs   = AudioProgram.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -262,15 +262,15 @@ class My5::DashboardController < ApplicationController
     end
 
     if !(params[:state] == 'null' || params[:state].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:state].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "state IN (#{params[:state].map { |p| "'#{p}'"}.join(',')})"
+        customer_condition += "state IN (#{params[:state].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
 
     if !(params[:state2] == 'null' || params[:state2].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:state2].count < 2
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "state2 IN (#{params[:state2].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
@@ -278,7 +278,7 @@ class My5::DashboardController < ApplicationController
     end
 
     if !(params[:city] == 'null' || params[:city].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:city].count < 2
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "city IN (#{params[:city].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
@@ -286,7 +286,7 @@ class My5::DashboardController < ApplicationController
     end
 
     if !(params[:country] == 'null' || params[:country].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:country].count < 2
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "country IN (#{params[:country].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
@@ -294,14 +294,14 @@ class My5::DashboardController < ApplicationController
     end
 
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:department_id].count < 2
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "department_id IN (#{params[:department_id].join(',')})"
         @is_condition      = true
       end
     end
     if !(params[:role] == 'null' || params[:role].blank?)
-      if params[:department_view_mode] != "separated"
+      if params[:department_view_mode] == 'merged' || params[:role].count < 2
         customer_condition += @is_condition ? " AND " : ""
         customer_condition += "role IN (#{params[:role].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
@@ -310,69 +310,69 @@ class My5::DashboardController < ApplicationController
     if params[:department_view_mode] == "separated"
       @customer_ids_separated = []
       customer_condition      += @is_condition ? " AND " : ""
-      if params[:department_id] != 'null'
+      if params[:department_id] != 'null' && params[:department_id].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:department_id].each do |department_id|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
           @separated_params += "'#{department_id.to_s}'"
-          count +=1
+          count             +=1
         end
         @separated_params += "]"
       end
-      if params[:role] != 'null'
+      if params[:role] != 'null' && params[:role].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:role].each do |role|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role}'").collect(&:id)
           @separated_params += "'#{role.humanize}'"
-          count += 1
+          count             += 1
         end
         @separated_params += "]"
       end
-      if params[:city] != 'null'
+      if params[:city] != 'null' && params[:city].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:city].each do |city|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
           @separated_params += "'#{city.humanize}'"
-          count += 1
+          count             += 1
         end
         @separated_params += "]"
       end
-      if params[:country] != 'null'
+      if params[:country] != 'null' && params[:country].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:country].each do |country|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
           @separated_params += "'#{country.humanize}'"
-          count += 1
+          count             += 1
         end
         @separated_params += "]"
       end
-      if params[:state2] != 'null'
+      if params[:state2] != 'null' && params[:state2].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:state2].each do |state2|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
           @separated_params += "'#{state2.humanize}'"
-          count += 1
+          count             += 1
         end
         @separated_params += "]"
       end
-      if params[:state] != 'null'
+      if params[:state] != 'null' && params[:state].count > 1
         @separated_params += "["
-        count = 0
+        count             = 0
         params[:state].each do |state|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
           @separated_params += "'#{state.humanize}'"
-          count += 1
+          count             += 1
         end
         @separated_params += "]"
       end

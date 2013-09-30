@@ -553,45 +553,36 @@ $(document).ready(function () {
     $('#city').live('change', function (e) {
         var city = $('#city').val();
         var check = check_multiselectors('city');
-        if (city != null) {
-            if (!check) {
+        if (check) {
+            if (city && city.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+        }
+        else {
+            if (city && city.length > 1)
+                $("#buttons_separated_merged").show();
+            else
+                merged_mode();
         }
 
-        else {
-            if (check) {
-                $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
-        }
         //            company_filter("all", "", $(this).val(), "", "", "");
         return false;
     });
     $('#role_id').live('change', function (e) {
         var role = $('#role_id').val();
         var check = check_multiselectors('role');
-        if (role != null) {
-            if (!check) {
+        if (check) {
+            if (role && role.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
         }
-
         else {
-            if (check) {
+            if (role && role.length > 1)
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+            else
+                merged_mode();
         }
         //            company_filter("all", "", "", "", $(this).val(), "", "");
         return false;
@@ -599,22 +590,17 @@ $(document).ready(function () {
     $('#state').live('change', function (e) {
         var state = $('#state').val();
         var check = check_multiselectors('state');
-        if (state != null) {
-            if (!check) {
+        if (check) {
+            if (state && state.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
         }
-
         else {
-            if (check) {
+            if (state && state.length > 1)
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+            else
+                merged_mode();
         }
         //            company_filter("all", "", "", "", $(this).val(), "");
         return false;
@@ -622,22 +608,17 @@ $(document).ready(function () {
     $('#state2').live('change', function (e) {
         var state2 = $('#state2').val();
         var check = check_multiselectors('state2');
-        if (state2 != null) {
-            if (!check) {
+        if (check) {
+            if (state2 && state2.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
         }
-
         else {
-            if (check) {
+            if (state2 && state2.length > 1)
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+            else
+                merged_mode();
         }
         //            company_filter("all", "", "", "", $(this).val(), "");
         return false;
@@ -645,22 +626,17 @@ $(document).ready(function () {
     $('#country').live('change', function (e) {
         var country = $('#country').val();
         var check = check_multiselectors('country');
-        if (country != null) {
-            if (!check) {
+        if (check) {
+            if (country && country.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
         }
-
         else {
-            if (check) {
+            if (country && country.length > 1)
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+            else
+                merged_mode();
         }
         //            company_filter("all", "", "", "", $(this).val(), "", "");
         return false;
@@ -668,37 +644,46 @@ $(document).ready(function () {
     $('#department_id').live('change', function (e) {
         var department = $('#department_id').val();
         var check = check_multiselectors('department');
-        if (department != null) {
-            if (!check) {
+        if (check) {
+            if (department && department.length > 1)
+                merged_mode();
+            else
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
         }
-
         else {
-            if (check) {
+            if (department && department.length > 1)
                 $("#buttons_separated_merged").show();
-            }
-            else {
-                $("#buttons_separated_merged").hide();
-            }
+            else
+                merged_mode();
         }
         //        company_filter("all","",$(this).val(),"","","","");
         return false;
     });
 
+    function merged_mode() {
+        $("#buttons_separated_merged").hide();
+        var department_view = $("#department_view_mode");
+        department_view.val("merged");
+        $('#merged').addClass("active");
+        $('#separated').removeClass("active");
+    }
+
+
     function check_multiselectors(current) {
 
-        var city_active, state2_active, state_active, role_active, department_active,country_active;
+        var city_active, state2_active, state_active, role_active, department_active, country_active;
         department_active = $("#department_id").val();
+        department_active = department_active && department_active.length > 1;
         role_active = $("#role_id").val();
+        role_active = role_active && role_active.length > 1;
         state_active = $("#state").val();
+        state_active = state_active && state_active.length > 1;
         state2_active = $("#state2").val();
+        state2_active = state2_active && state2_active.length > 1;
         city_active = $("#city").val();
+        city_active = city_active && city_active.length > 1;
         country_active = $("#country").val();
-
+        country_active = country_active && country_active.length > 1;
         switch (current) {
             case 'department':
                 return city_active || state2_active || state_active || role_active || country_active;
@@ -713,6 +698,7 @@ $(document).ready(function () {
                 return city_active || state_active || department_active || state2_active || country_active;
                 break;
             case 'city':
+                city_active = role_active || state_active || department_active || state2_active || country_active;
                 return role_active || state_active || department_active || state2_active || country_active;
                 break;
             case 'country':
