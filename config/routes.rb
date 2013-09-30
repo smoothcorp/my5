@@ -5,9 +5,9 @@ Semblance::Application.routes.draw do
   match 'my5/dashboard/screen1' => 'my5/dashboard#screen_1'
   match 'refinery/reports/update_department' => 'refinery/reports#update_department'
   match 'my5/dashboard/update_department' => 'my5/dashboard#update_department'
-  match 'blog/search' => 'blog/posts#search'
-  
-  #excel
+  match 'my5_naturally/search' => 'blog/posts#search'
+
+#excel
   match 'refinery/reports/download_excel' => 'refinery/reports#download_excel'
   match 'my5/dashboard/download_excel' => 'my5/dashboard#download_excel'
 
@@ -24,6 +24,7 @@ Semblance::Application.routes.draw do
 
   resources :emails, :only => [:create]
 
+
   namespace :my5 do
     namespace :dashboard do
       get 'customer'
@@ -39,9 +40,8 @@ Semblance::Application.routes.draw do
   end
 
   match 'dashboard' => 'my5/dashboard#customer'
-  
+
   match 'refinery/customers/bulk-import' => 'refinery/customers#bulk_import', :as => "bulk_import_customers"
-  match 'refinery/video_stats' => 'refinery/video_stats#index', :as => "refinery_video_stats"
 
   if Rails.env.development?
     mount SubscriptionsMailer::Preview => 'subscriptions_mailer'
