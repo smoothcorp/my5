@@ -28,19 +28,22 @@
         = link_to image_tag("logo_pinwheel.png") + "Complete or update your profile", edit_customer_registration_path
         = link_to image_tag("logo_pinwheel.png") + "Start your first exercise", my5_symptomatics_path
 #quick-tips
-    %h2.naturally
-        My 5 Naturally
+    %h1.naturally My 5 Naturally
     .eat_think_move
         .block
-            .naturally Eat
+            %strong Eat
             well
+            .logo_naturally
         .block
-            .naturally Think
+            %strong Think
             well
+            .logo_naturally
         .block
-            .naturally Move
+            %strong Move
             well
-        %p A holistic guide to a healthy lifestyle … naturally
+            .logo_naturally
+        .clear
+        .naturally A holistic guide to a healthy lifestyle … naturally
     .title
         %h3= @blog_post.title
     .body

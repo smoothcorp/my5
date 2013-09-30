@@ -1,6 +1,26 @@
 <% content_for :body_content_left do %>
     <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
-    <h1 class="blog_title"> My 5 Naturally </h1>
+    <h1 class="naturally"> My 5 Naturally </h1>
+    <div class="eat_think_move">
+      <div class="block">
+        <strong>Eat</strong>
+        well
+        <div class="logo_naturally"></div>
+      </div>
+      <div class="block">
+        <strong>Think</strong>
+        well
+        <div class="logo_naturally"></div>
+      </div>
+      <div class="block">
+        <strong>Move</strong>
+        well
+        <div class="logo_naturally"></div>
+      </div>
+    <div class="clear"></div>
+    <div class="naturally">A holistic guide to a healthy lifestyle … naturally</div>
+    </div>
+
     <% if @blog_posts.any? %>
         <section id="blog_posts">
           <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
