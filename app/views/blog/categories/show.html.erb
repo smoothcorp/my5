@@ -1,6 +1,7 @@
 <% content_for :body_content_left do %>
     <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
-    <h1 class="blog_title"> <%= @category.title %> </h1>
+    <%= render 'blog/shared/blog_title' %>
+    <h2 class="blog_title"> <%= @category.title %> </h2>
 
     <% if @blog_posts.any? %>
         <section id="blog_blog_posts">

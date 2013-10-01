@@ -32,17 +32,31 @@ $font-family: Helvetica, sans-serif
     left: 0
     width: 100%
     background: #fff url("/images/coloured_bars.png") repeat-x
+  .blog_post
+    margin-bottom: 15px
+    .details
+      font-size: 12px
+    .link_more
+      text-transform: uppercase
+      color: $color_green
+      >a
+        color: $color_green
+      &:before
+        content: '|'
+        margin-right: 4px
+
   #body_content
     min-height: 860px
     padding-left: 190px
-    background: url("/images/blog/sidebar_bg.jpg") no-repeat 0 0
+    background: url("/images/blog/sidebar_bg.jpg") no-repeat 0 26px
+    padding-top: 15px
+    margin-top: -15px
     +clearfix
   #body_content_left
     width: $blog_center_column_width
     float: left
     border-right: 1px solid $color_light_gray_2
     #blog_post
-      padding: 0 30px 15px
       margin-bottom: 25px
       border-bottom: 1px solid $color_light_gray_2
       table
@@ -56,26 +70,35 @@ $font-family: Helvetica, sans-serif
         text-align: left
       .text-align-center
         text-align: center
-    .naturally
+    .post_title
+      font-size: 25px
+      font-weight: bold
+      color: #808080
+
+    .green
       color: $color_green
+
     .eat_think_move
-      margin-bottom: 20px
+      white-space: nowrap
+      font-size: 11px
+      margin-top: -10px
+      margin-bottom: 0
       color: $color_green
       .block
         float: left
         margin-right: 8px
         padding-right: 30px
         background: url("/images/blog/logo_naturally.png") no-repeat 100% 0
-        .naturally
-          float: left
-          margin-right: 6px
-          font-weight: bold
+    .naturally
+      margin-top: 0
+      margin-right: 6px
 
   #body_content_right
     width: $blog_right_sideabar_width
     float: left
     border-left: 1px solid $color_light_gray_2
     margin-left: -1px
+    margin-top: 26px
     .sidebar_section_wrap
       padding: 30px 10px 30px 30px
       border-bottom: 1px solid $color_light_gray_2
@@ -115,8 +138,9 @@ $font-family: Helvetica, sans-serif
 
 
 #blog_post
+  padding-right: 10px
   .details
-    display: none
+    display: block
   .link_more
     text-transform: uppercase
     color: $color_green
@@ -126,7 +150,7 @@ $font-family: Helvetica, sans-serif
       content: '|'
       margin-right: 4px
   .comment_count
-    display: none
+    display: block
   h1
     font:
       size: 21px
