@@ -338,7 +338,7 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
             renderTo: 'container',
             type: 'line',
             marginRight: 130,
-            marginBottom: 25
+            marginBottom: 75
         },
         title: {
             text: 'Line - Graph',
@@ -351,7 +351,8 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
         xAxis: {
             categories: dates,
             labels: {
-                rotation: 10
+                rotation: 90,
+                y: 40
             }
 //            type: 'datetime'
 //            dateTimeLabelFormats: {
