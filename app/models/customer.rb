@@ -362,7 +362,7 @@ DEPARTMENTS = [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7",
   end
 
   def self.build_from_csv(row)
-    cust = Customer.new
+    cust = Customer.find_or_initialize_by_email(row[3])
     cust.attributes = {
       :title => row[0],
       :first_name => row[1],
