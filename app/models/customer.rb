@@ -370,12 +370,14 @@ DEPARTMENTS = [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7",
       :email => row[3],
       :role => row[5],
       :street_1 => row[6],
-      :city => row[7],
-      :state => row[8],
-      :country => row[9],
-      :zip_code => row[10],
-      :password => row[11],
-      :department_id=>row[12]}
+      :street_2 => row[7],
+      :city => row[8],
+      :state => row[9],
+      :state2 => row[10],
+      :country => row[11],
+      :zip_code => row[12],
+      :password => row[13],
+      :department_id=>row[14]}
       cust.corporation = Corporation.find_by_name(row[4])
     return cust
   end
