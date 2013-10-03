@@ -16,7 +16,7 @@
                            'jquery/jquery.html5-placeholder-shim.js',
                            'jquery/jquery.timers.js',
                            'jquery/jquery.jcarousel.js',
-                           'refinery/ui.dropdownchecklist-1.4-min',
+                           'refinery/ui.dropdownchecklist-1.4-min.js',
                            :cache => ("cache/jquery-plugins" if js_caching) unless login -%>
 
 <%= javascript_include_tag 'jquery.refinery.wymeditor.fix.js', 'admin' %>
@@ -29,17 +29,8 @@
                            'refinery/submenu',
                            :cache => ("cache/admin" if js_caching) unless login -%>
 <%= javascript_include_tag 'refinery/core' if login -%>
-<script>
-    $(document).ready(function () {
-        $('#department_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-        $('#role_id').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-        $('#city').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-        $('#state').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-        $('#state2').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-        $('#country').dropdownchecklist({ width: 188, maxDropHeight: 150 });
-    });
-</script>
 
 <%= yield :javascripts -%>
+
 
 
