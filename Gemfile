@@ -11,7 +11,7 @@ gem 'compass', '>= 0.11.5'
 gem 'compass-960-plugin'
 gem 'haml'
 gem 'refinerycms'
-gem 'refinerycms-blog'
+gem 'refinerycms-blog', :git => "git@github.com:rskvirskiy/refinerycms-blog.git", :branch => "my5"
 gem 'cancan'
 gem 'fancy-buttons'
 gem 'formtastic'

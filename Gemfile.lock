@@ -22,6 +22,17 @@ GIT
       activerecord
       rails
 
+GIT
+  remote: git@github.com:rskvirskiy/refinerycms-blog.git
+  revision: dd00c7b68592b8f5466f2e4e21849636651ef33e
+  branch: my5
+  specs:
+    refinerycms-blog (1.8.0)
+      acts-as-taggable-on
+      filters_spam (~> 0.2)
+      refinerycms-core (~> 1.0.3)
+      seo_meta (~> 1.1.0)
+
 PATH
   remote: vendor/engines
   specs:
@@ -266,11 +277,6 @@ GEM
       friendly_id_globalize3 (~> 3.2.1)
       refinerycms-core (= 1.0.9)
     refinerycms-base (1.0.9)
-    refinerycms-blog (1.8.0)
-      acts-as-taggable-on
-      filters_spam (~> 0.2)
-      refinerycms-core (~> 1.0.3)
-      seo_meta (~> 1.1.0)
     refinerycms-core (1.0.9)
       acts_as_indexed (~> 0.7)
       awesome_nested_set (~> 2.0)
@@ -427,7 +433,7 @@ DEPENDENCIES
   refinerycms
   refinerycms-audio_programs (= 1.0)!
   refinerycms-audios (= 1.0)!
-  refinerycms-blog
+  refinerycms-blog!
   refinerycms-corporations (= 1.0)!
   refinerycms-customers!
   refinerycms-mini_modules (= 1.0)!
