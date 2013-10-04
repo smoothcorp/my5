@@ -3,7 +3,7 @@ module Blog
 
     layout 'customer'
     before_filter :authenticate_customer!
-    before_filter :find_all_blog_posts, :except => [:archive]
+    before_filter :find_all_blog_posts
     before_filter :find_blog_post, :only => [:show, :comment, :update_nav]
     before_filter :find_tags
     before_filter :customer_views, :only => :show
@@ -109,6 +109,7 @@ module Blog
                                                                                 :page     => params[:page],
                                                                                 :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
                                                                             })
+      @recent_posts = @blog_posts.first(5)
     end
 
     def find_tags

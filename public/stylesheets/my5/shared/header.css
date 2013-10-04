@@ -42,12 +42,7 @@
   color: white;
   font-weight: bold;
 }
-<<<<<<< HEAD
-
-/* line 18, ../../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
-=======
 /* line 18, ../../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
->>>>>>> #5: added new stylesheet for print
 #header a:visited {
   color: white;
 }
@@ -106,11 +101,7 @@
 /* line 59, ../../../../app/stylesheets/my5/shared/header.sass */
 #header #health_checkin {
   float: right;
-<<<<<<< HEAD
-  margin-right: 20px !important;
-=======
   margin-right: 20px;
->>>>>>> #5: added new stylesheet for print
   background: url("/images/dashboard/green_tab.png") no-repeat;
   width: 156px;
 }
@@ -134,21 +125,12 @@
   width: 135px;
   height: 37px !important;
   background: url("/images/dashboard/tab.png") no-repeat;
-<<<<<<< HEAD
 }
 /* line 80, ../../../../app/stylesheets/my5/shared/header.sass */
 #header .nav a:hover {
   background-position: 0px -37px;
   color: #3e3e3e;
 }
-=======
-}
-/* line 80, ../../../../app/stylesheets/my5/shared/header.sass */
-#header .nav a:hover {
-  background-position: 0px -37px;
-  color: #3e3e3e;
-}
->>>>>>> #5: added new stylesheet for print
 /* line 83, ../../../../app/stylesheets/my5/shared/header.sass */
 #header .nav a#home {
   width: 60px;
@@ -169,50 +151,30 @@
   width: 100%;
 }
 
-<<<<<<< HEAD
 /* line 98, ../../../../app/stylesheets/my5/shared/header.sass */
-=======
-/* line 101, ../../../../app/stylesheets/my5/shared/header.sass */
->>>>>>> #5: added new stylesheet for print
 #dashboard #header nav #home {
   background-position: 0px 0px !important;
 }
 
-<<<<<<< HEAD
 /* line 101, ../../../../app/stylesheets/my5/shared/header.sass */
-=======
-/* line 104, ../../../../app/stylesheets/my5/shared/header.sass */
->>>>>>> #5: added new stylesheet for print
 #symptomatics #symptomatics_link, .symptomatic_video #symptomatics_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
-<<<<<<< HEAD
 /* line 104, ../../../../app/stylesheets/my5/shared/header.sass */
-=======
-/* line 107, ../../../../app/stylesheets/my5/shared/header.sass */
->>>>>>> #5: added new stylesheet for print
 #my_eqs #my_eq_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
-<<<<<<< HEAD
 /* line 107, ../../../../app/stylesheets/my5/shared/header.sass */
-=======
-/* line 110, ../../../../app/stylesheets/my5/shared/header.sass */
->>>>>>> #5: added new stylesheet for print
 #mini_modules #mini_modules_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
 }
 
-<<<<<<< HEAD
 /* line 110, ../../../../app/stylesheets/my5/shared/header.sass */
-=======
-/* line 113, ../../../../app/stylesheets/my5/shared/header.sass */
->>>>>>> #5: added new stylesheet for print
 #audio_programs #audio_programs_link {
   background-position: 0px -37px !important;
   color: #3e3e3e !important;
