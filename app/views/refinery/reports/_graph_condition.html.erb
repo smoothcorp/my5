@@ -1,260 +1,309 @@
-<table style="width: 100%; height: auto; margin: 0 auto;" >
+<table style="width: 100%; height: auto; margin: 0 auto;">
   <tr>
     <td width="100%">
-        <table style="height: auto; margin: 0 0;border:5px grey solid;" width="100%" cellspadding="4" cellspacing="12">
+      <table style="height: auto; margin: 0 0;border:5px grey solid;" width="100%" cellspadding="4" cellspacing="12">
         <tr>
-        <th >Page Name</th><th >Page url</th><th width="5%">Views</th>
+          <th>Page Name</th>
+          <th>Page url</th>
+          <th width="5%">Views</th>
         </tr>
-       <% case page_name
-         when "symptomatics"
-               %>
-               <%  
-                total = [] 
-                total = page_url("my5/symptomatics",0) 
-                @side_array = ["Main"]
-                
-                %>
-                
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-             <% @symptomatics.each do |sympto| 
-                @side_array.push(sympto.condition)
-                total = page_url("my5/symptomatics",sympto.id)
-                 %>
-                <tr><td> <%= sympto.condition%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-                <%  end 
-                count_percentage(@side_array,@side_data)
-                %>
-          <%      
-         when "mini_modules"
-            %><%
-               total = [] 
-                 total = page_url("my5/mini_modules",0) 
-                 @side_array = ["Main"]
-                 %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-               <%
-               @mini_modules.each do |mini_module| 
-                @side_array.push(mini_module.title)
-               total = page_url("my5/mini_modules",mini_module.id)   
-               %>
-               <tr><td> <%= mini_module.title %> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-                <%  end 
-                count_percentage(@side_array,@side_data)
-                %>
-          <%      
+        <% case page_name
+             when "symptomatics"
+        %>
+            <%
+               total = []
+               total = page_url("my5/symptomatics", 0)
+               @side_array = ["Main"]
 
-         when "my_eqs"
-         %>
-          <% 
-                total = [] 
-                total = page_url("my5/my_eqs",0)
-                 @side_array = ["Main"]
-                 %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-               <%
-                @my_eqs.each do |my_eq|
-                @side_array.push(my_eq.emotional_grouping) 
-                total = page_url("my5/my_eqs",my_eq.id)    
-                %>
-               <tr><td> <%= my_eq.emotional_grouping%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-                <%  end 
-               count_percentage(@side_array,@side_data)
-                %>
-          <%      
+            %>
 
-         when "audio_programs"
-         %>
-          <%    total = [] 
-                total = page_url("my5/audio_programs",0) 
-                 @side_array = ["Main"]
-                %>
-                <tr><td> Main </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-               <% 
-                @audio_programs.each do |audio_program| 
-                @side_array.push(audio_program.title)
-                total = page_url("my5/audio_programs",audio_program.id)  
-                %>
-               <tr><td> <%=audio_program.title%> </td><td><%=total[0]%></td><td style="border:1px grey solid;" align="center"><%=total[1]%></td></tr>
-                <% 
-                 end
-                 count_percentage(@side_array,@side_data)
-                 
+            <tr>
+              <td> Main</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <% @symptomatics.each do |sympto|
+              @side_array.push(sympto.condition)
+              total = page_url("my5/symptomatics", sympto.id)
+            %>
+                <tr>
+                  <td> <%= sympto.condition %> </td>
+                  <td><%= total[0] %></td>
+                  <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+                </tr>
+            <% end
+               count_percentage(@side_array, @side_data)
+            %>
+            <%
+               when "mini_modules"
+            %>
+            <%
+               total = []
+               total = page_url("my5/mini_modules", 0)
+               @side_array = ["Main"]
+            %>
+            <tr>
+              <td> Main</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <%
+               @mini_modules.each do |mini_module|
+                 @side_array.push(mini_module.title)
+                 total = page_url("my5/mini_modules", mini_module.id)
+            %>
+                <tr>
+                  <td> <%= mini_module.title %> </td>
+                  <td><%= total[0] %></td>
+                  <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+                </tr>
+            <% end
+               count_percentage(@side_array, @side_data)
+            %>
+        <%
 
-         when "health_checkins"
+           when "my_eqs"
+        %>
+            <%
+               total = []
+               total = page_url("my5/my_eqs", 0)
+               @side_array = ["Main"]
+            %>
+            <tr>
+              <td> Main</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <%
+               @my_eqs.each do |my_eq|
+                 @side_array.push(my_eq.emotional_grouping)
+                 total = page_url("my5/my_eqs", my_eq.id)
+            %>
+                <tr>
+                  <td> <%= my_eq.emotional_grouping %> </td>
+                  <td><%= total[0] %></td>
+                  <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+                </tr>
+            <% end
+               count_percentage(@side_array, @side_data)
+            %>
+        <%
 
-         else
-         %>
-         <tr>
+           when "audio_programs"
+        %>
+            <% total = []
+               total = page_url("my5/audio_programs", 0)
+               @side_array = ["Main"]
+            %>
+            <tr>
+              <td> Main</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <%
+               @audio_programs.each do |audio_program|
+                 @side_array.push(audio_program.title)
+                 total = page_url("my5/audio_programs", audio_program.id)
+            %>
+                <tr>
+                  <td> <%= audio_program.title %> </td>
+                  <td><%= total[0] %></td>
+                  <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+                </tr>
+            <%
+               end
+               count_percentage(@side_array, @side_data)
+
+
+               when "health_checkins"
+
+               else
+            %>
+            <tr>
               <%
-                @side_array = ['Symptomatics','Mini Modules','My EQ','Audio Programs','Health Checkin']
-                total = [] 
-                total = page_url("my5/symptomatics")
-               %>
+                 @side_array = ['Symptomatics', 'Mini Modules', 'My EQ', 'Audio Programs', 'Health Checkin', 'My5 Naturally']
+                 total = []
+                 total = page_url("my5/symptomatics")
+              %>
               <td>Symptomatics</td>
-              <td><%=total[0]%></td>
-              <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
-         </tr>
-         <tr>
-                  <% total = page_url("my5/mini_modules")
-                  %>   
-                 
-                 <td>Mini Modules</td>
-                 <td><%=total[0]%></td>
-                 <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
-         </tr>
-         <tr>
-               <% total = page_url("my5/my_eqs")   
-               %>
-               <td>My EQ</td>
-               <td><%=total[0]%></td>
-               <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
-          </tr>
-         <tr>
-               <% total = page_url("my5/audio_programs")
-               %>  
-               <td>Audio Programs</td>
-               <td><%=total[0]%></td>
-               <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
-          </tr>
-         <tr>
-            <% total = page_url("my5/health_checkins")  
-             %>
-            <td>Health Checkin</td>
-            <td><%=total[0]%></td>
-            <td style="border:1px grey solid;" align="center"><%=total[1]%></td>
-         </tr>
-       <%
-         count_percentage(@side_array,@side_data)
-         end
-       %>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <tr>
+              <% total = page_url("my5/mini_modules")
+              %>
 
-        </table>
-   </td>
-    </tr>
-    <tr><td><br /></td></tr>
-   <tr>
-   <td width="50%">
-   <div align="right"><%= link_to("BAR", '#', :class => "button graphs_type",:id=>"bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type",:id=>"pie_graph",:style=>"margin-right:20px;") %></div>
-   </td>
-   </tr>
-   <tr>
-   <td width="100%">
-    <div id="pie_container" style="display: none;" >
-     <% if @page_total.to_i > 0 %>
-       <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
-     <%else%>
-       <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto">No Records Found </div>
-     <%end%>
-    </div>
+              <td>Mini Modules</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <tr>
+              <% total = page_url("my5/my_eqs")
+              %>
+              <td>My EQ</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <tr>
+              <% total = page_url("my5/audio_programs")
+              %>
+              <td>Audio Programs</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <tr>
+              <% total = page_url("my5/health_checkins")
+              %>
+              <td>Health Checkin</td>
+              <td><%= total[0] %></td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+            <tr>
+              <% total = page_url("blog/posts")
+              %>
+              <td>My5 Naturally</td>
+              <td>my5.com.au/my5_naturally</td>
+              <td style="border:1px grey solid;" align="center"><%= total[1] %></td>
+            </tr>
+        <%
+           count_percentage(@side_array, @side_data)
+           end
+        %>
+
+      </table>
     </td>
-    </tr>
-      <tr>
-   <td width="100%">
-    <div id="bar_container" style="">
-     <div id="bar_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
-   </div>
-        
-   </td>
- </tr>
+  </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <div align="right"><%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph", :style => "margin-right:20px;") %></div>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <div id="pie_container" style="display: none;">
+        <% if @page_total.to_i > 0 %>
+            <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
+        <% else %>
+            <div id="pie_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto">No Records Found
+            </div>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <div id="bar_container" style="">
+        <div id="bar_container_graph" style="min-width:900px;min-height: 400px; margin: 0 auto;float:left;border:5px grey solid;"></div>
+      </div>
+
+    </td>
+  </tr>
 </table>
 <% if @page_total.to_i > 0 %>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'pie_container_graph',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: 'Pie graph'
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
-                }
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+    <script type="text/javascript">
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'pie_container_graph',
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Pie graph'
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
                         }
-                    }
-                }
-            },
-             series: [{
-                type: 'pie',
-                name: 'Visits in %',
-                data: <%= @percentage_data %>
-            }]
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                color: '#000000',
+                                connectorColor: '#000000',
+                                formatter: function () {
+                                    return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                                }
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            name: 'Visits in %',
+                            data: <%= @percentage_data %>
+                        }
+                    ]
+                });
+            });
+
         });
-    });
-    
-});
-</script>
-<%end%>
+    </script>
+<% end %>
 <script type="text/javascript">
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'bar_container_graph',
-                type: 'bar'
-            },
-            title: {
-                text: 'Bar graph'
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories:  <%= @page_1 %>
-            },
-            yAxis: {
-                min: 0,
+    $(function () {
+        var chart;
+        $(document).ready(function () {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'bar_container_graph',
+                    type: 'bar'
+                },
                 title: {
+                    text: 'Bar graph'
+                },
+                subtitle: {
                     text: ''
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 300,
-                y: 10,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return ''+
-                        this.x +': '+ this.y +'% Visits';
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-                series: [{
-                name: 'Visits',
-                data: <%= @page_2 %>
-    
-            }]
+                },
+                xAxis: {
+                    categories:  <%= @page_1 %>
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: ''
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    backgroundColor: '#FFFFFF',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 300,
+                    y: 10,
+                    floating: true,
+                    shadow: true
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '' +
+                                this.x + ': ' + this.y + '% Visits';
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                    {
+                        name: 'Visits',
+                        data: <%= @page_2 %>
+
+                    }
+                ]
+            });
         });
+
     });
-    
-});
 </script>
