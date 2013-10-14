@@ -841,10 +841,22 @@ form .actions a {
   font-style: italic;
 }
 /* line 180, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-small {
+  font-size: 0.75em;
+}
+/* line 182, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-normal {
+  font-size: 1em;
+}
+/* line 184, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-large {
+  font-size: 1.25em;
+}
+/* line 186, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .post_description {
   overflow: hidden;
 }
-/* line 182, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 188, ../../app/stylesheets/my5/blog/blog.sass */
 #blog_post .post_description p {
   font-size: 13px;
   font-family: Helvetica, sans-serif;
@@ -854,13 +866,13 @@ form .actions a {
   margin-bottom: 16px;
 }
 
-/* line 191, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 197, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form {
   position: relative;
   padding: 8px 20px;
   border-bottom: 1px solid #b0b1b3;
 }
-/* line 195, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 201, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_input {
   font-size: 11px;
   font-weight: 400;
@@ -876,7 +888,7 @@ form .actions a {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 207, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 213, ../../app/stylesheets/my5/blog/blog.sass */
 .search_form .search_button {
   font-size: 11px;
   font-weight: 400;
@@ -891,75 +903,75 @@ form .actions a {
   cursor: pointer;
 }
 
-/* line 222, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 228, ../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover {
   color: #dc8c23;
 }
-/* line 224, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 230, ../../app/stylesheets/my5/blog/blog.sass */
 #categories .item:hover > a {
   color: #dc8c23;
 }
 
-/* line 229, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 235, ../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover {
   color: #c92b1e;
 }
-/* line 231, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 237, ../../app/stylesheets/my5/blog/blog.sass */
 #recent_articles .item:hover > a {
   color: #c92b1e;
 }
 
-/* line 235, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 241, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item {
   cursor: pointer;
 }
-/* line 237, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 243, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover {
   color: #9ea0a3;
 }
-/* line 239, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 245, ../../app/stylesheets/my5/blog/blog.sass */
 #archived_posts .item:hover > a {
   color: #9ea0a3;
 }
 
-/* line 242, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 248, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list {
   font-family: Helvetica, sans-serif;
   font-size: 14px;
 }
-/* line 245, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 251, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active {
   color: #c92b1e;
 }
-/* line 247, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 253, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .active > a {
   color: #c92b1e;
 }
-/* line 249, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 255, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .item {
   list-style: none;
   margin-left: 0;
 }
-/* line 252, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 258, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat {
   list-style: none;
   padding-left: 30px;
   font-size: 12px;
 }
-/* line 256, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 262, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item {
   position: relative;
   line-height: 120%;
   margin-bottom: 5px;
 }
-/* line 260, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 266, ../../app/stylesheets/my5/blog/blog.sass */
 .categories_list .subcat .item:before {
   content: "|";
   position: absolute;
   left: -6px;
 }
 
-/* line 265, ../../app/stylesheets/my5/blog/blog.sass */
+/* line 271, ../../app/stylesheets/my5/blog/blog.sass */
 .blog_title {
   color: #3a9b2e;
 }
