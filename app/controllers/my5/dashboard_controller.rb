@@ -8,7 +8,10 @@ class My5::DashboardController < ApplicationController
 
   def customer
     log_event "Viewed Dashboard", current_customer
-    @blog_post = BlogPost.order('created_at DESC').first
+    last_post = BlogPost.order('published_at DESC').first
+    if last_post.published_at < Time.now
+      @blog_post = last_post
+    end
   end
 
   def reports
@@ -214,11 +217,11 @@ class My5::DashboardController < ApplicationController
 
   def list_of_pages
     @separated_params = ""
-    @symptomatics   = Symptomatic.all
-    @mini_modules   = MiniModule.all
-    @my_eqs         = MyEq.all
-    @audio_programs = AudioProgram.all
-    @posts = BlogPost.all
+    @symptomatics     = Symptomatic.all
+    @mini_modules     = MiniModule.all
+    @my_eqs           = MyEq.all
+    @audio_programs   = AudioProgram.all
+    @posts            = BlogPost.all
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -388,8 +391,8 @@ class My5::DashboardController < ApplicationController
   end
 
   def screen_1_data
-    @report_day_array = ""
-    @report_day_date  = ""
+    @report_day_array       = ""
+    @report_day_date        = ""
     @report_day_array_array = Array.new()
     if params[:department_view_mode] == "separated" && @customer_ids_separated
       customer_ids_screen_1 = @customer_ids_separated
