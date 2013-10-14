@@ -8,10 +8,7 @@ class My5::DashboardController < ApplicationController
 
   def customer
     log_event "Viewed Dashboard", current_customer
-    last_post = BlogPost.order('published_at DESC').first
-    if last_post.published_at < Time.now
-      @blog_post = last_post
-    end
+    @blog_post = BlogPost.order('published_at DESC').detect { |post| post.published_at <= Time.now }
   end
 
   def reports

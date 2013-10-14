@@ -8,7 +8,7 @@ module Blog
       @category = BlogCategory.find(params[:id])
       @blog_posts = @category.posts.live.includes(:comments, :categories).paginate({
         :page => params[:page],
-        :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+        :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 6)
       })
     end
 

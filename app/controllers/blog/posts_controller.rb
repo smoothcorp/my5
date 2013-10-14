@@ -61,7 +61,7 @@ module Blog
         @date_title   = @archive_date.strftime('%B %Y')
         @blog_posts   = BlogPost.live.by_archive(@archive_date).paginate({
                                                                              :page     => params[:page],
-                                                                             :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+                                                                             :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 6)
                                                                          })
       else
         date          = "01/#{params[:year]}"
@@ -69,7 +69,7 @@ module Blog
         @date_title   = @archive_date.strftime('%Y')
         @blog_posts   = BlogPost.live.by_year(@archive_date).paginate({
                                                                           :page     => params[:page],
-                                                                          :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+                                                                          :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 6)
                                                                       })
       end
       respond_with (@blog_posts)
@@ -80,7 +80,7 @@ module Blog
       @tag_name   = @tag.name
       @blog_posts = BlogPost.tagged_with(@tag_name).paginate({
                                                                  :page     => params[:page],
-                                                                 :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+                                                                 :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 6)
                                                              })
     end
 
@@ -88,7 +88,7 @@ module Blog
       posts  = BlogPost.where("title LIKE '%#{params[:search]}%' OR body LIKE '%#{params[:search]}%' OR custom_teaser LIKE '%#{params[:search]}%' ")
       @posts = posts.paginate({
                                   :page     => params[:page],
-                                  :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+                                  :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 6)
                               })
     end
 
@@ -107,7 +107,7 @@ module Blog
     def find_all_blog_posts
       @blog_posts = BlogPost.live.includes(:comments, :categories).paginate({
                                                                                 :page     => params[:page],
-                                                                                :per_page => RefinerySetting.find_or_set(:blog_posts_per_page, 10)
+                                                                                :per_page => RefinerySetting.set(:blog_posts_per_page, 6)
                                                                             })
       @recent_posts = @blog_posts.first(5)
     end
