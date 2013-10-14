@@ -13,12 +13,12 @@ class CustomerSessionsController < Devise::SessionsController
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
     if session[:company_login]
       session[:company_login] = false
-      if resource.can_view_reports? && resource.role == 'manager'
+      if resource.can_view_reports?
         session[:manager_view] = true
         resource_sign_in(resource)
       else
         sign_out
-        flash[:alert] = 'Only company manager can access this section.'
+        flash[:alert] = 'Only company admin can access this section.'
         redirect_to root_path
       end
     else
