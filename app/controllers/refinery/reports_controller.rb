@@ -38,10 +38,14 @@ class Refinery::ReportsController < ApplicationController
     @customers_location_states  = Customer.group("state").collect(&:state)
     @customers_location_country = Customer.group("country").collect(&:country)
     @customers_location_state2  = Customer.group("state2").collect(&:state2)
+    @customers_roles            = Customer.group("role").collect(&:role)
+    @customers_departments      = Customer.group("department_id").collect(&:department_id)
     @locations                  = []
     @state                      = []
-    @country                    = []
     @state2                     = []
+    @country                    = []
+    @roles                      = []
+    @departments                = []
     @customers_locations.each do |loc|
       @locations.push(loc) if !loc.nil? && loc != "" && !@locations.include?(loc)
     end
@@ -55,6 +59,14 @@ class Refinery::ReportsController < ApplicationController
 
     @customers_location_state2.each do |loc|
       @state2.push(loc) if !loc.nil? && loc != "" && !@state2.include?(loc)
+    end
+
+    @customers_roles.each do |loc|
+      @roles.push(loc) if !loc.nil? && loc != "" && !@roles.include?(loc)
+    end
+
+    @customers_departments.each do |loc|
+      @departments.push(loc) if !loc.nil? && loc != "" && !@departments.include?(loc)
     end
 
     list_of_pages
@@ -316,7 +328,7 @@ class Refinery::ReportsController < ApplicationController
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
       if params[:department_view_mode] == 'merged' || params[:department_id].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "department_id IN (#{params[:department_id].join(',')})"
+        customer_condition += "department_id IN (#{params[:department_id].map { |p| "'#{p}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -335,7 +347,7 @@ class Refinery::ReportsController < ApplicationController
         count             = 0
         params[:department_id].each do |department_id|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + department_id).collect(&:id)
+          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + "'#{department_id}'").collect(&:id)
           @separated_params += "'#{department_id.to_s}'"
           count             +=1
         end

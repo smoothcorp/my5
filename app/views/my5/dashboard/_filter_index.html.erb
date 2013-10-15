@@ -11,7 +11,7 @@
 
           <tr>
             <td>Department :</td>
-            <td><%= select_tag("department_id", options_for_select((Customer::DEPARTMENTS)), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
+            <td><%= select_tag("department_id", options_for_select(@departments.map { |department| [department.to_s.humanize, department] }), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
           </tr>
 
           <tr>
@@ -42,7 +42,7 @@
           <tr>
             <td>Role :</td>
             <td>
-              <%= select_tag("role_id", options_for_select(Customer::ROLES.map { |role| [role.to_s.humanize, role] }), { :include_blank => true, :size => 5, :multiple => true }) %>
+              <%= select_tag("role_id", options_for_select(@roles.map { |role| [role.to_s.humanize, role] }), { :include_blank => true, :size => 5, :multiple => true }) %>
             </td>
           </tr>
         </table>
