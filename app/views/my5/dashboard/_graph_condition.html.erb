@@ -1,207 +1,233 @@
 <table style="width: 100%; height: auto; margin: 0 auto;">
-  <tr>
-    <td width="100%">
-      <table class="content_graph_table">
-        <tr>
-          <th>Page Name</th>
-          <th>Page url</th>
-          <th width="5%" class="col3">Views</th>
-        </tr>
-        <% p "a"*100
-           p page_name
-           case page_name
-             when "symptomatics"
-        %>
+<tr>
+  <td width="100%">
+    <table class="content_graph_table">
+      <tr>
+        <th>Page Name</th>
+        <th>Page url</th>
+        <th width="5%" class="col3">Views</th>
+      </tr>
+      <%
+         case page_name
+           when "my5/symptomatics"
+      %>
+          <%
+             total = []
+             total = page_url("my5/symptomatics", 0)
+             @side_array = ["Main"]
+
+          %>
+
+          <tr>
+            <td> Main</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <% @symptomatics.each do |sympto|
+            @side_array.push(sympto.condition)
+            total = page_url("my5/symptomatics", sympto.id)
+          %>
+              <tr>
+                <td> <%= sympto.condition %> </td>
+                <td><%= total[0] %></td>
+                <td class="col3" align="center"><%= total[1] %></td>
+              </tr>
+          <% end
+             count_percentage(@side_array, @side_data)
+             p "a"*100
+             p @percentage_data
+          %>
+      <%
+         when "my5/mini_modules"
+      %>
+          <%
+             total = []
+             total = page_url("my5/mini_modules", 0)
+             @side_array = ["Main"]
+          %>
+          <tr>
+            <td> Main</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <%
+             @mini_modules.each do |mini_module|
+               @side_array.push(mini_module.title)
+               total = page_url("my5/mini_modules", mini_module.id)
+          %>
+              <tr>
+                <td> <%= mini_module.title %> </td>
+                <td><%= total[0] %></td>
+                <td class="col3" align="center"><%= total[1] %></td>
+              </tr>
+          <% end
+             count_percentage(@side_array, @side_data)
+          %>
+
+      <%
+
+         when 'my5/my_eqs'
+      %>
+          <%
+             total = []
+             total = page_url('my5/my_eqs', 0)
+             @side_array = ["Main"]
+          %>
+          <tr>
+            <td> Main</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <%
+             @my_eqs.each do |my_eq|
+               @side_array.push(my_eq.emotional_grouping)
+               total = page_url("my5/my_eqs", my_eq.id)
+          %>
+              <tr>
+                <td> <%= my_eq.emotional_grouping %> </td>
+                <td><%= total[0] %></td>
+                <td class="col3" align="center"><%= total[1] %></td>
+              </tr>
+          <% end
+             count_percentage(@side_array, @side_data)
+          %>
+          <% when 'blog/posts' %>
+          <%
+             total = []
+             total = page_url('blog/posts', 0)
+             @side_array = ["Main"]
+          %>
+          <tr>
+            <td> Main</td>
+            <td>http://my5.com.au/my5_naturally</td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <%
+             @posts.each do |post|
+               @side_array.push(post.title)
+               total = page_url("blog/posts", post.id)
+          %>
+              <tr>
+                <td> <%= post.title %> </td>
+                <td><%= "http://my5.com.au/my5_naturally/#{post.cached_slug}"  %></td>
+                <td class="col3" align="center"><%= total[1] %></td>
+              </tr>
+          <% end
+             count_percentage(@side_array, @side_data)
+          %>
+      <%
+
+         when "my5/audio_programs"
+      %>
+          <% total = []
+             total = page_url("my5/audio_programs", 0)
+             @side_array = ["Main"]
+          %>
+          <tr>
+            <td> Main</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <%
+             @audio_programs.each do |audio_program|
+               @side_array.push(audio_program.title)
+               total = page_url("my5/audio_programs", audio_program.id)
+          %>
+              <tr>
+                <td> <%= audio_program.title %> </td>
+                <td><%= total[0] %></td>
+                <td class="col3" align="center"><%= total[1] %></td>
+              </tr>
+          <%
+             end
+             count_percentage(@side_array, @side_data)
+
+
+             when "my5/health_checkins"
+
+             else
+          %>
+          <tr>
             <%
+               @side_array = ['Symptomatics', 'Mini Modules', 'My EQ', 'Audio Programs', 'Health Checkin', 'My5 Naturally']
                total = []
-               total = page_url("my5/symptomatics", 0)
-               @side_array = ["Main"]
-
+               total = page_url("my5/symptomatics")
+            %>
+            <td>Symptomatics</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <tr>
+            <% total = page_url("my5/mini_modules")
             %>
 
-            <tr>
-              <td> Main</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <% @symptomatics.each do |sympto|
-              @side_array.push(sympto.condition)
-              total = page_url("my5/symptomatics", sympto.id)
+            <td>Mini Modules</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <tr>
+            <% total = page_url("my5/my_eqs")
             %>
-                <tr>
-                  <td> <%= sympto.condition %> </td>
-                  <td><%= total[0] %></td>
-                  <td class="col3" align="center"><%= total[1] %></td>
-                </tr>
-            <% end
-               count_percentage(@side_array, @side_data)
+            <td>My EQ</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <tr>
+            <% total = page_url("my5/audio_programs")
             %>
-            <%
-               when "mini_modules"
+            <td>Audio Programs</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <tr>
+            <% total = page_url("my5/health_checkins")
             %>
-            <%
-               total = []
-               total = page_url("my5/mini_modules", 0)
-               @side_array = ["Main"]
+            <td>Health Checkin</td>
+            <td><%= total[0] %></td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+          <tr>
+            <% total = page_url("blog/posts")
             %>
-            <tr>
-              <td> Main</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <%
-               @mini_modules.each do |mini_module|
-                 @side_array.push(mini_module.title)
-                 total = page_url("my5/mini_modules", mini_module.id)
-            %>
-                <tr>
-                  <td> <%= mini_module.title %> </td>
-                  <td><%= total[0] %></td>
-                  <td class="col3" align="center"><%= total[1] %></td>
-                </tr>
-            <% end
-               count_percentage(@side_array, @side_data)
-            %>
-        <%
+            <td>My5 Naturally</td>
+            <td>my5.com.au/my5_naturally</td>
+            <td class="col3" align="center"><%= total[1] %></td>
+          </tr>
+      <%
+         count_percentage(@side_array, @side_data)
+         end
+      %>
 
-           when 'my_eqs'
-        %>
-            <%
-               total = []
-               total = page_url('my5/my_eqs', 0)
-               @side_array = ["Main"]
-            %>
-            <tr>
-              <td> Main</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <%
-               @my_eqs.each do |my_eq|
-                 @side_array.push(my_eq.emotional_grouping)
-                 total = page_url("my5/my_eqs", my_eq.id)
-            %>
-                <tr>
-                  <td> <%= my_eq.emotional_grouping %> </td>
-                  <td><%= total[0] %></td>
-                  <td class="col3" align="center"><%= total[1] %></td>
-                </tr>
-            <% end
-               count_percentage(@side_array, @side_data)
-            %>
-        <%
+    </table>
+  </td>
+</tr>
+<tr>
+  <td><br/></td>
+</tr>
+<tr>
+  <td width="50%">
+    <div align="right"><%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph", :style => "margin-right:20px;") %></div>
+  </td>
+</tr>
+<tr>
+  <td width="100%">
+    <div id="pie_container" style="display: none;">
+      <% if @page_total.to_i > 0 %>
+          <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
+      <% else %>
+          <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto">No Records Found</div>
+      <% end %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td width="100%">
+    <div id="bar_container" style="">
+      <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
+    </div>
 
-           when "audio_programs"
-        %>
-            <% total = []
-               total = page_url("my5/audio_programs", 0)
-               @side_array = ["Main"]
-            %>
-            <tr>
-              <td> Main</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <%
-               @audio_programs.each do |audio_program|
-                 @side_array.push(audio_program.title)
-                 total = page_url("my5/audio_programs", audio_program.id)
-            %>
-                <tr>
-                  <td> <%= audio_program.title %> </td>
-                  <td><%= total[0] %></td>
-                  <td class="col3" align="center"><%= total[1] %></td>
-                </tr>
-            <%
-               end
-               count_percentage(@side_array, @side_data)
-
-
-               when "health_checkins"
-
-               else
-            %>
-            <tr>
-              <%
-                 @side_array = ['Symptomatics', 'Mini Modules', 'My EQ', 'Audio Programs', 'Health Checkin', 'My5 Naturally']
-                 total = []
-                 total = page_url("my5/symptomatics")
-              %>
-              <td>Symptomatics</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <tr>
-              <% total = page_url("my5/mini_modules")
-              %>
-
-              <td>Mini Modules</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <tr>
-              <% total = page_url("my5/my_eqs")
-              %>
-              <td>My EQ</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <tr>
-              <% total = page_url("my5/audio_programs")
-              %>
-              <td>Audio Programs</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <tr>
-              <% total = page_url("my5/health_checkins")
-              %>
-              <td>Health Checkin</td>
-              <td><%= total[0] %></td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-            <tr>
-              <% total = page_url("blog/posts")
-              %>
-              <td>My5 Naturally </td>
-              <td>my5.com.au/my5_naturally</td>
-              <td class="col3" align="center"><%= total[1] %></td>
-            </tr>
-        <%
-           count_percentage(@side_array, @side_data)
-           end
-        %>
-
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td><br/></td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <div align="right"><%= link_to("BAR", '#', :class => "button graphs_type", :id => "bar_graph") %>  <%= link_to("PIE", '#', :class => "button graphs_type", :id => "pie_graph", :style => "margin-right:20px;") %></div>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%">
-      <div id="pie_container" style="display: none;">
-        <% if @page_total.to_i > 0 %>
-            <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
-        <% else %>
-            <div id="pie_container_graph" style="min-height: 400px; margin: 0 auto">No Records Found</div>
-        <% end %>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%">
-      <div id="bar_container" style="">
-        <div id="bar_container_graph" style="min-height: 400px; margin: 0 auto;float:left;"></div>
-      </div>
-
-    </td>
-  </tr>
+  </td>
+</tr>
 </table>
 <% if @page_total.to_i > 0 %>
     <script type="text/javascript">
@@ -242,7 +268,7 @@
                         {
                             type: 'pie',
                             name: 'Visits in %',
-                            data: <%= @percentage_data %>
+                            data: <%= raw @percentage_data %>
                         }
                     ]
                 });
