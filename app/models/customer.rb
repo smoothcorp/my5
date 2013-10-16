@@ -93,7 +93,7 @@ DEPARTMENTS = [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7",
 
   ## --- ACCESS LEVELS
   def company_admin?
-    self.role == 'company admin' && self.corporation?
+    self.role.downcase == 'company admin' && self.corporation?
   end
 
   def manager?

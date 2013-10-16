@@ -11,38 +11,38 @@
 
           <tr>
             <td>Department :</td>
-            <td><%= select_tag("department_id", options_for_select(@departments.map { |department| [department.to_s.humanize, department] }), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
+            <td><%= select_tag("department_id", options_for_select(@departments.map { |department| [department.to_s, department] }), { :include_blank => true, :multiple => true, :size => 5 }) %></td>
           </tr>
 
           <tr>
             <td>Suburb :</td>
             <td>
-              <%= select_tag("city", options_for_select(@locations.map { |location| [location.to_s.humanize, location] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
+              <%= select_tag("city", options_for_select(@locations.map { |location| [location.to_s, location] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
             </td>
           </tr>
           <tr>
             <td>City :</td>
             <td>
-              <%= select_tag("state", options_for_select(@state.map { |state| [state.to_s.humanize, state] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
+              <%= select_tag("state", options_for_select(@state.map { |state| [state.to_s, state] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
             </td>
           </tr>
           <tr>
             <td>State :</td>
             <td>
-              <%= select_tag("state2", options_for_select(@state2.map { |state| [state.to_s.humanize, state] }), { :include_blank => true,:multiple => true, :size => 5 }) %>
+              <%= select_tag("state2", options_for_select(@state2.map { |state| [state.to_s, state] }), { :include_blank => true,:multiple => true, :size => 5 }) %>
             </td>
           </tr>
           <tr>
             <td>Country :</td>
             <td>
-              <%= select_tag("country", options_for_select(@country.map { |country| [country.to_s.humanize, country] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
+              <%= select_tag("country", options_for_select(@country.map { |country| [country.to_s, country] }), { :include_blank => true, :multiple => true, :size => 5 }) %>
             </td>
           </tr>
 
           <tr>
             <td>Role :</td>
             <td>
-              <%= select_tag("role_id", options_for_select(@roles.map { |role| [role.to_s.humanize, role] }), { :include_blank => true, :size => 5, :multiple => true }) %>
+              <%= select_tag("role_id", options_for_select(@roles.map { |role| [role.to_s, role] }), { :include_blank => true, :size => 5, :multiple => true }) %>
             </td>
           </tr>
         </table>
