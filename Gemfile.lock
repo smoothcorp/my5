@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git@github.com:jetthoughts/refinerycms-blog.git
-  revision: 382ad2876c02aff146b83c05d4bbaeb7998711df
+  revision: 229c9aa7ea0e5e0f8c8ccb6d9bfdbdffe4947008
   branch: my5
   specs:
     refinerycms-blog (1.8.0)
