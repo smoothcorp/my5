@@ -13,13 +13,14 @@ class My5::DashboardController < ApplicationController
 
   def reports
     if current_customer.can_view_reports?
-      @company                    = current_customer.corporation_id
-      @customers_locations        = Customer.group("city").collect(&:city)
-      @customers_location_states  = Customer.group("state").collect(&:state)
-      @customers_location_country = Customer.group("country").collect(&:country)
-      @customers_location_state2  = Customer.group("state2").collect(&:state2)
-      @customers_roles            = Customer.group("role").collect(&:role)
-      @customers_departments      = Customer.group("department_id").collect(&:department_id)
+      company_id                  = current_customer.corporation_id
+      @company                    = company_id
+      @customers_locations        = Customer.group("city").where(:corporation_id => company_id).collect(&:city)
+      @customers_location_states  = Customer.group("state").where(:corporation_id => company_id).collect(&:state)
+      @customers_location_country = Customer.group("country").where(:corporation_id => company_id).collect(&:country)
+      @customers_location_state2  = Customer.group("state2").where(:corporation_id => company_id).collect(&:state2)
+      @customers_roles            = Customer.group("role").where(:corporation_id => company_id).collect(&:role)
+      @customers_departments      = Customer.group("department_id").where(:corporation_id => company_id).collect(&:department_id)
       @locations                  = []
       @state                      = []
       @state2                     = []
@@ -271,7 +272,7 @@ class My5::DashboardController < ApplicationController
 
     @is_condition      = false
     customer_condition = ""
-    @customer_ids      = []
+    @customer_ids      = Customer.where(:corporation_id => current_customer.corporation.id).collect(&:id)
     if !params[:company_id].blank?
       customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "
       @is_condition      = true
