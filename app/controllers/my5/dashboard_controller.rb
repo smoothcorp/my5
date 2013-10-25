@@ -50,7 +50,6 @@ class My5::DashboardController < ApplicationController
         @departments.push(loc) if !loc.nil? && loc != "" && !@departments.include?(loc)
       end
 
-
       list_of_pages
       params[:graph_view] = "1"
       params[:page]       ="all"
@@ -270,13 +269,9 @@ class My5::DashboardController < ApplicationController
       @to_date = Time.now
     end
 
-    @is_condition      = false
-    customer_condition = ""
+    @is_condition      = true
+    customer_condition = "corporation_id = '#{current_customer.corporation.id.to_s}'  "
     @customer_ids      = Customer.where(:corporation_id => current_customer.corporation.id).collect(&:id)
-    if !params[:company_id].blank?
-      customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "
-      @is_condition      = true
-    end
 
     if !(params[:state] == 'null' || params[:state].blank?)
       if params[:department_view_mode] == 'merged' || params[:state].count < 2
