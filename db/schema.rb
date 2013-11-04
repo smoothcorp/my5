@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131015123016) do
+ActiveRecord::Schema.define(:version => 20131104114019) do
 
   create_table "activities", :force => true do |t|
     t.datetime "created_at"
@@ -333,6 +333,7 @@ ActiveRecord::Schema.define(:version => 20131015123016) do
     t.datetime "updated_at"
     t.datetime "time"
     t.string   "days_of_week"
+    t.string   "string_time"
   end
 
   create_table "resources", :force => true do |t|

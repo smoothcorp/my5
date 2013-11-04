@@ -3,7 +3,7 @@ class ReminderEmail < ActiveRecord::Base
 
   belongs_to :customer
 
-  validates :time, :days_of_week, :customer_id, :presence => true
+  validates :time, :string_time, :days_of_week, :customer_id, :presence => true
   attr_accessor :days_of_week_input
 
   DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -27,15 +27,15 @@ class ReminderEmail < ActiveRecord::Base
 
 
 
-    now = Time.now.utc
-    curH = now.strftime("%H").to_i
-    curM = now.strftime("%M").to_i
-    curM2 = curM - 5
+    #now = Time.now.utc
+    #curH = now.strftime("%H").to_i
+    #curM = now.strftime("%M").to_i
+    #curM2 = curM - 5
 
     # так как в БД хранится инфа по UTC - то преобразовывать не надо
-    rem = self.time.utc
-    remH = rem.strftime("%H").to_i     # 08 - ремаиндер в БД - часы 
-    remM = rem.strftime("%M").to_i     # 30 - ремаиндер в БД - минуты
+    #rem = self.time.utc
+    #remH = rem.strftime("%H").to_i     # 08 - ремаиндер в БД - часы
+    #remM = rem.strftime("%M").to_i     # 30 - ремаиндер в БД - минуты
 
 
 
@@ -82,10 +82,21 @@ class ReminderEmail < ActiveRecord::Base
 
     # offset = Time.zone.formatted_offset.to_i
     # remH = (remH + offset) % 24
+    #Time.zone = current_customer.time_zone
+    current_time = Time.zone.now
+    current_time_with_correction = current_time - 5.minutes
 
-    if remH == curH && remM <= curM && remM > curM2
+    current_time_reminder = Time.zone.parse(self.string_time)
+
+    #if remH == curH && remM <= curM && remM > curM2
+    #  return self
+    #end
+
+    if current_time.hour == current_time_reminder.hour && current_time_reminder.min <= current_time.min &&
+        current_time_reminder.min > current_time_with_correction.min
       return self
     end
+
     nil
   end
 
