@@ -142,15 +142,15 @@ class My5::DashboardController < ApplicationController
 
   def filter_screen1
     case page_name
-      when "symptomatics"
+      when "my5/symptomatics"
         @reports = filter_query("my5/symptomatics")
-      when "mini_modules"
+      when "my5/mini_modules"
         @reports = filter_query("my5/mini_modules")
-      when "my_eqs"
+      when "my5/my_eqs"
         @reports = filter_query("my5/my_eqs")
-      when "audio_programs"
+      when "my5/audio_programs"
         @reports = filter_query("my5/audio_programs")
-      when "health_checkins"
+      when "my5/health_checkins"
         @reports = filter_query("my5/health_checkins")
       when "blog/posts"
         @reports = filter_query("blog/posts")
@@ -518,12 +518,12 @@ class My5::DashboardController < ApplicationController
 
   def screen_3_data
     @my5_naturally_count = []
-    @symo_count    = []
-    @mini_count    = []
-    @myq_count     = []
-    @audio_count   = []
-    @health_count  = []
-    @unique_visits = @reports.group_by { |t| t.customer_id }
+    @symo_count          = []
+    @mini_count          = []
+    @myq_count           = []
+    @audio_count         = []
+    @health_count        = []
+    @unique_visits       = @reports.group_by { |t| t.customer_id }
 
     # for symptomatics
     if page_name == "all" || page_name == "my5/symptomatics"
