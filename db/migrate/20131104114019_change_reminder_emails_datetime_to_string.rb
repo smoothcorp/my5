@@ -2,7 +2,7 @@ class ChangeReminderEmailsDatetimeToString < ActiveRecord::Migration
   def self.up
     add_column(:reminder_emails, :string_time, :string)
 
-    ReminderEmail.active_in_days_of_week.each do |reminder|
+    ReminderEmail.all.each do |reminder|
       next unless reminder.customer
 
       hours   = reminder.time.utc.strftime("%H").to_i
@@ -15,6 +15,8 @@ class ChangeReminderEmailsDatetimeToString < ActiveRecord::Migration
 
       hours   += hours_offset
       minutes += minutes_offset
+
+      hours -= 1 unless reminder.created_at.dst?
 
       hours -= 24 if hours > 23
 

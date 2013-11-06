@@ -51,7 +51,7 @@ class My5::ReminderEmailsController < ApplicationController
 
 # ---------------------------------------------------------
 
-    @reminder_email.time = @reminder_email.time - 10.hours + offset
+    @reminder_email.time = Time.zone.parse(@reminder_email.string_time)
   end
 
   def create
