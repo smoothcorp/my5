@@ -350,7 +350,7 @@ class My5::DashboardController < ApplicationController
         params[:city].each do |city|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
-          @separated_params += "'#{city.humanize}'"
+          @separated_params += "'#{city.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -361,7 +361,7 @@ class My5::DashboardController < ApplicationController
         params[:country].each do |country|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
-          @separated_params += "'#{country.humanize}'"
+          @separated_params += "'#{country.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -372,7 +372,7 @@ class My5::DashboardController < ApplicationController
         params[:state2].each do |state2|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
-          @separated_params += "'#{state2.humanize}'"
+          @separated_params += "'#{state2.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -383,7 +383,7 @@ class My5::DashboardController < ApplicationController
         params[:state].each do |state|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
-          @separated_params += "'#{state.humanize}'"
+          @separated_params += "'#{state.titleize}'"
           count             += 1
         end
         @separated_params += "]"
