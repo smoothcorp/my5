@@ -335,8 +335,6 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
         return date[2] + '/' + date[1] + '/' + date[0];
     });
 
-    console.log(dates);
-
     chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
