@@ -137,12 +137,13 @@
           <%
              end
              count_percentage(@side_array, @side_data)
-
-
-             when "my5/health_checkins"
-
-             else
           %>
+
+      <% when "my5/health_checkins" %>
+
+      <%
+         else
+      %>
           <tr>
             <%
                @side_array = ['Symptomatics', 'Mini Modules', 'My EQ', 'Audio Programs', 'Health Checkin', 'My5 Naturally']

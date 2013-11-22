@@ -158,15 +158,15 @@ class Refinery::ReportsController < ApplicationController
 
   def filter_screen1
     case page_name
-      when "symptomatics"
+      when "my5/symptomatics"
         @reports = filter_query("my5/symptomatics")
-      when "mini_modules"
+      when "my5/mini_modules"
         @reports = filter_query("my5/mini_modules")
-      when "my_eqs"
+      when "my5/my_eqs"
         @reports = filter_query("my5/my_eqs")
-      when "audio_programs"
+      when "my5/audio_programs"
         @reports = filter_query("my5/audio_programs")
-      when "health_checkins"
+      when "my5/health_checkins"
         @reports = filter_query("my5/health_checkins")
       when "blog/posts"
         @reports = filter_query("blog/posts")
@@ -370,7 +370,7 @@ class Refinery::ReportsController < ApplicationController
         params[:city].each do |city|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
-          @separated_params += "'#{city.humanize}'"
+          @separated_params += "'#{city.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -381,7 +381,7 @@ class Refinery::ReportsController < ApplicationController
         params[:country].each do |country|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
-          @separated_params += "'#{country.humanize}'"
+          @separated_params += "'#{country.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -392,7 +392,7 @@ class Refinery::ReportsController < ApplicationController
         params[:state2].each do |state2|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
-          @separated_params += "'#{state2.humanize}'"
+          @separated_params += "'#{state2.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -403,7 +403,7 @@ class Refinery::ReportsController < ApplicationController
         params[:state].each do |state|
           @separated_params += ", " unless count == 0
           @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
-          @separated_params += "'#{state.humanize}'"
+          @separated_params += "'#{state.titleize}'"
           count             += 1
         end
         @separated_params += "]"
@@ -538,6 +538,7 @@ class Refinery::ReportsController < ApplicationController
   end
 
   def screen_3_data
+    @my5_naturally_count = []
     @symo_count    = []
     @mini_count    = []
     @myq_count     = []
@@ -546,7 +547,7 @@ class Refinery::ReportsController < ApplicationController
     @unique_visits = @reports.group_by { |t| t.customer_id }
 
     # for symptomatics
-    if page_name == "all" || page_name == "symptomatics"
+    if page_name == "all" || page_name == "my5/symptomatics"
       @temp1 = @reports.select { |t| t if t.controller_name == "my5/symptomatics" && t.show_id.nil? }
       @symo_count.push(@temp1.size)
       if !@symptomatics.blank?
@@ -557,8 +558,20 @@ class Refinery::ReportsController < ApplicationController
       end
     end
 
+    # for my5 naturally
+    if page_name == "all" || page_name == "blog/posts"
+      @temp1 = @reports.select { |t| t if t.controller_name == "blog/posts" && t.show_id.nil? }
+      @my5_naturally_count.push(@temp1.size)
+      if !@posts.blank?
+        @posts.each do |post|
+          @temp1 = @reports.select { |t| t if t.controller_name == "blog/posts" && t.show_id == post.id }
+          @my5_naturally_count.push(@temp1.size)
+        end
+      end
+    end
+
     # for mini_modules
-    if page_name == "all" || page_name == "mini_modules"
+    if page_name == "all" || page_name == "my5/mini_modules"
       @temp1 = @reports.select { |t| t if t.controller_name == "my5/mini_modules" && t.show_id.nil? }
       @mini_count.push(@temp1.size)
       if !@mini_modules.blank?
@@ -571,7 +584,7 @@ class Refinery::ReportsController < ApplicationController
 
 
     # for myq
-    if page_name == "all" || page_name == "my_eqs"
+    if page_name == "all" || page_name == "my5/my_eqs"
       @temp1 = @reports.select { |t| t if t.controller_name == "my5/my_eqs" && t.show_id.nil? }
       @myq_count.push(@temp1.size)
       if !@my_eqs.blank?
@@ -584,7 +597,7 @@ class Refinery::ReportsController < ApplicationController
 
 
     # for audio.program
-    if page_name == "all" || page_name == "audio_programs"
+    if page_name == "all" || page_name == "my5/audio_programs"
       @temp1 = @reports.select { |t| t if t.controller_name == "my5/audio_programs" && t.show_id.nil? }
       @audio_count.push(@temp1.size)
       if !@audio_programs.blank?
@@ -596,7 +609,7 @@ class Refinery::ReportsController < ApplicationController
     end
 
     #for heath checking
-    if page_name == "all" || page_name == "health_checkins"
+    if page_name == "all" || page_name == "my5/health_checkins"
       @temp1 = @reports.select { |t| t if t.controller_name == "my5/health_checkins" && t.show_id.nil? }
       @health_count.push(@temp1.size)
     end
@@ -608,7 +621,7 @@ class Refinery::ReportsController < ApplicationController
     end
 
 
-    if page_name == "all" || page_name == "symptomatics"
+    if page_name == "all" || page_name == "my5/symptomatics"
       if !@symo_count.blank?
         @symo_count.each do |val|
           if val > 8 && val < 15
@@ -623,7 +636,24 @@ class Refinery::ReportsController < ApplicationController
         end
       end
     end
-    if page_name == "all" || page_name == "mini_modules"
+
+    if page_name == "all" || page_name == "blog/posts"
+      if !@my5_naturally_count.blank?
+        @my5_naturally_count.each do |val|
+          if val > 8 && val < 15
+            @last_count[9] = @last_count[9] + 1
+          elsif val >= 15 && val < 26
+            @last_count[10] = @last_count[10] + 1
+          elsif val >= 25
+            @last_count[11] = @last_count[11] + 1
+          else
+            @last_count[val] = @last_count[val] + 1
+          end
+        end
+      end
+    end
+
+    if page_name == "all" || page_name == "my5/mini_modules"
       if !@mini_count.blank?
         @mini_count.each do |val|
           if val > 8 && val < 15
@@ -638,7 +668,7 @@ class Refinery::ReportsController < ApplicationController
         end
       end
     end
-    if page_name == "all" || page_name == "my_eqs"
+    if page_name == "all" || page_name == "my5/my_eqs"
       if !@myq_count.blank?
         @myq_count.each do |val|
           if val > 8 && val < 15
@@ -653,7 +683,7 @@ class Refinery::ReportsController < ApplicationController
         end
       end
     end
-    if page_name == "all" || page_name == "audio_programs"
+    if page_name == "all" || page_name == "my5/audio_programs"
       if !@audio_count.blank?
         @audio_count.each do |val|
           if val > 8 && val < 15
@@ -668,7 +698,7 @@ class Refinery::ReportsController < ApplicationController
         end
       end
     end
-    if page_name == "all" || page_name == "health_checkins"
+    if page_name == "all" || page_name == "my5/health_checkins"
       if !@health_count.blank?
         @health_count.each do |val|
           if val > 8 && val < 15
