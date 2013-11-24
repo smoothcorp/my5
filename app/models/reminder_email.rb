@@ -93,7 +93,7 @@ class ReminderEmail < ActiveRecord::Base
     #end
     if current_time_reminder
       if current_time.hour == current_time_reminder.hour && current_time_reminder.min <= current_time.min &&
-          current_time_reminder.min > current_time_with_correction.min
+          current_time_reminder > current_time_with_correction
         return self
       end
     end
