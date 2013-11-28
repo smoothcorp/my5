@@ -13,25 +13,25 @@ class My5Tasks
       end
     end
   end
-  
+
   def remind_expiring_free_trials
     Subscription.free_trials_ending_in_two_days.each do |subscription|
       SubscriptionsMailer.free_trial_expiring_soon(subscription.customer).deliver
-    end 
+    end
   end
 
   def send_email_reminders
     count = 0
-  	ReminderEmail.active_in_days_of_week.each do |reminder|
-  	  
-  	  if reminder.customer
-  	    if reminder.is_in_last_5mins
-  		  puts reminder.customer_id
-  		  reminder.remind
-  		  count += 1
-  	    end
-  	  end
+    ReminderEmail.active_in_days_of_week.each do |reminder|
+
+      if reminder.customer
+        if reminder.is_in_last_5mins
+          puts reminder.customer_id
+          reminder.remind
+          count += 1
+        end
       end
+    end
     count
   end
 
