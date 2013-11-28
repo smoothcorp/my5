@@ -232,6 +232,7 @@ class My5::DashboardController < ApplicationController
     @my_eqs           = MyEq.all
     @audio_programs   = AudioProgram.all
     @posts            = BlogPost.all
+
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
       @to_date   = params[:to_date].to_date
@@ -269,14 +270,18 @@ class My5::DashboardController < ApplicationController
       @to_date = Time.now
     end
 
-    @is_condition      = true
-    customer_condition = "corporation_id = '#{current_customer.corporation.id.to_s}'  "
-    @customer_ids      = Customer.where(:corporation_id => current_customer.corporation.id).collect(&:id)
+    @is_condition      = false
+    customer_condition = ""
+    @customer_ids      = []
+    if !params[:company_id].blank?
+      customer_condition = "corporation_id = '#{params[:company_id].to_s}'  "
+      @is_condition      = true
+    end
 
     if !(params[:state] == 'null' || params[:state].blank?)
       if params[:department_view_mode] == 'merged' || params[:state].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "state IN (#{params[:state].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "state IN (#{params[:state].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -284,7 +289,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:state2] == 'null' || params[:state2].blank?)
       if params[:department_view_mode] == 'merged' || params[:state2].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "state2 IN (#{params[:state2].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "state2 IN (#{params[:state2].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -292,7 +297,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:city] == 'null' || params[:city].blank?)
       if params[:department_view_mode] == 'merged' || params[:city].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "city IN (#{params[:city].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "city IN (#{params[:city].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -300,7 +305,7 @@ class My5::DashboardController < ApplicationController
     if !(params[:country] == 'null' || params[:country].blank?)
       if params[:department_view_mode] == 'merged' || params[:country].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "country IN (#{params[:country].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "country IN (#{params[:country].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -308,14 +313,14 @@ class My5::DashboardController < ApplicationController
     if !(params[:department_id] == 'null' || params[:department_id].blank?)
       if params[:department_view_mode] == 'merged' || params[:department_id].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "department_id IN (#{params[:department_id].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "department_id IN (#{params[:department_id].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
     if !(params[:role] == 'null' || params[:role].blank?)
       if params[:department_view_mode] == 'merged' || params[:role].count < 2
         customer_condition += @is_condition ? " AND " : ""
-        customer_condition += "role IN (#{params[:role].map { |p| "'#{p}'" }.join(',')})"
+        customer_condition += "role IN (#{params[:role].map { |p| "'#{p.gsub(/(?=\W)/, '\\')}'" }.join(',')})"
         @is_condition      = true
       end
     end
@@ -327,8 +332,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:department_id].each do |department_id|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + "'#{department_id}'").collect(&:id)
-          @separated_params += "'#{department_id.to_s}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'department_id = ' + "'#{department_id.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{department_id.gsub(/(?=\W)/, '\\')}'"
           count             +=1
         end
         @separated_params += "]"
@@ -338,8 +343,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:role].each do |role|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role}'").collect(&:id)
-          @separated_params += "'#{role.humanize}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'role = ' + "'#{role.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{role.humanize.gsub(/(?=\W)/, '\\')}'"
           count             += 1
         end
         @separated_params += "]"
@@ -349,8 +354,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:city].each do |city|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city}'").collect(&:id)
-          @separated_params += "'#{city.titleize}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'city = ' + "'#{city.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{city.titleize.gsub(/(?=\W)/, '\\')}'"
           count             += 1
         end
         @separated_params += "]"
@@ -360,8 +365,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:country].each do |country|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country}'").collect(&:id)
-          @separated_params += "'#{country.titleize}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'country = ' + "'#{country.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{country.titleize.gsub(/(?=\W)/, '\\')}'"
           count             += 1
         end
         @separated_params += "]"
@@ -371,8 +376,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:state2].each do |state2|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2}'").collect(&:id)
-          @separated_params += "'#{state2.titleize}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'state2 = ' + "'#{state2.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{state2.titleize.gsub(/(?=\W)/, '\\')}'"
           count             += 1
         end
         @separated_params += "]"
@@ -382,8 +387,8 @@ class My5::DashboardController < ApplicationController
         count             = 0
         params[:state].each do |state|
           @separated_params += ", " unless count == 0
-          @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state}'").collect(&:id)
-          @separated_params += "'#{state.titleize}'"
+          @customer_ids_separated << Customer.where(customer_condition + 'state LIKE ' + "'#{state.gsub(/(?=\W)/, '\\')}'").collect(&:id)
+          @separated_params += "'#{state.titleize.gsub(/(?=\W)/, '\\')}'"
           count             += 1
         end
         @separated_params += "]"

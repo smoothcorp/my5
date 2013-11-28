@@ -246,7 +246,7 @@ class Refinery::ReportsController < ApplicationController
     @mini_modules     = MiniModule.all
     @my_eqs           = MyEq.all
     @audio_programs   = AudioProgram.all
-    @posts = BlogPost.all
+    @posts            = BlogPost.all
 
     if !params[:from_date].blank? && !params[:to_date].blank?
       @from_date = params[:from_date].to_date
@@ -539,12 +539,12 @@ class Refinery::ReportsController < ApplicationController
 
   def screen_3_data
     @my5_naturally_count = []
-    @symo_count    = []
-    @mini_count    = []
-    @myq_count     = []
-    @audio_count   = []
-    @health_count  = []
-    @unique_visits = @reports.group_by { |t| t.customer_id }
+    @symo_count          = []
+    @mini_count          = []
+    @myq_count           = []
+    @audio_count         = []
+    @health_count        = []
+    @unique_visits       = @reports.group_by { |t| t.customer_id }
 
     # for symptomatics
     if page_name == "all" || page_name == "my5/symptomatics"
