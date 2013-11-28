@@ -83,6 +83,7 @@ class ReminderEmail < ActiveRecord::Base
 
     #Time.zone = current_customer.time_zone
 
+    Time.zone = self.customer.time_zone
     current_time                 = Time.zone.now
     current_time_with_correction = current_time - 5.minutes
 
