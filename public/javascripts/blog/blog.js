@@ -23,4 +23,31 @@ $(document).ready(function () {
             if ($(this).is('img'))
                 $(this).parent().addClass('text-align-center');
         });
+
+    $('#copy_body_link').live('click',function () {
+        var teaserTextArea = $('#blog_post_custom_teaser')[0];
+        var teaserEditor = null;
+        $.each(WYMeditor.INSTANCES, function (index, editor) {
+            if (editor._element[0] == teaserTextArea) {
+                teaserEditor = editor;
+            }
+        });
+        if (teaserEditor) {
+            teaserEditor.html($('#blog_post_body').attr('value'));
+        }
+
+        var bodyTextArea = $('#blog_post_body')[0];
+        var bodyEditor = null;
+        $.each(WYMeditor.INSTANCES, function (index, editor) {
+            if (editor._element[0] == bodyTextArea) {
+                bodyEditor = editor;
+            }
+        });
+
+        if (teaserEditor && bodyEditor) {
+            teaserEditor.html(bodyEditor.html());
+        }
+
+        event.preventDefault();
+    });
 });

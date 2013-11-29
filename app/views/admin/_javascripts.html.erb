@@ -6,7 +6,6 @@
 <%= javascript_include_tag 'refinery/i18n' -%>
 <script>I18n.locale = '<%= I18n.locale %>';</script>
 <%= javascript_include_tag 'translations' if Rails.root.join('public', 'javascripts', 'translations.js').exist? -%>
-<%= javascript_include_tag 'jquery' %>
 <%= jquery_include_tags    :caching => js_caching -%>
 
 <%= javascript_include_tag 'rails.js' %>
@@ -17,7 +16,8 @@
                            'jquery/jquery.timers.js',
                            'jquery/jquery.jcarousel.js',
                            'refinery/ui.dropdownchecklist-1.4-min.js',
-                           :cache => ("cache/jquery-plugins" if js_caching) unless login -%>
+                           'blog/blog',
+                           :cache => ("cache/jquery-plugins" if js_caching) -%>
 
 <%= javascript_include_tag 'jquery.refinery.wymeditor.fix.js', 'admin' %>
 
