@@ -329,8 +329,10 @@ function setup_graph_screen_1(dates, values, round, separated_params) {
 //        series_chart.push({ name: "Visits", data: output_arr });
         series_chart.push({ name: "Visits", data: values })
     }
+
     dates = dates.map(function (value) {
-        return value.replace(/ /g, "/");
+        date = value.split(' ');
+        return date[2] + '/' + date[1] + '/' + date[0];
     });
 
     chart = new Highcharts.Chart({

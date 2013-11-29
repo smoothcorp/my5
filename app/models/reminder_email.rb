@@ -93,8 +93,7 @@ class ReminderEmail < ActiveRecord::Base
     #  return self
     #end
     if current_time_reminder
-      if current_time.hour == current_time_reminder.hour && current_time_reminder.min <= current_time.min &&
-          current_time_reminder.min > current_time_with_correction.min
+      if current_time >= current_time_reminder && current_time_with_correction <= current_time_reminder
         return self
       end
     end
@@ -107,11 +106,14 @@ class ReminderEmail < ActiveRecord::Base
   end
 
   def self.active_in_days_of_week
-    temp = Time.now.utc.wday - 1
+    ReminderEmail.select do |reminder|
+      next unless reminder.customer
 
-    temp = 6 if temp < 0
-    todays_reminders = ReminderEmail.where(:days_of_week.matches => "%#{temp}%")
-    todays_reminders
+      Time.zone = reminder.customer.time_zone
+      current_day = Time.zone.now.wday - 1
+
+      reminder.days_of_week.include?(current_day.to_s)
+    end
   end
 
   def days_of_week_in_words
