@@ -4,9 +4,9 @@
   margin-right: auto;
   width: 960px;
 }
-/* line 5, ../../../app/stylesheets/pages/base.sass */
-#pages iframe {
-  display: none;
+/* line 6, ../../../app/stylesheets/pages/base.sass */
+#pages .text-align-right {
+  margin: 0 !important;
 }
 /* line 8, ../../../app/stylesheets/pages/base.sass */
 #pages .text-align-left {
