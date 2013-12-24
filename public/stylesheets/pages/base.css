@@ -9,23 +9,19 @@
   display: none;
 }
 /* line 8, ../../../app/stylesheets/pages/base.sass */
-#pages .text-align-right {
-  margin: 0 !important;
-}
-/* line 10, ../../../app/stylesheets/pages/base.sass */
 #pages .text-align-left {
   margin: 0 !important;
 }
-/* line 12, ../../../app/stylesheets/pages/base.sass */
+/* line 10, ../../../app/stylesheets/pages/base.sass */
 #pages .text-align-center {
   text-align: center !important;
 }
-/* line 14, ../../../app/stylesheets/pages/base.sass */
+/* line 12, ../../../app/stylesheets/pages/base.sass */
 #pages .image-align-right {
   float: right !important;
   margin: 0 0 20px !important;
 }
-/* line 17, ../../../app/stylesheets/pages/base.sass */
+/* line 15, ../../../app/stylesheets/pages/base.sass */
 #pages .image-align-left {
   float: left !important;
   margin: 0 0 20px !important;

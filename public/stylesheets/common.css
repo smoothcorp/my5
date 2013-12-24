@@ -1307,3 +1307,25 @@ a.green {
 .show#pages .content#show {
   padding: 0;
 }
+
+/* line 154, ../../app/stylesheets/common.sass */
+.text-align-left {
+  margin: 0 !important;
+}
+
+/* line 157, ../../app/stylesheets/common.sass */
+.text-align-center {
+  text-align: center !important;
+}
+
+/* line 160, ../../app/stylesheets/common.sass */
+.image-align-right {
+  float: right !important;
+  margin: 0 10px 20px !important;
+}
+
+/* line 164, ../../app/stylesheets/common.sass */
+.image-align-left {
+  float: left !important;
+  margin: 0 0 20px !important;
+}
