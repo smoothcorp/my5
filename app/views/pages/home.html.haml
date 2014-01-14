@@ -28,4 +28,25 @@
     .clear
     %p Fill in the contact form below to find out more about the My5 Online Wellness Program or to organise a free trial.
 
+    .contact_form
+        = semantic_form_for @contact, :url => main_page_contact_form_index_path  do |f|
+            %ul
+                = f.input :company_name, :label => 'Company Name: '
+
+                = f.input :location, :label => 'Location: '
+
+                = f.input :contact_name, :label => 'Contact Name: '
+
+                = f.input :role, :label => 'Title/Role: '
+
+                = f.input :email, :as => :email, :label => 'Email: '
+
+                = f.input :phone, :label => 'Phone: '
+                %label{ :for => 'contact_employees_number', :class => 'label_emloyees'} No. of employees?
+                = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'],
+                  :wrapper_html => {:class => 'radio_buttons'}
+
+                = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5}
+            .center_alignment
+                = f.commit_button :label => 'Send Contact Information', :wrapper_html => {:class => 'send_button'}
 

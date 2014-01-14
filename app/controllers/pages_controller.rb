@@ -5,6 +5,11 @@ class PagesController < ApplicationController
   def show
     custom_pages = ["home", "features", "contact_us", "about", "pricing", "faq"]
     @page = Page.find("#{params[:path]}/#{params[:id]}".split('/').last)
+
+    if @page.title == 'Home'
+      @contact = Contact.new
+    end
+
     if @page.try(:live?) || (refinery_user? && current_user.authorized_plugins.include?("refinery_pages"))
       # Handle a few custom pages
       if custom_pages.include?(@page.title.downcase.sub(" ","_"))

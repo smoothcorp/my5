@@ -23,6 +23,7 @@ Semblance::Application.routes.draw do
   end
 
   resources :emails, :only => [:create]
+  resources :main_page_contact_form, :only => :create
 
 
   namespace :my5 do
