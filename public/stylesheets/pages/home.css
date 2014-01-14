@@ -1,4 +1,39 @@
 /* line 3, ../../../app/stylesheets/pages/home.sass */
+.container {
+  margin-left: 20px;
+}
+
+/* line 6, ../../../app/stylesheets/pages/home.sass */
+.blue {
+  color: #00ccff;
+}
+
+/* line 9, ../../../app/stylesheets/pages/home.sass */
+.title {
+  font-size: 14pt;
+  line-height: 24px;
+}
+
+/* line 13, ../../../app/stylesheets/pages/home.sass */
+.image {
+  float: left;
+  width: 288px;
+  background: url("/images/pages/home/wellbeing.jpg") no-repeat;
+  height: 175px;
+}
+
+/* line 19, ../../../app/stylesheets/pages/home.sass */
+.key_benefits {
+  float: left;
+  width: auto;
+  margin-left: 20px;
+}
+/* line 23, ../../../app/stylesheets/pages/home.sass */
+.key_benefits ul {
+  margin-left: -15px;
+}
+
+/* line 27, ../../../app/stylesheets/pages/home.sass */
 #banner {
   display: inline;
   float: left;
@@ -10,7 +45,7 @@
   background: white url("/images/pages/home/lady_with_ball.png") right no-repeat;
   height: 450px;
 }
-/* line 9, ../../../app/stylesheets/pages/home.sass */
+/* line 33, ../../../app/stylesheets/pages/home.sass */
 #banner #text {
   display: inline;
   float: left;
@@ -20,7 +55,7 @@
   margin-left: 0;
   padding: 0 20px 20px;
 }
-/* line 13, ../../../app/stylesheets/pages/home.sass */
+/* line 37, ../../../app/stylesheets/pages/home.sass */
 #banner #text a {
   margin: 20px 0;
   color: #109a00;
@@ -28,43 +63,43 @@
   font-weight: bold;
   margin-right: 10px;
 }
-/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #banner #text a:visited {
   color: #109a00;
 }
-/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #banner #text a:focus {
   color: #109a00;
 }
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #banner #text a:hover {
   color: #109a00;
 }
-/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 #banner #text a:active {
   color: #109a00;
 }
-/* line 19, ../../../app/stylesheets/pages/home.sass */
+/* line 43, ../../../app/stylesheets/pages/home.sass */
 #banner #text a.button {
   color: white;
   padding: 10px 20px;
 }
-/* line 22, ../../../app/stylesheets/pages/home.sass */
+/* line 46, ../../../app/stylesheets/pages/home.sass */
 #banner #text ul {
   list-style: circle;
   margin-top: 5px;
   margin-left: 5px;
 }
-/* line 27, ../../../app/stylesheets/pages/home.sass */
+/* line 51, ../../../app/stylesheets/pages/home.sass */
 #banner #text ul li {
   margin-left: 10px;
 }
-/* line 30, ../../../app/stylesheets/pages/home.sass */
+/* line 54, ../../../app/stylesheets/pages/home.sass */
 #banner #text p {
   margin-bottom: 5px;
 }
 
-/* line 33, ../../../app/stylesheets/pages/home.sass */
+/* line 57, ../../../app/stylesheets/pages/home.sass */
 #verbs {
   display: inline;
   float: left;
@@ -76,7 +111,7 @@
   background: white;
   border-bottom: 1px solid #cccccc;
 }
-/* line 39, ../../../app/stylesheets/pages/home.sass */
+/* line 63, ../../../app/stylesheets/pages/home.sass */
 #verbs li {
   display: inline;
   float: left;
@@ -84,22 +119,22 @@
   margin-right: 10px;
   width: 220px;
 }
-/* line 41, ../../../app/stylesheets/pages/home.sass */
+/* line 65, ../../../app/stylesheets/pages/home.sass */
 #verbs li.first, #verbs li.last {
   width: 210px;
 }
-/* line 43, ../../../app/stylesheets/pages/home.sass */
+/* line 67, ../../../app/stylesheets/pages/home.sass */
 #verbs li img {
   float: left;
   margin-top: 20px;
   margin-right: 10px;
 }
-/* line 48, ../../../app/stylesheets/pages/home.sass */
+/* line 72, ../../../app/stylesheets/pages/home.sass */
 #verbs li h2 {
   clear: none !important;
 }
 
-/* line 51, ../../../app/stylesheets/pages/home.sass */
+/* line 75, ../../../app/stylesheets/pages/home.sass */
 #quote {
   padding-left: 40px;
   display: inline;
