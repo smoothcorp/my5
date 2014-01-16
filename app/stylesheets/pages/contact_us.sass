@@ -2,48 +2,48 @@
 
 $red: #b00000
 
-#contact_form
-    +grid(13)
-    +alpha
+.contact_form
+  border: 6px solid PaleTurquoise
+  padding: 15px
+  margin-right: 20px
+  form
     li
-        clear: both
-        list-style: none
-        label
-            display: block
-            abbr
-                color: $red
-                margin:
-                    left: 5px
-        input, textarea
-            margin:
-                left: 5px
-            width: 90% !important
-            display: block
-            clear: both
-        textarea
-            height: 200px
-        p.error
-            float: right
-            color: $red
-            margin: 4px 5% 0 0
-    #email_base_input
-        p.error
-            float: left !important
-    input[type="submit"], .button
-        width: 80px
-        text-align: center
-        margin:
-            top: 15px
-            right: 5%
-        clear: both !important
-        float: right !important
-#contact_details
-    +grid-prefix(1)
-    +grid(8)
-    +omega
-    #address, #telephone
-        margin:
-            bottom: 15px
-        p
-            margin: 0 0 2px
-    
+      clear: none
+    .label_emloyees
+      float: left
+      margin-left: 20px
+    #contact_comments
+      margin-left: 15px
+    #email_submit
+      padding: 5px
+      border-width: 0
+      +background(linear-gradient(#00ccff, #00ccff))
+      border-color: #00ccff
+    .center_alignment
+      text-align: center
+    .choice
+      margin-left: 0
+
+.container
+  margin-left: 20px
+
+.blue
+  color: #00ccff
+
+.title
+  font-size: 14pt
+  line-height: 24px
+
+.image
+  float: left
+  width: 288px
+  background: url('/images/pages/home/wellbeing.jpg') no-repeat
+  height: 175px
+
+.key_benefits
+  float: left
+  width: auto
+  margin-left: 20px
+  ul
+    margin-left: -15px
+

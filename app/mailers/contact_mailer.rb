@@ -1,11 +1,11 @@
 class ContactMailer < ActionMailer::Base
-  default :from => "friendsofmy5@my5.com.au"
-  
+
   def new_message(email)
       @email = email
 
       mail(
-        :to => ['friendsofmy5@my5.com.au'],
-        :subject => "Someone named #{email.name} has sent a new message.")
+        :to => 'mimi.fong@my5.com.au',
+        :subject => "My5 Online Contact",
+        :from => %("#{@email.contact_name}" <sales@salesleadgenerationaus.com.au>))
   end
 end

@@ -1,52 +1,16 @@
 - content_for :extra_stylesheets do
     = stylesheet_link_tag "pages/home"
 
-.container
-    %h1.blue
-        %span Are you looking for a new approach to the health and well being of your employees?
-
-    %p.title
-        %span Then
-        %strong.blue My 5 Online
-        %span might be just what you are looking for.
-
-    %P
-        %span.title.blue My 5 Online
-        %span is a unique, sophisticated and interactive approach to workplace health and wellness.
-
-    .image
-
-    .key_benefits
-        %strong.title.blue KEY BENEFITS
-        %ul
-            %li Reduced stress and postural aches and pains
-            %li Better focus and enhanced efficiency
-            %li Direct cost savings from reduced absenteeism
-            %li Improved employee engagement with a healthier, happier workforce
-            %li Increased bottom line and significant return on investment
-
-    .clear
-    %p Fill in the contact form below to find out more about the My5 Online Wellness Program or to organise a free trial.
-
-    .contact_form
-        = semantic_form_for @contact, :url => main_page_contact_form_index_path  do |f|
-            %ul
-                = f.input :company_name, :label => 'Company Name: '
-
-                = f.input :location, :label => 'Location: '
-
-                = f.input :contact_name, :label => 'Contact Name: '
-
-                = f.input :role, :label => 'Title/Role: '
-
-                = f.input :email, :as => :email, :label => 'Email: '
-
-                = f.input :phone, :label => 'Phone: '
-                %label{ :for => 'contact_employees_number', :class => 'label_emloyees'} No. of employees?
-                = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'],
-                  :wrapper_html => {:class => 'radio_buttons'}
-
-                = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5}
-            .center_alignment
-                = f.commit_button :label => 'Send Contact Information', :wrapper_html => {:class => 'send_button'}
-
+%div#banner.clear
+    %div#text
+        = raw(@page.content_for :heading)
+        = link_to "Find out more", page_path("features")
+#bars
+%div#verbs
+    %ul
+        - (1..4).each do |n|
+            %li{:class => "#{if n == 1 then 'first' elsif n == 4 then 'last' else '' end}"}
+                = image_tag "logo_pinwheel.png"
+                = raw(@page.content_for "verb#{n}")
+%div#quote
+    = raw(@page.content_for :quote)

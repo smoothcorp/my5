@@ -5,7 +5,6 @@ gem 'rails', '~> 3.0.9'
 gem 'jquery-rails'
 gem 'ruby-debug', :platform => :mri_18
 gem 'ruby-debug19', :platform => :mri_19
-gem 'mail_form', '1.4.1'
 
 ##--- Visuals ---
 gem 'compass', '>= 0.11.5'

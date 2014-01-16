@@ -1,78 +1,4 @@
 /* line 3, ../../../app/stylesheets/pages/home.sass */
-.contact_form {
-  border: 6px solid PaleTurquoise;
-  padding: 15px;
-  margin-right: 20px;
-}
-/* line 8, ../../../app/stylesheets/pages/home.sass */
-.contact_form form li {
-  clear: none;
-}
-/* line 10, ../../../app/stylesheets/pages/home.sass */
-.contact_form form .label_emloyees {
-  float: left;
-  margin-left: 20px;
-}
-/* line 13, ../../../app/stylesheets/pages/home.sass */
-.contact_form form #contact_comments {
-  margin-left: 15px;
-}
-/* line 15, ../../../app/stylesheets/pages/home.sass */
-.contact_form form .send_button {
-  padding: 0;
-  border-width: 0;
-}
-/* line 18, ../../../app/stylesheets/pages/home.sass */
-.contact_form form #contact_submit {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00ccff), color-stop(100%, #00ccff));
-  background: -webkit-linear-gradient(#00ccff, #00ccff);
-  background: -moz-linear-gradient(#00ccff, #00ccff);
-  background: -o-linear-gradient(#00ccff, #00ccff);
-  background: -ms-linear-gradient(#00ccff, #00ccff);
-  background: linear-gradient(#00ccff, #00ccff);
-  border-color: #00ccff;
-}
-/* line 21, ../../../app/stylesheets/pages/home.sass */
-.contact_form form .center_alignment {
-  text-align: center;
-}
-
-/* line 24, ../../../app/stylesheets/pages/home.sass */
-.container {
-  margin-left: 20px;
-}
-
-/* line 27, ../../../app/stylesheets/pages/home.sass */
-.blue {
-  color: #00ccff;
-}
-
-/* line 30, ../../../app/stylesheets/pages/home.sass */
-.title {
-  font-size: 14pt;
-  line-height: 24px;
-}
-
-/* line 34, ../../../app/stylesheets/pages/home.sass */
-.image {
-  float: left;
-  width: 288px;
-  background: url("/images/pages/home/wellbeing.jpg") no-repeat;
-  height: 175px;
-}
-
-/* line 40, ../../../app/stylesheets/pages/home.sass */
-.key_benefits {
-  float: left;
-  width: auto;
-  margin-left: 20px;
-}
-/* line 44, ../../../app/stylesheets/pages/home.sass */
-.key_benefits ul {
-  margin-left: -15px;
-}
-
-/* line 48, ../../../app/stylesheets/pages/home.sass */
 #banner {
   display: inline;
   float: left;
@@ -84,7 +10,7 @@
   background: white url("/images/pages/home/lady_with_ball.png") right no-repeat;
   height: 450px;
 }
-/* line 54, ../../../app/stylesheets/pages/home.sass */
+/* line 9, ../../../app/stylesheets/pages/home.sass */
 #banner #text {
   display: inline;
   float: left;
@@ -94,7 +20,7 @@
   margin-left: 0;
   padding: 0 20px 20px;
 }
-/* line 58, ../../../app/stylesheets/pages/home.sass */
+/* line 13, ../../../app/stylesheets/pages/home.sass */
 #banner #text a {
   margin: 20px 0;
   color: #109a00;
@@ -118,27 +44,27 @@
 #banner #text a:active {
   color: #109a00;
 }
-/* line 64, ../../../app/stylesheets/pages/home.sass */
+/* line 19, ../../../app/stylesheets/pages/home.sass */
 #banner #text a.button {
   color: white;
   padding: 10px 20px;
 }
-/* line 67, ../../../app/stylesheets/pages/home.sass */
+/* line 22, ../../../app/stylesheets/pages/home.sass */
 #banner #text ul {
   list-style: circle;
   margin-top: 5px;
   margin-left: 5px;
 }
-/* line 72, ../../../app/stylesheets/pages/home.sass */
+/* line 27, ../../../app/stylesheets/pages/home.sass */
 #banner #text ul li {
   margin-left: 10px;
 }
-/* line 75, ../../../app/stylesheets/pages/home.sass */
+/* line 30, ../../../app/stylesheets/pages/home.sass */
 #banner #text p {
   margin-bottom: 5px;
 }
 
-/* line 78, ../../../app/stylesheets/pages/home.sass */
+/* line 33, ../../../app/stylesheets/pages/home.sass */
 #verbs {
   display: inline;
   float: left;
@@ -150,7 +76,7 @@
   background: white;
   border-bottom: 1px solid #cccccc;
 }
-/* line 84, ../../../app/stylesheets/pages/home.sass */
+/* line 39, ../../../app/stylesheets/pages/home.sass */
 #verbs li {
   display: inline;
   float: left;
@@ -158,22 +84,22 @@
   margin-right: 10px;
   width: 220px;
 }
-/* line 86, ../../../app/stylesheets/pages/home.sass */
+/* line 41, ../../../app/stylesheets/pages/home.sass */
 #verbs li.first, #verbs li.last {
   width: 210px;
 }
-/* line 88, ../../../app/stylesheets/pages/home.sass */
+/* line 43, ../../../app/stylesheets/pages/home.sass */
 #verbs li img {
   float: left;
   margin-top: 20px;
   margin-right: 10px;
 }
-/* line 93, ../../../app/stylesheets/pages/home.sass */
+/* line 48, ../../../app/stylesheets/pages/home.sass */
 #verbs li h2 {
   clear: none !important;
 }
 
-/* line 96, ../../../app/stylesheets/pages/home.sass */
+/* line 51, ../../../app/stylesheets/pages/home.sass */
 #quote {
   padding-left: 40px;
   display: inline;

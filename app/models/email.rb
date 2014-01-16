@@ -3,11 +3,11 @@ class Email
     include ActiveModel::Conversion
     extend ActiveModel::Naming
 
-    validates_presence_of :name, :email, :message => "This is a required field"
+    validates_presence_of :company_name, :email, :location, :contact_name => "This is a required field"
     validates :email, :format => {:with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i, :message => "Please enter a valid email"}, :allow_blank => true
-    validates :name, :format => {:with => /^[a-z ,.'-]+$/i, :message => "Please enter a valid name"}, :allow_blank => true
-    
-    attr_accessor :message, :name, :email
+
+    attr_accessor :company_name, :location, :contact_name,
+                  :role, :email, :phone, :employees_number, :comments
 
     def initialize(attributes = {})
         attributes.each do |name, value|

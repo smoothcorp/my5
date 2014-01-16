@@ -70,8 +70,6 @@ module Semblance
     }
     config.action_mailer.default_charset     = "utf-8"
 
-    config.active_support.deprecation = :log if Rails.env.staging?
-
     initializer 'override-image-magick-paths', :after => 'attach-refinery-images-with-dragonfly' do
       app=Dragonfly[:refinery_images]
       app.configure_with(:imagemagick)
