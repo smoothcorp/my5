@@ -1,14 +1,14 @@
 class EmailsController < ActionController::Base
-  require 'net/http' 
+  require 'net/http'
+  include SimpleCaptcha::ControllerHelpers
+
   def create
-      @email = Email.new(params[:email])
-      if verify_recaptcha(:model => @email, :message => "Please re-enter the verification text") && @email.valid?
-         unless ContactMailer.new_message(@email).deliver
-            render :text => "false"
-         end
-         render :text => "true"
-      else
-         render :text => @email.errors.to_json 
-      end
+    @email = Email.new(params[:email])
+    if simple_captcha_valid? && @email.valid?
+      render :text => "false" unless ContactMailer.new_message(@email).deliver
+      render :text => "true"
+    else
+      redirect_to page_path(:id => 'contact-us'), :error => 'Please reenter captcha.'
+    end
   end
 end

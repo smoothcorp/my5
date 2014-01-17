@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
     if @page.try(:live?) || (refinery_user? && current_user.authorized_plugins.include?("refinery_pages"))
       # Handle a few custom pages
+
       if custom_pages.include?(@page.title.downcase.sub(" ","_"))
         render @page.title.downcase.sub(" ","_")
       else

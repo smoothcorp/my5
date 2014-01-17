@@ -31,7 +31,7 @@
     %p Fill in the contact form below to find out more about the My5 Online Wellness Program or to organise a free trial.
 
     .contact_form
-        - semantic_form_for Email.new do |f|
+        - semantic_form_for @email do |f|
             %ul
                 = f.input :company_name, :label => 'Company Name: '
 
@@ -50,6 +50,6 @@
 
                 = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5}
                 %li#email_base_input
-                    = recaptcha_tags
+                    = show_simple_captcha
             .center_alignment
                 %div#email_submit.button Send Contact Information

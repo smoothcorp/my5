@@ -15,6 +15,12 @@ GIT
       rspec (~> 2.6.0)
 
 GIT
+  remote: git://github.com/galetahub/simple-captcha.git
+  revision: 3557b78feb5fa2624efce065ff77dd4775a8256f
+  specs:
+    simple_captcha (0.1.5)
+
+GIT
   remote: git://github.com/semblancesystems/eventlogger.git
   revision: 33a4d4c1c3f898d58959208071b5ae5aadf67913
   specs:
@@ -451,6 +457,7 @@ DEPENDENCIES
   ruport
   ruport-util
   seer
+  simple_captcha!
   spreadsheet
   sqlite3
   sqlite3-ruby (= 1.2.5)
