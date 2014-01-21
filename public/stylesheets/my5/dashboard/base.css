@@ -178,21 +178,37 @@
   margin-left: 20px;
 }
 /* line 107, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 111, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .body ul li {
+  padding-left: 1em;
+  text-indent: -0.7em;
+}
+/* line 114, ../../../../app/stylesheets/my5/dashboard/base.sass */
+#quick-tips .body ul li:before {
+  content: "• ";
+  color: black;
+}
+/* line 118, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .body p {
   margin-top: 0;
   margin-bottom: 10px;
 }
-/* line 110, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 121, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link {
   color: #3a9b2e;
   text-transform: uppercase;
   margin-left: 20px;
 }
-/* line 113, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 124, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link > a {
   color: #3a9b2e;
 }
-/* line 116, ../../../../app/stylesheets/my5/dashboard/base.sass */
+/* line 127, ../../../../app/stylesheets/my5/dashboard/base.sass */
 #quick-tips .link:before {
   content: "|";
   margin-right: 4px;

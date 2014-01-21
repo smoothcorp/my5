@@ -1,23 +1,25 @@
 /* line 5, ../../../app/stylesheets/pages/contact_us.sass */
+.center_alignment {
+  text-align: center;
+}
+
+/* line 8, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form {
   border: 6px solid PaleTurquoise;
   padding: 15px;
   margin-right: 20px;
+  margin-top: 20px;
 }
-/* line 10, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 14, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form li {
   clear: none;
 }
-/* line 12, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 16, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form .label_emloyees {
   float: left;
   margin-left: 20px;
 }
-/* line 15, ../../../app/stylesheets/pages/contact_us.sass */
-.contact_form form #contact_comments {
-  margin-left: 15px;
-}
-/* line 17, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 19, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form #email_submit {
   padding: 5px;
   border-width: 0;
@@ -29,40 +31,49 @@
   background: linear-gradient(#00ccff, #00ccff);
   border-color: #00ccff;
 }
-/* line 22, ../../../app/stylesheets/pages/contact_us.sass */
-.contact_form form .center_alignment {
-  text-align: center;
-}
 /* line 24, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form .choice {
   margin-left: 0;
 }
-/* line 27, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 26, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .choice label {
+  margin-left: 0;
+}
+/* line 28, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .choice label input {
+  margin-left: 0;
+}
+/* line 30, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form #email_comments {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+/* line 34, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form .simple_captcha #captcha {
   margin-left: 0;
 }
-/* line 29, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 36, ../../../app/stylesheets/pages/contact_us.sass */
 .contact_form form .simple_captcha .simple_captcha_label {
   display: none;
 }
 
-/* line 32, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 39, ../../../app/stylesheets/pages/contact_us.sass */
 .container {
   margin-left: 20px;
 }
 
-/* line 35, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 42, ../../../app/stylesheets/pages/contact_us.sass */
 .blue {
   color: #00ccff;
 }
 
-/* line 38, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 45, ../../../app/stylesheets/pages/contact_us.sass */
 .title {
   font-size: 14pt;
   line-height: 24px;
 }
 
-/* line 42, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 49, ../../../app/stylesheets/pages/contact_us.sass */
 .image {
   float: left;
   width: 288px;
@@ -70,13 +81,13 @@
   height: 175px;
 }
 
-/* line 48, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 55, ../../../app/stylesheets/pages/contact_us.sass */
 .key_benefits {
   float: left;
   width: auto;
   margin-left: 20px;
 }
-/* line 52, ../../../app/stylesheets/pages/contact_us.sass */
+/* line 59, ../../../app/stylesheets/pages/contact_us.sass */
 .key_benefits ul {
   margin-left: -15px;
 }

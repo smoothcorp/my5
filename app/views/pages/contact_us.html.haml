@@ -4,7 +4,7 @@
     = stylesheet_link_tag "pages/contact_us"
 
 .container
-    %h1.blue
+    %h1.blue.center_alignment
         %span Are you looking for a new approach to the health and well being of your employees?
 
     %p.title
@@ -29,10 +29,11 @@
 
     .clear
     %p Fill in the contact form below to find out more about the My5 Online Wellness Program or to organise a free trial.
+    %strong Alternatively, if you would like to speak to us directly, please call us on +61 (0)2 8985 7131.
 
     .contact_form
         - semantic_form_for Email.new do |f|
-            %ul
+            = f.inputs do
                 = f.input :company_name, :label => 'Company Name: '
 
                 = f.input :location, :label => 'Location: '
@@ -44,9 +45,10 @@
                 = f.input :email, :as => :email, :label => 'Email: '
 
                 = f.input :phone, :label => 'Phone: '
-                %label{ :for => 'contact_employees_number', :class => 'label_emloyees'} No. of employees?
-                = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'],
-                  :wrapper_html => {:class => 'radio_buttons'}
+                %label{ :for => 'contact_employees_number', :class => 'label_emloyees'}
+                    No. of employees?
+                    %abbr{:title => 'required'} *
+                = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'], :label => ''
 
                 = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5}
                 %li#email_base_input

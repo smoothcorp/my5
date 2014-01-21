@@ -2,27 +2,34 @@
 
 $red: #b00000
 
+.center_alignment
+  text-align: center
+
 .contact_form
   border: 6px solid PaleTurquoise
   padding: 15px
   margin-right: 20px
+  margin-top: 20px
   form
     li
       clear: none
     .label_emloyees
       float: left
       margin-left: 20px
-    #contact_comments
-      margin-left: 15px
     #email_submit
       padding: 5px
       border-width: 0
       +background(linear-gradient(#00ccff, #00ccff))
       border-color: #00ccff
-    .center_alignment
-      text-align: center
     .choice
       margin-left: 0
+      label
+        margin-left: 0
+        input
+          margin-left: 0
+    #email_comments
+      margin-left: 15px
+      margin-top: 15px
     .simple_captcha
       #captcha
         margin-left: 0
