@@ -1,8 +1,8 @@
-/* DO NOT MODIFY. This file was compiled Wed, 12 Oct 2011 04:59:38 GMT from
- * /Users/chrishexton/Desktop/workspaces/rails/my5/app/coffeescripts/pages/contact.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 22 Jan 2014 13:39:00 GMT from
+ * /home/rsk/projects/my5/app/coffeescripts/pages/contact.coffee
  */
 
-(function() {
+
   $(document).ready(function() {
     return $('#email_submit').click(function(event) {
       var data;
@@ -15,18 +15,22 @@
       return $.post('/emails', data, function(data) {
         switch (data) {
           case "true":
-            return $('#contact_form').text("Thanks for getting in touch! We'll write back soon.");
+            $('#sending_results').text("Thanks for getting in touch! We'll write back soon.");
+            return $('#email_submit').text('Send Contact Information');
           case "false":
-            $('#email_submit').text('Submit');
+            $('#email_submit').text('Send Contact Information');
             return alert('Something went wrong, please try again.');
+          case 'captcha_error':
+            $('#sending_results').text("* Wrong captcha symbols, please reenter.");
+            $('#sending_results').addClass('.alert');
+            return $('#email_submit').text('Send Contact Information');
           default:
             data = $.parseJSON(data);
             return $.each(data, function(key, value) {
               $('#email_' + key + '_input').append($('<p></p>').addClass('error').text("" + value));
-              return $('#email_submit').text('Submit');
+              return $('#email_submit').text('Send Contact Information');
             });
         }
       });
     });
   });
-}).call(this);

@@ -7,6 +7,6 @@ class ContactMailer < ActionMailer::Base
 
       mail(
         :subject => "My5 Online Contact",
-        :from => %("#{@email.contact_name}" <sales@salesleadgenerationaus.com.au>))
+        :from => %("#{@email.contact_name}" <tim.norris@my5.com.au>))
   end
 end

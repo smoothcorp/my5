@@ -32,7 +32,7 @@
     %strong Alternatively, if you would like to speak to us directly, please call us on +61 (0)2 8985 7131.
 
     .contact_form
-        - semantic_form_for Email.new do |f|
+        - semantic_form_for Email.new, :url => emails_path do |f|
             = f.inputs do
                 = f.input :company_name, :label => 'Company Name: '
 
@@ -50,8 +50,9 @@
                     %abbr{:title => 'required'} *
                 = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'], :label => ''
 
-                = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5}
+                = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5, :cols => 40}
                 %li#email_base_input
                     = show_simple_captcha
             .center_alignment
                 %div#email_submit.button Send Contact Information
+        #sending_results

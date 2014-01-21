@@ -4,11 +4,15 @@ class EmailsController < ActionController::Base
 
   def create
     @email = Email.new(params[:email])
-    if simple_captcha_valid? && @email.valid?
+    unless simple_captcha_valid?
+      render :text => 'captcha_error'
+      return
+    end
+    if @email.valid?
       render :text => "false" unless ContactMailer.new_message(@email).deliver
       render :text => "true"
     else
-      redirect_to page_path(:id => 'contact-us'), :error => 'Please reenter captcha.'
+      render :text => @email.errors.to_json
     end
   end
 end
