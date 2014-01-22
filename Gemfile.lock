@@ -29,6 +29,15 @@ GIT
       rails
 
 GIT
+  remote: git@github.com:jetthoughts/dumper.git
+  revision: 9525e9d928a62614c7ef4a1d1883327bf34ba42b
+  specs:
+    dumper (1.4.4)
+      multi_json (~> 1.0)
+      multipart-post (~> 1.1)
+      posix-spawn (~> 0.3.6)
+
+GIT
   remote: git@github.com:jetthoughts/refinerycms-blog.git
   revision: 229c9aa7ea0e5e0f8c8ccb6d9bfdbdffe4947008
   branch: my5
@@ -227,8 +236,9 @@ GEM
     mime-types (1.17.2)
     money (3.7.1)
       i18n (~> 0.4)
-    multi_json (1.0.3)
+    multi_json (1.8.4)
     multi_xml (0.5.1)
+    multipart-post (1.2.0)
     mysql2 (0.2.6)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
@@ -241,6 +251,7 @@ GEM
       color (>= 1.4.0)
       transaction-simple (~> 1.3)
     polyglot (0.3.3)
+    posix-spawn (0.3.8)
     rack (1.2.4)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -419,6 +430,7 @@ DEPENDENCIES
   compass (>= 0.11.5)
   compass-960-plugin
   decent_exposure
+  dumper!
   eventlogger (= 0.0.2)!
   execjs
   factory_girl_rails

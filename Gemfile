@@ -34,6 +34,7 @@ gem 'time_diff'
 gem 'time_of_day'
 gem 'execjs'
 gem 'therubyracer'
+gem 'dumper', :git => 'git@github.com:jetthoughts/dumper.git'
 
 ##--- Dev and test specific
 group :development, :test do
