@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 22 Jan 2014 13:39:00 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 23 Jan 2014 14:26:02 GMT from
  * /home/rsk/projects/my5/app/coffeescripts/pages/contact.coffee
  */
 
@@ -13,9 +13,10 @@
       });
       $('#email_submit').text('Sending...');
       return $.post('/emails', data, function(data) {
+        var errors;
         switch (data) {
           case "true":
-            $('#sending_results').text("Thanks for getting in touch! We'll write back soon.");
+            $('#sending_results').text("Thanks for getting in touch. We will be in contact with you soon.");
             return $('#email_submit').text('Send Contact Information');
           case "false":
             $('#email_submit').text('Send Contact Information');
@@ -26,7 +27,8 @@
             return $('#email_submit').text('Send Contact Information');
           default:
             data = $.parseJSON(data);
-            return $.each(data, function(key, value) {
+            errors = data.errors;
+            return $.each(errors, function(key, value) {
               $('#email_' + key + '_input').append($('<p></p>').addClass('error').text("" + value));
               return $('#email_submit').text('Send Contact Information');
             });
