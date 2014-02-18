@@ -46,6 +46,14 @@
       = f.input :first_name
       = f.input :last_name
       = f.input :email
+      = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}, :required => true
+
+      = f.input :street_1, :required => true
+      = f.input :street_2, :required => false
+      = f.input :city, :required => true
+      = f.input :state, :input_html => {:class => "short"}, :required => true
+      = f.input :country, :input_html => {:class => "medium"}, :required => true
+      = f.input :zip_code, :label => "Postcode", :input_html => {:class => "short"}, :required => true
       %li
         = f.label :time_zone, "time zone"
         = f.time_zone_select('time_zone', ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)")

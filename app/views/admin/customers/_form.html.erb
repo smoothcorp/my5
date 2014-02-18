@@ -91,84 +91,46 @@
           </span>
       <% end %>
     </div>
-
-    <%- corporate = @customer.corporation? %>
-
-    <%- if corporate %>
-        <div class='grey'>
-    <% end %>
+    
     <div class="right double_column">
       <h2>User address (not required for corporate customers)</h2>
 
       <div class='field'>
         <%= f.label :street_1 -%>
-        <%- if corporate %>
-            <%= f.text_field :street_1, :class => 'larger', :disabled => true -%>
-        <%- else %>
-            <%= f.text_field :street_1, :class => 'larger' -%>
-        <% end %>
+        <%= f.text_field :street_1, :class => 'larger' -%>
       </div>
 
       <div class='field'>
         <%= f.label :street_2 -%>
-        <%- if corporate %>
-            <%= f.text_field :street_2, :class => 'larger', :disabled => true -%>
-        <%- else %>
             <%= f.text_field :street_2, :class => 'larger' -%>
-        <% end %>
       </div>
 
       <div class='field'>
         <%= f.label :suburb -%>
-        <%- if corporate %>
-            <%= f.text_field :city, :class => 'larger', :disabled => true -%>
-        <%- else
-              corporate %>
             <%= f.text_field :city, :class => 'larger' -%>
-        <% end %>
       </div>
 
       <div class='field'>
         <%= f.label :city -%>
-        <%- if corporate %>
-            <%= f.text_field :state, :class => 'larger', :disabled => true -%>
-        <%- else %>
             <%= f.text_field :state, :class => 'larger' -%>
-        <% end %>
       </div>
 
       <div class='field'>
         <%= f.label :state -%>
-        <%- if corporate %>
-            <%= f.text_field :state2, :class => 'larger', :disabled => true -%>
-        <%- else %>
             <%= f.text_field :state2, :class => 'larger' -%>
-        <% end %>
       </div>
 
       <div class='field'>
         <%= f.label :country -%>
-        <%- if corporate %>
-            <%= f.text_field :country, :class => 'larger', :disabled => true -%>
-        <%- else %>
             <%= f.text_field :country, :class => 'larger' -%>
-        <% end %>
       </div>
 
       <div class='field'>
         <%= f.label :zip_code -%>
-        <%- if corporate %>
-            <%= f.text_field :zip_code, :class => 'larger smallest', :disabled => true -%>
-        <%- else %>
             <%= f.text_field :zip_code, :class => 'larger smallest' -%>
-        <% end %>
       </div>
     </div>
-    <%- if corporate %>
-        </div>
-    <% end %>
 
-    <%- if corporate || @customer.new_record? %>
         <div style='margin-top: 40px; float: left;'>
           <h2>User corporation details (corporate customers only)</h2>
 
@@ -187,7 +149,6 @@
             <%= f.text_field :department_id -%>
           </div>
         </div>
-    <% end %>
     <div class="clearfix"></div>
 
     <%= render :partial => "/shared/admin/form_actions",

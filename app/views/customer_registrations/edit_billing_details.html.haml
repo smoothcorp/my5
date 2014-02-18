@@ -15,18 +15,6 @@
         = card.input :name_on_card, :input_html => {:value => current_customer.card_name}
         = card.input :verification, :as => :password, :input_html => {:class => "short"}
 
-      %h3 Billing Address
-      = f.inputs do
-        = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}, :required => true
-        = f.input :first_name, :required => true
-        = f.input :last_name, :required => true
-        = f.input :street_1, :required => true
-        = f.input :street_2, :required => false
-        = f.input :city, :required => true
-        = f.input :state, :input_html => {:class => "short"}, :required => true
-        = f.input :country, :input_html => {:class => "medium"}, :required => true
-        = f.input :zip_code, :label => "Postcode", :input_html => {:class => "short"}, :required => true
-
       .actions
         = f.submit "Update"
         = link_to 'Back', edit_customer_registration_path
