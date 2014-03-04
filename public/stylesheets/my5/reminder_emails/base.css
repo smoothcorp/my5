@@ -1,0 +1,76 @@
+/* line 5, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+#reminder_email_time_input ol {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 60, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#reminder_email_time_input ol li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#reminder_email_time_input ol li:first-child, #reminder_email_time_input ol li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#reminder_email_time_input ol li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#reminder_email_time_input ol li.last {
+  padding-right: 0;
+}
+/* line 9, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+#reminder_email_time_input ol li {
+  width: 200px;
+  padding: 0px;
+  margin: 0px;
+}
+/* line 14, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+#reminder_email_time_input label {
+  width: 50px;
+}
+
+/* line 19, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+#reminder_email_days_of_week_input_input li, #reminder_email_days_of_week_input_input ol, #reminder_email_days_of_week_input_input input {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+/* line 23, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+.buttons {
+  margin-top: 20px;
+}
+
+/* line 26, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+table {
+  width: 400px;
+}
+/* line 29, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+table th {
+  height: 40px;
+  font-weight: bold;
+}
+/* line 33, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+table td, table th {
+  padding: 10px;
+}
+/* line 37, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+table tr.odd {
+  background-color: #f3f3f3;
+}
+
+/* line 40, ../../../../app/stylesheets/my5/reminder_emails/base.sass */
+#reminder_email_time_input li {
+  float: left;
+  clear: none;
+}

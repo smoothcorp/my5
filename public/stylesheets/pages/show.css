@@ -1,0 +1,43 @@
+/* line 1, ../../../app/stylesheets/shared/my5_custom_page_images.sass */
+.page-image {
+  display: inline-block;
+  text-align: center;
+}
+/* line 4, ../../../app/stylesheets/shared/my5_custom_page_images.sass */
+.page-image.people {
+  margin-left: 15px;
+}
+
+/* line 4, ../../../app/stylesheets/pages/show.sass */
+#pages #show {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  background: white;
+}
+/* line 7, ../../../app/stylesheets/pages/show.sass */
+#pages #show .padded {
+  padding: 15px;
+}
+
+/* line 11, ../../../app/stylesheets/pages/show.sass */
+#body_content h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/* line 15, ../../../app/stylesheets/pages/show.sass */
+#body_content #body_content_left {
+  float: left;
+}
+/* line 17, ../../../app/stylesheets/pages/show.sass */
+#body_content #right_content {
+  float: left;
+  width: 62%;
+}
+/* line 21, ../../../app/stylesheets/pages/show.sass */
+#body_content .inner img {
+  vertical-align: top;
+  margin-right: 15px;
+}

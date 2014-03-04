@@ -1,0 +1,10 @@
+<% return unless @blog_categories.any? %>
+
+<h2 class="orange"><%= t('.title') %></h2>
+<ul class="categories_list" id='categories'>
+<% @blog_categories.each do |category| %>
+  <li class= "item">
+    <%= link_to "#{category.title} (#{category.post_count})", blog_category_url(category) %>
+  </li>
+<% end %>
+</ul>

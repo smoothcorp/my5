@@ -1,10 +1,10 @@
-<% if page.title_with_meta.html_safe == "Home" || page.deletable?  %>
+<% if page.title_with_meta.html_safe == "Home" || page.deletable? %>
     <li class='clearfix record' id="<%= dom_id(page) -%>">
       <div class='clearfix'>
         <span class='title'>
           <%= page.title_with_meta.html_safe %>
           <% if ::Refinery.i18n_enabled? and ::Refinery::I18n.frontend_locales.many? and
-                (locales = page.translations.map(&:locale)).present? %>
+                  (locales = page.translations.map(&:locale)).present? %>
             <span class='preview'>
               <% ([page.translation.try(:locale)] | locales).each do |locale| %>
                 <%= link_to refinery_icon_tag("flags/#{locale}.png", :size => '16x11'),
@@ -18,14 +18,14 @@
         <span class='actions'>
           <%= link_to refinery_icon_tag('application_go.png'), page.url,
                       :target => "_blank",
-                      :title => t('.view_live_html') %>
+                      :title  => t('.view_live_html') %>
           <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_page_path(page),
                       :title => t('edit', :scope => 'admin.pages') %>
           <%= link_to refinery_icon_tag('delete.png'), admin_page_path(page),
-                      :class => "cancel confirm-delete",
-                      :title => t('delete', :scope => 'admin.pages'),
+                      :class   => "cancel confirm-delete",
+                      :title   => t('delete', :scope => 'admin.pages'),
                       :confirm => t('message', :scope => 'shared.admin.delete', :title => page.title_with_meta.gsub(/\ ?<em>.*<\/em>/, "")),
-                      :method => :delete if page.deletable? %>
+                      :method  => :delete if page.deletable? %>
         </span>
       </div>
       <ul class='nested'>

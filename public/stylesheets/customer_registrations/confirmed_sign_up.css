@@ -1,0 +1,20 @@
+/* line 4, ../../../app/stylesheets/customer_registrations/confirmed_sign_up.sass */
+.padded a {
+  color: #419e36;
+}
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.padded a:visited {
+  color: #419e36;
+}
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.padded a:focus {
+  color: #419e36;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.padded a:hover {
+  color: #419e36;
+}
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.padded a:active {
+  color: #419e36;
+}

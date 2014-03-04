@@ -11,6 +11,7 @@ gem 'compass', '>= 0.11.5'
 gem 'compass-960-plugin'
 gem 'haml'
 gem 'refinerycms'
+gem 'refinerycms-blog', :git => "git@github.com:jetthoughts/refinerycms-blog.git", :branch => "my5"
 gem 'cancan'
 gem 'fancy-buttons'
 gem 'formtastic'
@@ -25,24 +26,26 @@ gem 'decent_exposure'
 gem 'paperclip'
 gem 'activemerchant'
 gem 'find_by_param'
-gem 'recaptcha', :require => "recaptcha/rails"
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem 'yaml_db'
-gem "remotipart", "~> 1.0"
-gem "time_diff"
+gem 'remotipart', '~> 1.0'
+gem 'time_diff'
 gem 'time_of_day'
 gem 'execjs'
 gem 'therubyracer'
+#gem 'dumper', :git => 'git@github.com:jetthoughts/dumper.git'
 
 ##--- Dev and test specific
 group :development, :test do
   gem 'sqlite3', :platform => :mri_19
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3', :platform => :mri_18
-  gem "rspec-rails", "~> 2.6"
+  gem 'rspec-rails', '~> 2.6'
 end
 
 group :test do
-  gem 'rspec', "~> 2.6"
-  gem "rspec-rails", "~> 2.6"
+  gem 'rspec', '~> 2.6'
+  gem 'rspec-rails', '~> 2.6'
   gem 'timecop'
   gem 'factory_girl_rails'
   gem 'refinerycms-testing'

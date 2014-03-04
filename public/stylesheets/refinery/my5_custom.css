@@ -1,0 +1,193 @@
+/* line 2, ../../../app/stylesheets/refinery/shared/forms.sass */
+form .separator {
+  width: 400px;
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px dotted #3e3e3e;
+}
+/* line 11, ../../../app/stylesheets/refinery/shared/forms.sass */
+form .grey label, form .grey input {
+  color: #cccccc !important;
+}
+/* line 13, ../../../app/stylesheets/refinery/shared/forms.sass */
+form .grey label, form .grey input {
+  border-color: #cccccc !important;
+}
+/* line 15, ../../../app/stylesheets/refinery/shared/forms.sass */
+form .warning, form .warning b {
+  width: 400px;
+  color: #b00000 !important;
+}
+
+/* line 3, ../../../app/stylesheets/refinery/my5_custom.sass */
+body {
+  background: #444444;
+}
+
+/* line 5, ../../../app/stylesheets/refinery/my5_custom.sass */
+header {
+  width: 1170px !important;
+}
+
+/* line 7, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container {
+  width: 1170px !important;
+}
+/* line 9, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #records {
+  width: 75% !important;
+}
+/* line 11, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #actions {
+  width: 20% !important;
+}
+
+/* line 14, ../../../app/stylesheets/refinery/my5_custom.sass */
+.login header {
+  width: 600px !important;
+}
+/* line 16, ../../../app/stylesheets/refinery/my5_custom.sass */
+.login #page_container {
+  width: 600px !important;
+}
+
+/* line 18, ../../../app/stylesheets/refinery/my5_custom.sass */
+.ui-dialog {
+  width: 1000px !important;
+  min-height: 400px !important;
+}
+/* line 21, ../../../app/stylesheets/refinery/my5_custom.sass */
+.ui-dialog iframe {
+  min-height: 365px !important;
+}
+/* line 23, ../../../app/stylesheets/refinery/my5_custom.sass */
+.ui-dialog .content {
+  height: 100% !important;
+  min-height: 260px;
+}
+/* line 26, ../../../app/stylesheets/refinery/my5_custom.sass */
+.ui-dialog #dialog_container {
+  background: white !important;
+}
+/* line 28, ../../../app/stylesheets/refinery/my5_custom.sass */
+.ui-dialog #dialog_main {
+  height: 320px !important;
+  min-height: 302px !important;
+}
+
+/* line 32, ../../../app/stylesheets/refinery/my5_custom.sass */
+#editor_switch span {
+  border: none !important;
+}
+
+/* line 34, ../../../app/stylesheets/refinery/my5_custom.sass */
+#site_bar {
+  height: 50px !important;
+  padding: 10px 0 !important;
+  background: #333333 !important;
+}
+
+/* line 38, ../../../app/stylesheets/refinery/my5_custom.sass */
+#site_bar_content {
+  text-align: center !important;
+}
+
+/* line 40, ../../../app/stylesheets/refinery/my5_custom.sass */
+#site_bar_branding {
+  top: 0 !important;
+}
+
+/* line 42, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a {
+  margin-top: 3px;
+}
+/* line 44, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.green {
+  background: #44722b url("/images/green_bg.png") repeat-x !important;
+}
+/* line 46, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.green:hover {
+  color: #3e3e3e !important;
+}
+/* line 48, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.green.active {
+  background: white !important;
+  color: #44722b !important;
+}
+/* line 51, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.orange {
+  background: #d24b0a url("/images/refinery/orange_button.png") repeat-x;
+}
+/* line 53, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.orange:hover {
+  color: #3e3e3e !important;
+}
+/* line 55, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.orange.active {
+  background: white !important;
+}
+/* line 57, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.blue {
+  background: #417598 url("/images/blue_bg.png") repeat-x !important;
+}
+/* line 59, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.blue:hover {
+  color: #3e3e3e !important;
+}
+/* line 61, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a.blue.active {
+  background: white !important;
+  color: #417598 !important;
+}
+/* line 64, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a#plugin_reports {
+  background: #cc382c url("/images/red_bg.png") repeat-x !important;
+}
+/* line 66, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a#plugin_reports:hover {
+  color: #3e3e3e !important;
+}
+/* line 68, ../../../app/stylesheets/refinery/my5_custom.sass */
+#menu a#plugin_reports.active {
+  background: white !important;
+  color: #cc382c !important;
+}
+
+/* line 74, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #content form .field.left {
+  width: 20%;
+  float: left;
+  padding-right: 15px;
+}
+/* line 79, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #content .double_column {
+  display: inline-block;
+  width: 50% !important;
+  float: left;
+}
+/* line 83, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #content .single_column {
+  display: inline-block;
+  padding-top: 25px;
+  width: 100% !important;
+  clear: both;
+}
+/* line 89, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container #content .form-actions {
+  clear: both;
+  margin-top: 25px;
+}
+/* line 93, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container .filter_index {
+  position: relative;
+  width: 99%;
+  border: 1px grey solid;
+  margin: 10px 10px 5px 5px;
+}
+/* line 98, ../../../app/stylesheets/refinery/my5_custom.sass */
+#page_container .filter_index .ok_bottom.button {
+  position: absolute;
+  float: right;
+  right: 5px;
+  bottom: 5px;
+}

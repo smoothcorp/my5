@@ -13,7 +13,7 @@
         = f.file_field :avatar
         %br
         = f.submit "Upload"
-
+    - p 'a'*100; p resource
     .clearfix
     = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put }) do |f|
 
@@ -38,22 +38,34 @@
               %b #{subscription.expiry_date_to_s}.
             - else
               You are currently using My 5 as part of a corporate plan.
-      %li
-        = f.label :renew_subscription, 'Automatically Renew Subscription', :class => "double-line"
-        = f.check_box :renew_subscription
+      -#%li
+      -#  = f.label :renew_subscription, 'Automatically Renew Subscription', :class => "double-line"
+      -#  = f.check_box :renew_subscription
       .clearfix
       %h3 Personal details
-      = f.input :first_name
-      = f.input :last_name
-      = f.input :email
-      %li
-        = f.label :time_zone, "time zone"
-        = f.time_zone_select('time_zone', ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)")
+      = f.input :first_name, :required => true
+      = f.input :last_name, :required => true
+      = f.input :email, :required => true
+      = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}, :required => true
+      = f.input :department_id, :label => "Department", :required => true
+      = f.input :role, :required => true
 
+      = f.input :street_1, :required => true
+      = f.input :street_2
+      = f.input :contact_phone
+      = f.input :city, :label => 'Suburb', :required => true
+      = f.input :state, :label => 'City' , :required => true
+      = f.input :state2, :label => 'State' ,:required => true
+      = f.input :country, :as => :string, :required => true
+      = f.input :zip_code, :label => "Postcode", :required => true
       %li
-        %label Billing Details
-        .billing_details
-          = link_to 'Update My Billing Details', customer_edit_billing_details_url
+        = f.input :time_zone, :as => :time_zone, :collection => ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)",
+          :input_html => {:class => "time_zone_select"}
+
+      -#%li
+      -#  %label Billing Details
+      -#  .billing_details
+      -#    = link_to 'Update My Billing Details', customer_edit_billing_details_url
 
       .clearfix
       %h3 Change your password
@@ -63,9 +75,9 @@
 
       = f.submit "Update"
 
-.infobar_right
-  %h3 Cancel my account
-
-  %p
-    Unhappy?
-    = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+-#.infobar_right
+-#  %h3 Cancel my account
+-#
+-#  %p
+-#    Unhappy?
+-#    = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete

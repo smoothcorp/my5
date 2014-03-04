@@ -1,0 +1,115 @@
+/* line 5, ../../../app/stylesheets/pages/contact_us.sass */
+.center_alignment {
+  text-align: center;
+}
+
+/* line 8, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form {
+  border: 6px solid PaleTurquoise;
+  padding: 15px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+/* line 13, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form #sending_results {
+  margin-left: 15px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 150%;
+}
+/* line 20, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form li {
+  clear: none;
+}
+/* line 22, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form li label {
+  width: 190px;
+}
+/* line 24, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .error {
+  font-weight: bold;
+  font-size: 120%;
+  margin-left: 5px;
+}
+/* line 28, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .label_emloyees {
+  float: left;
+  margin-left: 20px;
+}
+/* line 31, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .commit {
+  padding: 0;
+  border-width: 0;
+}
+/* line 34, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form #email_submit {
+  padding: 5px;
+  border-width: 0;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00ccff), color-stop(100%, #00ccff));
+  background: -webkit-linear-gradient(#00ccff, #00ccff);
+  background: -moz-linear-gradient(#00ccff, #00ccff);
+  background: -o-linear-gradient(#00ccff, #00ccff);
+  background: -ms-linear-gradient(#00ccff, #00ccff);
+  background: linear-gradient(#00ccff, #00ccff);
+  border-color: #00ccff;
+}
+/* line 40, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .choices abbr {
+  display: none;
+}
+/* line 42, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .choice {
+  margin-left: 35px;
+}
+/* line 45, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .choice label input {
+  margin-left: 0;
+}
+/* line 47, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form #email_comments {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+/* line 51, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .simple_captcha #captcha {
+  margin-left: 0;
+}
+/* line 53, ../../../app/stylesheets/pages/contact_us.sass */
+.contact_form form .simple_captcha .simple_captcha_label {
+  display: none;
+}
+
+/* line 56, ../../../app/stylesheets/pages/contact_us.sass */
+.container {
+  margin-left: 20px;
+}
+
+/* line 59, ../../../app/stylesheets/pages/contact_us.sass */
+.blue {
+  color: #00ccff;
+}
+
+/* line 62, ../../../app/stylesheets/pages/contact_us.sass */
+.title {
+  font-size: 14pt;
+  line-height: 24px;
+}
+
+/* line 66, ../../../app/stylesheets/pages/contact_us.sass */
+.image {
+  float: left;
+  width: 288px;
+  background: url("/images/pages/home/wellbeing.jpg") no-repeat;
+  height: 175px;
+}
+
+/* line 72, ../../../app/stylesheets/pages/contact_us.sass */
+.key_benefits {
+  float: left;
+  width: auto;
+  margin-left: 20px;
+}
+/* line 76, ../../../app/stylesheets/pages/contact_us.sass */
+.key_benefits ul {
+  margin-left: -15px;
+}

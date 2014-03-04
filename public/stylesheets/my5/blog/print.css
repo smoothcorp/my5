@@ -1,0 +1,19 @@
+/* line 1, ../../../../app/stylesheets/my5/blog/print.sass */
+.comment_button, .print_button, .search_form, .categories_list {
+  display: none;
+}
+
+/* line 4, ../../../../app/stylesheets/my5/blog/print.sass */
+#body_content_right, #header_background, #header, #footer, #next_prev_article {
+  display: none;
+}
+
+/* line 7, ../../../../app/stylesheets/my5/blog/print.sass */
+#categories, #archived_posts {
+  diplay: none;
+}
+
+/* line 10, ../../../../app/stylesheets/my5/blog/print.sass */
+.blog_title {
+  margin-left: 28px;
+}

@@ -18,6 +18,7 @@
         = link_to image_tag("dashboard/audio.png"), my5_audio_programs_path
         %h2 Audio Programs
         %p Stress buster, Concentration and focus exercises, Eye exercises
+
 #bars
 #personal
     %h3 Hello, #{current_customer.first_name}!
@@ -27,7 +28,29 @@
         = link_to image_tag("logo_pinwheel.png") + "Complete or update your profile", edit_customer_registration_path
         = link_to image_tag("logo_pinwheel.png") + "Start your first exercise", my5_symptomatics_path
 #quick-tips
-    %h3 Quick Tips
-    %ul
-        %li
-            Good hydration can help enhance your mental clarity, so help keep yourself alert all day and drink water.
+    %h1.naturally My 5 Naturally
+    .eat_think_move
+        .block
+            %strong Eat
+            well
+            .logo_naturally
+        .block
+            %strong Think
+            well
+            .logo_naturally
+        .block
+            %strong Move
+            well
+            .logo_naturally
+        .clear
+        .naturally A holistic guide to a healthy lifestyle … naturally
+    - unless @blog_post.nil?
+        .title
+            %h3= @blog_post.title
+        .body
+            -if blog_post_teaser_enabled?
+                = post_teaser(@blog_post,150)
+            -else
+                = @blog_post.body.html_safe
+        .link
+            = link_to t('read_more', :scope => 'blog.shared.posts'), blog_post_url(@blog_post) if blog_post_teaser_enabled?

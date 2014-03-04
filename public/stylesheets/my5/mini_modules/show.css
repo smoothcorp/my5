@@ -1,0 +1,48 @@
+/* line 1, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 8, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started img {
+  float: left;
+  margin-right: 20px;
+}
+/* line 12, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started h2 {
+  color: #109900;
+}
+/* line 14, ../../../../app/stylesheets/my5/my_eqs/get_started.sass */
+#get_started h2, #get_started p {
+  margin: 5px 0;
+  clear: none !important;
+}
+
+/* line 5, ../../../../app/stylesheets/my5/mini_modules/show.sass */
+.leftbar div li {
+  width: 220px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+}
+/* line 10, ../../../../app/stylesheets/my5/mini_modules/show.sass */
+.leftbar div li .img {
+  margin-left: 15px !important;
+}
+/* line 13, ../../../../app/stylesheets/my5/mini_modules/show.sass */
+.leftbar div li a.body_part {
+  width: 75%;
+  margin-bottom: 15px;
+}
+/* line 18, ../../../../app/stylesheets/my5/mini_modules/show.sass */
+.leftbar div ul li {
+  border-top: 1px dotted #bbbbbb !important;
+  width: 206px;
+  padding-left: 15px;
+}
+/* line 24, ../../../../app/stylesheets/my5/mini_modules/show.sass */
+.leftbar div ul li a {
+  width: 65% !important;
+  margin-bottom: 15px;
+}

@@ -3,10 +3,10 @@
 Gemfile.lock
 .rbenv-version
 db/development.sqlite3
-public/stylesheets
-public/javascripts
 log/
 tmp/
+bin/
 .hg
-.idea
+.idea/
 vendor/bundle
+config/database.yml

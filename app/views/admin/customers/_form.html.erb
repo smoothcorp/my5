@@ -1,0 +1,161 @@
+<%= content_for :after_javascript_libraries do %>
+    <%#= javascript_include_tag "my5/admin/customers/get_departments" %>
+    <script>
+        function unlock_password_fields() {
+            $('#customer_password').removeAttr('disabled').css("border-color", "#3e3e3e !important").css("color", "#3e3e3e !important");
+            $('#customer_password').prev().css("color", "#3e3e3e !important");
+            $('#customer_password_confirmation').removeAttr('disabled').css("border-color", "#3e3e3e !important").css("color", "#3e3e3e !important");
+            $('#customer_password_confirmation').prev().css("color", "#3e3e3e !important");
+        }
+    </script>
+<% end %>
+
+<%= semantic_form_for [:admin, @customer] do |f| -%>
+    <%= render :partial => "/shared/admin/error_messages", :locals => {
+            :object              => @customer,
+            :include_object_name => true
+    } %>
+
+    <div class="left double_column">
+      <h2>User details</h2>
+
+      <div class='field'>
+        <%= f.label :title -%>
+        <%= f.text_field :title, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :first_name -%>
+        <%= f.text_field :first_name, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :last_name -%>
+        <%= f.text_field :last_name, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :email -%>
+        <%= f.text_field :email, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :contact_phone, "Contact Phone (optional)" -%>
+        <%= f.text_field :contact_phone, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :promo_code, "Promo Code (optional)" -%>
+        <%= f.text_field :promo_code, :class => 'larger' -%>
+      </div>
+
+      <div class='field time_zone_field'>
+        <%= f.label :time_zone, "Time zone" -%>
+        <%= f.time_zone_select('time_zone', ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)") -%>
+      </div>
+
+      <%- unless @customer.new_record? %>
+      <span class='grey'>
+      <% end %>
+      <br/>
+
+      <h2>User password</h2>
+
+      <%- unless @customer.new_record? %>
+          <div class='warning'>
+            <b>WARNING: </b>
+            Editing these fields will update the users password. Only do this if requested by the My 5 Customer
+          </div>
+
+          <p><a href="javascript:unlock_password_fields();" class="button">Unlock fields</a></p>
+      <% end %>
+
+      <div class='field'>
+        <%= f.label :password -%>
+        <%- unless @customer.new_record? %>
+            <%= f.password_field :password, :class => 'larger', :disabled => true -%>
+        <% else %>
+            <%= f.password_field :password, :class => 'larger' -%>
+        <% end %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :password_confirmation -%>
+        <%- unless @customer.new_record? %>
+            <%= f.password_field :password_confirmation, :class => 'larger', :disabled => true -%>
+        <% else %>
+            <%= f.password_field :password_confirmation, :class => 'larger' -%>
+        <% end %>
+      </div>
+      <%- unless @customer.new_record? %>
+          </span>
+      <% end %>
+    </div>
+    
+    <div class="right double_column">
+      <h2>User address (not required for corporate customers)</h2>
+
+      <div class='field'>
+        <%= f.label :street_1 -%>
+        <%= f.text_field :street_1, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :street_2 -%>
+            <%= f.text_field :street_2, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :suburb -%>
+            <%= f.text_field :city, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :city -%>
+            <%= f.text_field :state, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :state -%>
+            <%= f.text_field :state2, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :country -%>
+            <%= f.text_field :country, :class => 'larger' -%>
+      </div>
+
+      <div class='field'>
+        <%= f.label :zip_code -%>
+            <%= f.text_field :zip_code, :class => 'larger smallest' -%>
+      </div>
+    </div>
+
+        <div style='margin-top: 40px; float: left;'>
+          <h2>User corporation details (corporate customers only)</h2>
+
+          <div class='field'>
+            <%= f.label :role -%>
+            <%= f.text_field :role -%>
+          </div>
+
+          <div class='field' id="corporation_select">
+            <%= f.label :corporation_id -%>
+            <%= select(:customer, :corporation_id, Corporation.available_for_form, :selected => @customer.corporation_id, :include_blank => true) -%>
+          </div>
+
+          <div class='field' id="department_select">
+            <%= f.label :department_id -%>
+            <%= f.text_field :department_id -%>
+          </div>
+        </div>
+    <div class="clearfix"></div>
+
+    <%= render :partial => "/shared/admin/form_actions",
+               :locals  => {
+                       :f                   => f,
+                       :continue_editing    => false,
+                       :delete_title        => t('delete', :scope => 'admin.customers.customer'),
+                       :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @customer.first_name)
+               } %>
+<% end -%>

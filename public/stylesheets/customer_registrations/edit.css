@@ -1,0 +1,43 @@
+/* line 4, ../../../app/stylesheets/customer_registrations/edit.sass */
+.content_left .padded {
+  border-right: 1px solid #cccccc;
+}
+
+/* line 8, ../../../app/stylesheets/customer_registrations/edit.sass */
+.subscription, .reminder_emails, .billing_details {
+  float: left;
+  width: 55%;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 15, ../../../app/stylesheets/customer_registrations/edit.sass */
+.reminder_emails, .billing_details {
+  line-height: 40px;
+}
+
+/* line 19, ../../../app/stylesheets/customer_registrations/edit.sass */
+.infobar_right a {
+  color: #419e36;
+}
+/* line 18, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.infobar_right a:visited {
+  color: #419e36;
+}
+/* line 21, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.infobar_right a:focus {
+  color: #419e36;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.infobar_right a:hover {
+  color: #419e36;
+}
+/* line 27, ../../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.infobar_right a:active {
+  color: #419e36;
+}
+
+/* line 23, ../../../app/stylesheets/customer_registrations/edit.sass */
+.time_zone_select {
+  width: 53%;
+}

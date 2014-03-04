@@ -7,11 +7,11 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 # Refinery seeds
 
-Corporation.delete_all
+#Corporation.delete_all
 
 # Dir[Rails.root.join('db', 'seeds', '*.rb').to_s].each do |file|
 #   puts "Loading db/seeds/#{file.split(File::SEPARATOR).last}"
 #   load(file)
 # end
 
-Corporation.create(:name => 'My5')
+#Corporation.create(:name => 'My5')

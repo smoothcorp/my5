@@ -1,0 +1,25 @@
+/* line 1, ../../../../app/stylesheets/refinery/video_stats/index.sass */
+div#video_summary {
+  overflow: hidden;
+}
+/* line 3, ../../../../app/stylesheets/refinery/video_stats/index.sass */
+div#video_summary .stat {
+  background-color: #e2e2e2;
+  border: 2px solid white;
+  float: left;
+  height: 45px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  text-align: center;
+  width: 120px;
+}
+/* line 12, ../../../../app/stylesheets/refinery/video_stats/index.sass */
+div#video_summary .stat .value {
+  font-size: 2em !important;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+/* line 16, ../../../../app/stylesheets/refinery/video_stats/index.sass */
+div#video_summary .stat .value .label {
+  font-size: 0.9em !important;
+}

@@ -1,0 +1,1331 @@
+/* line 17, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* incase an inverted custom gradient isn't specified */
+/* line 177, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class, button, input[type="submit"], .button, button.danger, input[type="submit"].danger, .button.danger {
+  font-family: "Lucida Grande", Lucida, Arial, sans-serif;
+  background: url('/images/button_bg.png?1385031052') repeat-x bottom left;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border-style: solid;
+  font-weight: bold;
+}
+/* line 165, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class::-moz-focus-inner, button::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, .button::-moz-focus-inner, button.danger::-moz-focus-inner, input[type="submit"].danger::-moz-focus-inner, .button.danger::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+/* line 168, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class:focus, button:focus, input[type="submit"]:focus, .button:focus, button.danger:focus, input[type="submit"].danger:focus, .button.danger:focus {
+  outline: none;
+}
+
+/* line 3, ../../app/stylesheets/shared/header.sass */
+#header {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  height: 80px;
+  line-height: 70px;
+}
+/* line 7, ../../app/stylesheets/shared/header.sass */
+#header a {
+  color: white;
+  font-weight: bold;
+}
+/* line 18, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:visited {
+  color: white;
+}
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:focus {
+  color: white;
+}
+/* line 24, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:hover {
+  color: white;
+}
+/* line 27, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#header a:active {
+  color: white;
+}
+/* line 10, ../../app/stylesheets/shared/header.sass */
+#header #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+  margin-left: 0;
+}
+/* line 13, ../../app/stylesheets/shared/header.sass */
+#header #logo img {
+  vertical-align: middle;
+}
+/* line 15, ../../app/stylesheets/shared/header.sass */
+#header .nav {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 540px;
+}
+/* line 17, ../../app/stylesheets/shared/header.sass */
+#header .nav a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 30px !important;
+  padding: 0 !important;
+}
+/* line 23, ../../app/stylesheets/shared/header.sass */
+#header .nav#signup {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  margin-right: 0;
+}
+/* line 26, ../../app/stylesheets/shared/header.sass */
+#header .nav#signup a {
+  width: 100%;
+  float: right;
+}
+/* line 29, ../../app/stylesheets/shared/header.sass */
+#header .nav#signup a.button {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px;
+  font-family: Helvetica;
+}
+
+/* line 35, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu {
+  float: left;
+  font-family: Verdana;
+  font-size: 13px;
+  font-weight: bold;
+  height: 37px;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* line 46, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul {
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 53, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li {
+  display: inline;
+  float: left;
+  margin-left: 1px;
+  padding-right: 5px;
+  position: relative;
+}
+
+/* line 61, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a {
+  color: white;
+  border-right: 1px solid #777788;
+  text-decoration: none;
+  height: auto !important;
+  border: none;
+  font-size: 14px !important;
+  padding: 10px !important;
+}
+
+/* line 73, ../../app/stylesheets/shared/header.sass */
+* html .ddsmoothmenu ul li a {
+  display: inline-block;
+}
+
+/* line 77, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited {
+  color: white;
+}
+
+/* line 81, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li a.selected {
+  background: #cf6000;
+  color: white;
+}
+
+/* line 86, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li a.hover {
+  background: #cf6000;
+  color: white;
+}
+
+/* line 90, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul {
+  position: absolute;
+  left: 0;
+  display: none;
+  visibility: hidden;
+  list-style-type: none !important;
+}
+
+/* line 97, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li {
+  display: list-item;
+  float: none;
+  list-style: none !important;
+}
+
+/* line 102, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li ul {
+  top: 0;
+}
+
+/* line 105, ../../app/stylesheets/shared/header.sass */
+.ddsmoothmenu ul li ul li a {
+  font: normal 13px Verdana;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  border-top-width: 0;
+  border-bottom: 1px solid gray;
+  font-size: 12px !important;
+  padding: 10px !important;
+}
+
+/* line 115, ../../app/stylesheets/shared/header.sass */
+* html .ddsmoothmenu {
+  height: 1%;
+}
+
+/* line 119, ../../app/stylesheets/shared/header.sass */
+.downarrowclass {
+  position: absolute;
+  top: 12px;
+  right: 7px;
+}
+
+/* line 125, ../../app/stylesheets/shared/header.sass */
+.rightarrowclass {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+}
+
+/* line 131, ../../app/stylesheets/shared/header.sass */
+.ddshadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  background: silver;
+}
+
+/* line 140, ../../app/stylesheets/shared/header.sass */
+.toplevelshadow {
+  opacity: 0.8;
+}
+
+/* line 3, ../../app/stylesheets/shared/footer.sass */
+#footer {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+/* line 8, ../../app/stylesheets/shared/footer.sass */
+#footer nav {
+  border-top: 1px solid #cccccc;
+}
+/* line 10, ../../app/stylesheets/shared/footer.sass */
+#footer ul {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+}
+/* line 11, ../../app/stylesheets/shared/footer.sass */
+#footer ul li {
+  list-style: none !important;
+  margin-left: 0;
+}
+/* line 15, ../../app/stylesheets/shared/footer.sass */
+#footer ul li.double-line {
+  line-height: 18px;
+}
+/* line 18, ../../app/stylesheets/shared/footer.sass */
+#footer ul.first, #footer ul.last {
+  width: 120px;
+}
+/* line 20, ../../app/stylesheets/shared/footer.sass */
+#footer ul.titles {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid #cccccc;
+  font-weight: bold;
+  line-height: 34px;
+}
+/* line 27, ../../app/stylesheets/shared/footer.sass */
+#footer ul.titles li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+}
+/* line 29, ../../app/stylesheets/shared/footer.sass */
+#footer ul.titles li.first, #footer ul.titles li.last {
+  width: 120px;
+}
+/* line 31, ../../app/stylesheets/shared/footer.sass */
+#footer #line {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 740px;
+  margin-top: 25px;
+  border-top: 1px solid #cccccc;
+}
+/* line 35, ../../app/stylesheets/shared/footer.sass */
+#footer #logo {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100px;
+  padding-left: 40px;
+  margin-right: 0;
+}
+
+/* line 12, ../../app/stylesheets/shared/flashes.sass */
+.notices {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 780px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 95% !important;
+  margin: 10px 2.5%;
+  position: relative;
+  background: white;
+}
+
+/* line 22, ../../app/stylesheets/shared/flashes.sass */
+.content .notices {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* line 28, ../../app/stylesheets/shared/flashes.sass */
+body .notice {
+  width: 95% !important;
+  margin: 0;
+  padding: 0 2.5%;
+  border: 1px solid #6cd06c;
+  background-color: #e0f5e0;
+  color: #287b28;
+  font-size: 10pt;
+}
+/* line 30, ../../app/stylesheets/shared/flashes.sass */
+body .alert {
+  width: 95% !important;
+  margin: 0;
+  padding: 0 2.5%;
+  border: 1px solid yellow;
+  background-color: #ffff99;
+  color: #666600;
+  font-size: 10pt;
+}
+
+/* line 4, ../../app/stylesheets/shared/forms.sass */
+form label {
+  margin-left: 5px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 40px;
+}
+/* line 10, ../../app/stylesheets/shared/forms.sass */
+form label.double-line {
+  line-height: 20px;
+}
+/* line 12, ../../app/stylesheets/shared/forms.sass */
+form input, form textarea, form select {
+  padding: 8px 8px;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px solid #cccccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 18, ../../app/stylesheets/shared/forms.sass */
+form input:focus, form textarea:focus, form select:focus {
+  outline: none;
+  border-color: #109900;
+  -moz-box-shadow: #6ffc5f 0px 0px 5px;
+  -webkit-box-shadow: #6ffc5f 0px 0px 5px;
+  -o-box-shadow: #6ffc5f 0px 0px 5px;
+  box-shadow: #6ffc5f 0px 0px 5px;
+}
+/* line 22, ../../app/stylesheets/shared/forms.sass */
+form select {
+  height: 34px;
+}
+/* line 25, ../../app/stylesheets/shared/forms.sass */
+form label abbr {
+  color: #c94338;
+  margin: 0 5px;
+}
+/* line 28, ../../app/stylesheets/shared/forms.sass */
+form li {
+  clear: both;
+  margin-bottom: 10px;
+}
+/* line 29, ../../app/stylesheets/shared/forms.sass */
+form li.left {
+  float: left;
+  margin-right: 25px;
+}
+/* line 36, ../../app/stylesheets/shared/forms.sass */
+form li label {
+  width: 180px;
+  float: left;
+}
+/* line 39, ../../app/stylesheets/shared/forms.sass */
+form li label.double-line {
+  line-height: 20px;
+}
+/* line 41, ../../app/stylesheets/shared/forms.sass */
+form li input, form li select {
+  margin-left: 15px;
+  width: 50%;
+}
+/* line 45, ../../app/stylesheets/shared/forms.sass */
+form li select.short {
+  width: 100px !important;
+}
+/* line 47, ../../app/stylesheets/shared/forms.sass */
+form li input.short {
+  width: 88px !important;
+}
+/* line 49, ../../app/stylesheets/shared/forms.sass */
+form li select.medium {
+  width: 200px !important;
+}
+/* line 51, ../../app/stylesheets/shared/forms.sass */
+form li input.medium {
+  width: 182px !important;
+}
+/* line 53, ../../app/stylesheets/shared/forms.sass */
+form li input[type="checkbox"] {
+  width: 20px;
+  margin-top: 10px;
+}
+/* line 57, ../../app/stylesheets/shared/forms.sass */
+form li .inline-hints {
+  color: #bbbbbb;
+  margin-left: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 63, ../../app/stylesheets/shared/forms.sass */
+form li .inline-errors {
+  color: #c94338;
+  margin-left: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 69, ../../app/stylesheets/shared/forms.sass */
+form li.error {
+  background: #ea9b95;
+  padding: 5px 0 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -10px;
+}
+/* line 76, ../../app/stylesheets/shared/forms.sass */
+form li.error .inline-hints {
+  color: #3e3e3e !important;
+}
+/* line 78, ../../app/stylesheets/shared/forms.sass */
+form .avatar_section {
+  clear: both;
+  height: 180px;
+}
+/* line 81, ../../app/stylesheets/shared/forms.sass */
+form .avatar_section .img {
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin-top: 10px;
+}
+/* line 87, ../../app/stylesheets/shared/forms.sass */
+form .avatar_section label, form .avatar_section input {
+  left: 120px;
+  display: inline-block;
+  clear: none;
+  margin-left: 48px;
+}
+/* line 93, ../../app/stylesheets/shared/forms.sass */
+form .avatar_section input[type="text"] {
+  padding-left: 5px;
+}
+/* line 96, ../../app/stylesheets/shared/forms.sass */
+form .avatar_section input[type="submit"] {
+  margin-top: 15px;
+}
+/* line 101, ../../app/stylesheets/shared/forms.sass */
+form .actions {
+  clear: both;
+  margin-top: 25px;
+}
+/* line 105, ../../app/stylesheets/shared/forms.sass */
+form .actions a, form .actions input[type="submit"] {
+  float: left;
+  margin-right: 10px;
+}
+/* line 109, ../../app/stylesheets/shared/forms.sass */
+form .actions a {
+  line-height: 35px;
+}
+
+/* line 14, ../../app/stylesheets/my5/blog/blog.sass */
+.orange {
+  color: #dc8c23;
+}
+
+/* line 17, ../../app/stylesheets/my5/blog/blog.sass */
+.red {
+  color: #c92b1e;
+}
+
+/* line 20, ../../app/stylesheets/my5/blog/blog.sass */
+.gray {
+  color: #9ea0a3;
+}
+
+/* line 22, ../../app/stylesheets/my5/blog/blog.sass */
+#posts .content, #categories .content {
+  padding: 37px;
+}
+
+/* line 24, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index, .content#show, .content#search, .content#archive {
+  position: relative;
+  background: white url("/images/blog/blog_bg.jpg") no-repeat 50% 90px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 28, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .colored_border, .content#show .colored_border, .content#search .colored_border, .content#archive .colored_border {
+  height: 11px;
+  position: absolute;
+  top: -11px;
+  left: 0;
+  width: 100%;
+  background: white url("/images/coloured_bars.png") repeat-x;
+}
+/* line 35, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post, .content#show .blog_post, .content#search .blog_post, .content#archive .blog_post {
+  margin-bottom: 15px;
+}
+/* line 37, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post .details, .content#show .blog_post .details, .content#search .blog_post .details, .content#archive .blog_post .details {
+  font-size: 12px;
+}
+/* line 39, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post .link_more, .content#show .blog_post .link_more, .content#search .blog_post .link_more, .content#archive .blog_post .link_more {
+  text-transform: uppercase;
+  color: #3a9b2e;
+}
+/* line 42, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post .link_more > a, .content#show .blog_post .link_more > a, .content#search .blog_post .link_more > a, .content#archive .blog_post .link_more > a {
+  color: #3a9b2e;
+}
+/* line 44, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post .link_more:before, .content#show .blog_post .link_more:before, .content#search .blog_post .link_more:before, .content#archive .blog_post .link_more:before {
+  content: "|";
+  margin-right: 4px;
+}
+/* line 47, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post em, .content#show .blog_post em, .content#search .blog_post em, .content#archive .blog_post em {
+  font-style: italic;
+}
+/* line 49, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post em strong, .content#show .blog_post em strong, .content#search .blog_post em strong, .content#archive .blog_post em strong {
+  font-weight: bold;
+}
+/* line 51, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post strong, .content#show .blog_post strong, .content#search .blog_post strong, .content#archive .blog_post strong {
+  font-weight: bold;
+}
+/* line 53, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .blog_post strong em, .content#show .blog_post strong em, .content#search .blog_post strong em, .content#archive .blog_post strong em {
+  font-style: italic;
+}
+/* line 56, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content, .content#show #body_content, .content#search #body_content, .content#archive #body_content {
+  min-height: 860px;
+  padding-left: 190px;
+  background: url("/images/blog/sidebar_bg.jpg") no-repeat 0 26px;
+  padding-top: 15px;
+  margin-top: -15px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 63, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left, .content#show #body_content_left, .content#search #body_content_left, .content#archive #body_content_left {
+  width: 495px;
+  float: left;
+  border-right: 1px solid #b0b1b3;
+}
+/* line 67, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post, .content#show #body_content_left #blog_post, .content#search #body_content_left #blog_post, .content#archive #body_content_left #blog_post {
+  margin-bottom: 25px;
+  border-bottom: 1px solid #b0b1b3;
+}
+/* line 71, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post table td, .content#show #body_content_left #blog_post table td, .content#search #body_content_left #blog_post table td, .content#archive #body_content_left #blog_post table td {
+  border: 1px solid #d3d3d3;
+  padding: 5px;
+  text-align: center;
+}
+/* line 75, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-right, .content#show #body_content_left #blog_post .text-align-right, .content#search #body_content_left #blog_post .text-align-right, .content#archive #body_content_left #blog_post .text-align-right {
+  text-align: right;
+}
+/* line 77, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-left, .content#show #body_content_left #blog_post .text-align-left, .content#search #body_content_left #blog_post .text-align-left, .content#archive #body_content_left #blog_post .text-align-left {
+  text-align: left;
+}
+/* line 79, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left #blog_post .text-align-center, .content#show #body_content_left #blog_post .text-align-center, .content#search #body_content_left #blog_post .text-align-center, .content#archive #body_content_left #blog_post .text-align-center {
+  text-align: center;
+}
+/* line 81, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left .post_title, .content#show #body_content_left .post_title, .content#search #body_content_left .post_title, .content#archive #body_content_left .post_title {
+  font-size: 25px;
+  font-weight: bold;
+  color: gray;
+}
+/* line 86, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left .green, .content#show #body_content_left .green, .content#search #body_content_left .green, .content#archive #body_content_left .green {
+  color: #3a9b2e;
+}
+/* line 89, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left .eat_think_move, .content#show #body_content_left .eat_think_move, .content#search #body_content_left .eat_think_move, .content#archive #body_content_left .eat_think_move {
+  white-space: nowrap;
+  font-size: 11px;
+  margin-top: -10px;
+  margin-bottom: 0;
+  color: #3a9b2e;
+}
+/* line 95, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left .eat_think_move .block, .content#show #body_content_left .eat_think_move .block, .content#search #body_content_left .eat_think_move .block, .content#archive #body_content_left .eat_think_move .block {
+  float: left;
+  margin-right: 8px;
+  padding-right: 30px;
+  background: url("/images/blog/logo_naturally.png") no-repeat 100% 0;
+}
+/* line 100, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_left .naturally, .content#show #body_content_left .naturally, .content#search #body_content_left .naturally, .content#archive #body_content_left .naturally {
+  margin-top: 0;
+  margin-right: 6px;
+}
+/* line 104, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_right, .content#show #body_content_right, .content#search #body_content_right, .content#archive #body_content_right {
+  width: 180px;
+  float: left;
+  border-left: 1px solid #b0b1b3;
+  margin-left: -1px;
+  margin-top: 26px;
+}
+/* line 110, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_right .sidebar_section_wrap, .content#show #body_content_right .sidebar_section_wrap, .content#search #body_content_right .sidebar_section_wrap, .content#archive #body_content_right .sidebar_section_wrap {
+  padding: 30px 10px 30px 30px;
+  border-bottom: 1px solid #b0b1b3;
+}
+/* line 113, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_right .sidebar_section_wrap.logo, .content#show #body_content_right .sidebar_section_wrap.logo, .content#search #body_content_right .sidebar_section_wrap.logo, .content#archive #body_content_right .sidebar_section_wrap.logo {
+  padding: 0 10px;
+}
+/* line 115, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index #body_content_right .sidebar_section_wrap h2, .content#show #body_content_right .sidebar_section_wrap h2, .content#search #body_content_right .sidebar_section_wrap h2, .content#archive #body_content_right .sidebar_section_wrap h2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0 0 10px;
+}
+/* line 120, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button, .content#show .comment_button, .content#search .comment_button, .content#archive .comment_button {
+  float: left;
+  cursor: pointer;
+}
+/* line 123, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button .comment_icon, .content#show .comment_button .comment_icon, .content#search .comment_button .comment_icon, .content#archive .comment_button .comment_icon {
+  float: left;
+  height: 25px;
+  width: 26px;
+  background: url("/images/blog/comment.png");
+}
+/* line 128, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .comment_button .comment_counter, .content#show .comment_button .comment_counter, .content#search .comment_button .comment_counter, .content#archive .comment_button .comment_counter {
+  float: left;
+  margin-left: 5px;
+}
+/* line 132, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button, .content#show .print_button, .content#search .print_button, .content#archive .print_button {
+  float: left;
+  margin-left: 22px;
+  cursor: pointer;
+}
+/* line 136, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button .print_icon, .content#show .print_button .print_icon, .content#search .print_button .print_icon, .content#archive .print_button .print_icon {
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  height: 14px;
+  width: 16px;
+  background: url("/images/blog/print.png") no-repeat 0 0;
+}
+/* line 143, ../../app/stylesheets/my5/blog/blog.sass */
+.content#index .print_button .print_link, .content#show .print_button .print_link, .content#search .print_button .print_link, .content#archive .print_button .print_link {
+  float: left;
+  margin-left: 11px;
+}
+
+/* line 148, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post {
+  padding-right: 10px;
+}
+/* line 150, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .details {
+  display: block;
+}
+/* line 152, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .link_more {
+  text-transform: uppercase;
+  color: #3a9b2e;
+}
+/* line 155, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .link_more > a {
+  color: #3a9b2e;
+}
+/* line 157, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .link_more:before {
+  content: "|";
+  margin-right: 4px;
+}
+/* line 160, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .comment_count {
+  display: block;
+}
+/* line 162, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post h1 {
+  font-size: 21px;
+  font-weight: 500;
+  font-family: Helvetica, sans-serif;
+  line-height: 130%;
+  color: #3a9b2e;
+  margin: 0 0 16px;
+}
+/* line 170, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post h1 > a {
+  color: #3a9b2e;
+}
+/* line 172, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post em {
+  font-style: italic;
+}
+/* line 174, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post em strong {
+  font-weight: bold;
+}
+/* line 176, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post strong {
+  font-weight: bold;
+}
+/* line 178, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post strong em {
+  font-style: italic;
+}
+/* line 180, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-small {
+  font-size: 0.75em;
+}
+/* line 182, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-normal {
+  font-size: 1em;
+}
+/* line 184, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .font-size-large {
+  font-size: 1.25em;
+}
+/* line 186, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .post_description {
+  overflow: hidden;
+}
+/* line 188, ../../app/stylesheets/my5/blog/blog.sass */
+#blog_post .post_description p {
+  font-size: 13px;
+  font-family: Helvetica, sans-serif;
+  line-height: 150%;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* line 197, ../../app/stylesheets/my5/blog/blog.sass */
+.search_form {
+  position: relative;
+  padding: 8px 20px;
+  border-bottom: 1px solid #b0b1b3;
+}
+/* line 201, ../../app/stylesheets/my5/blog/blog.sass */
+.search_form .search_input {
+  font-size: 11px;
+  font-weight: 400;
+  font-family: Helvetica, sans-serif;
+  width: 114px;
+  height: 25px;
+  padding: 0 5px;
+  background: #ebebeb;
+  border: 1px solid #9ea0a3;
+  border-radius: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 213, ../../app/stylesheets/my5/blog/blog.sass */
+.search_form .search_button {
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  top: 6px;
+  background: #ec1c24;
+  border-radius: 8px;
+  padding: 5px 5px 7px;
+  border: 0;
+  cursor: pointer;
+}
+
+/* line 228, ../../app/stylesheets/my5/blog/blog.sass */
+#categories .item:hover {
+  color: #dc8c23;
+}
+/* line 230, ../../app/stylesheets/my5/blog/blog.sass */
+#categories .item:hover > a {
+  color: #dc8c23;
+}
+
+/* line 235, ../../app/stylesheets/my5/blog/blog.sass */
+#recent_articles .item:hover {
+  color: #c92b1e;
+}
+/* line 237, ../../app/stylesheets/my5/blog/blog.sass */
+#recent_articles .item:hover > a {
+  color: #c92b1e;
+}
+
+/* line 241, ../../app/stylesheets/my5/blog/blog.sass */
+#archived_posts .item {
+  cursor: pointer;
+}
+/* line 243, ../../app/stylesheets/my5/blog/blog.sass */
+#archived_posts .item:hover {
+  color: #9ea0a3;
+}
+/* line 245, ../../app/stylesheets/my5/blog/blog.sass */
+#archived_posts .item:hover > a {
+  color: #9ea0a3;
+}
+
+/* line 248, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+}
+/* line 251, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .active {
+  color: #c92b1e;
+}
+/* line 253, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .active > a {
+  color: #c92b1e;
+}
+/* line 255, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .item {
+  list-style: none;
+  margin-left: 0;
+}
+/* line 258, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .subcat {
+  list-style: none;
+  padding-left: 30px;
+  font-size: 12px;
+}
+/* line 262, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .subcat .item {
+  position: relative;
+  line-height: 120%;
+  margin-bottom: 5px;
+}
+/* line 266, ../../app/stylesheets/my5/blog/blog.sass */
+.categories_list .subcat .item:before {
+  content: "|";
+  position: absolute;
+  left: -6px;
+}
+
+/* line 271, ../../app/stylesheets/my5/blog/blog.sass */
+.blog_title {
+  color: #3a9b2e;
+}
+
+/* line 24, ../../app/stylesheets/common.sass */
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #545454;
+  line-height: 24px;
+  background: url("/images/beach_big.jpg") no-repeat;
+  background-size: 100%;
+}
+
+/* line 33, ../../app/stylesheets/common.sass */
+a {
+  text-decoration: none;
+  color: #545454;
+}
+/* line 4, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+a:hover {
+  text-decoration: underline;
+}
+/* line 18, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:visited {
+  color: #545454;
+}
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:focus {
+  color: #545454;
+}
+/* line 24, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:hover {
+  color: #545454;
+}
+/* line 27, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:active {
+  color: #545454;
+}
+
+/* line 37, ../../app/stylesheets/common.sass */
+b {
+  font-weight: bold;
+}
+
+/* line 40, ../../app/stylesheets/common.sass */
+h1 {
+  font-size: 40px;
+  line-height: 50px;
+  margin: 20px 0;
+}
+
+/* line 45, ../../app/stylesheets/common.sass */
+h2 {
+  font-size: 28px;
+  line-height: 38px;
+  margin: 20px 0;
+  clear: both;
+}
+
+/* line 51, ../../app/stylesheets/common.sass */
+h3 {
+  font-size: 24px;
+  line-height: 34px;
+  margin: 20px 0;
+}
+
+/* line 56, ../../app/stylesheets/common.sass */
+p {
+  margin: 20px 0;
+}
+
+/* line 60, ../../app/stylesheets/common.sass */
+ul li {
+  list-style: circle;
+  margin-left: 15px;
+}
+
+/* line 65, ../../app/stylesheets/common.sass */
+ol {
+  padding-left: 10px;
+}
+/* line 68, ../../app/stylesheets/common.sass */
+ol li {
+  list-style: decimal;
+  margin-left: 15px;
+}
+
+/* line 74, ../../app/stylesheets/common.sass */
+form li {
+  list-style: none;
+}
+
+/* line 77, ../../app/stylesheets/common.sass */
+button, input[type="submit"], .button {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.2em;
+  padding: 0.3em 1em;
+  border-width: 1px;
+  background-color: #109900;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #18e600), color-stop(100%, #0d7a00));
+  background-image: -webkit-linear-gradient(#18e600, #0d7a00);
+  background-image: -moz-linear-gradient(#18e600, #0d7a00);
+  background-image: -o-linear-gradient(#18e600, #0d7a00);
+  background-image: -ms-linear-gradient(#18e600, #0d7a00);
+  background-image: linear-gradient(#18e600, #0d7a00);
+  border-color: #084d00;
+  text-shadow: #031a00 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.3) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.3) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 0.1em 1px inset;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  -khtml-background-clip: padding-box;
+  background-clip: padding-box;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button, button:visited, input[type="submit"], input[type="submit"]:visited, .button, .button:visited {
+  color: white;
+}
+/* line 31, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:hover, button:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:hover, .button:focus {
+  background-color: #0e8a00;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #16d600), color-stop(100%, #0b6b00));
+  background-image: -webkit-linear-gradient(#16d600, #0b6b00);
+  background-image: -moz-linear-gradient(#16d600, #0b6b00);
+  background-image: -o-linear-gradient(#16d600, #0b6b00);
+  background-image: -ms-linear-gradient(#16d600, #0b6b00);
+  background-image: linear-gradient(#16d600, #0b6b00);
+  border-color: #063d00;
+  text-shadow: #010a00 0px 1px 1px;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:hover, button:hover:visited, button:focus, button:focus:visited, input[type="submit"]:hover, input[type="submit"]:hover:visited, input[type="submit"]:focus, input[type="submit"]:focus:visited, .button:hover, .button:hover:visited, .button:focus, .button:focus:visited {
+  color: white;
+}
+/* line 36, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:active, input[type="submit"]:active, .button:active {
+  background-color: #0d7a00;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0c7500), color-stop(40%, #0e8500), color-stop(85%, #0e8500), color-stop(100%, #12a800));
+  background-image: -webkit-linear-gradient(#0c7500, #0e8500 40%, #0e8500 85%, #12a800);
+  background-image: -moz-linear-gradient(#0c7500, #0e8500 40%, #0e8500 85%, #12a800);
+  background-image: -o-linear-gradient(#0c7500, #0e8500 40%, #0e8500 85%, #12a800);
+  background-image: -ms-linear-gradient(#0c7500, #0e8500 40%, #0e8500 85%, #12a800);
+  background-image: linear-gradient(#0c7500, #0e8500 40%, #0e8500 85%, #12a800);
+  border-color: #052e00;
+  text-shadow: black 0px -1px -1px;
+  -moz-box-shadow: #084d00 0 0.08em 0.2em 1px inset;
+  -webkit-box-shadow: #084d00 0 0.08em 0.2em 1px inset;
+  -o-box-shadow: #084d00 0 0.08em 0.2em 1px inset;
+  box-shadow: #084d00 0 0.08em 0.2em 1px inset;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:active, button:active:visited, input[type="submit"]:active, input[type="submit"]:active:visited, .button:active, .button:active:visited {
+  color: white;
+}
+/* line 80, ../../app/stylesheets/common.sass */
+button.danger, input[type="submit"].danger, .button.danger {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.2em;
+  padding: 0.3em 1em;
+  border-width: 1px;
+  background-color: red;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff4d4d), color-stop(100%, #e00000));
+  background-image: -webkit-linear-gradient(#ff4d4d, #e00000);
+  background-image: -moz-linear-gradient(#ff4d4d, #e00000);
+  background-image: -o-linear-gradient(#ff4d4d, #e00000);
+  background-image: -ms-linear-gradient(#ff4d4d, #e00000);
+  background-image: linear-gradient(#ff4d4d, #e00000);
+  border-color: #b30000;
+  text-shadow: maroon 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.5) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.5) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.5) 0 0 0.1em 1px inset;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  -khtml-background-clip: padding-box;
+  background-clip: padding-box;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.danger, button.danger:visited, input[type="submit"].danger, input[type="submit"].danger:visited, .button.danger, .button.danger:visited {
+  color: white;
+}
+/* line 31, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.danger:hover, button.danger:focus, input[type="submit"].danger:hover, input[type="submit"].danger:focus, .button.danger:hover, .button.danger:focus {
+  background-color: #f00000;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3d3d), color-stop(100%, #d10000));
+  background-image: -webkit-linear-gradient(#ff3d3d, #d10000);
+  background-image: -moz-linear-gradient(#ff3d3d, #d10000);
+  background-image: -o-linear-gradient(#ff3d3d, #d10000);
+  background-image: -ms-linear-gradient(#ff3d3d, #d10000);
+  background-image: linear-gradient(#ff3d3d, #d10000);
+  border-color: #a30000;
+  text-shadow: #700000 0px 1px 1px;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.danger:hover, button.danger:hover:visited, button.danger:focus, button.danger:focus:visited, input[type="submit"].danger:hover, input[type="submit"].danger:hover:visited, input[type="submit"].danger:focus, input[type="submit"].danger:focus:visited, .button.danger:hover, .button.danger:hover:visited, .button.danger:focus, .button.danger:focus:visited {
+  color: white;
+}
+/* line 36, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.danger:active, input[type="submit"].danger:active, .button.danger:active {
+  background-color: #e00000;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #db0000), color-stop(40%, #eb0000), color-stop(85%, #eb0000), color-stop(100%, #ff0f0f));
+  background-image: -webkit-linear-gradient(#db0000, #eb0000 40%, #eb0000 85%, #ff0f0f);
+  background-image: -moz-linear-gradient(#db0000, #eb0000 40%, #eb0000 85%, #ff0f0f);
+  background-image: -o-linear-gradient(#db0000, #eb0000 40%, #eb0000 85%, #ff0f0f);
+  background-image: -ms-linear-gradient(#db0000, #eb0000 40%, #eb0000 85%, #ff0f0f);
+  background-image: linear-gradient(#db0000, #eb0000 40%, #eb0000 85%, #ff0f0f);
+  border-color: #940000;
+  text-shadow: #610000 0px -1px -1px;
+  -moz-box-shadow: #b30000 0 0.08em 0.2em 1px inset;
+  -webkit-box-shadow: #b30000 0 0.08em 0.2em 1px inset;
+  -o-box-shadow: #b30000 0 0.08em 0.2em 1px inset;
+  box-shadow: #b30000 0 0.08em 0.2em 1px inset;
+}
+/* line 116, ../../../../.rvm/gems/ruby-1.8.7-p374@my5/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.danger:active, button.danger:active:visited, input[type="submit"].danger:active, input[type="submit"].danger:active:visited, .button.danger:active, .button.danger:active:visited {
+  color: white;
+}
+/* line 82, ../../app/stylesheets/common.sass */
+button:hover, input[type="submit"]:hover, .button:hover {
+  text-decoration: none;
+}
+/* line 84, ../../app/stylesheets/common.sass */
+button.small, input[type="submit"].small, .button.small {
+  font-size: 14px;
+}
+
+/* line 87, ../../app/stylesheets/common.sass */
+#bars {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  margin-left: 0;
+  height: 10px;
+  background: url("/images/coloured_bars.png");
+}
+/* line 92, ../../app/stylesheets/common.sass */
+#bars.top {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 96, ../../app/stylesheets/common.sass */
+.clear {
+  clear: both;
+}
+
+/* line 107, ../../app/stylesheets/common.sass */
+.bars_whole {
+  width: 100%;
+  height: 6px;
+  background: url("/images/coloured_bars.png");
+}
+
+/* line 112, ../../app/stylesheets/common.sass */
+.padded {
+  padding: 0px 20px 15px;
+}
+
+/* line 116, ../../app/stylesheets/common.sass */
+a.green {
+  color: #419e36 !important;
+}
+
+/* line 119, ../../app/stylesheets/common.sass */
+.sign_in_page {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  width: 940px;
+  background-color: white;
+}
+
+/* line 126, ../../app/stylesheets/common.sass */
+.sign_in_content {
+  margin-left: 20px;
+}
+
+/* line 129, ../../app/stylesheets/common.sass */
+.green_button {
+  margin-bottom: 24px;
+  background: #62af59;
+  border: none;
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: none;
+}
+/* line 136, ../../app/stylesheets/common.sass */
+.green_button:hover, .green_button.active {
+  background: #284b24;
+}
+
+/* line 139, ../../app/stylesheets/common.sass */
+.blue_button {
+  margin-left: 13px;
+  margin-bottom: 24px;
+  background: #8ec7ed;
+  border: none;
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: none;
+}
+/* line 147, ../../app/stylesheets/common.sass */
+.blue_button:hover, .blue_button.active {
+  background: #1f81c3;
+}
+
+/* line 151, ../../app/stylesheets/common.sass */
+.show#pages .content#show {
+  padding: 0;
+}
+
+/* line 154, ../../app/stylesheets/common.sass */
+.text-align-left {
+  margin: 0 !important;
+}
+
+/* line 157, ../../app/stylesheets/common.sass */
+.text-align-center {
+  text-align: center !important;
+}
+
+/* line 160, ../../app/stylesheets/common.sass */
+.image-align-right {
+  float: right !important;
+  margin: 0 5px 20px !important;
+}
+
+/* line 164, ../../app/stylesheets/common.sass */
+.image-align-left {
+  float: left !important;
+  margin: 0 0 20px !important;
+}

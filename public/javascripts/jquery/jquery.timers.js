@@ -1,113 +1,127 @@
+jQuery.fn.extend({
+    everyTime: function(interval, label, fn, times) {
+        return this.each(function() {
+            jQuery.timer.add(this, interval, label, fn, times);
+        });
+    },
+    oneTime: function(interval, label, fn) {
+        return this.each(function() {
+            jQuery.timer.add(this, interval, label, fn, 1);
+        });
+    },
+    stopTime: function(label, fn) {
+        return this.each(function() {
+            jQuery.timer.remove(this, label, fn);
+        });
+    }
+});
 
-/**
- * jquery.timer.js
- *
- * Copyright (c) 2011 Jason Chavannes <jason.chavannes@gmail.com>
- *
- * http://code.google.com/p/jquery-timer/
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use, copy,
- * modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+jQuery.extend({
+    timer: {
+        global: [],
+        guid: 1,
+        dataKey: "jQuery.timer",
+        regex: /^([0-9]+(?:\.[0-9]*)?)\s*(.*s)?$/,
+        powers: {
+            // Yeah this is major overkill...
+            'ms': 1,
+            'cs': 10,
+            'ds': 100,
+            's': 1000,
+            'das': 10000,
+            'hs': 100000,
+            'ks': 1000000
+        },
+        timeParse: function(value) {
+            if (value == undefined || value == null)
+                return null;
+            var result = this.regex.exec(jQuery.trim(value.toString()));
+            if (result[2]) {
+                var num = parseFloat(result[1]);
+                var mult = this.powers[result[2]] || 1;
+                return num * mult;
+            } else {
+                return value;
+            }
+        },
+        add: function(element, interval, label, fn, times) {
+            var counter = 0;
 
-;(function($) {
-        $.timer = function(func, time, autostart) {    
-                this.set = function(func, time, autostart) {
-                        this.init = true;
-                        if(typeof func == 'object') {
-                                var paramList = ['autostart', 'time'];
-                                for(var arg in paramList) {
-                                        if(func[paramList[arg]] != undefined) {
-                                                eval(paramList[arg] + " = func[paramList[arg]]");
-                                        }
-                                };
-                                func = func.action;
+            if (jQuery.isFunction(label)) {
+                if (!times)
+                    times = fn;
+                fn = label;
+                label = interval;
+            }
+
+            interval = jQuery.timer.timeParse(interval);
+
+            if (typeof interval != 'number' || isNaN(interval) || interval < 0)
+                return;
+
+            if (typeof times != 'number' || isNaN(times) || times < 0)
+                times = 0;
+
+            times = times || 0;
+
+            var timers = jQuery.data(element, this.dataKey) || jQuery.data(element, this.dataKey, {});
+
+            if (!timers[label])
+                timers[label] = {};
+
+            fn.timerID = fn.timerID || this.guid++;
+
+            var handler = function() {
+                if ((++counter > times && times !== 0) || fn.call(element, counter) === false)
+                    jQuery.timer.remove(element, label, fn);
+            };
+
+            handler.timerID = fn.timerID;
+
+            if (!timers[label][fn.timerID])
+                timers[label][fn.timerID] = window.setInterval(handler,interval);
+
+            this.global.push( element );
+
+        },
+        remove: function(element, label, fn) {
+            var timers = jQuery.data(element, this.dataKey), ret;
+
+            if ( timers ) {
+
+                if (!label) {
+                    for ( label in timers )
+                        this.remove(element, label, fn);
+                } else if ( timers[label] ) {
+                    if ( fn ) {
+                        if ( fn.timerID ) {
+                            window.clearInterval(timers[label][fn.timerID]);
+                            delete timers[label][fn.timerID];
                         }
-                        if(typeof func == 'function') {
-                                this.action = func;
+                    } else {
+                        for ( var fn in timers[label] ) {
+                            window.clearInterval(timers[label][fn]);
+                            delete timers[label][fn];
                         }
-                        if(!isNaN(time)) {
-                                this.intervalTime = time;
-                        }
-                        if(autostart && !this.active) {
-                                this.active = true;
-                                this.setTimer();
-                        }
-                        return this;
-                };
-                this.once = function(time) {
-                        var timer = this;
-                        if(isNaN(time)) {time = 0;}
-                        window.setTimeout(function() {timer.action();}, time);
-                        return this;
-                };
-                this.play = function() {
-                        if(!this.active) {
-                                this.active = true;
-                                this.setTimer();
-                        }
-                        return this;
-                };
-                this.pause = function() {
-                        this.active = false;
-                        this.clearTimer();
-                        return this;
-                };
-                this.stop = this.pause;
-                this.toggle = function() {
-                        if(this.active) {
-                                this.pause();
-                        } else {
-                                this.play();
-                        }
-                        return this;
-                };
-                this.reset = function() {
-                        this.pause().play();
-                        return this;
-                };
-                this.clearTimer = function() {
-                        window.clearTimeout(this.timeoutObject);
-                };
-                this.setTimer = function(time) {
-                        if(typeof this.action != 'function') {return;}
-                        if(isNaN(time)) {
-                                time = this.intervalTime;
-                        }
-                        var timer = this;
-                        this.clearTimer();
-                        this.timeoutObject = window.setTimeout(function() {timer.go();}, time);
-                };
-                this.go = function() {
-                        if(this.active) {
-                                this.action();
-                                this.setTimer();
-                        }
-                };
-               
-                if(this.init) {
-                        return new $.timer(func, time, autostart);
-                } else {
-                        this.set(func, time, autostart);
-                        return this;
+                    }
+
+                    for ( ret in timers[label] ) break;
+                    if ( !ret ) {
+                        ret = null;
+                        delete timers[label];
+                    }
                 }
-        };
-})(jQuery);
 
+                for ( ret in timers ) break;
+                if ( !ret )
+                    jQuery.removeData(element, this.dataKey);
+            }
+        }
+    }
+});
+
+jQuery(window).bind("unload", function() {
+    jQuery.each(jQuery.timer.global, function(index, item) {
+        jQuery.timer.remove(item);
+    });
+});

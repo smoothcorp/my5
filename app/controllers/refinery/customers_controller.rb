@@ -21,7 +21,7 @@ class Refinery::CustomersController < ApplicationController
 					p ">>>>"
 					errs << row
 			    else
-		           SubscriptionsMailer.joined_welcome(customer,row[11]).deliver
+		           SubscriptionsMailer.joined_welcome(customer,row[13]).deliver
 				end
 			end
 

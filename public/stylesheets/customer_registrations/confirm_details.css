@@ -1,0 +1,58 @@
+/* line 5, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+form .error label {
+  padding-left: 15px !important;
+}
+/* line 8, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+form .error .inline-errors {
+  margin-left: 215px;
+}
+/* line 11, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+form .alert {
+  margin-left: -5px !important;
+  margin-bottom: 15px !important;
+}
+
+/* line 16, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+.details .label {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 20px;
+  clear: both;
+}
+/* line 22, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+.details p {
+  margin: 5px 0 !important;
+  margin-left: 5px;
+  width: 150px;
+  float: left;
+}
+/* line 27, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+.details label {
+  width: 500px;
+}
+/* line 29, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+.details label a {
+  color: #419e36;
+}
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.details label a:visited {
+  color: #419e36;
+}
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.details label a:focus {
+  color: #419e36;
+}
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.details label a:hover {
+  color: #419e36;
+}
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.details label a:active {
+  color: #419e36;
+}
+/* line 31, ../../../app/stylesheets/customer_registrations/confirm_details.sass */
+.details ol, .details fieldset, .details li, .details input[type="checkbox"] {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}

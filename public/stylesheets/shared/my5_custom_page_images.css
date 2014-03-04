@@ -1,0 +1,9 @@
+/* line 1, ../../../app/stylesheets/shared/my5_custom_page_images.sass */
+.page-image {
+  display: inline-block;
+  text-align: center;
+}
+/* line 4, ../../../app/stylesheets/shared/my5_custom_page_images.sass */
+.page-image.people {
+  margin-left: 15px;
+}

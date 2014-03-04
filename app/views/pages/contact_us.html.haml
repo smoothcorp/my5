@@ -3,20 +3,55 @@
 - content_for :extra_stylesheets do
     = stylesheet_link_tag "pages/contact_us"
 
-.padded
-    %h1 Contact Us
+.container
+    %h1.blue.center_alignment
+        %span Are you looking for a new approach to the health and well being of your employees?
 
-    %div#contact_form
-        - semantic_form_for Email.new do |f|
-            = f.input :name
-            = f.input :email, :required => true
-            = f.input :message, :label => "Your message", :required => false, :as => :text, :class => "long"
-            = f.label "Please verify your message"
-            %li#email_base_input
-                = recaptcha_tags
-            %div#email_submit.button Submit
-    %div#contact_details
-        %div#telephone
-            %b Telephone: 
-            = raw(@page[:telephone])
-      
+    %p.title
+        %span Then
+        %strong.blue My 5 Online
+        %span might be just what you are looking for.
+
+    %P
+        %span.title.blue My 5 Online
+        %span is a unique, sophisticated and interactive approach to workplace health and wellness.
+
+    .image
+
+    .key_benefits
+        %strong.title.blue KEY BENEFITS
+        %ul
+            %li Reduced stress and postural aches and pains
+            %li Better focus and enhanced efficiency
+            %li Direct cost savings from reduced absenteeism
+            %li Improved employee engagement with a healthier, happier workforce
+            %li Increased bottom line and significant return on investment
+
+    .clear
+    %p Fill in the contact form below to find out more about the My5 Online Wellness Program or to organise a free trial.
+    %strong Alternatively, if you would like to speak to us directly, please call us on +61 (0)2 8985 7131.
+
+    .contact_form
+        - semantic_form_for Email.new, :url => emails_path do |f|
+            = f.inputs do
+                = f.input :company_name, :label => 'Company Name: '
+
+                = f.input :location, :label => 'Location: '
+
+                = f.input :contact_name, :label => 'Contact Name: '
+
+                = f.input :role, :label => 'Title/Role: '
+
+                = f.input :email, :as => :email, :label => 'Email: '
+
+                = f.input :phone, :label => 'Phone: '
+                %label{ :for => 'contact_employees_number', :class => 'label_emloyees'}
+                    No. of employees?
+                = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'], :label => ''
+
+                = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5, :cols => 40}
+                %li#email_base_input
+                    = show_simple_captcha
+            .center_alignment
+                %div#email_submit.button Send Contact Information
+        #sending_results

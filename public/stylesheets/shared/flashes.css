@@ -1,0 +1,41 @@
+/* line 12, ../../../app/stylesheets/shared/flashes.sass */
+.notices {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 780px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 95% !important;
+  margin: 10px 2.5%;
+  position: relative;
+  background: white;
+}
+
+/* line 22, ../../../app/stylesheets/shared/flashes.sass */
+.content .notices {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* line 28, ../../../app/stylesheets/shared/flashes.sass */
+body .notice {
+  width: 95% !important;
+  margin: 0;
+  padding: 0 2.5%;
+  border: 1px solid #6cd06c;
+  background-color: #e0f5e0;
+  color: #287b28;
+  font-size: 10pt;
+}
+/* line 30, ../../../app/stylesheets/shared/flashes.sass */
+body .alert {
+  width: 95% !important;
+  margin: 0;
+  padding: 0 2.5%;
+  border: 1px solid yellow;
+  background-color: #ffff99;
+  color: #666600;
+  font-size: 10pt;
+}

@@ -2,13 +2,17 @@ Semblance::Application.routes.draw do
 
 # highcharts
   match 'refinery/reports/screen1' => 'refinery/reports#screen_1'
+  match 'my5/dashboard/screen1' => 'my5/dashboard#screen_1'
   match 'refinery/reports/update_department' => 'refinery/reports#update_department'
-  
-  #excel
+  match 'my5/dashboard/update_department' => 'my5/dashboard#update_department'
+  match 'my5_naturally/search' => 'blog/posts#search'
+
+#excel
   match 'refinery/reports/download_excel' => 'refinery/reports#download_excel'
+  match 'my5/dashboard/download_excel' => 'my5/dashboard#download_excel'
 
 
-  devise_for :customers, :controllers => { :registrations => 'customer_registrations'}
+  devise_for :customers, :controllers => { :registrations => 'customer_registrations', :sessions => 'customer_sessions' }
   devise_scope :customer do
     post '/customers/confirm_details' => 'customer_registrations#confirm_details', :as => :customer_confirm_details
     get '/customers/success' => 'customer_registrations#confirmed_sign_up', :as => :customer_confirmed_sign_up
@@ -19,6 +23,8 @@ Semblance::Application.routes.draw do
   end
 
   resources :emails, :only => [:create]
+  resources :main_page_contact_form, :only => :create
+
 
   namespace :my5 do
     namespace :dashboard do
@@ -35,7 +41,7 @@ Semblance::Application.routes.draw do
   end
 
   match 'dashboard' => 'my5/dashboard#customer'
-  
+
   match 'refinery/customers/bulk-import' => 'refinery/customers#bulk_import', :as => "bulk_import_customers"
   match 'refinery/video_stats' => 'refinery/video_stats#index', :as => "refinery_video_stats"
 

@@ -1,0 +1,256 @@
+/* line 1, ../../../../app/stylesheets/shared/stats.sass */
+.separator {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px dotted #bbbbbb;
+  clear: both;
+}
+
+/* line 7, ../../../../app/stylesheets/shared/stats.sass */
+.stats {
+  display: inline-block;
+  padding: 0;
+  width: 100%;
+  height: 140px;
+  margin-left: 2%;
+}
+/* line 14, ../../../../app/stylesheets/shared/stats.sass */
+.stats li {
+  list-style: none !important;
+  width: 30%;
+  float: left;
+  margin-right: 2%;
+}
+/* line 20, ../../../../app/stylesheets/shared/stats.sass */
+.stats li .number {
+  font-size: 100px;
+  line-height: 120px;
+  float: left;
+}
+/* line 24, ../../../../app/stylesheets/shared/stats.sass */
+.stats li .text {
+  float: left;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: bottom;
+}
+/* line 29, ../../../../app/stylesheets/shared/stats.sass */
+.stats li.last {
+  width: 30% !important;
+}
+
+/* line 13, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats {
+  height: 200px;
+}
+/* line 15, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li {
+  width: 44%;
+}
+/* line 17, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li div {
+  width: 100%;
+  text-align: center;
+}
+/* line 20, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.stats li .numbers {
+  font-size: 80px;
+}
+
+/* line 23, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.hide {
+  display: none;
+}
+
+/* line 26, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.report_layout_table {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+/* line 30, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_count_visits {
+  width: 52%;
+  height: auto;
+  margin: 0 auto;
+  border: 3px grey solid;
+}
+/* line 35, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_count_visits td, .table_count_visits th {
+  padding: 2px 5px;
+}
+
+/* line 38, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.left_menu_wrap {
+  font-size: 12px;
+  width: 170px;
+  padding: 20px;
+  background: #f2f0f0;
+  border-radius: 4px;
+}
+/* line 44, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.left_menu_wrap .graph_for {
+  position: relative;
+}
+
+/* line 47, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.sub_menu {
+  position: relative;
+  padding-left: 20px;
+}
+/* line 50, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.sub_menu .toggle_plus, .sub_menu .toggle_minus {
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #e0983a;
+  width: 14px;
+  height: 14px;
+  vertical-align: bottom;
+}
+/* line 60, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.sub_menu .toggle_minus {
+  display: none;
+}
+
+/* line 64, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.content_graph_table .col3 {
+  text-align: center;
+  border: 1px solid gray;
+}
+
+/* line 68, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#buttons_separated_merged {
+  float: right;
+}
+
+/* line 71, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#dep_button {
+  backgroundColor: #22a7f2;
+  float: left;
+  margin-left: -60px;
+  margin-bottom: 2px;
+  display: none;
+}
+
+/* line 78, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports {
+  padding: 15px;
+}
+/* line 80, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .h1 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: gray;
+  margin-left: 12px;
+  margin-bottom: 28px;
+}
+/* line 87, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .button {
+  margin-left: 12px;
+  margin-bottom: 24px;
+  background: #62af59;
+  border: none;
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: none;
+}
+/* line 95, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .orange_button {
+  background: #e0983a;
+}
+/* line 97, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .blue_button {
+  background: #8ec7ed;
+}
+/* line 99, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .grey_button {
+  background: #bcbdbf;
+}
+/* line 101, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .table_wrap {
+  position: relative;
+  font-size: 11px;
+  color: gray;
+  padding: 20px;
+  margin: 10px 0 24px;
+  background: #f2f0f0;
+  border-radius: 4px;
+}
+/* line 109, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .table_wrap .ok_bottom {
+  position: absolute;
+  margin: 0;
+  bottom: 20px;
+  right: 20px;
+}
+/* line 114, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+#reports .dropdown, #reports .input {
+  font-size: 11px;
+  line-height: 26px;
+  color: gray;
+  background: white;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  height: 26px;
+  width: 172px;
+  border: none;
+  border-radius: 2px;
+}
+
+/* line 126, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.pull_left {
+  float: left;
+}
+
+/* line 129, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.pull_right {
+  float: right;
+}
+
+/* line 132, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+/* line 141, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.clearfix {
+  zoom: 1;
+}
+/* line 143, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.clearfix:after, .clearfix:before {
+  content: "\0020";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+/* line 150, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 153, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_layout {
+  width: 100%;
+}
+/* line 155, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.table_layout .td {
+  vertical-align: top;
+}
+
+/* line 158, ../../../../app/stylesheets/my5/dashboard/reports.sass */
+.left_menu_header {
+  color: #e0983a;
+  font-size: 16px;
+}

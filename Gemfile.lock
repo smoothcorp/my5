@@ -15,12 +15,29 @@ GIT
       rspec (~> 2.6.0)
 
 GIT
+  remote: git://github.com/galetahub/simple-captcha.git
+  revision: 3557b78feb5fa2624efce065ff77dd4775a8256f
+  specs:
+    simple_captcha (0.1.5)
+
+GIT
   remote: git://github.com/semblancesystems/eventlogger.git
   revision: 33a4d4c1c3f898d58959208071b5ae5aadf67913
   specs:
     eventlogger (0.0.2)
       activerecord
       rails
+
+GIT
+  remote: git@github.com:jetthoughts/refinerycms-blog.git
+  revision: 229c9aa7ea0e5e0f8c8ccb6d9bfdbdffe4947008
+  branch: my5
+  specs:
+    refinerycms-blog (1.8.0)
+      acts-as-taggable-on
+      filters_spam (~> 0.2)
+      refinerycms-core (~> 1.0.3)
+      seo_meta (~> 1.1.0)
 
 PATH
   remote: vendor/engines
@@ -81,6 +98,8 @@ GEM
       activemodel (= 3.0.11)
       activesupport (= 3.0.11)
     activesupport (3.0.11)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
     acts_as_indexed (0.7.7)
     acts_as_reportable (1.1.1)
       ruport (>= 1.6.0)
@@ -153,6 +172,7 @@ GEM
       compass (>= 0.11)
     fastercsv (1.5.4)
     ffi (1.0.11)
+    filters_spam (0.3)
     find_by_param (0.2.1)
       activerecord
       activesupport
@@ -207,7 +227,7 @@ GEM
     mime-types (1.17.2)
     money (3.7.1)
       i18n (~> 0.4)
-    multi_json (1.0.3)
+    multi_json (1.8.4)
     multi_xml (0.5.1)
     mysql2 (0.2.6)
     nokogiri (1.5.0)
@@ -419,6 +439,7 @@ DEPENDENCIES
   refinerycms
   refinerycms-audio_programs (= 1.0)!
   refinerycms-audios (= 1.0)!
+  refinerycms-blog!
   refinerycms-corporations (= 1.0)!
   refinerycms-customers!
   refinerycms-mini_modules (= 1.0)!
@@ -436,6 +457,7 @@ DEPENDENCIES
   ruport
   ruport-util
   seer
+  simple_captcha!
   spreadsheet
   sqlite3
   sqlite3-ruby (= 1.2.5)

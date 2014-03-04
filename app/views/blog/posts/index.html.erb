@@ -1,0 +1,38 @@
+<% content_for :body_content_left do %>
+    <%= raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
+    <%= render 'blog/shared/blog_title' %>
+    <% if @blog_posts.any? %>
+        <section id="blog_posts">
+          <%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
+          <%= will_paginate @blog_posts %>
+        </section>
+
+    <% else %>
+        <p><%= t('.no_blog_articles_yet') %></p>
+    <% end %>
+<% end %>
+
+<% content_for :body_content_right do %>
+    <div class="sidebar_section_wrap logo">
+      <img src="/images/blog/my_five.jpg" alt=""/>
+    </div>
+    <%= form_tag my5_naturally_search_path, :class => 'search_form' do %>
+        <%= search_field_tag('search', nil, :placeholder => 'Enter search term...', :class => 'search_input') %>
+        <%= submit_tag 'Ok', :class => 'button search_button' %>
+    <% end %>
+    <%= raw @page[Page.default_parts.second.to_sym] if Page.default_parts.many? %>
+    <div class="sidebar_section_wrap">
+      <%= render :partial => "/blog/shared/categories" %>
+    </div>
+    <% if current_customer.customer_visits.any? %>
+        <div class="sidebar_section_wrap">
+          <%= render :partial => 'blog/shared/related_posts' %>
+        </div>
+    <% end %>
+    <div class="sidebar_section_wrap">
+      <%= render :partial => "/blog/shared/archive_list" %>
+    </div>
+<% end %>
+
+<%= render :partial => "/shared/content_page", :locals => { :remove_automatic_sections => true } %>
+<% content_for :stylesheets, stylesheet_link_tag('refinerycms-blog') %>

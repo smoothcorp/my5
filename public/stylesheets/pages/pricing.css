@@ -1,0 +1,71 @@
+/* line 4, ../../../app/stylesheets/pages/pricing.sass */
+h1 {
+  text-align: center;
+}
+
+/* line 6, ../../../app/stylesheets/pages/pricing.sass */
+.left, .right {
+  text-align: center;
+}
+/* line 8, ../../../app/stylesheets/pages/pricing.sass */
+.left .padded, .right .padded {
+  padding-top: 0 !important;
+}
+/* line 11, ../../../app/stylesheets/pages/pricing.sass */
+.left .padded h1, .left .padded h2, .right .padded h1, .right .padded h2 {
+  margin: 0 !important;
+  padding-bottom: 15px;
+  line-height: 24px;
+}
+
+/* line 16, ../../../app/stylesheets/pages/pricing.sass */
+.left {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 460px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: 10px;
+  border-right: 1px solid #3e3e3e;
+}
+/* line 24, ../../../app/stylesheets/pages/pricing.sass */
+.left .price {
+  font-size: 24px;
+  line-height: 80px;
+  padding-bottom: 15px;
+}
+
+/* line 29, ../../../app/stylesheets/pages/pricing.sass */
+.right {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 460px;
+  width: 459px !important;
+  margin-right: 0;
+}
+/* line 33, ../../../app/stylesheets/pages/pricing.sass */
+.right .corporate-description {
+  height: 80px;
+  padding-bottom: 15px;
+}
+
+/* line 37, ../../../app/stylesheets/pages/pricing.sass */
+table {
+  align: center;
+  margin: 0 auto;
+  border: 1px solid #3e3e3e;
+  width: 350px;
+}
+/* line 42, ../../../app/stylesheets/pages/pricing.sass */
+table td {
+  padding: 5px 10px;
+  border: 1px solid #cccccc;
+}
+/* line 45, ../../../app/stylesheets/pages/pricing.sass */
+table td.center {
+  text-align: center;
+}

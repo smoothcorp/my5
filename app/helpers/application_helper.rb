@@ -7,7 +7,7 @@ module ApplicationHelper
       @url = "#{request.env['HTTP_HOST']}/#{page_type}"
       @counts = @custmer_visit.select{ |report| report if report.controller_name == "#{page_type}"  }
     else
-      
+
       if page_id == 0
       @url = "#{request.env['HTTP_HOST']}/#{page_type}"
       @counts = @custmer_visit.select{ |report| report if report.controller_name == "#{page_type}" && report.show_id.to_i == 0 }
@@ -21,9 +21,9 @@ module ApplicationHelper
       end
     end
      @side_data.push(@counts.size)
-    return  @url,@counts.size   
+    return  @url,@counts.size
    end
-   
+
    def  count_percentage(data_view,data_array)
        if !data_array.nil? && !data_array.blank?
        @percentage_data = "["
@@ -35,10 +35,10 @@ module ApplicationHelper
                if index != 0
                @page_1 += ","
                @page_2 += ","
-               end 
+               end
                per = (data.to_f/@page_total.to_f)*100
-               @percentage_data += "['#{data_view[index]}',#{per.round(2)} ]"
-               @page_1 += "'#{data_view[index]}'"
+               @percentage_data += "['#{data_view[index].gsub(/'/,"")}',#{per.round(2)} ]"
+               @page_1 += "'#{data_view[index].gsub(/'/,"")}'"
                @page_2 += "#{per.round(0)}"
                @percentage_data += "," if ((index+1) != data_array.size)
            end
@@ -47,16 +47,16 @@ module ApplicationHelper
        @page_2 += "]"
        @percentage_data += "]"
     end
-     
+
    end
-   
+
    def payment_check(amount)
-      return !amount.nil? && !amount.blank? ? number_with_precision(amount, :precision => 2) : number_with_precision(0,:precision => 2) 
+      return !amount.nil? && !amount.blank? ? number_with_precision(amount, :precision => 2) : number_with_precision(0,:precision => 2)
    end
-   
-   
-   
-   
- 
+
+
+
+
+
 
 end

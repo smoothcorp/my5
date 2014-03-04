@@ -15,7 +15,7 @@ module Semblance
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths                    += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -26,7 +26,7 @@ module Semblance
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    config.time_zone = 'Sydney'
+    config.time_zone                         = 'Sydney'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -36,38 +36,50 @@ module Semblance
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding                          = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password, :card_number, :verification, :expiry_month, :expiry_year]
+    config.filter_parameters                 += [:password, :card_number, :verification, :expiry_month, :expiry_year]
+
 
     # Setup action mailer
     #config.action_mailer.delivery_method = :sendmail
-	config.action_mailer.delivery_method = :smtp
-    config.action_mailer.perform_deliveries = true
-	#config.action_mailer.raise_delivery_errors = true
-	config.action_mailer.default_url_options = { :host => "my5.com.au" }
-	config.sendmail_settings = {
-		:location => '/usr/sbin/sendmail',
+    config.action_mailer.delivery_method     = :smtp
+    config.action_mailer.perform_deliveries  = true
+    #config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = { :host => "my5.com.au" }
+    config.sendmail_settings                 = {
+        :location  => '/usr/sbin/sendmail',
         :arguments => '-i -t'
-	}
-	config.action_mailer.smtp_settings = {
-     :tls                   => false,
-     :address               => "smtp.emailsrvr.com",
-     :port                  => 25,
-#     :domain                => 'my5.com.au',
-     :user_name             => 'friendsofmy5@my5.com.au',
-     :password              => 'Kiakula5',
-#     :address               => "smtp.gmail.com",
-#     :port                  => 587,
-#     :domain                => 'gmail.com',
-#     :user_name             => 'apps@semblancesystems.com',
-#     :password              => 'macshatemicrosoft',
-#     :enable_starttls_auto  => true,
-:openssl_verify_mode => 'none',
-     :authentication        => 'plain'
     }
-	config.action_mailer.default_charset = "utf-8"
-	
+    config.action_mailer.smtp_settings       = {
+        :tls                 => false,
+        :address             => "smtp.emailsrvr.com",
+        :port                => 25,
+        #     :domain                => 'my5.com.au',
+        :user_name           => 'friendsofmy5@my5.com.au',
+        :password            => 'Kiakula5',
+        #     :address               => "smtp.gmail.com",
+        #     :port                  => 587,
+        #     :domain                => 'gmail.com',
+        #     :user_name             => 'apps@semblancesystems.com',
+        #     :password              => 'macshatemicrosoft',
+        #     :enable_starttls_auto  => true,
+        :openssl_verify_mode => 'none',
+        :authentication      => 'plain'
+    }
+    config.action_mailer.default_charset     = "utf-8"
+
+    initializer 'override-image-magick-paths', :after => 'attach-refinery-images-with-dragonfly' do
+      app=Dragonfly[:refinery_images]
+      app.configure_with(:imagemagick)
+      app.configure do |c|
+        c.convert_command = "/usr/local/bin/convert"          # defaults to "convert"
+        c.identify_command = "/usr/local/bin/identify"        # defaults to "identify"
+      end
+    end
+
   end
 end
+
+

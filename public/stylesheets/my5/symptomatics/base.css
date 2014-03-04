@@ -1,0 +1,56 @@
+/* line 4, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div {
+  display: block;
+}
+/* line 6, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.part, #body_parts div.dead_part {
+  float: left;
+}
+/* line 8, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.row {
+  clear: both;
+}
+/* line 11, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.row.top .part, #body_parts div.row.top .dead_part {
+  height: 84px;
+}
+/* line 14, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.row.second .part, #body_parts div.row.second .dead_part {
+  height: 61px;
+}
+/* line 17, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.row.middle .part, #body_parts div.row.middle .dead_part {
+  height: 91px;
+}
+/* line 20, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts div.row.bottom .part, #body_parts div.row.bottom .dead_part {
+  height: 207px;
+}
+/* line 22, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts a {
+  color: dimgrey;
+}
+/* line 18, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#body_parts a:visited {
+  color: dimgrey;
+}
+/* line 21, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#body_parts a:focus {
+  color: dimgrey;
+}
+/* line 24, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#body_parts a:hover {
+  color: dimgrey;
+}
+/* line 27, ../../../../../../.rvm/gems/ruby-1.9.3-p448/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#body_parts a:active {
+  color: dimgrey;
+}
+/* line 24, ../../../../app/stylesheets/my5/symptomatics/base.sass */
+#body_parts #current_part {
+  clear: both;
+  width: 440px;
+  height: 25px;
+  text-align: center;
+  font-size: 1.5em;
+}

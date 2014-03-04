@@ -8,14 +8,22 @@ $(document).ready ->
         $.post('/emails', data, (data) ->
             switch data
                 when "true"
-                    $('#contact_form').text("Thanks for getting in touch! We'll write back soon.")
+                    $('#sending_results').text("Thanks for getting in touch. We will be in contact with you soon.")
+                    $('#email_submit').text('Send Contact Information')
                 when "false"
-                    $('#email_submit').text('Submit')
+                    $('#email_submit').text('Send Contact Information')
                     alert('Something went wrong, please try again.')
+                when 'captcha_error'
+                  $('#sending_results').text("* Wrong captcha symbols, please reenter.")
+                  $('#sending_results').addClass('.alert')
+                  $('#email_submit').text('Send Contact Information')
+
                 else
                     data = $.parseJSON(data)
-                    $.each(data, (key, value) ->
+                    errors = data.errors
+                    $.each(errors, (key, value) ->
                         $('#email_'+key+'_input').append($('<p></p>').addClass('error').text(""+value))
-                        $('#email_submit').text('Submit')
+                        $('#email_submit').text('Send Contact Information')
                     )
         )
+
