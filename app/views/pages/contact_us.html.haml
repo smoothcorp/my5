@@ -47,7 +47,6 @@
                 = f.input :phone, :label => 'Phone: '
                 %label{ :for => 'contact_employees_number', :class => 'label_emloyees'}
                     No. of employees?
-                    %abbr{:title => 'required'} *
                 = f.input :employees_number, :as => :radio, :collection => ['1-100', '101-500', '500+'], :label => ''
 
                 = f.input :comments, :as => :text, :label => 'Additional Comments: ', :input_html => {:rows => 5, :cols => 40}

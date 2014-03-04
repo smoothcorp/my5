@@ -3,8 +3,7 @@ class Email
     include ActiveModel::Conversion
     extend ActiveModel::Naming
 
-    validates_presence_of :company_name, :email, :location,
-                          :contact_name, :role, :phone, :employees_number
+    validates_presence_of :company_name, :email, :location, :contact_name
     validates :email, :format => {:with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i, :message => "Please enter a valid email"}, :allow_blank => true
 
     attr_accessor :company_name, :location, :contact_name,

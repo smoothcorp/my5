@@ -46,18 +46,18 @@
       = f.input :first_name, :required => true
       = f.input :last_name, :required => true
       = f.input :email, :required => true
-      = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}
-      = f.input :department_id, :label => "Department"
-      = f.input :role
+      = f.input :title, :collection => ['Mr.', 'Ms.', 'Mrs.', 'Miss', 'Dr.', 'Sir.', 'Prof.'], :include_blank => false, :input_html => {:class => "short"}, :required => true
+      = f.input :department_id, :label => "Department", :required => true
+      = f.input :role, :required => true
 
-      = f.input :street_1
+      = f.input :street_1, :required => true
       = f.input :street_2
       = f.input :contact_phone
-      = f.input :city, :label => 'Suburb'
-      = f.input :state, :label => 'City', :required => true
-      = f.input :state2, :label => 'State'
+      = f.input :city, :label => 'Suburb', :required => true
+      = f.input :state, :label => 'City' , :required => true
+      = f.input :state2, :label => 'State' ,:required => true
       = f.input :country, :as => :string, :required => true
-      = f.input :zip_code, :label => "Postcode"
+      = f.input :zip_code, :label => "Postcode", :required => true
       %li
         = f.input :time_zone, :as => :time_zone, :collection => ActiveSupport::TimeZone.all.sort, :default => "Pacific Time (US & Canada)",
           :input_html => {:class => "time_zone_select"}
